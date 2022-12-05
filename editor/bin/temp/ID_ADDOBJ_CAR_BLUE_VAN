@@ -1,0 +1,15 @@
+--LUA
+QuestObjMgr:AddObjFree( "Free_van", "van_base", "van", "", true );
+QuestOMgr.Free_van:SetPos( QuestScn:GetNull( "nl_van" ) );
+
+QuestOMgr.Free_van_EfnAnim:SetShadowCastType( OVT_OOBB );
+QuestOMgr.Free_van_EfnAnim:AttachObjToNullC( "Car_null", "Van_front_glass", "van_glass", "van", "", "", D3DXCOLOR(3,3,3,0.4) );
+QuestOMgr.Free_van_EfnAnim:AttachObjToNull( "Car_null", "Van_metals", "van_metal_parts", "van", "", "" );
+
+QuestOMgr.Van_front_glass:SetMtrlSpecular( D3DXCOLOR(1,1,1,1), 40 );
+QuestOMgr.Van_front_glass:SetCullNone( true );
+QuestOMgr.Van_front_glass:SetTexSphereMapping( true );
+
+QuestOMgr.Van_metals:SetMtrlSpecular( D3DXCOLOR(1,1,1,1), 40 );
+QuestOMgr.Van_metals:SetCullNone( false );
+QuestOMgr.Van_metals:SetTexSphereMapping( true );

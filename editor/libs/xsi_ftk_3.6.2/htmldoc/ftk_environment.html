@@ -1,0 +1,1188 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+ <head>
+  <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="GENERATOR" content="Quadralay WebWorks Publisher Professional Edition 7.0.2.1206" />
+  <meta name="TEMPLATEBASE" content="Template" />
+  <meta name="LASTUPDATED" content="04/25/03 14:06:55" />
+  <title>Getting Started</title>
+  <link rel="StyleSheet" href="document.css" type="text/css" />
+  <link rel="StyleSheet" href="catalog.css" type="text/css" />
+<script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/context.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/towwhdir.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/wwhpagef.js"></script>
+
+  <script type="text/javascript" language="JavaScript1.2">
+   <!--
+    // Set reference to top level help frame
+    //
+    var  WWHFrame = WWHGetWWHFrame("");
+   // -->
+  </script>
+ </head>
+
+ <body onLoad="WWHUpdate();">
+
+ <blockquote>
+<a name="wp581443"> </a><h2 class="pTitle">
+Getting Started
+</h2>
+<hr />
+<a name="wp591249"> </a><p class="pBody">
+This chapter provides information on:
+</p>
+<div class="pSmartList1"><ul class="pSmartList1">
+<a name="wp591253"> </a><div class="pSmartList1"><li><a  href="ftk_environment.html#wp591256"><em class="cEmphasis">Setting Up Your Development Environment in Visual C++</em></a></li></div>
+<a name="wp592863"> </a><div class="pSmartList1"><li><a  href="ftk_environment.html#wp592820"><em class="cEmphasis">Compiling on Linux</em></a></li></div>
+<a name="wp591970"> </a><div class="pSmartList1"><li><a  href="ftk_environment.html#wp592812"><em class="cEmphasis">About the dotXSI Templates</em></a></li></div>
+<a name="wp591971"> </a><div class="pSmartList1"><li><a  href="ftk_environment.html#wp592048"><em class="cEmphasis">Special Issues with Conversion between XSI and 3D</em></a></li></div>
+</ul></div>
+<a name="wp591256"> </a><h2 class="pHeading1">
+Setting Up Your Development Environment in Visual C++
+</h2>
+<a name="wp588695"> </a><p class="pBody">
+Setting up your development environment to work with the FTK consists of the following steps:
+</p>
+<div class="pSmartList1"><ul class="pSmartList1">
+<a name="wp589584"> </a><div class="pSmartList1"><li><a  href="ftk_environment.html#wp583343"><em class="cEmphasis">To make a new project</em></a></li></div>
+<a name="wp589611"> </a><div class="pSmartList1"><li><a  href="ftk_environment.html#wp588839"><em class="cEmphasis">To change your project settings to work with the FTK</em></a></li></div>
+</ul></div>
+<a name="wp593455"> </a><h4 class="pHeading3">
+Changes to Project Settings in 3.6.2
+</h4>
+<a name="wp593848"> </a><p class="pBody">
+The FTK no longer ships with the XSICore.lib and XSICore.dll files. You should remove these from your project settings before compiling with this version of the FTK.
+</p>
+<a name="wp593837"> </a><h4 class="pHeading3">
+About Compiling in Debug Mode
+</h4>
+<a name="wp593474"> </a><p class="pBody">
+You can now compile your projects in debug mode by linking to the <code class="cCode">%XSIFTK_ROOT%\export\lib\XSIFTKd.lib</code>  and running the XSIFTKd.dll. We recommend that you use this library for troubleshooting your project, but do not distribute the debug version to end users.
+</p>
+<a name="wp583343"> </a><h5 class="pHeading4">
+To make a new project
+</h5>
+<div class="pSmartList1"><ol type="1" class="pSmartList1">
+<a name="wp581489"> </a><div class="pSmartList1"><li>Launch <b class="cBold">Microsoft Visual C++</b>.</li></div>
+<a name="wp581490"> </a><div class="pSmartList1"><li>Select <b class="cBold">File &gt; New</b> and click on the <b class="cBold">Projects</b> tab.</li></div>
+<a name="wp587970"> </a><p class="pBodyRelative">
+<br />
+<img src="images/xsidump_settings1.jpg" align="" height="276" width="408" border="0" hspace="0" vspace="0"/><br />
+
+</p>
+<a name="wp581503"> </a><div class="pSmartList1"><li>Select <b class="cBold">Win32 Console Application</b> from the list of project types, type name for your project in the <b class="cBold">Project name </b>text box, and click <b class="cBold">OK</b>.</li></div>
+<a name="wp581511"> </a><p class="pBodyRelative">
+The Win32 Console Application window appears.
+</p>
+<a name="wp587973"> </a><p class="pBodyRelative">
+<br />
+<img src="images/xsidump_settings2.jpg" align="" height="263" width="408" border="0" hspace="0" vspace="0"/><br />
+
+</p>
+<a name="wp581526"> </a><div class="pSmartList1"><li>Select the <b class="cBold">An empty project</b> option and click <b class="cBold">Finish</b>.</li></div>
+<a name="wp581532"> </a><p class="pBodyRelative">
+The New Project Information window appears.
+</p>
+<a name="wp587986"> </a><p class="pBodyRelative">
+<br />
+<img src="images/xsidump_settings3.jpg" align="" height="265" width="408" border="0" hspace="0" vspace="0"/><br />
+
+</p>
+<a name="wp581535"> </a><div class="pSmartList1"><li>Click <b class="cBold">OK</b>.</li></div>
+<a name="wp581539"> </a><p class="pBodyRelative">
+The new project workspace appears in the console window. You are now ready to set up the new project.
+</p>
+</ol></div>
+<a name="wp588973"> </a><h3 class="pHeading2">
+Changing Your Project Settings
+</h3>
+<a name="wp589182"> </a><p class="pBody">
+In brief, these are the settings you need to implement:
+</p>
+<div class="pSmartList1"><ul class="pSmartList1">
+<a name="wp589183"> </a><div class="pSmartList1"><li>Set the project to use Multithreaded DLLs.</li></div>
+<a name="wp589184"> </a><div class="pSmartList1"><li>Set your Preprocessor definitions.</li></div>
+<a name="wp589409"> </a><div class="pSmartList1"><li>Set additional directories for your include files.</li></div>
+<a name="wp589410"> </a><div class="pSmartList1"><li>Add <code class="cCode">%XSIFTK_ROOT%\export\lib\XSIFTK.lib</code> to your list of object/library modules.</li></div>
+</ul></div>
+<a name="wp588839"> </a><h5 class="pHeading4">
+To change your project settings to work with the FTK
+</h5>
+<div class="pSmartList1"><ol type="1" class="pSmartList1">
+<a name="wp588841"> </a><div class="pSmartList1"><li>From the <b class="cBold">Project </b>menu in Visual C++, choose <b class="cBold">Settings</b>. </li></div>
+<a name="wp581575"> </a><p class="pBodyRelative">
+The Project Settings window appears.
+</p>
+<a name="wp584015"> </a><div class="pSmartList1"><li>Choose <b class="cBold">All Configurations</b> from the <b class="cBold">Settings for </b>drop-down box.</li></div>
+<a name="wp587989"> </a><p class="pBodyRelative">
+<br />
+<img src="images/xsidump_settings44.jpg" align="" height="297" width="408" border="0" hspace="0" vspace="0"/><br />
+
+</p>
+<a name="wp581577"> </a><div class="pSmartList1"><li>Click the <b class="cBold">C/C++ tab</b> and choose <b class="cBold">Code Generation </b>from the <b class="cBold">Category</b> drop-down box.</li></div>
+<a name="wp589484"> </a><p class="pBodyRelative">
+<br />
+<img src="images/xsidump_settings55.jpg" align="" height="243" width="408" border="0" hspace="0" vspace="0"/><br />
+
+</p>
+<a name="wp589485"> </a><div class="pSmartList1"><li>Choose <b class="cBold">Multithreaded DLL </b>from the <b class="cBold">Use run-time library </b>drop-down box. </li></div>
+<a name="wp589486"> </a><div class="pSmartList1"><li>Choose <b class="cBold">Preprocessor </b>from the <b class="cBold">Category</b> drop-down box.</li></div>
+<a name="wp588014"> </a><p class="pBodyRelative">
+<br />
+<img src="images/xsidump_settings67.jpg" align="" height="238" width="408" border="0" hspace="0" vspace="0"/><br />
+
+</p>
+<a name="wp581658"> </a><div class="pSmartList1"><li>Type <code class="cCode">__XSI_APPLICATION_, XSI_STATIC_LINK</code> in the <b class="cBold">Preprocessor</b> definitions text box.</li></div>
+<a name="wp581694"> </a><div class="pSmartList1"><li>Type <code class="cCode">%XSIFTK_ROOT%\export\h\Ftk </code>in the <b class="cBold">Additional include directories </b>text box.</li></div>
+<a name="wp583239"> </a><div class="pSmartList1"><li>Click the <b class="cBold">Link </b>tab and choose <b class="cBold">General </b>from the <b class="cBold">Category</b> drop-down box.</li></div>
+<a name="wp588037"> </a><p class="pBodyRelative">
+<br />
+<img src="images/xsidump_settings76.jpg" align="" height="244" width="408" border="0" hspace="0" vspace="0"/><br />
+
+</p>
+<a name="wp584093"> </a><div class="pSmartList1"><li>Type the name you want to use for the final executable or library file in the <b class="cBold">Output file name </b>text box, and click <b class="cBold">OK</b>. </li></div>
+<a name="wp583259"> </a><div class="pSmartList1"><li>Add and <code class="cCode">%XSIFTK_ROOT%\export\lib\XSIFTK.lib</code> to the <b class="cBold">Object/library modules </b>text box.</li></div>
+<a name="wp592809"> </a><p class="pBodyRelative">
+The Project Settings window closes and you can now create a new C++ file.
+</p>
+</ol></div>
+<a name="wp592820"> </a><h2 class="pHeading1">
+Compiling on Linux
+</h2>
+<a name="wp593062"> </a><p class="pBody">
+The FTK includes two sample GNUmakefiles that you can use to create your own. They can be found in the ..\src\ directory.
+</p>
+<a name="wp593070"> </a><p class="pBody">
+Here is the XSIDump example&#8217;s GNUmakefile. For more information about what the XSIDump example does, see <a  href="FTK_case_studies.html#wp581424"><em class="cEmphasis">XSIDump: Creating a Standalone Executable to Print XSI Information</em></a>:
+</p>
+<div class="pPreformattedRelative"><pre class="pPreformattedRelative">
+#
+# Default configuration is optimized unless CFG is set to debug
+#
+ifeq &quot;$(CFG)&quot; &quot;debug&quot;
+   DEFINES := -D_DEBUG
+   CXXOPTS := -g
+else
+   CFG := optimized
+   DEFINES := -DNDEBUG
+   CXXOPTS := -O2
+endif
+
+#
+# export LD_LIBRARY_PATH in order to find symbols from linked in -lxsiftk
+#
+export LD_LIBRARY_PATH := ../../export/bin
+
+
+OBJDIR   := obj/$(CFG)
+SOURCES  := main.cpp
+OBJECTS  := $(patsubst %.cpp,$(OBJDIR)/%.o,$(SOURCES))
+INCLUDES := -I../../export/h/FTK
+DEFINES  := $(DEFINES) -DXSI_STATIC_LINK -D__XSI_APPLICATION_ -D_GNU
+DEPLIBS  := -lXSIFtk
+SYSLIBS  := 
+EXAMPLE  := ../../export/bin/XSIDump
+CXXFLAGS  = $(CXXOPTS)
+LDFLAGS   = $(LDOPTS)
+
+# 
+# Build all targets
+#
+all: $(EXAMPLE)
+
+#
+# Clean it and build it
+#
+rebuild: clean
+	$(MAKE)
+
+$(EXAMPLE): $(OBJECTS)
+	-@if [ ! -d &quot;$(dir $@)&quot; ]; then mkdir -p &quot;$(dir $@)&quot;; fi<a name="wp593078"> </a>
+	$(CXX) $(LDFLAGS) -o $@ $^ -L../../export/bin $(DEPLIBS) $(SYSLIBS)
+
+$(OBJDIR)/%.o: %.cpp
+	-@if [ ! -d &quot;$(dir $@)&quot; ]; then mkdir -p &quot;$(dir $@)&quot;; fi
+	$(CXX) -c -o $@ $(CXXFLAGS) $(DEFINES) $(INCLUDES) $&lt;
+    
+#
+# Clean it
+#
+clean:
+	-/bin/rm -rf $(OBJDIR) $(EXAMPLE)
+
+.PHONY: clean all rebuild<a name="wp593119"> </a>
+</pre></div>
+<a name="wp592812"> </a><h2 class="pHeading1">
+About the dotXSI Templates
+</h2>
+<a name="wp592813"> </a><p class="pBody">
+This section answers questions you might have about how to use the dotXSI format:
+</p>
+<div class="pSmartList1"><ul class="pSmartList1">
+<a name="wp591981"> </a><div class="pSmartList1"><li><a  href="ftk_environment.html#wp591997"><em class="cEmphasis">What Is a Template?</em></a></li></div>
+<a name="wp591985"> </a><div class="pSmartList1"><li><a  href="ftk_environment.html#wp592009"><em class="cEmphasis">How Do I Extract Information from the dotXSI File?</em></a></li></div>
+<a name="wp591989"> </a><div class="pSmartList1"><li><a  href="ftk_environment.html#wp592022"><em class="cEmphasis">Are All Versions of the dotXSI File Format Supported?</em></a></li></div>
+<a name="wp591993"> </a><div class="pSmartList1"><li><a  href="ftk_environment.html#wp592034"><em class="cEmphasis">What Programming Environments Are Supported?</em></a></li></div>
+</ul></div>
+<a name="wp591994"> </a><p class="pBody">
+
+</p>
+<a name="wp591997"> </a><h4 class="pHeading3">
+What Is a Template?
+</h4>
+<a name="wp591998"> </a><p class="pBody">
+The dotXSI file is organized into several different sections, according to functionality. For example, in version 3.6 there is a section called <a  href="ftk_TemplateRef.html#wp800550"><em class="cEmphasis">SI_Ambience</em></a> that describes the ambient color in the XSI scene. It consists of three values (mapping to Red, Green, and Blue). Here is an example of the SI_Ambience section in a typical dotXSI file:
+</p>
+<div class="pPreformattedRelative"><pre class="pPreformattedRelative">
+	SI_Ambience {
+		0.200000, 
+		0.200000, 
+		0.200000, 
+	}<a name="wp592002"> </a>
+</pre></div>
+<a name="wp592003"> </a><p class="pBody">
+Each section in the dotXSI file follows a pattern, or template, so that you can know what to expect when you are trying to interact with the information in any dotXSI file. The specification for these templates are detailed in <a  href="ftk_TemplateRef.html#wp573235"><em class="cEmphasis">Template Reference</em></a>. For example, you can find the following information in the SI_Ambience template:
+</p>
+<div class="pPreformattedRelative"><pre class="pPreformattedRelative">
+	SI_Ambience
+	{
+		&lt;red&gt;, 
+		&lt;green&gt;, 
+		&lt;blue&gt;,
+	}<a name="wp592007"> </a>
+</pre></div>
+<a name="wp592009"> </a><h4 class="pHeading3">
+How Do I Extract Information from the dotXSI File?
+</h4>
+<a name="wp592010"> </a><p class="pBody">
+You can access the contents of a dotXSI file either by using the IO Layer or the Semantic Layer of the FTK. See <a  href="ftk_ftkapi.html#wp598359"><em class="cEmphasis">Chapter&#160;5: The FTK API</em></a> for specific information on the tools available. 
+</p>
+<a name="wp592019"> </a><p class="pBody">
+For more information on how the dotXSI file is constructed, see <a  href="ftk_TemplateRef.html#wp573235"><em class="cEmphasis">Chapter&#160;6: Template Reference</em></a>.
+</p>
+<a name="wp592022"> </a><h4 class="pHeading3">
+Are All Versions of the dotXSI File Format Supported?
+</h4>
+<a name="wp592023"> </a><p class="pBody">
+No. FTK v3.6 only supports reading and writing of dotXSI v3.0, 3.5 and 3.6.
+</p>
+<a name="wp592032"> </a><p class="pBodyRelative">
+</p><div align="left">
+<table border="0" cellpadding="0" cellspacing="0">
+  <caption></caption>
+  <tr align="left" valign="top">    <td><a name="wp592026"> </a><p class="pTip_graphic">
+<img src="icons/tip.gif" border="0" width="50" height="50" Alt="Tip" />
+&#160;
+</p>
+</td>
+    <td><a name="wp592031"> </a><p class="pBody">
+For more information, see <a  href="ftk_intro.html#wp610628"><em class="cEmphasis">Compatibility</em></a>.
+</p>
+</td>
+</tr>
+</table>
+</div>
+<p class="pBodyRelative">
+</p>
+<a name="wp592034"> </a><h4 class="pHeading3">
+What Programming Environments Are Supported?
+</h4>
+<a name="wp592035"> </a><p class="pBody">
+Since the dotXSI file format encoding is text-based, anything that can read text can use the text-based dotXSI files. However, the binary compressed encoding is only readable by the FTK. The functionality of the FTK is currently available as a C++ API.
+</p>
+<a name="wp592044"> </a><p class="pBodyRelative">
+</p><div align="left">
+<table border="0" cellpadding="0" cellspacing="0">
+  <caption></caption>
+  <tr align="left" valign="top">    <td><a name="wp592038"> </a><p class="pTip_graphic">
+<img src="icons/tip.gif" border="0" width="50" height="50" Alt="Tip" />
+&#160;
+</p>
+</td>
+    <td><a name="wp592040"> </a><p class="pBody">
+As a special bonus, one of the Case Studies provides source code for an ActiveX version of a selection of the FTK functions. For more information, see <a  href="FTK_case_studies.html#wp588364"><em class="cEmphasis">ActiveX Compliance: Manipulating dotXSI Files with VBScript and JScript</em></a>.
+</p>
+</td>
+</tr>
+</table>
+</div>
+<p class="pBodyRelative">
+</p>
+<a name="wp592045"> </a><p class="pBody">
+
+</p>
+<a name="wp592048"> </a><h2 class="pHeading1">
+Special Issues with Conversion between XSI and 3D
+</h2>
+<a name="wp592052"> </a><p class="pBody">
+Some templates contain data that is specific to either SOFTIMAGE|3D or SOFTIMAGE|XSI. For example, when you convert a scene from SOFTIMAGE|3D to the dotXSI file format, the <a  href="ftk_TemplateRef.html#wp801372"><em class="cEmphasis">SI_Material</em></a> template appears under <a  href="ftk_TemplateRef.html#wp801481"><em class="cEmphasis">SI_MaterialLibrary</em></a>. When you convert a scene from SOFTIMAGE|XSI to the dotXSI file format, the <a  href="ftk_TemplateRef.html#wp803682"><em class="cEmphasis">XSI_Material</em></a> template appears instead. 
+</p>
+<a name="wp592079"> </a><p class="pBodyRelative">
+</p><div align="left">
+<table border="0" cellpadding="0" cellspacing="0">
+  <caption></caption>
+  <tr align="left" valign="top">    <td><a name="wp592073"> </a><p class="pNote_graphic">
+<img src="icons/note.gif" border="0" width="50" height="50" Alt="Note" />
+&#160;
+</p>
+</td>
+    <td><a name="wp592078"> </a><p class="pBody">
+SOFTIMAGE|3D does <em class="cEmphasis">not</em> support any of the version 3.5 or 3.6 dotXSI templates.
+</p>
+</td>
+</tr>
+</table>
+</div>
+<p class="pBodyRelative">
+</p>
+<a name="wp592321"> </a><p class="pBodyRelative">
+</p><div align="left">
+<table border="0" cellpadding="5" cellspacing="1">
+  <caption></caption>
+  <tr bgcolor="#0055AA" align="left">    <th><a name="wp592085"> </a><div style="text-align: left" class="pCellHeading">
+SOFTIMAGE|3D
+</div>
+</th>
+    <th><a name="wp592090"> </a><div style="text-align: left" class="pCellHeading">
+SOFTIMAGE|XSI
+</div>
+</th>
+    <th><a name="wp592092"> </a><div style="text-align: left" class="pCellHeading">
+Comments
+</div>
+</th>
+</tr>
+  <tr bgcolor="Silver" align="left">    <td><a name="wp592097"> </a><div class="pCellBody">
+<a  href="ftk_TemplateRef.html#wp800575"><em class="cEmphasis">SI_Angle</em></a>
+</div>
+</td>
+    <td><a name="wp592099"> </a><div class="pCellBody">
+(no matching template)
+</div>
+</td>
+    <td><a name="wp592101"> </a><div class="pCellBody">
+Even though it doesn&#8217;t recognize this template, XSI will throw an error message if the data in this template is not expressed in degrees.
+</div>
+</td>
+</tr>
+  <tr bgcolor="Silver" align="left">    <td><a name="wp592106"> </a><div class="pCellBody">
+<a  href="ftk_TemplateRef.html#wp800736"><em class="cEmphasis">SI_CoordinateSystem</em></a>
+</div>
+</td>
+    <td><a name="wp592108"> </a><div class="pCellBody">
+(no matching template)
+</div>
+</td>
+    <td><a name="wp592110"> </a><div class="pCellBody">
+XSI ignores this template.
+</div>
+</td>
+</tr>
+  <tr bgcolor="Silver" align="left">    <td><a name="wp592114"> </a><div class="pCellBody">
+<a  href="ftk_TemplateRef.html#wp800837"><em class="cEmphasis">SI_ElementUserData _&lt;userDataTag&gt;</em></a>
+</div>
+</td>
+    <td><a name="wp592117"> </a><div class="pCellBody">
+(no matching template)
+</div>
+</td>
+    <td><a name="wp592119"> </a><div class="pCellBody">
+XSI ignores this template.
+</div>
+</td>
+</tr>
+  <tr bgcolor="Silver" align="left">    <td><a name="wp592124"> </a><div class="pCellBody">
+<a  href="ftk_TemplateRef.html#wp800985"><em class="cEmphasis">SI_FileInfo</em></a>
+</div>
+</td>
+    <td><a name="wp592126"> </a><div class="pCellBody">
+(none)
+</div>
+</td>
+    <td><a name="wp592131"> </a><div class="pCellBody">
+XSI and 3D both ignore the data in the <a  href="ftk_TemplateRef.html#wp800985"><em class="cEmphasis">SI_FileInfo</em></a> template. It is information about the dotXSI file only. 
+</div>
+</td>
+</tr>
+  <tr bgcolor="Silver" align="left">    <td><a name="wp592136"> </a><div class="pCellBody">
+<a  href="ftk_TemplateRef.html#wp801087"><em class="cEmphasis">SI_Fog</em></a>
+</div>
+</td>
+    <td><a name="wp592138"> </a><div class="pCellBody">
+(no matching template)
+</div>
+</td>
+    <td><a name="wp592140"> </a><div class="pCellBody">
+XSI ignores this template.
+</div>
+</td>
+</tr>
+  <tr bgcolor="Silver" align="left">    <td><a name="wp592142"> </a><div class="pCellBody">
+(no matching members for pseudo root, stiffness activation, and stiffness data)
+</div>
+</td>
+    <td><a name="wp592147"> </a><div class="pCellBody">
+<a  href="ftk_TemplateRef.html#wp801188"><em class="cEmphasis">SI_IK_Joint</em></a>
+</div>
+</td>
+    <td><a name="wp592149"> </a><div class="pCellBody">
+3D ignores these members of this template. If a dotXSI file contains this data, SOFTIMAGE|3D ignores it.
+</div>
+</td>
+</tr>
+  <tr bgcolor="Silver" align="left">    <td><a name="wp592154"> </a><div class="pCellBody">
+<a  href="ftk_TemplateRef.html#wp801213"><em class="cEmphasis">SI_ImageClip</em></a>
+</div>
+</td>
+    <td><a name="wp592156"> </a><div class="pCellBody">
+(no matching template)
+</div>
+</td>
+    <td><a name="wp592158"> </a><div class="pCellBody">
+XSI ignores this template.
+</div>
+</td>
+</tr>
+  <tr bgcolor="Silver" align="left">    <td><a name="wp592163"> </a><div class="pCellBody">
+<a  href="ftk_TemplateRef.html#wp801372"><em class="cEmphasis">SI_Material</em></a>
+</div>
+</td>
+    <td><a name="wp592168"> </a><div class="pCellBody">
+<a  href="ftk_TemplateRef.html#wp803682"><em class="cEmphasis">XSI_Material</em></a>
+</div>
+</td>
+    <td><a name="wp592170"> </a><div class="pCellBody">
+As of v3.5, this is no longer the default template. Use XSI_Material for XSI data instead.
+</div>
+</td>
+</tr>
+  <tr bgcolor="Silver" align="left">    <td><a name="wp592175"> </a><div class="pCellBody">
+<a  href="ftk_TemplateRef.html#wp801846"><em class="cEmphasis">SI_PatchSurface</em></a>
+</div>
+</td>
+    <td><a name="wp592177"> </a><div class="pCellBody">
+(no matching template)
+</div>
+</td>
+    <td><a name="wp592179"> </a><div class="pCellBody">
+If a dotXSI file contains this template, SOFTIMAGE|XSI converts the patch to a null object.
+</div>
+</td>
+</tr>
+  <tr bgcolor="Silver" align="left">    <td><a name="wp592183"> </a><div class="pCellBody">
+<a  href="ftk_TemplateRef.html#wp802208"><em class="cEmphasis">SI_SubelementUserDataPolygon_&lt;userDataTag&gt;</em></a>
+</div>
+</td>
+    <td><a name="wp592186"> </a><div class="pCellBody">
+(no matching template)
+</div>
+</td>
+    <td><a name="wp592188"> </a><div class="pCellBody">
+XSI ignores this template.
+</div>
+</td>
+</tr>
+  <tr bgcolor="Silver" align="left">    <td><a name="wp592192"> </a><div class="pCellBody">
+<a  href="ftk_TemplateRef.html#wp802226"><em class="cEmphasis">SI_SubelementUserDataVertex_&lt;userDataTag&gt;</em></a>
+</div>
+</td>
+    <td><a name="wp592195"> </a><div class="pCellBody">
+(no matching template)
+</div>
+</td>
+    <td><a name="wp592197"> </a><div class="pCellBody">
+XSI ignores this template.
+</div>
+</td>
+</tr>
+  <tr bgcolor="Silver" align="left">    <td><a name="wp592202"> </a><div class="pCellBody">
+<a  href="ftk_TemplateRef.html#wp802243"><em class="cEmphasis">SI_Texture2D</em></a>
+</div>
+</td>
+    <td><a name="wp592204"> </a><div class="pCellBody">
+(matching members for only imageName, mappingType, width, height)
+</div>
+</td>
+    <td><a name="wp592206"> </a><div class="pCellBody">
+XSI only imports and exports the first four parameters of this template for native XSI textures.
+</div>
+</td>
+</tr>
+  <tr bgcolor="Silver" align="left">    <td><a name="wp592211"> </a><div class="pCellBody">
+<a  href="ftk_TemplateRef.html#wp802676"><em class="cEmphasis">SI_TriStrip</em></a>
+</div>
+</td>
+    <td><a name="wp592213"> </a><div class="pCellBody">
+(no matching template)
+</div>
+</td>
+    <td><a name="wp592215"> </a><div class="pCellBody">
+XSI does not support this template.
+</div>
+</td>
+</tr>
+  <tr bgcolor="Silver" align="left">    <td><a name="wp592220"> </a><div class="pCellBody">
+<a  href="ftk_TemplateRef.html#wp802737"><em class="cEmphasis">SI_TriStripList</em></a>
+</div>
+</td>
+    <td><a name="wp592222"> </a><div class="pCellBody">
+(no matching template)
+</div>
+</td>
+    <td><a name="wp592224"> </a><div class="pCellBody">
+XSI does not support this template.
+</div>
+</td>
+</tr>
+  <tr bgcolor="Silver" align="left">    <td><a name="wp592229"> </a><div class="pCellBody">
+<a  href="ftk_TemplateRef.html#wp802807"><em class="cEmphasis">SI_UserDataFormat</em></a>
+</div>
+</td>
+    <td><a name="wp592231"> </a><div class="pCellBody">
+(no matching template)
+</div>
+</td>
+    <td><a name="wp592233"> </a><div class="pCellBody">
+XSI ignores this template.
+</div>
+</td>
+</tr>
+  <tr bgcolor="Silver" align="left">    <td><a name="wp592238"> </a><div class="pCellBody">
+<a  href="ftk_TemplateRef.html#wp802823"><em class="cEmphasis">SI_Visibility</em></a>
+</div>
+</td>
+    <td><a name="wp592240"> </a><div class="pCellBody">
+(branch data only)
+</div>
+</td>
+    <td><a name="wp592242"> </a><div class="pCellBody">
+In SOFTIMAGE|XSI only node information is stored.
+</div>
+</td>
+</tr>
+  <tr bgcolor="Silver" align="left">    <td><a name="wp592244"> </a><div class="pCellBody">
+(no matching template)
+</div>
+</td>
+    <td><a name="wp592249"> </a><div class="pCellBody">
+<a  href="ftk_TemplateRef.html#wp802857"><em class="cEmphasis">XSI_Action</em></a>
+</div>
+</td>
+    <td><a name="wp592251"> </a><div class="pCellBody">
+3D ignores this template.
+</div>
+</td>
+</tr>
+  <tr bgcolor="Silver" align="left">    <td><a name="wp592253"> </a><div class="pCellBody">
+(no matching template)
+</div>
+</td>
+    <td><a name="wp592258"> </a><div class="pCellBody">
+<a  href="ftk_TemplateRef.html#wp802898"><em class="cEmphasis">XSI_ActionClip</em></a>
+</div>
+</td>
+    <td><a name="wp592260"> </a><div class="pCellBody">
+3D ignores this template.
+</div>
+</td>
+</tr>
+  <tr bgcolor="Silver" align="left">    <td><a name="wp592262"> </a><div class="pCellBody">
+(no matching template)
+</div>
+</td>
+    <td><a name="wp592267"> </a><div class="pCellBody">
+<a  href="ftk_TemplateRef.html#wp803133"><em class="cEmphasis">XSI_Extrapolation</em></a>
+</div>
+</td>
+    <td><a name="wp592269"> </a><div class="pCellBody">
+3D ignores this template.
+</div>
+</td>
+</tr>
+  <tr bgcolor="Silver" align="left">    <td><a name="wp592274"> </a><div class="pCellBody">
+<a  href="ftk_TemplateRef.html#wp801372"><em class="cEmphasis">SI_Material</em></a>
+</div>
+</td>
+    <td><a name="wp592279"> </a><div class="pCellBody">
+<a  href="ftk_TemplateRef.html#wp803682"><em class="cEmphasis">XSI_Material</em></a>
+</div>
+</td>
+    <td><a name="wp592281"> </a><div class="pCellBody">
+As of v3.5, this is no longer the default template. Use XSI_Material for XSI data instead.
+</div>
+</td>
+</tr>
+  <tr bgcolor="Silver" align="left">    <td><a name="wp592283"> </a><div class="pCellBody">
+(no matching template)
+</div>
+</td>
+    <td><a name="wp592288"> </a><div class="pCellBody">
+<a  href="ftk_TemplateRef.html#wp803757"><em class="cEmphasis">XSI_Mixer</em></a>
+</div>
+</td>
+    <td><a name="wp592290"> </a><div class="pCellBody">
+3D ignores this template.
+</div>
+</td>
+</tr>
+  <tr bgcolor="Silver" align="left">    <td><a name="wp592292"> </a><div class="pCellBody">
+(no matching template)
+</div>
+</td>
+    <td><a name="wp592297"> </a><div class="pCellBody">
+<a  href="ftk_TemplateRef.html#wp803890"><em class="cEmphasis">XSI_Shader</em></a>
+</div>
+</td>
+    <td><a name="wp592299"> </a><div class="pCellBody">
+3D ignores this template.
+</div>
+</td>
+</tr>
+  <tr bgcolor="Silver" align="left">    <td><a name="wp592301"> </a><div class="pCellBody">
+(no matching template)
+</div>
+</td>
+    <td><a name="wp592306"> </a><div class="pCellBody">
+<a  href="ftk_TemplateRef.html#wp804050"><em class="cEmphasis">XSI_TimeControl</em></a>
+</div>
+</td>
+    <td><a name="wp592308"> </a><div class="pCellBody">
+3D ignores this template.
+</div>
+</td>
+</tr>
+  <tr bgcolor="Silver" align="left">    <td><a name="wp592310"> </a><div class="pCellBody">
+(no matching template)
+</div>
+</td>
+    <td><a name="wp592315"> </a><div class="pCellBody">
+<a  href="ftk_TemplateRef.html#wp804092"><em class="cEmphasis">XSI_Track</em></a>
+</div>
+</td>
+    <td><a name="wp592317"> </a><div class="pCellBody">
+3D ignores this template.
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pBodyRelative">
+</p>
+<a name="wp592324"> </a><h3 class="pHeading2">
+Formatted User and Custom Data
+</h3>
+<a name="wp592326"> </a><p class="pBody">
+The dotXSI file supports formatted user data and custom data. The data is stored differetnly in dotXSI depending on whether you are exporting from SOFTIMAGE|XSI or SOFTIMAGE|3D. 
+</p>
+<a name="wp592327"> </a><h4 class="pHeading3">
+Formatted User Data in SOFTIMAGE|XSI
+</h4>
+<a name="wp592328"> </a><p class="pBody">
+SOFTIMAGE|XSI supports formatted user and custom effects data. For information on implementing user data on SOFTIMAGE|XSI scene elements, see <em class="cEmphasis">User Data Support for Components</em> of the Plug-in Integration guide. For information about the XSI user data template, see <a  href="ftk_TemplateRef.html#wp804144"><em class="cEmphasis">XSI_UserData</em></a>. 
+</p>
+<a name="wp592335"> </a><h4 class="pHeading3">
+Custom Parameters in SOFTIMAGE|XSI
+</h4>
+<a name="wp592336"> </a><p class="pBody">
+You can also add custom parameters to XSI scene data contained in the dotXSI file&#8212;see <a  href="ftk_TemplateRef.html#wp802996"><em style="font-weight: normal" class="cEmphasis">XSI_CustomPSet</em></a><span style="font-weight: normal">.</span>
+</p>
+<a name="wp592340"> </a><h4 class="pHeading3">
+Fomatted User Data SOFTIMAGE|3D
+</h4>
+<a name="wp592341"> </a><p class="pBody">
+By default, user data is stored as raw bytes in a dotXSI file. To store user data in a readable format, you need to define a User Data for dotXSI (UDX) file. <b class="cBold">.XSI Export</b> and .<b class="cBold">XSI Import</b> use UDX files to read and write formatted user data (see the <a  href="ftk_TemplateRef.html#wp800837">SI_ElementUserData _&lt;userDataTag&gt;</a>, <a  href="ftk_TemplateRef.html#wp802208">SI_SubelementUserDataPolygon_&lt;userDataTag&gt;</a>, and <a  href="ftk_TemplateRef.html#wp802226">SI_SubelementUserDataVertex_&lt;userDataTag&gt;</a> tags.
+</p>
+<a name="wp592360"> </a><h5 class="pHeading4">
+UDX File Format
+</h5>
+<div class="pPreformattedRelative"><pre class="pPreformattedRelative">
+&lt;User Data Tag&gt;			// name of the user data tag <a name="wp592361"> </a>
+&lt;nbDataFields&gt;					// number of data fields in the group <a name="wp592362"> </a>
+&lt;dataFieldName&gt;		// name of the data field <a name="wp592363"> </a>
+&lt;dataFieldType&gt;		// type of the data field <a name="wp592364"> </a>
+<a name="wp592398"> </a><p class="pBodyRelative">
+<div align="left">
+<table border="0" cellpadding="5" cellspacing="1">
+  <caption></caption>
+  <tr bgcolor="#0055AA" align="left">    <th><a name="wp592367"> </a><div style="text-align: left" class="pCellHeading">
+&lt;dataFieldType&gt;
+</div>
+</th>
+    <th><a name="wp592369"> </a><div style="text-align: left" class="pCellHeading">
+Description
+</div>
+</th>
+</tr>
+  <tr bgcolor="Silver" align="left">    <td><a name="wp592371"> </a><div class="pCellBody">
+BOOLEAN
+</div>
+</td>
+    <td><a name="wp592373"> </a><div class="pCellBody">
+8-bit value. Possible values are 0=FALSE and 1=TRUE.
+</div>
+</td>
+</tr>
+  <tr bgcolor="Silver" align="left">    <td><a name="wp592375"> </a><div class="pCellBody">
+BYTE
+</div>
+</td>
+    <td><a name="wp592377"> </a><div class="pCellBody">
+8-bit value
+</div>
+</td>
+</tr>
+  <tr bgcolor="Silver" align="left">    <td><a name="wp592379"> </a><div class="pCellBody">
+SHORT
+</div>
+</td>
+    <td><a name="wp592381"> </a><div class="pCellBody">
+16-bit value
+</div>
+</td>
+</tr>
+  <tr bgcolor="Silver" align="left">    <td><a name="wp592383"> </a><div class="pCellBody">
+INTEGER
+</div>
+</td>
+    <td><a name="wp592385"> </a><div class="pCellBody">
+32-bit value
+</div>
+</td>
+</tr>
+  <tr bgcolor="Silver" align="left">    <td><a name="wp592387"> </a><div class="pCellBody">
+float
+</div>
+</td>
+    <td><a name="wp592389"> </a><div class="pCellBody">
+32-bit IEEE float
+</div>
+</td>
+</tr>
+  <tr bgcolor="Silver" align="left">    <td><a name="wp592391"> </a><div class="pCellBody">
+STRING
+</div>
+</td>
+    <td><a name="wp592393"> </a><div class="pCellBody">
+0 terminated string
+</div>
+</td>
+</tr>
+  <tr bgcolor="Silver" align="left">    <td><a name="wp592395"> </a><div class="pCellBody">
+ARRAY &lt;type&gt;
+</div>
+</td>
+    <td><a name="wp592397"> </a><div class="pCellBody">
+Specifies an array of one of the above types. For example: <b style="font-weight: bold" class="cBold">ARRAY INTEGER</b>
+</div>
+</td>
+</tr>
+</table>
+</div>
+
+</p>
+</pre></div>
+<a name="wp592399"> </a><p class="pBody">
+UDX files are stored in the <b class="cBold">SI_UDX_PATH</b> directory, which typically is <b class="cBold">%SI_LOCATION%\3D\custom\udx</b>.
+</p>
+<a name="wp592400"> </a><h5 class="pHeading4">
+Embedding UDX in dotXSI
+</h5>
+<a name="wp592401"> </a><p class="pBody">
+The SI_UserDataFormat template allows you to embed the user data formatting information in a dotXSI file. Defining the user data format in the dotXSI file allows users to exchange the dotXSI files without also having to give the UDX files.
+</p>
+<a name="wp592402"> </a><h5 class="pHeading4">
+Example: Model Rendering Properties
+</h5>
+<a name="wp592403"> </a><p class="pBody">
+Suppose you want to format the user data that represents model rendering properties for a hypothetical display driver. To do this, you would write a UDX file that looks like this:
+</p>
+<div class="pPreformattedRelative"><pre class="pPreformattedRelative">
+RENDERING_TAG
+4
+&quot;Back Culling&quot;
+BOOLEAN
+&quot;Front Culling&quot;
+BOOLEAN
+&quot;Drawing Method&quot;
+BYTE
+&quot;Z-Buffer&quot;
+BOOLEAN<a name="wp592404"> </a>
+</pre></div>
+<a name="wp592405"> </a><p class="pBody">
+The internal C representation of this user data would look like this: 
+</p>
+<div class="pPreformattedRelative"><pre class="pPreformattedRelative">
+#define DRAW_POLY 0
+#define DRAW_LINE 1
+#define DRAW_POINT 2
+
+typedef struct
+{
+	SAA_Boolean   bBackCulling;
+	SAA_Boolean   bFrontCulling;
+	unsigned char cDrawingMethod;
+	SAA_Boolean   bZBuffer;
+}<a name="wp592406"> </a>
+</pre></div>
+<a name="wp592407"> </a><p class="pBody">
+And the user data would be attached to the model like this:
+</p>
+<div class="pPreformattedRelative"><pre class="pPreformattedRelative">
+//...
+RenderingProp p;
+
+// ... set rendering properties params...
+
+char buffer[7];
+char *pBufPos = buffer;
+
+memcpy( (void*)&amp;pBufPos, (void*)&amp;p.bBackCulling, 
+sizeof(p.bBackCulling) );
+pBufPos += sizeof(p.bBackCulling);
+
+memcpy( (void*)&amp;pBufPos, (void*)&amp;p.bFrontCulling, 
+sizeof(p.bFrontCulling) );
+pBufPos += sizeof(p.bFrontCulling);
+
+memcpy( (void*)&amp;pBufPos, (void*)&amp;p.cDrawingMethod, 
+sizeof(p.cDrawingMethod) );
+pBufPos += sizeof(p.cDrawingMethod);
+
+memcpy( (void*)&amp;pBufPos, (void*)&amp;p.bzBuffer, 
+sizeof(p.bzBuffer) );
+pElem-&gt;SetUserData( &quot;RENDERING_TAG&quot;, buffer, 7 );<a name="wp592408"> </a>
+</pre></div>
+<a name="wp592409"> </a><p class="pBody">
+When <b class="cBold">XSI Export</b> exports this user data, it generates the following templates given the following data: Back Culling = TRUE, Front Culling = FALSE, Drawing Method =DRAW_POLY, and Z-Buffer = TRUE.
+</p>
+<div class="pPreformattedRelative"><pre class="pPreformattedRelative">
+SI_UserDataFormat RENDERING_TAG
+{
+	4;
+	&quot;Back Culling&quot;,&quot;BOOLEAN&quot;;
+	&quot;Front Culling&quot;,&quot;BOOLEAN&quot;;
+	&quot;Drawing Method&quot;,&quot;BYTE&quot;;
+	&quot;Z-Buffer&quot;,&quot;BOOLEAN&quot;;
+}
+
+<span style="font-weight: bold">SI_ElementUserData</span>_RENDERING_TAG
+{
+	1,			// Formatted
+	0,			// Bigendian
+	1,			// Back Culling
+	0,			// Front Culling
+	0,			// Drawing Method 
+	1			// Z-Buffer
+}<a name="wp592410"> </a>
+</pre></div>
+<a name="wp592412"> </a><p class="pBody">
+The unformatted user data would look like this:
+</p>
+<div class="pPreformattedRelative"><pre class="pPreformattedRelative">
+<span style="font-weight: bold">SI_ElementUserData</span>_RENDERING_TAG
+{
+	0,			// Raw Byte Dump
+	0,			// Bigendian
+	7,			// User data length = 7
+	0,1,0,0,0,0,1
+}<a name="wp592414"> </a>
+</pre></div>
+<a name="wp592418"> </a><p class="pBody">
+In SOFTIMAGE|3D, Booleans are represented by an unsigned short; this is why the user data length is 7 and not 4.
+</p>
+<a name="wp592419"> </a><h5 class="pHeading4">
+Example: Vertex&#160;Weight Map
+</h5>
+<a name="wp592420"> </a><p class="pBody">
+Suppose you want to format the user data that represents vertex weight maps for a hypothetical bend operator. To do this, you would write a UDX file that looks like this:
+</p>
+<div class="pPreformattedRelative"><pre class="pPreformattedRelative">
+VERTEX_BEND_TAG
+2
+&quot;Bend Amount&quot;
+FLOAT
+&quot;Weight&quot;
+ARRAY FLOAT<a name="wp592421"> </a>
+</pre></div>
+<a name="wp592422"> </a><p class="pBody">
+The internal C representation of this user data would look like this:
+</p>
+<div class="pPreformattedRelative"><pre class="pPreformattedRelative">
+typedef struct
+{
+	float fBendAmount;
+	int iNbWeights;
+	float *pWeights;
+}<a name="wp592423"> </a>
+</pre></div>
+<a name="wp592424"> </a><p class="pBody">
+And the user data would be attached to the vertices like this:
+</p>
+<div class="pPreformattedRelative"><pre class="pPreformattedRelative">
+//...
+WeightMap m;
+
+// ... set weight map params...
+
+char *buffer = NULL;
+
+int nBufferSize = sizeof(m.fBendAmount) + 
+sizeof(m.iNbWeights ) + sizeof( float ) * 
+m.iNbWeights;
+
+buffer = (char*)malloc( nBufferSize );
+
+char *pBufPos = buffer;
+
+memcpy( (void*)&amp;pBufPos, (void*)&amp;m.fBendAmount, 
+sizeof(m.fBendAmount) );
+pBufPos += sizeof(m.fBendAmount);
+
+memcpy( (void*)&amp;pBufPos, (void*)&amp;m.iNbWeights, 
+sizeof(m.iNbWeights) );
+pBufPos += sizeof(m.iNbWeights);
+
+memcpy( (void*)&amp;pBufPos, (void*)m.pWeights, sizeof( 
+float ) * m.iNbWeights );
+
+pVertex1-&gt;SetUserData( &quot;RENDERING_TAG&quot;, buffer, 
+nBufferSize, FALSE );
+pVertex2-&gt;SetUserData( &quot;RENDERING_TAG&quot;, buffer, 
+nBufferSize, FALSE );
+pVertex3-&gt;SetUserData( &quot;RENDERING_TAG&quot;, buffer, 
+nBufferSize, FALSE );
+pVertex4-&gt;SetUserData( &quot;RENDERING_TAG&quot;, buffer, 
+nBufferSize, FALSE );
+pVertex5-&gt;SetUserData( &quot;RENDERING_TAG&quot;, buffer, 
+nBufferSize, FALSE );
+pVertex6-&gt;SetUserData( &quot;RENDERING_TAG&quot;, buffer, 
+nBufferSize, FALSE );
+
+free( buffer );<a name="wp592425"> </a>
+</pre></div>
+<a name="wp592426"> </a><p class="pBody">
+When <b class="cBold">XSI Export</b> exports this user data, it generates the following templates given the following data: 
+</p>
+<div class="pPreformattedRelative"><pre class="pPreformattedRelative">
+// Bend amount = 3.0
+// Weights = 0.5, 0.5, 1.0, 1.0, 0.25, 0.25
+
+SI_UserDataFormat BEND_TAG
+{
+	2;
+	&quot;Bend Amount&quot;, &quot;FLOAT&quot;;
+	&quot;Weights&quot;, &quot;ARRAY FLOAT&quot;;
+}
+
+<span style="font-weight: bold">SI_SubElementUserDataVertex</span>_BEND_TAG
+{
+	6,			// Number of affected subelements
+	3,			// index 1
+	5, 			// index 2
+	9, 			// index 3
+	10, 			// index 4
+	11, 			// index 5
+	12, 			// index 6
+	1,			// Formatted
+	0,			// Bigendian 
+	3.00000,			// Bend Amount
+	6,			// Number of Weight
+	0.50000,			// Weight 1
+	0.50000,			// Weight 2
+	1.00000,			// Weight 3
+	1.00000,			// Weight 4
+	0.25000,			// Weight 5
+	0.25000,			// Weight 6
+}<a name="wp592427"> </a>
+</pre></div>
+<a name="wp592429"> </a><p class="pBody">
+The unformatted user data would look like this:
+</p>
+<div class="pPreformattedRelative"><pre class="pPreformattedRelative">
+<span style="font-weight: bold">SI_SubElementUserDataVertex</span>_BEND_TAG
+{
+	6,			// Number of affected subelements
+	3,			// index 1
+	5, 			// index 2
+	9, 			// index 3
+	10, 			// index 4
+	11, 			// index 5
+	12, 			// index 6
+	0,			// Raw Byte Dump
+	0,			// Bigendian
+	32,			// User data length = 32
+	64,64,0,0,
+	0,0,0,6,
+	63,0,0,0,
+	63,0,0,0,
+	63,128,0,0,
+	63,128,0,0,
+	62,128,0,0,
+	62,128,0,0,
+}<a name="wp592431"> </a>
+</pre></div>
+<a name="wp592433"> </a><h4 class="pHeading3">
+Custom Effects in SOFTIMAGE|3D
+</h4>
+<a name="wp592434"> </a><p class="pBody">
+A persistent custom effect is stored in a template that looks like this:
+</p>
+<div class="pPreformattedRelative"><pre class="pPreformattedRelative">
+&lt;effectName&gt; &lt;modelName&gt;
+{
+	&lt;nbArguments&gt;;
+	&lt;Argument1&gt;;
+	&#8230;
+	&lt;ArgumentN&gt;;
+	&lt;nbResults&gt;;
+	&lt;Result1&gt;;
+	&#8230;
+	&lt;ResultN&gt;;
+
+// effect parameters 
+	&lt;paramName&gt;, &lt;paramValue&gt;;
+	// &#8230;other effect parameter name/value pairs&#8230; 
+	&lt;paramName&gt;, &lt;paramValue&gt;;
+}<a name="wp592435"> </a>
+</pre></div>
+<a name="wp592439"> </a><p class="pBody">
+To export custom-effect data from SOFTIMAGE|3D, you need to write a UDX file for the custom effect, and put it in the directory specified by the <b class="cBold">SI_UDX_PATH</b> environment variable (typically <b class="cBold">%SI_LOCATION%/3D/custom/udx</b>).
+</p>
+<a name="wp592440"> </a><p class="pBody">
+UDX file format:
+</p>
+<div class="pPreformattedRelative"><pre class="pPreformattedRelative">
+&lt;effectName&gt;
+&lt;nbParameters&gt;
+&quot;&lt;ParameterName&gt;&quot; &lt;type&gt;
+...<a name="wp592441"> </a>
+<a name="wp592467"> </a><p class="pBodyRelative">
+<div align="left">
+<table border="0" cellpadding="5" cellspacing="1">
+  <caption></caption>
+  <tr bgcolor="Silver" align="left">    <td><a name="wp592444"> </a><div class="pCellBody">
+&lt;effectName&gt;
+</div>
+</td>
+    <td><a name="wp592449"> </a><div class="pCellBody">
+Name of the custom effect as it appears in SOFTIMAGE|3D (e.g., &quot;ModelNote&quot;, not &#8220;ModelNote.v2&#8221;). The name is case sensitive.
+</div>
+</td>
+</tr>
+  <tr bgcolor="Silver" align="left">    <td><a name="wp592451"> </a><div class="pCellBody">
+&lt;nbParameters&gt;
+</div>
+</td>
+    <td><a name="wp592453"> </a><div class="pCellBody">
+Number of effect parameters. This is the number of symbols declared in the <b style="font-weight: bold" class="cBold">_SYMBOL</b> section of the effect .cus file.
+</div>
+</td>
+</tr>
+  <tr bgcolor="Silver" align="left">    <td><a name="wp592455"> </a><div class="pCellBody">
+&lt;ParameterName&gt;
+</div>
+</td>
+    <td><a name="wp592457"> </a><div class="pCellBody">
+Symbol name (case-sensitive) from the <b style="font-weight: bold" class="cBold">_SYMBOL</b> section of the .cus file.
+</div>
+</td>
+</tr>
+  <tr bgcolor="Silver" align="left">    <td><a name="wp592459"> </a><div class="pCellBody">
+&lt;type&gt;
+</div>
+</td>
+    <td><a name="wp592461"> </a><div class="pCellBody">
+The type of the effect parameter:
+</div>
+<div class="pSmartList1"><ul class="pSmartList1">
+<a name="wp592462"> </a><div class="pSmartList1"><li>BOOLEAN (for effect parameters connected to check boxes and radio buttons)</li></div>
+<a name="wp592463"> </a><div class="pSmartList1"><li>FLOAT (for parameters connected to text boxes)</li></div>
+<a name="wp592464"> </a><div class="pSmartList1"><li>STRING (for parameters connected to text boxes)</li></div>
+<a name="wp592465"> </a><div class="pSmartList1"><li>INTEGER (for parameters connected to text boxes)</li></div>
+</ul></div>
+<a name="wp592466"> </a><div class="pCellBody">
+Parameters connected to pulldown menus, RGBA color sliders, and list boxes (text views) are not supported.
+</div>
+</td>
+</tr>
+</table>
+</div>
+
+</p>
+</pre></div>
+<a name="wp592468"> </a><h5 class="pHeading4">
+Example
+</h5>
+<a name="wp592469"> </a><p class="pBody">
+This example shows the dotXSI for the Chase effect, which animates one model to chase another model. The <b class="cBold">SI_Model</b> template for the custom effect icon stores the effect data.
+</p>
+<div class="pPreformattedRelative"><pre class="pPreformattedRelative">
+// Custom effect icon 
+SI_Model MDL-chase1 {
+	SI_Transform SRT-chase1
+	{
+		...
+	}
+
+	SI_Mesh MSH-chase1
+	{
+		SI_Shape SHP-chase1-ORG
+		{
+			...
+		}
+
+		SI_TriangleList
+		{
+			...
+		}
+
+	}
+
+ // Custom effect parameters 
+	Chase chase1
+	{
+		1;
+		&quot;sphere1&quot;;
+		1;
+		&quot;cube1&quot;;
+		&quot;spdPrp&quot;,1.000000;
+		&quot;spdCns&quot;,0.000000;
+	}
+}<a name="wp592470"> </a>
+</pre></div>
+<a name="wp592471"> </a><p class="pBody">
+The UDX file for the Chase effect:
+</p>
+<div class="pPreformattedRelative"><pre class="pPreformattedRelative">
+Chase
+2
+&quot;spdPrp&quot; FLOAT
+&quot;spdCns&quot; FLOAT<a name="wp592472"> </a>
+</pre></div>
+
+ <hr />
+
+ <table align="right" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+        <td align="right">
+            <a target="_blank" href="http://www.softimage.com"><img src="images/silogo.gif" width="150" height="16" border="0" /></a>&#160;&#160;&#160;
+            <a target="_blank" href="http://www.avid.com"><img src="images/avidlogo.gif" width="50" height="20" border="0" /></a><br />
+            <br />
+    </td>
+   </tr>
+  </table>
+
+ </blockquote>
+
+
+
+<script type="text/javascript" language="JavaScript1.2">
+   <!--
+    document.write(WWHRelatedTopicsDivTag() + WWHPopupDivTag());
+   // -->
+  </script>
+
+ </body>
+</html>

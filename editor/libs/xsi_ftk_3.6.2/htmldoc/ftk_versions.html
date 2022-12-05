@@ -1,0 +1,793 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+ <head>
+  <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="GENERATOR" content="Quadralay WebWorks Publisher Professional Edition 7.0.2.1206" />
+  <meta name="TEMPLATEBASE" content="Template" />
+  <meta name="LASTUPDATED" content="04/25/03 14:08:59" />
+  <title>Version Information</title>
+  <link rel="StyleSheet" href="document.css" type="text/css" />
+  <link rel="StyleSheet" href="catalog.css" type="text/css" />
+<script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/context.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/towwhdir.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/wwhpagef.js"></script>
+
+  <script type="text/javascript" language="JavaScript1.2">
+   <!--
+    // Set reference to top level help frame
+    //
+    var  WWHFrame = WWHGetWWHFrame("");
+   // -->
+  </script>
+ </head>
+
+ <body onLoad="WWHUpdate();">
+
+ <blockquote>
+<a name="wp598411"> </a><h2 class="pTitle">
+Version Information
+</h2>
+<hr />
+<a name="wp577926"> </a><p class="pBody">
+This chapter provides version-specific information from version 1.3 to the last version of the dotXSI format:
+</p>
+<div class="pSmartList1"><ul class="pSmartList1">
+<a name="wp592622"> </a><div class="pSmartList1"><li><a  href="ftk_versions.html#wp597967"><em class="cEmphasis">dotXSI v3.5 File Format</em></a></li></div>
+<a name="wp597571"> </a><div class="pSmartList1"><li><a  href="ftk_versions.html#wp597073"><em class="cEmphasis">dotXSI v3.0 File Format</em></a></li></div>
+<a name="wp592494"> </a><div class="pSmartList1"><li><a  href="ftk_versions.html#wp578583"><em class="cEmphasis">dotXSI v2.0 File Format</em></a></li></div>
+<a name="wp596688"> </a><div class="pSmartList1"><li><a  href="ftk_versions.html#wp592374"><em class="cEmphasis">dotXSI v1.3 File Format</em></a></li></div>
+</ul></div>
+<a name="wp597967"> </a><h2 class="pHeading1">
+dotXSI v3.5 File Format
+</h2>
+<a name="wp597968"> </a><p class="pBody">
+Starting with v3.0, dotXSI no longer reads or writes any prior file versions. Version 3.0 is only available to v3.0, v3.5, and v3.6. Only SOFTIMAGE|3D can read and write versions prior to v3.0.
+</p>
+<a name="wp597969"> </a><h3 class="pHeading2">
+New Templates 
+</h3>
+<a name="wp597198"> </a><p class="pBody">
+Version 3.5 of the dotXSITM file format introduces a variety of new templates for storing SOFTIMAGE|XSI scene data. 
+</p>
+<a name="wp597199"> </a><p class="pBody">
+</p><div align="left">
+<table border="0" cellpadding="5" cellspacing="1">
+  <caption></caption>
+  <tr bgcolor="#0055AA" align="left">    <th><a name="wp597208"> </a><div style="text-align: left" class="pCellHeading">
+For materials and texturing
+</div>
+</th>
+    <th><a name="wp597210"> </a><div style="text-align: left" class="pCellHeading">
+New templates in v3.5
+</div>
+</th>
+</tr>
+  <tr bgcolor="Silver" align="left">    <td><a name="wp597337"> </a><div class="pCellBody">
+Acts as a placeholder for both realtime and mental ray shaders in the dotXSI file format. May contain the list of connections and the name of the sources (if applicable).
+</div>
+</td>
+    <td><a name="wp597349"> </a><div class="pCellBody">
+<a  href="ftk_TemplateRef.html#wp801372">SI_Material</a>
+</div>
+</td>
+</tr>
+  <tr bgcolor="Silver" align="left">    <td><a name="wp597359"> </a><div class="pCellBody">
+This template is embedded inside the XSI_Material template and may include connection information
+</div>
+</td>
+    <td><a name="wp597355"> </a><div class="pCellBody">
+<a  href="ftk_TemplateRef.html#wp803890"><em class="cEmphasis">XSI_Shader</em></a>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pBody">
+</p>
+<a name="wp597200"> </a><h3 class="pHeading2">
+Changes to Existing Templates
+</h3>
+<a name="wp597134"> </a><p class="pBody">
+</p><div align="left">
+<table border="0" cellpadding="5" cellspacing="1">
+  <caption></caption>
+  <tr bgcolor="#0055AA" align="left">    <th><a name="wp597386"> </a><div style="text-align: left" class="pCellHeading">
+Template
+</div>
+</th>
+    <th><a name="wp597388"> </a><div style="text-align: left" class="pCellHeading">
+Change
+</div>
+</th>
+</tr>
+  <tr bgcolor="Silver" align="left">    <td><a name="wp597394"> </a><div class="pCellBody">
+<a  href="ftk_TemplateRef.html#wp802077">SI_Shape</a>
+</div>
+</td>
+    <td><a name="wp597396"> </a><div class="pCellBody">
+Supports multiple UVs
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pBody">
+</p>
+<a name="wp597073"> </a><h2 class="pHeading1">
+dotXSI v3.0 File Format
+</h2>
+<a name="wp596694"> </a><h3 class="pHeading2">
+New Templates
+</h3>
+<a name="wp494010"> </a><p class="pBody">
+Version 3.0 of the dotXSI file format introduced a variety of new templates for storing scene data.
+</p>
+<a name="wp494132"> </a><p class="pBodyRelative">
+</p><div align="left">
+<table border="0" cellpadding="5" cellspacing="1">
+  <caption></caption>
+  <tr bgcolor="#0055AA" align="left">    <th><a name="wp494013"> </a><div style="text-align: left" class="pCellHeading">
+For storing
+</div>
+</th>
+    <th><a name="wp494015"> </a><div style="text-align: left" class="pCellHeading">
+New templates in v3.0
+</div>
+</th>
+</tr>
+  <tr bgcolor="Silver" align="left">    <td><a name="wp494017"> </a><div class="pCellBody">
+Groups of vertices
+</div>
+</td>
+    <td><a name="wp494022"> </a><div class="pCellBody">
+<a  href="ftk_TemplateRef.html#wp800645">SI_Cluster</a>
+</div>
+</td>
+</tr>
+  <tr bgcolor="Silver" align="left">    <td><a name="wp494024"> </a><div class="pCellBody">
+Multi-joint 2D and 3D chains
+</div>
+</td>
+    <td><a name="wp494029"> </a><div class="pCellBody">
+<a  href="ftk_TemplateRef.html#wp801203">SI_IK_Root</a>
+</div>
+<a name="wp494033"> </a><div class="pCellBody">
+<a  href="ftk_TemplateRef.html#wp801188">SI_IK_Joint</a>
+</div>
+<a name="wp494037"> </a><div class="pCellBody">
+<a  href="ftk_TemplateRef.html#wp801175">SI_IK_Effector</a>
+</div>
+</td>
+</tr>
+  <tr bgcolor="Silver" align="left">    <td><a name="wp494039"> </a><div class="pCellBody">
+Texture sequences
+</div>
+</td>
+    <td><a name="wp494044"> </a><div class="pCellBody">
+<a  href="ftk_TemplateRef.html#wp801213">SI_ImageClip</a>
+</div>
+</td>
+</tr>
+  <tr bgcolor="Silver" align="left">    <td><a name="wp494046"> </a><div class="pCellBody">
+Instances
+</div>
+</td>
+    <td><a name="wp494051"> </a><div class="pCellBody">
+<a  href="ftk_TemplateRef.html#wp801225">SI_Instance</a>
+</div>
+</td>
+</tr>
+  <tr bgcolor="Silver" align="left">    <td><a name="wp494053"> </a><div class="pCellBody">
+Global material settings
+</div>
+</td>
+    <td><a name="wp494058"> </a><div class="pCellBody">
+<a  href="ftk_TemplateRef.html#wp801144">SI_GlobalMaterial</a>
+</div>
+</td>
+</tr>
+  <tr bgcolor="Silver" align="left">    <td><a name="wp494060"> </a><div class="pCellBody">
+Nulls
+</div>
+</td>
+    <td><a name="wp494065"> </a><div class="pCellBody">
+<a  href="ftk_TemplateRef.html#wp801635">SI_Null</a>
+</div>
+</td>
+</tr>
+  <tr bgcolor="Silver" align="left">    <td><a name="wp494067"> </a><div class="pCellBody">
+NURBS curves
+</div>
+</td>
+    <td><a name="wp494072"> </a><div class="pCellBody">
+<a  href="ftk_TemplateRef.html#wp801660">SI_NurbsCurve</a>
+</div>
+</td>
+</tr>
+  <tr bgcolor="Silver" align="left">    <td><a name="wp494074"> </a><div class="pCellBody">
+Node and branch visibility
+</div>
+</td>
+    <td><a name="wp494079"> </a><div class="pCellBody">
+<a  href="ftk_TemplateRef.html#wp802823">SI_Visibility</a>
+</div>
+</td>
+</tr>
+  <tr bgcolor="Silver" align="left">    <td><a name="wp494081"> </a><div class="pCellBody">
+Support for SOFTIMAGE|XSI actions
+</div>
+</td>
+    <td><a name="wp494086"> </a><div class="pCellBody">
+<a  href="ftk_TemplateRef.html#wp802857">XSI_Action</a>
+</div>
+<a name="wp494090"> </a><div class="pCellBody">
+<a  href="ftk_TemplateRef.html#wp802898">XSI_ActionClip</a>
+</div>
+<a name="wp494094"> </a><div class="pCellBody">
+<a  href="ftk_TemplateRef.html#wp803133">XSI_Extrapolation</a>
+</div>
+<a name="wp494098"> </a><div class="pCellBody">
+<a  href="ftk_TemplateRef.html#wp803757">XSI_Mixer</a>
+</div>
+<a name="wp494102"> </a><div class="pCellBody">
+<a  href="ftk_TemplateRef.html#wp803682">XSI_Material</a>
+</div>
+<a name="wp494106"> </a><div class="pCellBody">
+<a  href="ftk_TemplateRef.html#wp804050">XSI_TimeControl</a>
+</div>
+<a name="wp494110"> </a><div class="pCellBody">
+<a  href="ftk_TemplateRef.html#wp804092">XSI_Track</a>
+</div>
+</td>
+</tr>
+  <tr bgcolor="Silver" align="left">    <td><a name="wp494112"> </a><div class="pCellBody">
+SOFTIMAGE|XSI curve list
+</div>
+</td>
+    <td><a name="wp494117"> </a><div class="pCellBody">
+<a  href="ftk_TemplateRef.html#wp801213">XSI_CurveList</a>
+</div>
+</td>
+</tr>
+  <tr bgcolor="Silver" align="left">    <td><a name="wp494119"> </a><div class="pCellBody">
+SOFTIMAGE|XSI user data
+</div>
+</td>
+    <td><a name="wp494124"> </a><div class="pCellBody">
+<a  href="ftk_TemplateRef.html#wp802996">XSI_CustomPSet</a>
+</div>
+</td>
+</tr>
+  <tr bgcolor="Silver" align="left">    <td><a name="wp494126"> </a><div class="pCellBody">
+SOFTIMAGE|XSI surface meshes
+</div>
+</td>
+    <td><a name="wp494131"> </a><div class="pCellBody">
+<a  href="ftk_TemplateRef.html#wp804034">XSI_SurfaceMesh</a>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pBodyRelative">
+</p>
+<a name="wp494133"> </a><h3 class="pHeading2">
+Obsolete Templates
+</h3>
+<a name="wp494192"> </a><p class="pBodyRelative">
+</p><div align="left">
+<table border="0" cellpadding="5" cellspacing="1">
+  <caption></caption>
+  <tr bgcolor="#0055AA" align="left">    <th><a name="wp494136"> </a><div style="text-align: left" class="pCellHeading">
+Templates used in v2.0
+</div>
+</th>
+    <th><a name="wp494138"> </a><div style="text-align: left" class="pCellHeading">
+Templates used in v3.0
+</div>
+</th>
+</tr>
+  <tr bgcolor="Silver" align="left">    <td><a name="wp494143"> </a><div class="pCellBody">
+<a  href="ftk_archives.html#wp594330">SI_2D_2Joint_IK _Effector</a>
+</div>
+<a name="wp494147"> </a><div class="pCellBody">
+<a  href="ftk_archives.html#wp594345">SI_2D_2Joint_IK_Joint</a>
+</div>
+<a name="wp494151"> </a><div class="pCellBody">
+<a  href="ftk_archives.html#wp594360">SI_2D_2Joint_IK_Root</a>
+</div>
+</td>
+    <td><a name="wp494156"> </a><div class="pCellBody">
+<a  href="ftk_TemplateRef.html#wp801203">SI_IK_Root</a>
+</div>
+<a name="wp494160"> </a><div class="pCellBody">
+<a  href="ftk_TemplateRef.html#wp801188">SI_IK_Joint</a>
+</div>
+<a name="wp494164"> </a><div class="pCellBody">
+<a  href="ftk_TemplateRef.html#wp801175">SI_IK_Effector</a>
+</div>
+</td>
+</tr>
+  <tr bgcolor="Silver" align="left">    <td><a name="wp494169"> </a><div class="pCellBody">
+<a  href="ftk_archives.html#wp594612">SI_CameraAnimation</a>
+</div>
+</td>
+    <td><a name="wp494174"> </a><div class="pCellBody">
+<a  href="ftk_TemplateRef.html#wp800995">SI_FCurve</a>
+</div>
+</td>
+</tr>
+  <tr bgcolor="Silver" align="left">    <td><a name="wp494179"> </a><div class="pCellBody">
+<a  href="ftk_archives.html#wp594688">SI_LightAnimation</a>
+</div>
+</td>
+    <td><a name="wp494184"> </a><div class="pCellBody">
+<a  href="ftk_TemplateRef.html#wp800995">SI_FCurve</a>
+</div>
+</td>
+</tr>
+  <tr bgcolor="Silver" align="left">    <td><a name="wp564895"> </a><div class="pCellBody">
+<a  href="ftk_archives.html#wp594748">SI_TransformAnimation</a>
+</div>
+</td>
+    <td><a name="wp564897"> </a><div class="pCellBody">
+<a  href="ftk_TemplateRef.html#wp800995">SI_FCurve</a>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pBodyRelative">
+</p>
+<a name="wp578547"> </a><h3 class="pHeading2">
+Changes to Existing&#160;Templates
+</h3>
+<a name="wp578581"> </a><p class="pBodyRelative">
+</p><div align="left">
+<table border="0" cellpadding="5" cellspacing="1">
+  <caption></caption>
+  <tr bgcolor="#0055AA" align="left">    <th><a name="wp578550"> </a><div style="text-align: left" class="pCellHeading">
+Template
+</div>
+</th>
+    <th><a name="wp578552"> </a><div style="text-align: left" class="pCellHeading">
+Change
+</div>
+</th>
+</tr>
+  <tr bgcolor="Silver" align="left">    <td><a name="wp578557"> </a><div class="pCellBody">
+<a  href="ftk_TemplateRef.html#wp800995">SI_FCurve</a>
+</div>
+</td>
+    <td><a name="wp578559"> </a><div class="pCellBody">
+Includes support for Transformation, Camera, Light, Ambience, Fog, and Material animation.
+</div>
+</td>
+</tr>
+  <tr bgcolor="Silver" align="left">    <td><a name="wp578564"> </a><div class="pCellBody">
+<a  href="ftk_TemplateRef.html#wp800985">SI_FileInfo</a>
+</div>
+</td>
+    <td><a name="wp578566"> </a><div class="pCellBody">
+Contains an originator field.
+</div>
+</td>
+</tr>
+  <tr bgcolor="Silver" align="left">    <td><a name="wp578571"> </a><div class="pCellBody">
+<a  href="ftk_TemplateRef.html#wp801241">SI_Light</a>
+</div>
+</td>
+    <td><a name="wp578573"> </a><div class="pCellBody">
+Supports SOFTIMAGE|XSI infinite lights.
+</div>
+</td>
+</tr>
+  <tr bgcolor="Silver" align="left">    <td><a name="wp578578"> </a><div class="pCellBody">
+<a  href="ftk_TemplateRef.html#wp801481">SI_MaterialLibrary</a>
+</div>
+</td>
+    <td><a name="wp578580"> </a><div class="pCellBody">
+Embedded SI_Material templates include SI_FCurve templates for Ambient, Diffuse, Specular, Decay, Refractivity, Reflectivity, and Transparency.
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pBodyRelative">
+</p>
+<a name="wp591148"> </a><p class="pBody">
+
+</p>
+<a name="wp578583"> </a><h2 class="pHeading1">
+dotXSI v2.0 File Format
+</h2>
+<a name="wp494229"> </a><h3 class="pHeading2">
+New Templates
+</h3>
+<a name="wp494230"> </a><p class="pBody">
+Version 2.0 of the dotXSI file format introduced a variety of new templates for storing scene data.
+</p>
+<a name="wp494373"> </a><p class="pBodyRelative">
+</p><div align="left">
+<table border="0" cellpadding="5" cellspacing="1">
+  <caption></caption>
+  <tr bgcolor="#0055AA" align="left">    <th><a name="wp494233"> </a><div style="text-align: left" class="pCellHeading">
+For storing
+</div>
+</th>
+    <th><a name="wp494235"> </a><div style="text-align: left" class="pCellHeading">
+New templates in v2.0
+</div>
+</th>
+</tr>
+  <tr bgcolor="Silver" align="left">    <td><a name="wp494237"> </a><div class="pCellBody">
+User data
+</div>
+</td>
+    <td><a name="wp494242"> </a><div class="pCellBody">
+<a  href="ftk_TemplateRef.html#wp800837">SI_ElementUserData _&lt;userDataTag&gt;</a>
+</div>
+<a name="wp494246"> </a><div class="pCellBody">
+<a  href="ftk_TemplateRef.html#wp802208">SI_SubelementUserDataPolygon_&lt;userDataTag&gt;</a>
+</div>
+<a name="wp494250"> </a><div class="pCellBody">
+<a  href="ftk_TemplateRef.html#wp802226">SI_SubelementUserDataVertex_&lt;userDataTag&gt;</a>
+</div>
+</td>
+</tr>
+  <tr bgcolor="Silver" align="left">    <td><a name="wp494252"> </a><div class="pCellBody">
+2-joint chains
+</div>
+</td>
+    <td><a name="wp494257"> </a><div class="pCellBody">
+<a  href="ftk_archives.html#wp594330">SI_2D_2Joint_IK _Effector</a>
+</div>
+<a name="wp494261"> </a><div class="pCellBody">
+<a  href="ftk_archives.html#wp594345">SI_2D_2Joint_IK_Joint</a>
+</div>
+<a name="wp494265"> </a><div class="pCellBody">
+<a  href="ftk_archives.html#wp594360">SI_2D_2Joint_IK_Root</a>
+</div>
+</td>
+</tr>
+  <tr bgcolor="Silver" align="left">    <td><a name="wp494267"> </a><div class="pCellBody">
+Groups of vertices
+</div>
+</td>
+    <td><a name="wp494271"> </a><div class="pCellBody">
+<a  href="ftk_TemplateRef.html#wp800645">SI_Cluster</a>
+</div>
+</td>
+</tr>
+  <tr bgcolor="Silver" align="left">    <td><a name="wp494274"> </a><div class="pCellBody">
+Meshes
+</div>
+</td>
+    <td><a name="wp494279"> </a><div class="pCellBody">
+<a  href="ftk_TemplateRef.html#wp801544">SI_Mesh</a>
+</div>
+<a name="wp494283"> </a><div class="pCellBody">
+<a  href="ftk_TemplateRef.html#wp802077">SI_Shape</a>
+</div>
+</td>
+</tr>
+  <tr bgcolor="Silver" align="left">    <td><a name="wp494285"> </a><div class="pCellBody">
+Polygon lists
+</div>
+</td>
+    <td><a name="wp494290"> </a><div class="pCellBody">
+<a  href="ftk_TemplateRef.html#wp801934">SI_PolygonList</a>
+</div>
+</td>
+</tr>
+  <tr bgcolor="Silver" align="left">    <td><a name="wp494292"> </a><div class="pCellBody">
+Triangles and triangle strips
+</div>
+</td>
+    <td><a name="wp494297"> </a><div class="pCellBody">
+<a  href="ftk_TemplateRef.html#wp802589">SI_TriangleList</a>
+</div>
+<a name="wp494301"> </a><div class="pCellBody">
+<a  href="ftk_TemplateRef.html#wp802676">SI_TriStrip</a>
+</div>
+<a name="wp494305"> </a><div class="pCellBody">
+<a  href="ftk_TemplateRef.html#wp802737">SI_TriStripList</a>
+</div>
+</td>
+</tr>
+  <tr bgcolor="Silver" align="left">    <td><a name="wp494307"> </a><div class="pCellBody">
+Global materials
+</div>
+</td>
+    <td><a name="wp494312"> </a><div class="pCellBody">
+<a  href="ftk_TemplateRef.html#wp801481">SI_MaterialLibrary</a>
+</div>
+</td>
+</tr>
+  <tr bgcolor="Silver" align="left">    <td><a name="wp494314"> </a><div class="pCellBody">
+SRT Transforms
+</div>
+</td>
+    <td><a name="wp494319"> </a><div class="pCellBody">
+<a  href="ftk_TemplateRef.html#wp802540">SI_Transform</a>
+</div>
+</td>
+</tr>
+  <tr bgcolor="Silver" align="left">    <td><a name="wp494321"> </a><div class="pCellBody">
+Animation
+</div>
+</td>
+    <td><a name="wp494326"> </a><div class="pCellBody">
+<a  href="ftk_TemplateRef.html#wp800995">SI_FCurve</a>
+</div>
+<a name="wp494330"> </a><div class="pCellBody">
+<a  href="ftk_archives.html#wp594612">SI_CameraAnimation</a>
+</div>
+<a name="wp494334"> </a><div class="pCellBody">
+<a  href="ftk_archives.html#wp594688">SI_LightAnimation</a>
+</div>
+<a name="wp494338"> </a><div class="pCellBody">
+<a  href="ftk_TemplateRef.html#wp802181">SI_ShapeAnimation</a>
+</div>
+<a name="wp494342"> </a><div class="pCellBody">
+<a  href="ftk_TemplateRef.html#wp802077">SI_Shape</a>
+</div>
+<a name="wp494346"> </a><div class="pCellBody">
+<a  href="ftk_archives.html#wp594748">SI_TransformAnimation</a>
+</div>
+</td>
+</tr>
+  <tr bgcolor="Silver" align="left">    <td><a name="wp494348"> </a><div class="pCellBody">
+Persistent custom effects
+</div>
+</td>
+    <td><a name="wp494351"> </a><div class="pCellBody">
+custom effect template
+</div>
+</td>
+</tr>
+  <tr bgcolor="Silver" align="left">    <td><a name="wp494353"> </a><div class="pCellBody">
+Models and model hierarchies
+</div>
+</td>
+    <td><a name="wp494358"> </a><div class="pCellBody">
+<a  href="ftk_TemplateRef.html#wp801573">SI_Model</a>
+</div>
+</td>
+</tr>
+  <tr bgcolor="Silver" align="left">    <td><a name="wp494360"> </a><div class="pCellBody">
+Global scene info
+</div>
+</td>
+    <td><a name="wp494365"> </a><div class="pCellBody">
+<a  href="ftk_TemplateRef.html#wp802032">SI_Scene</a>
+</div>
+</td>
+</tr>
+  <tr bgcolor="Silver" align="left">    <td><a name="wp494367"> </a><div class="pCellBody">
+General file information
+</div>
+</td>
+    <td><a name="wp494372"> </a><div class="pCellBody">
+<a  href="ftk_TemplateRef.html#wp800985">SI_FileInfo</a>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pBodyRelative">
+</p>
+<a name="wp494374"> </a><h3 class="pHeading2">
+Obsolete Templates
+</h3>
+<a name="wp494375"> </a><p class="pBody">
+Version 2.0 of the dotXSI file format does not use any of the DirectX templates, such as <b class="cBold">AnimationSet</b> or <b class="cBold">Mesh</b>, and replaces a number of v1.3 templates (see table).
+</p>
+<a name="wp494449"> </a><p class="pBodyRelative">
+</p><div align="left">
+<table border="0" cellpadding="5" cellspacing="1">
+  <caption></caption>
+  <tr bgcolor="#0055AA" align="left">    <th><a name="wp494378"> </a><div style="text-align: left" class="pCellHeading">
+Templates used in v1.3
+</div>
+</th>
+    <th><a name="wp494380"> </a><div style="text-align: left" class="pCellHeading">
+Templates used in v2.0
+</div>
+</th>
+</tr>
+  <tr bgcolor="Silver" align="left">    <td><a name="wp494382"> </a><div class="pCellBody">
+<b style="font-weight: normal" class="cBold">AnimationSet</b><b style="font-weight: bold" class="cBold"> </b>
+</div>
+<a name="wp494386"> </a><div class="pCellBody">
+<a  href="ftk_archives.html#wp594421">SI_AnimationKey</a>
+</div>
+<a name="wp494390"> </a><div class="pCellBody">
+<a  href="ftk_archives.html#wp594495">SI_Animation ParamKey</a>
+</div>
+</td>
+    <td><a name="wp494395"> </a><div class="pCellBody">
+<a  href="ftk_archives.html#wp594612">SI_CameraAnimation</a>
+</div>
+<a name="wp494399"> </a><div class="pCellBody">
+<a  href="ftk_archives.html#wp594688">SI_LightAnimation</a>
+</div>
+<a name="wp494403"> </a><div class="pCellBody">
+<a  href="ftk_TemplateRef.html#wp802181">SI_ShapeAnimation</a>
+</div>
+<a name="wp494407"> </a><div class="pCellBody">
+<a  href="ftk_TemplateRef.html#wp802181">SI_ShapeAnimation</a>
+</div>
+<a name="wp494411"> </a><div class="pCellBody">
+<a  href="ftk_TemplateRef.html#wp800995">SI_FCurve</a>
+</div>
+</td>
+</tr>
+  <tr bgcolor="Silver" align="left">    <td><a name="wp494413"> </a><div class="pCellBody">
+<b style="font-weight: normal" class="cBold">Frame</b> 
+</div>
+</td>
+    <td><a name="wp494418"> </a><div class="pCellBody">
+<a  href="ftk_TemplateRef.html#wp801573">SI_Model</a>
+</div>
+</td>
+</tr>
+  <tr bgcolor="Silver" align="left">    <td><a name="wp494420"> </a><div class="pCellBody">
+<b style="font-weight: normal" class="cBold">MeshMaterialList</b>
+</div>
+</td>
+    <td><a name="wp494425"> </a><div class="pCellBody">
+<a  href="ftk_TemplateRef.html#wp801481">SI_MaterialLibrary</a>
+</div>
+</td>
+</tr>
+  <tr bgcolor="Silver" align="left">    <td><a name="wp494427"> </a><div class="pCellBody">
+<b style="font-weight: normal" class="cBold">Mesh</b>
+</div>
+<a name="wp494431"> </a><div class="pCellBody">
+<a  href="ftk_archives.html#wp597266"><span style="font-weight: normal">SI_MeshFace</span></a>
+</div>
+<a name="wp494435"> </a><div class="pCellBody">
+<a  href="ftk_archives.html#wp597342">SI_MeshNormals</a>
+</div>
+<a name="wp494439"> </a><div class="pCellBody">
+<a  href="ftk_archives.html#wp597406"><span style="font-weight: normal">SI_MeshTextureCoords</span></a>
+</div>
+<a name="wp494443"> </a><div class="pCellBody">
+<a  href="ftk_archives.html#wp597468">SI_MeshVertexColors</a>
+</div>
+</td>
+    <td><a name="wp494448"> </a><div class="pCellBody">
+<a  href="ftk_TemplateRef.html#wp801544">SI_Mesh</a>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pBodyRelative">
+</p>
+<a name="wp494450"> </a><h3 class="pHeading2">
+Changed Templates
+</h3>
+<a name="wp494451"> </a><p class="pBody">
+Some of the new v2.0 templates can be nested in v1.3 templates, such as <a  href="ftk_TemplateRef.html#wp801660">SI_NurbsCurve</a>, <a  href="ftk_TemplateRef.html#wp801846">SI_PatchSurface</a>, <a  href="ftk_TemplateRef.html#wp801372">SI_Material</a>, and <a  href="ftk_TemplateRef.html#wp801372">SI_Material</a>.
+</p>
+<a name="wp592374"> </a><h2 class="pHeading1">
+dotXSI v1.3 File Format
+</h2>
+<a name="wp592375"> </a><p class="pBody">
+This table shows which v1.3 templates have been replaced by new templates in v2.0.
+</p>
+<a name="wp592449"> </a><p class="pBodyRelative">
+</p><div align="left">
+<table border="0" cellpadding="5" cellspacing="1">
+  <caption></caption>
+  <tr bgcolor="#0055AA" align="left">    <th><a name="wp592378"> </a><div style="text-align: left" class="pCellHeading">
+v1.3 template
+</div>
+</th>
+    <th><a name="wp592380"> </a><div style="text-align: left" class="pCellHeading">
+v2.0 template
+</div>
+</th>
+</tr>
+  <tr bgcolor="Silver" align="left">    <td><a name="wp592382"> </a><div class="pCellBody">
+<b style="font-weight: normal" class="cBold">AnimationSet</b><b style="font-weight: normal" class="cBold"> </b>
+</div>
+<a name="wp592386"> </a><div style="text-align: left" class="pCellHeading">
+<a  href="ftk_archives.html#wp594421">SI_AnimationKey</a>
+</div>
+<a name="wp592390"> </a><div class="pCellBody">
+<a  href="ftk_archives.html#wp594495">SI_Animation ParamKey</a>
+</div>
+</td>
+    <td><a name="wp592395"> </a><div class="pCellBody">
+<a  href="ftk_archives.html#wp594612">SI_CameraAnimation</a>
+</div>
+<a name="wp592399"> </a><div class="pCellBody">
+<a  href="ftk_archives.html#wp594688">SI_LightAnimation</a>
+</div>
+<a name="wp592403"> </a><div class="pCellBody">
+<a  href="ftk_TemplateRef.html#wp802181">SI_ShapeAnimation</a>
+</div>
+<a name="wp592407"> </a><div class="pCellBody">
+<a  href="ftk_TemplateRef.html#wp802181">SI_ShapeAnimation</a>
+</div>
+<a name="wp592411"> </a><div class="pCellBody">
+<a  href="ftk_TemplateRef.html#wp800995">SI_FCurve</a>
+</div>
+</td>
+</tr>
+  <tr bgcolor="Silver" align="left">    <td><a name="wp592413"> </a><div class="pCellBody">
+<b style="font-style: italic; font-weight: normal" class="cBold">Frame</b> 
+</div>
+</td>
+    <td><a name="wp592418"> </a><div class="pCellBody">
+<a  href="ftk_TemplateRef.html#wp801573">SI_Model</a>
+</div>
+</td>
+</tr>
+  <tr bgcolor="Silver" align="left">    <td><a name="wp592420"> </a><div class="pCellBody">
+<b style="font-weight: normal" class="cBold">MeshMaterialList</b>
+</div>
+</td>
+    <td><a name="wp592425"> </a><div class="pCellBody">
+<a  href="ftk_TemplateRef.html#wp801481">SI_MaterialLibrary</a>
+</div>
+</td>
+</tr>
+  <tr bgcolor="Silver" align="left">    <td><a name="wp596508"> </a><div class="pCellBody">
+<b style="font-weight: normal" class="cBold">Mesh</b>
+</div>
+<a name="wp596512"> </a><div class="pCellBody">
+<a  href="ftk_archives.html#wp597266"><span style="font-weight: normal">SI_MeshFace</span></a>
+</div>
+<a name="wp596516"> </a><div class="pCellBody">
+<a  href="ftk_archives.html#wp597342">SI_MeshNormals</a>
+</div>
+<a name="wp596520"> </a><div class="pCellBody">
+<a  href="ftk_archives.html#wp597406"><span style="font-weight: normal">SI_MeshTextureCoords</span></a>
+</div>
+<a name="wp596524"> </a><div class="pCellBody">
+<a  href="ftk_archives.html#wp597468">SI_MeshVertexColors</a>
+</div>
+</td>
+    <td><a name="wp592448"> </a><div class="pCellBody">
+<a  href="ftk_TemplateRef.html#wp801544">SI_Mesh</a>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pBodyRelative">
+</p>
+<a name="wp593153"> </a><p class="pBody">
+
+</p>
+
+ <hr />
+
+ <table align="right" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+        <td align="right">
+            <a target="_blank" href="http://www.softimage.com"><img src="images/silogo.gif" width="150" height="16" border="0" /></a>&#160;&#160;&#160;
+            <a target="_blank" href="http://www.avid.com"><img src="images/avidlogo.gif" width="50" height="20" border="0" /></a><br />
+            <br />
+    </td>
+   </tr>
+  </table>
+
+ </blockquote>
+
+
+
+<script type="text/javascript" language="JavaScript1.2">
+   <!--
+    document.write(WWHRelatedTopicsDivTag() + WWHPopupDivTag());
+   // -->
+  </script>
+
+ </body>
+</html>

@@ -1,0 +1,21 @@
+--LUA
+QuestObjMgr:AddObjVideo3D( "Video3D_cannon2", QuestScn:GetNull( "nl_right_cannon" ), "Cannon\\Nulls", "Cannon\\NullsTime","" );
+
+QuestOMgr.Video3D_cannon2_EfnAnim:AttachObjToNull( "Dude_start_null", "cannon_Dude_body2", "Cannon\\Dude", "Mans\\Dude", "", "" ); 
+QuestOMgr.Video3D_cannon2_EfnAnim:AttachObjToNull( "Cannon_bore_null", "cannon_bore2", "Cannon\\Cannon_bore", "Cannon\\Cannon", "", "" ); 
+QuestOMgr.Video3D_cannon2_EfnAnim:AttachObjToNull( "Cannon_base_null", "cannon_base2", "Cannon\\Cannon_base", "Cannon\\Cannon", "", "" );
+QuestOMgr.Video3D_cannon2_EfnAnim:AttachObjToNull( "Cannon_ball_null", "cannon_ball2", "Cannon\\Cannon_ball", "Menuitems\\Yadro", "", "" );
+QuestOMgr.cannon_bore2:SetShadowCastType( OVT_OOBB );
+QuestOMgr.cannon_base2:SetShadowCastType( OVT_OOBB );
+QuestOMgr.cannon_ball2:SetShadowCastType( OVT_OOBB );
+
+QuestOMgr.Video3D_cannon2_EfnAnim:AttachObjToNullE( "Dude_head", "cannon_Dude_head2", "Cannon\\Dude_head_null", "DudeHeads", "Mans\\Dude_head", "", "" );
+QuestOMgr.Video3D_cannon2_EfnAnim:AttachObjToNull( "Dude_head", "cannon_Dude_head_null2", "Cannon\\Dude_head_null", "", "", "" );
+QuestOMgr.cannon_Dude_head_null2:AttachObjToNull( "Dude_hair", "cannon_Dude_hair2", "dude_hair", "Mans\\Dude", "", "" );
+QuestOMgr.cannon_Dude_head_null2:AttachObjToNull( "Dude_eye_left", "cannon_dude_r_eye2", "dude_r_eye", "Mans\\Dude", "", "" );
+QuestOMgr.cannon_Dude_head_null2:AttachObjToNull( "Dude_eye_left", "cannon_dude_l_eye2", "dude_l_eye", "Mans\\Dude", "", "" );	
+
+QuestOMgr.Video3D_cannon2:AttachObjEfnAnimToTimeLineNull( "cannon_Dude_body2", "Dude_Time" );
+QuestOMgr.Video3D_cannon2:AttachObjEfnAnimToTimeLineNull( "cannon_Dude_head2", "Dude_Time" );
+QuestOMgr.Video3D_cannon2:AttachObjEfnAnimToTimeLineNull( "cannon_Dude_head_null2", "Dude_Time" );
+QuestOMgr.Video3D_cannon2:AttachObjEfnAnimToTimeLineNull( "cannon_ball2", "Cannon_ball_Time" );

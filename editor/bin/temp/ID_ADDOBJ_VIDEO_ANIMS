@@ -1,0 +1,26 @@
+--LUA
+QuestObjMgr:AddObjVideoAnim( "panor_river" );
+AnimObj = QuestOMgr.panor_river;
+AnimObj:AnimAdd( "BG\\Paris\\river_bay.panoramma.bik", -1, -1, -1 );
+AnimObj:Go( -1 );
+
+QuestObjMgr:AddObjVideoAnim( "panor_river_tupik" );
+AnimObj = QuestObjMgr:GetObjVideoAnim( "panor_river_tupik" );
+AnimObj:AnimAdd( "BG\\Paris\\river_bay.tupik.water.bik", -1, -1, -1 );
+AnimObj:Go( -1 );
+
+QuestObjMgr:AddObjVideoAnim( "panor_river_street" );
+AnimObj = QuestObjMgr:GetObjVideoAnim( "panor_river_street" );
+AnimObj:AnimAdd( "BG\\Paris\\river_bay.street.river.bik", -1, -1, -1 );
+AnimObj:Go( -1 );
+
+QuestObjMgr:AddObjVideoAnim( "panor_river_stair" );
+AnimObj = QuestObjMgr:GetObjVideoAnim( "panor_river_stair" );
+AnimObj:AnimAdd( "BG\\Paris\\river_bay.stair.water.bik", -1, -1, -1 );
+AnimObj:Go( -1 );
+
+
+QuestObjMgr:AddObjVideoAnim( "panor_river_stella" );
+AnimObj = QuestObjMgr:GetObjVideoAnim( "panor_river_stella" );
+AnimObj:AnimAdd( "BG\\Paris\\river_bay.stella.water.bik", -1, -1, -1 );
+AnimObj:Go( -1 );

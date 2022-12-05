@@ -1,0 +1,60 @@
+/******************************************/
+/*  ресурс может быть привязан к объекту  */
+/*  {с заданным типом}                    */
+/******************************************/
+
+	scene->scene
+{Scene}
+
+	camera->scene
+{Camera}
+
+	light->scene ??
+	light->camera
+{Light}
+
+	mesh->scene
+{LayerGeom}
+{ShadowVolume}
+{ShadowCaster}
+{ShadowReceiver}
+{LayerGeom}
+{Action}
+{Floor}
+{CameraSelect}
+{OcclusionGeom}
+{SndOcclusionGeom}
+{DynamicFloor}
+
+	mesh->camera
+{ShadowVolume}
+{ShadowCaster}
+{ShadowReceiver}
+{Action}
+{Floor}
+{CameraSelect}
+{OcclusionGeom}
+{SndOcclusionGeom}
+{DynamicFloor}
+
+	mesh->man
+	mesh->bird
+	mesh->car
+{DynamicFloor}
+
+	mesh->background
+{LayerGeom}
+
+	texture->camera
+{Background}
+
+	custom_obj->camera
+{Man}
+{Car}
+{Bird}
+{Free}
+{Video3D}
+{ParticlesMgr}
+
+
+

@@ -1,0 +1,2612 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+ <head>
+  <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="GENERATOR" content="Quadralay WebWorks Publisher Professional Edition 7.0.2.1206" />
+  <meta name="TEMPLATEBASE" content="Template" />
+  <meta name="LASTUPDATED" content="04/25/03 14:09:13" />
+  <title>Case Studies</title>
+  <link rel="StyleSheet" href="document.css" type="text/css" />
+  <link rel="StyleSheet" href="catalog.css" type="text/css" />
+<script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/context.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/towwhdir.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/wwhpagef.js"></script>
+
+  <script type="text/javascript" language="JavaScript1.2">
+   <!--
+    // Set reference to top level help frame
+    //
+    var  WWHFrame = WWHGetWWHFrame("");
+   // -->
+  </script>
+ </head>
+
+ <body onLoad="WWHUpdate();">
+
+ <blockquote>
+<a name="wp581443"> </a><h2 class="pTitle">
+Case Studies
+</h2>
+<hr />
+<a name="wp581444"> </a><p class="pBody">
+In this chapter, the following case studies are presented to demonstrate how the SOFTIMAGE|XSI FTK can be used. The topics covered include:
+</p>
+<div class="pSmartList1"><ul class="pSmartList1">
+<a name="wp581410"> </a><div class="pSmartList1"><li>Writing a standalone executable to print dotXSI file information&#8212;see <a  href="FTK_case_studies.html#wp581424"><em class="cEmphasis">XSIDump: Creating a Standalone Executable to Print XSI Information</em></a>.</li></div>
+<a name="wp588368"> </a><div class="pSmartList1"><li>Working with ActiveX-compliant scripting language libraries to interact with  dotXSI files&#8212;see <a  href="FTK_case_studies.html#wp588364"><em class="cEmphasis">ActiveX Compliance: Manipulating dotXSI Files with VBScript and JScript</em></a>.</li></div>
+</ul></div>
+<a name="wp581424"> </a><h2 class="pHeading1">
+XSIDump: Creating a Standalone Executable to Print XSI Information
+</h2>
+<a name="wp582719"> </a><p class="pBody">
+<span style="font-style: italic">XSIDump</span> is an executable that can be used to print information from a dotXSI file to a shell window. This case study shows how to create it as a C++ compiled executable. You can use this example to learn how to use the FTK to extract scene information directly from the dotXSI file.
+</p>
+<a name="wp619337"> </a><p class="pBody">
+A Linux version of this example is available when you install the FTK for Linux, although it is not specifically discussed here. 
+</p>
+<a name="wp501321"> </a><h3 class="pHeading2">
+How XSIDump Works
+</h3>
+<a name="wp586067"> </a><p class="pBody">
+The <span style="font-style: italic">XSIDump</span> executable reads any dotXSI file and displays the following type of information:
+</p>
+<div class="pSmartList1"><ul class="pSmartList1">
+<a name="wp586068"> </a><div class="pSmartList1"><li>parameter information (parameter information for each template)</li></div>
+<a name="wp586069"> </a><div class="pSmartList1"><li>short information (the template type, name, its parameters and its child templates)</li></div>
+<a name="wp582769"> </a><div class="pSmartList1"><li>file information (the path of the file, the version of the file format and whether the file is in ASCII or BINARY mode)</li></div>
+</ul></div>
+<a name="wp582778"> </a><h4 class="pHeading3">
+Examples
+</h4>
+<a name="wp582782"> </a><p class="pBody">
+The following examples use <b class="cBold">MonkeyFur.xsi</b> as the file name of the dotXSI file. If you decide to test <b class="cBold">XSIDump.exe</b> out yourself, you must first create your own dotXSI file to use as input in place of <b class="cBold">MonkeyFur.xsi</b>. For more information on how to export a dotXSI file from SOFTIMAGE|XSI, see the <em class="cEmphasis">Fundamentals </em>guide.
+</p>
+<a name="wp584459"> </a><h5 class="pHeading4">
+To print the entire contents of the dotXSI file
+</h5>
+<a name="wp582795"> </a><p class="pIndented2">
+At the command prompt, type:
+</p>
+<div class="pPreformattedRelative"><pre class="pPreformattedRelative">
+		XSIDump MonkeyFur.xsi<a name="wp582950"> </a>
+<a name="wp582951"> </a><p class="pIndented2">
+The data printed looks similar to the following:
+</p>
+======================================================
+d:\media\xsi\test.xsi header information
+File version : 3.0
+Format       : TEXT
+======================================================
+dumping templates and parameters
+======================================================
+------------------------------------------------------
+Template name   : SI_FileInfo
+Instance name   :
+
+(PCHAR) projectName   :
+(PCHAR) userName      : username
+(PCHAR) savedDateTime : Thu Feb 01 17:40:22 2001
+(PCHAR) originator    : SOFTIMAGE|XSI Version 1.5.2000.1213
+
+------------------------------------------------------
+Template name   : SI_Scene
+Instance name   : Scene
+
+(PCHAR) timing  : FRAMES
+(INT) start     : 1
+(INT) end       : 100
+(FLOAT) frameRate       : 29.970030
+
+------------------------------------------------------
+Template name   : SI_CoordinateSystem
+Instance name   :
+
+(INT) handRotation      : 1
+(INT) uAxis     : 0
+(INT) vAxis     : 1
+(INT) xAxis     : 0
+(INT) yAxis     : 2
+(INT) zAxis     : 5
+
+------------------------------------------------------
+Template name   : SI_Angle
+Instance name   :
+
+(INT) type      : 0
+
+------------------------------------------------------
+Template name   : SI_Ambience
+Instance name   :
+
+(FLOAT) red     : 0.200000
+(FLOAT) green   : 0.200000
+(FLOAT) blue    : 0.200000
+...<a name="wp587595"> </a>
+<a name="wp582966"> </a><p class="pIndented2">
+After the information finishes spooling to the DOS shell window, it looks like this:
+</p>
+<a name="wp587689"> </a><p class="pBodyRelative">
+<br />
+<img src="images/xsidump_intro1.jpg" align="" height="227" width="408" border="0" hspace="0" vspace="0"/><br />
+
+</p>
+</pre></div>
+<a name="wp582967"> </a><h5 class="pHeading4">
+To print the short information from the dotXSI file
+</h5>
+<a name="wp582811"> </a><p class="pIndented2">
+At the command prompt, type:
+</p>
+<div class="pPreformattedRelative"><pre class="pPreformattedRelative">
+	XSIDump MonkeyFur.xsi -s<a name="wp582812"> </a>
+<a name="wp582983"> </a><p class="pIndented2">
+After the information finishes spooling to the DOS shell window, it looks like this:
+</p>
+<a name="wp587897"> </a><p class="pBodyRelative">
+<br />
+<img src="images/xsidump_intro2.jpg" align="" height="229" width="408" border="0" hspace="0" vspace="0"/><br />
+
+</p>
+</pre></div>
+<a name="wp582781"> </a><h5 class="pHeading4">
+To print the entire contents of the dotXSI file
+</h5>
+<a name="wp582779"> </a><p class="pIndented2">
+At the command prompt, type:
+</p>
+<div class="pPreformattedRelative"><pre class="pPreformattedRelative">
+	XSIDump MonkeyFur.xsi<a name="wp582780"> </a>
+<a name="wp582958"> </a><p class="pIndented2">
+After the information finishes spooling to the DOS shell window, it looks like this:
+</p>
+<a name="wp587944"> </a><p class="pBodyRelative">
+<br />
+<img src="images/xsidump_intro3.jpg" align="" height="231" width="408" border="0" hspace="0" vspace="0"/><br />
+
+</p>
+</pre></div>
+<a name="wp582753"> </a><h3 class="pHeading2">
+Getting Started
+</h3>
+<a name="wp583329"> </a><p class="pBody">
+Before you can start coding the <em class="cEmphasis">XSIDump</em> executable, you need to create a new project (for more information, see <a  href="FTK_case_studies.html#wp583343"><em class="cEmphasis">To make a new project</em></a>) and set up your development environment (for more information, see <a  href="FTK_case_studies.html#wp581488"><em class="cEmphasis">To set up your development environment</em></a>). 
+</p>
+<a name="wp583604"> </a><p class="pBodyRelative">
+</p><div align="left">
+<table border="0" cellpadding="0" cellspacing="0">
+  <caption></caption>
+  <tr align="left" valign="top">    <td><a name="wp583335"> </a><p class="pTip_graphic">
+<img src="icons/tip.gif" border="0" width="50" height="50" Alt="Tip" />
+&#160;
+</p>
+</td>
+    <td><a name="wp583337"> </a><p class="pBody">
+Setting up your development environment includes these tasks:
+</p>
+<div class="pSmartList1"><ul class="pSmartList1">
+<a name="wp583338"> </a><div class="pSmartList1"><li>Using Multithreaded DLLs.</li></div>
+<a name="wp583339"> </a><div class="pSmartList1"><li>Setting your Preprocessor definitions.</li></div>
+<a name="wp583340"> </a><div class="pSmartList1"><li>Setting additional directories for your include files.</li></div>
+<a name="wp583341"> </a><div class="pSmartList1"><li>Adding %XSIFTK_ROOT%\export\lib\XSIFTK.lib to your list of object/library modules.</li></div>
+</ul></div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pBodyRelative">
+</p>
+<a name="wp583343"> </a><h5 class="pHeading4">
+To make a new project
+</h5>
+<div class="pSmartList1"><ol type="1" class="pSmartList1">
+<a name="wp581489"> </a><div class="pSmartList1"><li>Launch <b class="cBold">Microsoft Visual C++</b>.</li></div>
+<a name="wp581490"> </a><div class="pSmartList1"><li>Select <b class="cBold">File &gt; New</b> and click on the <b class="cBold">Projects</b> tab.</li></div>
+<a name="wp587970"> </a><p class="pBodyRelative">
+<br />
+<img src="images/xsidump_settings1.jpg" align="" height="276" width="408" border="0" hspace="0" vspace="0"/><br />
+
+</p>
+<a name="wp581503"> </a><div class="pSmartList1"><li>Select <b class="cBold">Win32 Console Application</b> from the list of project types, type <code class="cCode">XSITest</code> in the <b class="cBold">Project name </b>text box, and click <b class="cBold">OK</b>.</li></div>
+<a name="wp581511"> </a><p class="pBodyRelative">
+The Win32 Console Application window appears.
+</p>
+<a name="wp587973"> </a><p class="pBodyRelative">
+<br />
+<img src="images/xsidump_settings2.jpg" align="" height="263" width="408" border="0" hspace="0" vspace="0"/><br />
+
+</p>
+<a name="wp581526"> </a><div class="pSmartList1"><li>Select the <b class="cBold">An empty project</b> option and click <b class="cBold">Finish</b>.</li></div>
+<a name="wp581532"> </a><p class="pBodyRelative">
+The New Project Information window appears.
+</p>
+<a name="wp587986"> </a><p class="pBodyRelative">
+<br />
+<img src="images/xsidump_settings3.jpg" align="" height="265" width="408" border="0" hspace="0" vspace="0"/><br />
+
+</p>
+<a name="wp581535"> </a><div class="pSmartList1"><li>Click <b class="cBold">OK</b>.</li></div>
+<a name="wp581539"> </a><p class="pBodyRelative">
+The new project workspace appears in the console window. You are now ready to set up the new project.
+</p>
+</ol></div>
+<a name="wp581488"> </a><h5 class="pHeading4">
+To set up your development environment
+</h5>
+<div class="pSmartList1"><ol type="1" class="pSmartList1">
+<a name="wp581552"> </a><div class="pSmartList1"><li>From the <b class="cBold">Project </b>menu in Visual C++, choose <b class="cBold">Settings</b>. </li></div>
+<a name="wp581575"> </a><p class="pBodyRelative">
+The Project Settings window appears.
+</p>
+<a name="wp584015"> </a><div class="pSmartList1"><li>Choose <b class="cBold">All Configurations</b> from the <b class="cBold">Settings for </b>drop-down box.</li></div>
+<a name="wp587989"> </a><p class="pBodyRelative">
+<br />
+<img src="images/xsidump_settings4a4.jpg" align="" height="297" width="408" border="0" hspace="0" vspace="0"/><br />
+
+</p>
+<a name="wp581577"> </a><div class="pSmartList1"><li>Click the <b class="cBold">C/C++ tab</b> and choose <b class="cBold">Code Generation </b>from the <b class="cBold">Category</b> drop-down box.</li></div>
+<a name="wp588001"> </a><p class="pBodyRelative">
+<br />
+<img src="images/xsidump_settings5a5.jpg" align="" height="243" width="408" border="0" hspace="0" vspace="0"/><br />
+
+</p>
+<a name="wp581705"> </a><div class="pSmartList1"><li>Choose <b class="cBold">Multithreaded DLL </b>from the <b class="cBold">Use run-time library </b>drop-down box. </li></div>
+<a name="wp581713"> </a><div class="pSmartList1"><li>Choose <b class="cBold">Preprocessor </b>from the <b class="cBold">Category</b> drop-down box.</li></div>
+<a name="wp588014"> </a><p class="pBodyRelative">
+<br />
+<img src="images/xsidump_settings6a7.jpg" align="" height="238" width="408" border="0" hspace="0" vspace="0"/><br />
+
+</p>
+<a name="wp581658"> </a><div class="pSmartList1"><li>Type <code class="cCode">__XSI_APPLICATION_, XSI_STATIC_LINK</code> in the <b class="cBold">Preprocessor</b> definitions text box.</li></div>
+<a name="wp581694"> </a><div class="pSmartList1"><li>Type <code class="cCode">%XSIFTK_ROOT%\export\h\Ftk </code>in the <b class="cBold">Additional include directories </b>text box.</li></div>
+<a name="wp583239"> </a><div class="pSmartList1"><li>Click the <b class="cBold">Link </b>tab and choose <b class="cBold">General </b>from the <b class="cBold">Category</b> drop-down box.</li></div>
+<a name="wp588037"> </a><p class="pBodyRelative">
+<br />
+<img src="images/xsidump_settings7a6.jpg" align="" height="244" width="408" border="0" hspace="0" vspace="0"/><br />
+
+</p>
+<a name="wp584093"> </a><div class="pSmartList1"><li>Type <code class="cCode">..\..\export\bin\XSIDump.exe </code>in the <b class="cBold">Output file name </b>text box, and click <b class="cBold">OK</b>. </li></div>
+<a name="wp583259"> </a><div class="pSmartList1"><li>Add <code class="cCode">%XSIFTK_ROOT%\export\lib\XSIFTK.lib</code> to the <b class="cBold">Object/library modules </b>text box.</li></div>
+<a name="wp583260"> </a><p class="pBodyRelative">
+The Project Settings window closes and you can now create a new C++ file.
+</p>
+</ol></div>
+<a name="wp583247"> </a><h3 class="pHeading2">
+Coding the Executable
+</h3>
+<a name="wp583180"> </a><p class="pBody">
+Once you have set up your environment, you can begin to code the executable.
+</p>
+<a name="wp584180"> </a><p class="pBody">
+This section illustrates the following:
+</p>
+<div class="pSmartList1"><ul class="pSmartList1">
+<a name="wp584233"> </a><div class="pSmartList1"><li>How to code the framework for <b class="cBold">XSIDump.exe</b>&#8212;see <a  href="FTK_case_studies.html#wp583366"><em class="cEmphasis">Laying the Foundation</em></a>.</li></div>
+<a name="wp584250"> </a><div class="pSmartList1"><li>How to add the real functionality to <b class="cBold">XSIDump.exe</b>&#8212;see <a  href="FTK_case_studies.html#wp584578"><em class="cEmphasis">Adding Code that Prints Out Information</em></a>.</li></div>
+<a name="wp583621"> </a><p class="pBodyRelative">
+<div align="left">
+<table border="0" cellpadding="0" cellspacing="0">
+  <caption></caption>
+  <tr align="left" valign="top">    <td><a name="wp583379"> </a><p class="pWarning_graphic">
+<img src="icons/warning.gif" border="0" width="50" height="50" Alt="Warning" />
+&#160;
+</p>
+</td>
+    <td><a name="wp583381"> </a><p class="pBody">
+If you have not changed any of your project settings, follow the instructions in <a  href="FTK_case_studies.html#wp582753"><em class="cEmphasis">Getting Started</em></a> before proceeding.
+</p>
+</td>
+</tr>
+</table>
+</div>
+
+</p>
+</ul></div>
+<a name="wp583366"> </a><h4 class="pHeading3">
+Laying the Foundation
+</h4>
+<a name="wp584277"> </a><p class="pBody">
+This section describes how to write the pieces of the code that can open the dotXSI file, read it, and close it. Specifically, these sections illustrate the following:
+</p>
+<div class="pSmartList1"><ul class="pSmartList1">
+<a name="wp584416"> </a><div class="pSmartList1"><li><a  href="FTK_case_studies.html#wp584411"><em class="cEmphasis">To create the skeleton of XSIDump.exe</em></a>.</li></div>
+<a name="wp584421"> </a><div class="pSmartList1"><li><a  href="FTK_case_studies.html#wp582314"><em class="cEmphasis">To write code for opening, reading, and closing the dotXSI file</em></a>.</li></div>
+</ul></div>
+<a name="wp584411"> </a><h5 class="pHeading4">
+To create the skeleton of XSIDump.exe
+</h5>
+<div class="pSmartList1"><ol type="1" class="pSmartList1">
+<a name="wp583399"> </a><div class="pSmartList1"><li>Select <b class="cBold">File &gt; New</b> and click on the <b class="cBold">Files</b> tab.</li></div>
+<a name="wp588050"> </a><p class="pBodyRelative">
+<br />
+<img src="images/xsidump_settings8.jpg" align="" height="274" width="408" border="0" hspace="0" vspace="0"/><br />
+
+</p>
+<a name="wp583181"> </a><div class="pSmartList1"><li>Select <b class="cBold">C++ Source File </b>from the list of file types, type <code class="cCode">main.cpp</code> in the <b class="cBold">File name </b>text box, and click <b class="cBold">OK</b>. </li></div>
+<a name="wp583182"> </a><p class="pBodyRelative">
+An empty file appears in the console window. You are now ready to begin&#160;coding.
+</p>
+<a name="wp582228"> </a><div class="pSmartList1"><li>Write the calls to include these header files:</li></div>
+<div class="pPreformattedRelative"><pre class="pPreformattedRelative">
+	#include &lt;stdio.h&gt;
+	#include &quot;XSIParser.h&quot;<a name="wp582229"> </a>
+</pre></div>
+<a name="wp581859"> </a><div class="pSmartList1"><li>Write the main subroutine with two arguments:</li></div>
+<div class="pPreformattedRelative"><pre class="pPreformattedRelative">
+	void main(int argc, char *argv[])
+	{<a name="wp582259"> </a>
+</pre></div>
+<a name="wp584292"> </a><div class="pSmartList1"><li>Add the following declaration for error handing:</li></div>
+<div class="pPreformattedRelative"><pre class="pPreformattedRelative">
+		SI_Error result = SI_SUCCESS;<a name="wp584319"> </a>
+</pre></div>
+<a name="wp584320"> </a><div class="pSmartList1"><li>Create an instantiation of the <b class="cBold">CXSIParser</b> class called <b class="cBold">parser</b> and perform some validation:</li></div>
+<div class="pPreformattedRelative"><pre class="pPreformattedRelative">
+		CXSIParser parser;
+		// do some validation here<a name="wp584281"> </a>
+</pre></div>
+</ol></div>
+<a name="wp582314"> </a><h5 class="pHeading4">
+To write code for opening, reading, and closing the dotXSI file
+</h5>
+<div class="pSmartList1"><ol type="1" class="pSmartList1">
+<a name="wp584422"> </a><div class="pSmartList1"><li>Set the open mode for the parser using the <b class="cBold">CXSIParser::SetOpenMode</b> method with the <b class="cBold">OPEN_READ </b>mode for this task:</li></div>
+<div class="pPreformattedRelative"><pre class="pPreformattedRelative">
+		parser.SetOpenMode(OPEN_READ);<a name="wp582338"> </a>
+</pre></div>
+<a name="wp582527"> </a><div class="pSmartList1"><li>Open the file using the <b class="cBold">CXSIParser::Open</b> method and pass the name of the file to read:</li></div>
+<div class="pPreformattedRelative"><pre class="pPreformattedRelative">
+	_SI_CALL(parser.Open(CSIBCString(_SI_TEXT(argv[1]))), &quot;CXSIParser::Open&quot;);<a name="wp582528"> </a>
+</pre></div>
+<a name="wp584423"> </a><div class="pSmartList1"><li>Use the <b class="cBold">CXSIParser::Read()</b> method to read the entire file into memory and then use the <b class="cBold">CXSIParser::Close </b>method:</li></div>
+<a name="wp583634"> </a><p class="pBodyRelative">
+<div align="left">
+<table border="0" cellpadding="0" cellspacing="0">
+  <caption></caption>
+  <tr align="left" valign="top">    <td><a name="wp582637"> </a><p class="pNote_graphic">
+<img src="icons/note.gif" border="0" width="50" height="50" Alt="Note" />
+&#160;
+</p>
+</td>
+    <td><a name="wp582639"> </a><p class="pBody">
+If <b class="cBold">CXSIParser::Open</b> returns anything else than <b class="cBold">SI_SUCCESS</b>, it means that the file could not be opened and that no further reading on that file should occur.
+</p>
+</td>
+</tr>
+</table>
+</div>
+
+</p>
+<div class="pPreformattedRelative"><pre class="pPreformattedRelative">
+	if(result == SI_SUCCESS)
+	{<a name="wp582578"> </a>
+		_SI_CALL(parser.Read(), &quot;CXSIParser::Read&quot;);
+		if(result == SI_SUCCESS)
+		{<a name="wp582579"> </a>
+			_SI_CALL(parser.Close(), &quot;CXSIParser::Close&quot;);<a name="wp582589"> </a>
+		}
+		else
+		{
+			fprintf(stderr, &quot;Error reading the file\n&quot;);
+			// let&#39;s attempt to close the file
+			parser.Close();
+		}<a name="wp582590"> </a>
+	}
+	else
+	{
+		fprintf(stderr, &quot;%s could not be open for reading \n&quot;, argv[1]);
+	}
+}<a name="wp583422"> </a>
+</pre></div>
+</ol></div>
+<a name="wp584578"> </a><h4 class="pHeading3">
+Adding Code that Prints Out Information
+</h4>
+<a name="wp585717"> </a><p class="pBody">
+Now that you have a working program that opens, reads, and closes a dotXSI file, you can add some functionality to print out the following:
+</p>
+<div class="pSmartList1"><ul class="pSmartList1">
+<a name="wp585718"> </a><div class="pSmartList1"><li><b class="cBold">File information:</b> the path of the file, the version of the file format and whether the file is in ASCII or BINARY mode.</li></div>
+<a name="wp586043"> </a><div class="pSmartList1"><li><b class="cBold">Template information:</b> the template type, name, its parameters and its child templates.</li></div>
+<a name="wp586044"> </a><div class="pSmartList1"><li><b class="cBold">Parameter information:</b> the parameter information for each template.</li></div>
+</ul></div>
+<a name="wp586045"> </a><p class="pBody">
+The functionality for this information is explained in the next three sections:
+</p>
+<div class="pSmartList1"><ul class="pSmartList1">
+<a name="wp585822"> </a><div class="pSmartList1"><li><a  href="FTK_case_studies.html#wp584580"><em class="cEmphasis">To write code for printing out file information</em></a>:</li></div>
+<a name="wp585752"> </a><p class="pIndented2">
+This procedure adds the functionality to print the information of the file itself, including the path of the file, the version of the file format and whether the file is in ASCII or BINARY mode .
+</p>
+<a name="wp585808"> </a><div class="pSmartList1"><li><a  href="FTK_case_studies.html#wp585108"><em class="cEmphasis">To write code for printing out template information</em></a>:</li></div>
+<a name="wp585978"> </a><p class="pIndented2">
+This procedure adds the output of each individual template recursively, including the type of the template (<em class="cEmphasis">Template name</em>), and the name of the instance of this template (<em class="cEmphasis">Instance name</em>). This procedure also includes a macro (<em class="cEmphasis">INDENT</em>) that indents the output when it finds templates embedded inside other templates (<em class="cEmphasis">SI_MaterialLibrary</em>). 
+</p>
+<a name="wp587005"> </a><div class="pSmartList1"><li><a  href="FTK_case_studies.html#wp586087"><em class="cEmphasis">To write code for printing out parameter information</em></a>:</li></div>
+<a name="wp587006"> </a><p class="pIndented2">
+This procedure adds all parameter information to the output. It illustrates which fields to use depending on the variant type of the data you are trying to access.
+</p>
+</ul></div>
+<a name="wp584580"> </a><h5 class="pHeading4">
+To write code for printing out file information
+</h5>
+<div class="pSmartList1"><ol type="1" class="pSmartList1">
+<a name="wp584642"> </a><div class="pSmartList1"><li>Add the following function prototype at the beginning of the code:</li></div>
+<div class="pPreformattedRelative"><pre class="pPreformattedRelative">
+<code class="cCode">SI_Error	dumpXSIFileInformation(CXSIParser &amp;in_Parser);</code><a name="wp584673"> </a>
+</pre></div>
+<a name="wp584692"> </a><div class="pSmartList1"><li>Write its implementation after the main function:</li></div>
+<div class="pPreformattedRelative"><pre class="pPreformattedRelative">
+SI_Error dumpXSIFileInformation(CXSIParser &amp;in_Parser)
+{
+	SI_Error	result = SI_SUCCESS;
+
+	// first we dump the file information (header)
+	fprintf(stderr,&quot;========================================================\n&quot;);
+	fprintf(stderr, &quot;%s header information \n&quot;, in_Parser.FileName().GetText());
+	fprintf(stderr, &quot;File version : %d.%d\n&quot;,
+				in_Parser.GetdotXSIFileVersionMajor(),
+				in_Parser.GetdotXSIFileVersionMinor());
+
+	if(in_Parser.GetdotXSIFormat() == FORMAT_TEXT)
+	{
+			fprintf(stderr, &quot;Format       : TEXT\n&quot;);
+	}
+	else if(in_Parser.GetdotXSIFormat() == FORMAT_BINARY)
+	{
+		fprintf(stderr, &quot;Format       : BINARY\n&quot;);
+	}
+
+	return result;
+}<a name="wp584744"> </a>
+</pre></div>
+<a name="wp584693"> </a><div class="pSmartList1"><li>Finally, write a call to it in the main function right after the file is closed:</li></div>
+<div class="pPreformattedRelative"><pre class="pPreformattedRelative">
+	_SI_CALL(parser.Read(), &quot;CXSIParser::Read&quot;);
+	if(result == SI_SUCCESS)
+	{
+		_SI_CALL(parser.Close(), &quot;CXSIParser::Close&quot;);
+		// let&#39;s dump the .XSI file information
+		_SI_CALL(dumpXSIFileInformation(parser),
+			&quot;dumpXSIFileInformation&quot;);
+	}
+	else
+	{
+		fprintf(stderr, &quot;Error reading the file\n&quot;);
+		// let&#39;s attempt to close the file<a name="wp585093"> </a>
+<a name="wp588087"> </a><p class="pBodyRelative">
+<div align="left">
+<table border="0" cellpadding="0" cellspacing="0">
+  <caption></caption>
+  <tr align="left" valign="top">    <td><a name="wp585096"> </a><p class="pNote_graphic">
+<img src="icons/note.gif" border="0" width="50" height="50" Alt="Note" />
+&#160;
+</p>
+</td>
+    <td><a name="wp585098"> </a><p class="pBody">
+If you choose to compile at this point, you see output similar to the&#160;following:
+</p>
+<div class="pPreformattedRelative"><pre class="pPreformattedRelative">
+===============================================
+d:\media\xsi\test.xsi header information
+File version : 3.0
+Format       : TEXT
+===============================================<a name="wp585099"> </a>
+</pre></div>
+</td>
+</tr>
+</table>
+</div>
+
+</p>
+<a name="wp588078"> </a><p class="pBodyRelative">
+<div align="left">
+<table border="0" cellpadding="0" cellspacing="0">
+  <caption></caption>
+  <tr align="left" valign="top">    <td><a name="wp585102"> </a><p class="pTip_graphic">
+<img src="icons/tip.gif" border="0" width="50" height="50" Alt="Tip" />
+&#160;
+</p>
+</td>
+    <td><a name="wp585104"> </a><p class="pBody">
+We are using a macro called <b class="cBold">_SI_CALL</b>, which checks if <b class="cBold">result</b> is equal to <b class="cBold">SI_SUCCESS</b> and sets its value to the result of the function passed in its parameters. This helps to shorten the amount of code you need to use. The equivalent set of calls is:
+</p>
+<a name="wp585105"> </a><p class="pBody">
+if (result == SI_SUCCESS) <br />{<br />	result = function&#8230;;<br />}<br />else<br />{<br />	fprintf(stderr,&quot;error message\n&quot;);<br />}
+</p>
+</td>
+</tr>
+</table>
+</div>
+
+</p>
+</pre></div>
+</ol></div>
+<a name="wp585108"> </a><h5 class="pHeading4">
+To write code for printing out template information
+</h5>
+<div class="pSmartList1"><ol type="1" class="pSmartList1">
+<a name="wp586240"> </a><div class="pSmartList1"><li>Add the following macro:</li></div>
+<div class="pPreformattedRelative"><pre class="pPreformattedRelative">
+#define INDENT {for(int loop2=0; loop2 &lt; spaces; loop2 ++, fprintf(stderr,&quot;&quot;));}<a name="wp586241"> </a>
+</pre></div>
+<a name="wp586242"> </a><div class="pSmartList1"><li>Add the following function prototype:</li></div>
+<div class="pPreformattedRelative"><pre class="pPreformattedRelative">
+SI_Error dumpXSITemplatesInformation(CXSIParser &amp;in_Parser, 
+												 CdotXSITemplates *in_Templates, 
+													 int spaces);<a name="wp585253"> </a>
+</pre></div>
+<a name="wp585200"> </a><div class="pSmartList1"><li>Write its implementation after the main function:</li></div>
+<div class="pPreformattedRelative"><pre class="pPreformattedRelative">
+SI_Error dumpXSITemplatesInformation(CXSIParser &amp;in_Parser, 
+															 CdotXSITemplates *in_Templates, 
+														 int spaces)
+{
+	SI_Error		result = SI_SUCCESS;
+	SI_Int			loop;
+	CdotXSITemplate	*pTemplate;
+	CSIBCString		tmpString;
+
+	for(loop = 0; loop &lt; in_Templates-&gt;GetCount(); loop++)
+	{
+		in_Templates-&gt;Item(loop, &amp;pTemplate);
+
+		if(pTemplate != NULL)
+		{
+			INDENT;			
+			fprintf(stderr, &quot;-------------------------------------------------\n&quot;);
+			INDENT;
+			fprintf(stderr, &quot;Template name   : %s \n&quot;, 
+									pTemplate-&gt;Name().GetText());	INDENT;
+			fprintf(stderr, &quot;Instance name   : %s \n\n&quot;, 
+									pTemplate-&gt;InstanceName().GetText());
+
+			fprintf(stderr, &quot;\n&quot;);
+		}
+		else
+		{
+			fprintf(stderr, &quot;Problematic template \n&quot;);
+		}
+
+		_SI_CALL(dumpXSITemplatesInformation(in_Parser, 
+														 		 	 	 	 	 	 	&amp;pTemplate-&gt;Children(), 
+													 	 	 	 	 	 	 spaces + 1), 
+	 	 	 	 	&quot;dumpXSITemplatesInformation&quot;);
+
+	}
+
+	return result;
+}<a name="wp588088"> </a>
+<a name="wp586026"> </a><p class="pBodyRelative">
+All the root templates are accessed with the <b class="cBold">CXSIParser::dotXSITemplate() </b>method. This returns a CdotXSITemplates instance which is a collection of XSI templates. To get the number of templates inside this collection, use the <b class="cBold">CdotXSITemplates::GetCount()</b> function. To access each item inside this collection, use the <b class="cBold">CdotXSITemplates::Item</b> method and pass it the index to the required item as well as a pointer to a pointer of a <b class="cBold">CdotXSITemplate</b>. 
+</p>
+<a name="wp586027"> </a><p class="pBodyRelative">
+Each <b class="cBold">CdotXSITemplate</b> provides two methods to retrieve its type and instance name:
+</p>
+<div class="pSmartList2"><ul class="pSmartList2">
+<a name="wp586028"> </a><div class="pSmartList2"><li><b class="cBold">CdotXSITemplate::Name()</b> returns the type of template</li></div>
+<a name="wp586029"> </a><div class="pSmartList2"><li><b class="cBold">CdotXSITemplate::InstanceName()</b> returns the instance name of this template</li></div>
+<a name="wp586030"> </a><p class="pBodyRelative">
+These functions return a <b class="cBold">CSIBCString</b> instance. You can easily retrieve a character pointer by using the <b class="cBold">CSIBCString::GetText() </b>function.
+</p>
+<a name="wp586031"> </a><p class="pBodyRelative">
+Additionally, you can use the <b class="cBold">CdotXSITemplate::Children()</b> to get a handle on the CdotXSITemplates collection that contains all the children templates of the current template. This is what is used in the code to recursively print out the template information.
+</p>
+</ul></div>
+</pre></div>
+<a name="wp585195"> </a><div class="pSmartList1"><li>Finally, write a call to dumpXSITemplatesInformation in the main function:</li></div>
+<div class="pPreformattedRelative"><pre class="pPreformattedRelative">
+	if(result == SI_SUCCESS)
+	{
+		_SI_CALL(parser.Close(), &quot;CXSIParser::Close&quot;);
+		// let&#39;s dump the .XSI file information
+		_SI_CALL(dumpXSIFileInformation(parser), &quot;dumpXSIFileInformation&quot;);
+		_SI_CALL(dumpXSITemplatesInformation(parser, parser.dotXSITemplate(), 0), 
+					&quot;dumpXSITemplatesInformation&quot;);
+	}
+	else
+	{
+		fprintf(stderr, &quot;Error reading the file\n&quot;);
+		// let&#39;s attempt to close the file
+	parser.Close();<a name="wp585462"> </a>
+</pre></div>
+</ol></div>
+<a name="wp586087"> </a><h5 class="pHeading4">
+To write code for printing out parameter information
+</h5>
+<div class="pSmartList1"><ol type="1" class="pSmartList1">
+<a name="wp586252"> </a><div class="pSmartList1"><li>Add the following code at the end of the if-clause in the <b class="cBold">dumpXSITemplatesInformation</b> function:</li></div>
+<div class="pPreformattedRelative"><pre class="pPreformattedRelative">
+// now we dump the parameters information
+
+for(paramLoop = 0; paramLoop &lt; pTemplate-&gt;Params().GetCount(); paramLoop ++)
+{
+	pTemplate-&gt;Params().Item(paramLoop, &amp;pParam);
+	INDENT;
+	fprintf(stderr, &quot;(&quot;);
+	pParam-&gt;GetValue(&amp;pValue);
+
+	switch(pValue.variantType)
+	{
+		case SI_VT_BOOL	: fprintf(stderr,&quot;BOOL&quot;);
+								tmpString.SetText(pValue.boolVal); 								break;
+		case SI_VT_BYTE	: fprintf(stderr,&quot;BYTE&quot;);
+								tmpString.SetText(pValue.bVal); 								break;
+		case SI_VT_UBYTE	: fprintf(stderr,&quot;UBYTE&quot;);
+								tmpString.SetText(pValue.ubVal); 								break;
+		case SI_VT_SHORT	: fprintf(stderr,&quot;SHORT&quot;); 
+								tmpString.SetText(pValue.sVal); 								break;
+		case SI_VT_USHORT	: fprintf(stderr,&quot;USHORT&quot;);
+								tmpString.SetText(pValue.usVal); 								break;
+		case SI_VT_INT		: fprintf(stderr,&quot;INT&quot;); 
+								tmpString.SetText(pValue.nVal);								break;
+		case SI_VT_UINT	: fprintf(stderr,&quot;UINT&quot;); 
+								tmpString.SetText((SI_Int) pValue.unVal); 							break;
+		case SI_VT_FLOAT	: fprintf(stderr,&quot;FLOAT&quot;); 
+								tmpString.SetText(pValue.fVal); 								break;
+		case SI_VT_DOUBLE	: fprintf(stderr,&quot;DOUBLE&quot;); 
+									tmpString.SetText((SI_Float) pValue.dVal); 									break;
+		case SI_VT_LONG	: fprintf(stderr,&quot;LONG&quot;); 
+								tmpString.SetText(pValue.lVal); 								break;
+		case SI_VT_ULONG	: fprintf(stderr,&quot;ULONG&quot;); 
+								tmpString.SetText((SI_Int) pValue.ulVal); 								break;
+		case SI_VT_PBOOL	: fprintf(stderr,&quot;PBOOL&quot;); break;
+		case SI_VT_PBYTE	: fprintf(stderr,&quot;PBYTE&quot;); break;
+		case SI_VT_PUBYTE	: fprintf(stderr,&quot;PUBYTE&quot;); break;
+		case SI_VT_PSHORT	: fprintf(stderr,&quot;PSHORT&quot;); break;
+		case SI_VT_PUSHORT	: fprintf(stderr,&quot;PUSHORT&quot;); break;
+		case SI_VT_PINT	: fprintf(stderr,&quot;PINT&quot;); break;
+		case SI_VT_PUINT	: fprintf(stderr,&quot;PUINT&quot;); break;
+		case SI_VT_PFLOAT	: fprintf(stderr,&quot;PFLOAT&quot;); break;
+		case SI_VT_PDOUBLE	: fprintf(stderr,&quot;PDOUBLE&quot;); break;
+		case SI_VT_PLONG	: fprintf(stderr,&quot;PLONG&quot;); break;
+		case SI_VT_PULONG	: fprintf(stderr,&quot;PULONG&quot;); break;
+		case SI_VT_PCHAR	: fprintf(stderr,&quot;PCHAR&quot;);
+								tmpString.SetText(pValue.p_cVal); 								break;
+		case SI_VT_PPCHAR	: fprintf(stderr,&quot;PPCHAR&quot;); 							break;
+		case SI_VT_PVOID	: fprintf(stderr,&quot;PVOID&quot;); break;	
+	}
+	fprintf(stderr,&quot;)&quot;);
+
+	fprintf(stderr, &quot; %s	: &quot;, pParam-&gt;Name().GetText());
+
+	switch(pValue.variantType)
+	{
+		case SI_VT_BOOL	: 
+		case SI_VT_BYTE	: 
+		case SI_VT_UBYTE	: 
+		case SI_VT_SHORT	: 
+		case SI_VT_USHORT	: 
+		case SI_VT_INT		: 
+		case SI_VT_UINT	: 
+		case SI_VT_FLOAT	: 
+		case SI_VT_DOUBLE	: 
+		case SI_VT_LONG	: 
+		case SI_VT_ULONG	: 
+		case SI_VT_PCHAR	: 			fprintf(stderr, &quot;%s\n&quot;, tmpString.GetText()); break;
+		case SI_VT_PBOOL	: 
+		case SI_VT_PBYTE	: 
+		case SI_VT_PUBYTE	: 
+		case SI_VT_PSHORT	: 
+		case SI_VT_PUSHORT	: 
+		case SI_VT_PINT	: 
+		case SI_VT_PUINT	: 
+		case SI_VT_PFLOAT	: 
+		case SI_VT_PDOUBLE	: 
+		case SI_VT_PLONG	: 
+		case SI_VT_PULONG	: 
+		case SI_VT_PPCHAR	: 			fprintf(stderr, &quot;\n&quot;);
+						for(arrayLoop = 0; arrayLoop &lt; pValue.numElems; arrayLoop ++)
+						{
+							INDENT;
+							switch(pValue.variantType)
+							{
+								case SI_VT_PBOOL	:
+									tmpString.SetText(pValue.p_boolVal[arrayLoop]); 
+									break;
+								case SI_VT_PBYTE	:
+									tmpString.SetText(pValue.p_bVal[arrayLoop]); break;
+								case SI_VT_PUBYTE	:
+									tmpString.SetText(pValue.p_ubVal[arrayLoop]); break;
+								case SI_VT_PSHORT	:
+									tmpString.SetText(pValue.p_sVal[arrayLoop]); break;
+								case SI_VT_PUSHORT	:
+									tmpString.SetText(pValue.p_usVal[arrayLoop]); break;
+								case SI_VT_PINT	:
+									tmpString.SetText(pValue.p_nVal[arrayLoop]); break;
+								case SI_VT_PUINT	:
+									tmpString.SetText((SI_Int)pValue.p_unVal[arrayLoop]); 
+									break;
+								case SI_VT_PFLOAT	:
+									tmpString.SetText(pValue.p_fVal[arrayLoop]); break;
+								case SI_VT_PDOUBLE	:
+								tmpString.SetText((SI_Float)pValue.p_dVal[arrayLoop]); 
+									break;
+								case SI_VT_PLONG	:
+									tmpString.SetText(pValue.p_lVal[arrayLoop]); break;
+								case SI_VT_PULONG	:
+									tmpString.SetText((SI_Int)pValue.p_ulVal[arrayLoop]);
+									break;
+								case SI_VT_PPCHAR	:
+									tmpString.SetText(pValue.pp_cVal[arrayLoop]); break;
+							}
+
+						fprintf(stderr, &quot;%s\t&quot;, tmpString.GetText());
+						if((arrayLoop % 3) == 2)
+						{
+							fprintf(stderr, &quot;\n&quot;);
+						}
+
+						fprintf(stderr, &quot;\n&quot;);
+						break;
+					case SI_VT_PVOID	: INDENT; fprintf(stderr, &quot;VOID values \n&quot;); 
+													 	 	 	 	 		break;
+					break;
+			}
+	}<a name="wp586710"> </a>
+<a name="wp587032"> </a><p class="pIndented2">
+Each CdotXSITemplate contains a collection of parameters accessible through the <b class="cBold">CdotXSITemplate::Params() </b>method. This returns a <b class="cBold">CdotXSIParams</b> instance. Just like a <b class="cBold">CdotXSITemplates</b> instance, you can get the count and the items using the <b class="cBold">CdotXSIParams::GetCount</b> and <b class="cBold">CdotXSIParams::Item </b>method. 
+</p>
+<a name="wp587033"> </a><p class="pIndented2">
+Each <b class="cBold">CdotXSIParam</b> has a value you can access through the <b class="cBold">GetValue/SetValue</b> functions. This uses a <b class="cBold">SI_TinyVariant</b> which is a smaller, portable version of the Microsoft variant. You can use its <b class="cBold">SI_TinyVariant::VariantType </b>field to get the type of the value and the different fields depending on the type. The example illustrates which fields to use depending on the variant type.
+</p>
+</pre></div>
+<a name="wp586803"> </a><div class="pSmartList1"><li>Add the following local variables to the <b class="cBold">dumpXSITemplatesInformation</b> function (new variables appear in bold):</li></div>
+<div class="pPreformattedRelative"><pre class="pPreformattedRelative">
+	SI_Error            result = SI_SUCCESS;
+	SI_Int              loop, <b class="cBold">paramLoop</b>, <b class="cBold">arrayLoop</b>;
+	CdotXSITemplate    *pTemplate;
+	<b class="cBold">CdotXSIParam        *pParam;
+</b>	<b class="cBold">SI_TinyVariant      pValue;
+</b>	CSIBCString          tmpString;<a name="wp586817"> </a>
+</pre></div>
+</ol></div>
+<a name="wp586769"> </a><h4 class="pHeading3">
+Using XSIDump.exe
+</h4>
+<a name="wp584351"> </a><p class="pBody">
+To build main.cpp into a standalone executable, you need to compile and build it.
+</p>
+<a name="wp584381"> </a><h5 class="pHeading4">
+To compile and build main.cpp
+</h5>
+<a name="wp584366"> </a><p class="pIndented2">
+Select <b class="cBold">Build &gt; Build XSIDump.exe</b> to create the executable from <b class="cBold">main.cpp</b>. 
+</p>
+<a name="wp584352"> </a><p class="pBodyRelative">
+You can now run it from within a DOS shell using the syntax described in <a  href="FTK_case_studies.html#wp501321"><em class="cEmphasis">How XSIDump Works</em></a>. 
+</p>
+<a name="wp588094"> </a><p class="pBodyRelative">
+</p><div align="left">
+<table border="0" cellpadding="0" cellspacing="0">
+  <caption></caption>
+  <tr align="left" valign="top">    <td><a name="wp584212"> </a><p class="pTip_graphic">
+<img src="icons/tip.gif" border="0" width="50" height="50" Alt="Tip" />
+&#160;
+</p>
+</td>
+    <td><a name="wp584214"> </a><p class="pBody">
+To read the complete code in the XSIDump example files, see the contents of the <b class="cBold">%XSIFTK_ROOT%\src\XSIDump</b> directory.
+</p>
+</td>
+</tr>
+</table>
+</div>
+<p class="pBodyRelative">
+</p>
+<a name="wp588095"> </a><p class="pBody">
+
+</p>
+<a name="wp588364"> </a><h2 class="pHeading1">
+ActiveX Compliance: Manipulating dotXSI Files with VBScript and JScript
+</h2>
+<a name="wp588605"> </a><p class="pBody">
+The <span style="font-style: italic">ActiveX</span> project uses the Component Object Model (COM) to create an ActiveX-compliant library that exposes a subset of the FTK function library to any scripting language, such as VBScript or JScript. You can compile this sample code and use it to perform simple operations on your dotXSI files.
+</p>
+<a name="wp619509"> </a><p class="pBody">
+This example is for Windows only.
+</p>
+<a name="wp588606"> </a><h3 class="pHeading2">
+How It Works
+</h3>
+<a name="wp588607"> </a><p class="pBody">
+This section of the case study presents a fairly standardset of documentation on the available objects.
+</p>
+<a name="wp588616"> </a><h4 class="pHeading3">
+Objects
+</h4>
+<a name="wp595062"> </a><p class="pIndented3">
+<a  href="FTK_case_studies.html#wp588630"><em class="cEmphasis">FileHandler</em></a>
+</p>
+<a name="wp595071"> </a><p class="pIndented3">
+<a  href="FTK_case_studies.html#wp588634"><em class="cEmphasis">Templates</em></a>
+</p>
+<a name="wp595100"> </a><p class="pIndented3">
+<a  href="FTK_case_studies.html#wp588635"><em class="cEmphasis">Template</em></a>
+</p>
+<a name="wp595104"> </a><p class="pIndented3">
+<a  href="FTK_case_studies.html#wp588636"><em class="cEmphasis">Params</em></a>
+</p>
+<a name="wp595108"> </a><p class="pIndented3">
+<a  href="FTK_case_studies.html#wp588637"><em class="cEmphasis">Param</em></a>
+</p>
+<a name="wp588630"> </a><h5 class="pHeading4">
+FileHandler
+</h5>
+<a name="wp589782"> </a><p class="pBody">
+The FileHandler object gives you access to the dotXSI file. 
+</p>
+<a name="wp589783"> </a><p class="pBody">
+<b class="cBold">Methods</b>
+</p>
+<a name="wp589792"> </a><p class="pBodyRelative">
+</p><div align="left">
+<table border="0" cellpadding="5" cellspacing="1">
+  <caption></caption>
+  <tr bgcolor="Silver" align="left">    <td><a name="wp589899"> </a><div class="pCellBody">
+<a  href="FTK_case_studies.html#wp615080"><em class="cEmphasis">Close (FileHandler)</em></a>
+</div>
+</td>
+    <td><a name="wp589904"> </a><div class="pCellBody">
+<a  href="FTK_case_studies.html#wp589699"><em class="cEmphasis">Create (FileHandler)</em></a>
+</div>
+</td>
+    <td><a name="wp589909"> </a><div class="pCellBody">
+<a  href="FTK_case_studies.html#wp589034"><em class="cEmphasis">Open (FileHandler)</em></a>
+</div>
+</td>
+</tr>
+  <tr bgcolor="Silver" align="left">    <td><a name="wp589914"> </a><div class="pCellBody">
+<a  href="FTK_case_studies.html#wp589036"><em class="cEmphasis">Read (FileHandler)</em></a>
+</div>
+</td>
+    <td><a name="wp589919"> </a><div class="pCellBody">
+<a  href="FTK_case_studies.html#wp588708"><em class="cEmphasis">Write (FileHandler)</em></a>
+</div>
+</td>
+    <td><a name="wp589921"> </a><div class="pCellBody">
+&#160;
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pBodyRelative">
+</p>
+<a name="wp589784"> </a><p class="pBody">
+<b class="cBold">Properties</b>
+</p>
+<a name="wp588670"> </a><p class="pBodyRelative">
+</p><div align="left">
+<table border="0" cellpadding="5" cellspacing="1">
+  <caption></caption>
+  <tr bgcolor="Silver" align="left">    <td><a name="wp589945"> </a><div class="pCellBody">
+<a  href="FTK_case_studies.html#wp590771"><em class="cEmphasis">FileVersionMajor (FileHandler)</em></a>
+</div>
+</td>
+    <td><a name="wp589950"> </a><div class="pCellBody">
+<a  href="FTK_case_studies.html#wp589414"><em class="cEmphasis">FileVersionMinor (FileHandler)</em></a>
+</div>
+</td>
+</tr>
+  <tr bgcolor="Silver" align="left">    <td><a name="wp589955"> </a><div class="pCellBody">
+<a  href="FTK_case_studies.html#wp610736"><em class="cEmphasis">RootTemplates (FileHandler)</em></a>
+</div>
+</td>
+    <td><a name="wp589957"> </a><div class="pCellBody">
+&#160;
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pBodyRelative">
+</p>
+<a name="wp588634"> </a><h5 class="pHeading4">
+Templates
+</h5>
+<a name="wp589967"> </a><p class="pBody">
+The Templates object is the collection of every <a  href="FTK_case_studies.html#wp588635"><em class="cEmphasis">Template</em></a> in the dotXSI file.
+</p>
+<a name="wp589968"> </a><p class="pBody">
+<b class="cBold">Methods</b>
+</p>
+<a name="wp589997"> </a><p class="pBodyRelative">
+</p><div align="left">
+<table border="0" cellpadding="5" cellspacing="1">
+  <caption></caption>
+  <tr bgcolor="Silver" align="left">    <td><a name="wp590732"> </a><div class="pCellBody">
+<a  href="FTK_case_studies.html#wp590256"><em class="cEmphasis">Add (Templates)</em></a>
+</div>
+</td>
+    <td><a name="wp590737"> </a><div class="pCellBody">
+<a  href="FTK_case_studies.html#wp608535"><em class="cEmphasis">Remove (Templates)</em></a>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pBodyRelative">
+</p>
+<a name="wp589998"> </a><p class="pBody">
+<b class="cBold">Properties</b>
+</p>
+<a name="wp590017"> </a><p class="pBodyRelative">
+</p><div align="left">
+<table border="0" cellpadding="5" cellspacing="1">
+  <caption></caption>
+  <tr bgcolor="Silver" align="left">    <td><a name="wp590004"> </a><div class="pCellBody">
+<a  href="FTK_case_studies.html#wp593689"><em class="cEmphasis">CreateTemplate (Templates)</em></a>
+</div>
+</td>
+    <td><a name="wp590009"> </a><div class="pCellBody">
+<a  href="FTK_case_studies.html#wp594056"><em class="cEmphasis">GetCount (Templates)</em></a>
+</div>
+</td>
+</tr>
+  <tr bgcolor="Silver" align="left">    <td><a name="wp590014"> </a><div class="pCellBody">
+<a  href="FTK_case_studies.html#wp590502"><em class="cEmphasis">Item (Templates)</em></a>
+</div>
+</td>
+    <td><a name="wp590016"> </a><div class="pCellBody">
+&#160;
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pBodyRelative">
+</p>
+<a name="wp588635"> </a><h5 class="pHeading4">
+Template
+</h5>
+<a name="wp590032"> </a><p class="pBody">
+The Template object allows you to get information about a particular template in the dotXSI file. It also gives you access to the collection of <a  href="FTK_case_studies.html#wp588636"><em class="cEmphasis">Params</em></a> (parameters) for that template.
+</p>
+<a name="wp590063"> </a><p class="pBody">
+<b class="cBold">Properties</b>
+</p>
+<a name="wp590082"> </a><p class="pBodyRelative">
+</p><div align="left">
+<table border="0" cellpadding="5" cellspacing="1">
+  <caption></caption>
+  <tr bgcolor="Silver" align="left">    <td><a name="wp592365"> </a><div class="pCellBody">
+<a  href="FTK_case_studies.html#wp595522"><em class="cEmphasis">Children (Template)</em></a>
+</div>
+</td>
+    <td><a name="wp592419"> </a><div class="pCellBody">
+<a  href="FTK_case_studies.html#wp614032"><em class="cEmphasis">CreateTemplates (Template)</em></a>
+</div>
+</td>
+    <td><a name="wp592432"> </a><div class="pCellBody">
+<a  href="FTK_case_studies.html#wp591520"><em class="cEmphasis">InstanceName (Template)</em></a>
+</div>
+</td>
+</tr>
+  <tr bgcolor="Silver" align="left">    <td><a name="wp592444"> </a><div class="pCellBody">
+<a  href="FTK_case_studies.html#wp591661"><em class="cEmphasis">Params (Template)</em></a>
+</div>
+</td>
+    <td><a name="wp592456"> </a><div class="pCellBody">
+<a  href="FTK_case_studies.html#wp591758"><em class="cEmphasis">Parent (Template)</em></a>
+</div>
+</td>
+    <td><a name="wp592468"> </a><div class="pCellBody">
+&#160;
+</div>
+</td>
+</tr>
+  <tr bgcolor="Silver" align="left">    <td><a name="wp592479"> </a><div class="pCellBody">
+<a  href="FTK_case_studies.html#wp592192"><em class="cEmphasis">TemplateName (Template)</em></a>
+</div>
+</td>
+    <td><a name="wp592492"> </a><div class="pCellBody">
+<a  href="FTK_case_studies.html#wp592267"><em class="cEmphasis">UserDataType (Template)</em></a>
+</div>
+</td>
+    <td><a name="wp592504"> </a><div class="pCellBody">
+<a  href="FTK_case_studies.html#wp592081"><em class="cEmphasis">UserFlags (Template)</em></a>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pBodyRelative">
+</p>
+<a name="wp588636"> </a><h5 class="pHeading4">
+Params
+</h5>
+<a name="wp590091"> </a><p class="pBody">
+The Params object gives you access to the collection of parameters on the indicated template. 
+</p>
+<a name="wp590092"> </a><p class="pBody">
+<b class="cBold">Methods</b>
+</p>
+<a name="wp590121"> </a><p class="pBodyRelative">
+</p><div align="left">
+<table border="0" cellpadding="5" cellspacing="1">
+  <caption></caption>
+  <tr bgcolor="Silver" align="left">    <td><a name="wp593302"> </a><div class="pCellBody">
+<a  href="FTK_case_studies.html#wp592697"><em class="cEmphasis">Add (Params)</em></a>
+</div>
+</td>
+    <td><a name="wp593307"> </a><div class="pCellBody">
+<a  href="FTK_case_studies.html#wp592966"><em class="cEmphasis">Remove (Params)</em></a>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pBodyRelative">
+</p>
+<a name="wp590122"> </a><p class="pBody">
+<b class="cBold">Properties</b>
+</p>
+<a name="wp590141"> </a><p class="pBodyRelative">
+</p><div align="left">
+<table border="0" cellpadding="5" cellspacing="1">
+  <caption></caption>
+  <tr bgcolor="Silver" align="left">    <td><a name="wp590128"> </a><div class="pCellBody">
+<a  href="FTK_case_studies.html#wp593460"><em class="cEmphasis">CreateParam (Params)</em></a>
+</div>
+</td>
+    <td><a name="wp590133"> </a><div class="pCellBody">
+<a  href="FTK_case_studies.html#wp593784"><em class="cEmphasis">GetCount (Params)</em></a>
+</div>
+</td>
+</tr>
+  <tr bgcolor="Silver" align="left">    <td><a name="wp590138"> </a><div class="pCellBody">
+<a  href="FTK_case_studies.html#wp593970"><em class="cEmphasis">Item (Params)</em></a>
+</div>
+</td>
+    <td><a name="wp590140"> </a><div class="pCellBody">
+&#160;
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pBodyRelative">
+</p>
+<a name="wp588637"> </a><h5 class="pHeading4">
+Param
+</h5>
+<a name="wp590156"> </a><p class="pBody">
+The Param object gives you access to the values of the parameter. 
+</p>
+<a name="wp590187"> </a><p class="pBody">
+<b class="cBold">Properties</b>
+</p>
+<a name="wp590232"> </a><p class="pBodyRelative">
+</p><div align="left">
+<table border="0" cellpadding="5" cellspacing="1">
+  <caption></caption>
+  <tr bgcolor="Silver" align="left">    <td><a name="wp590219"> </a><div class="pCellBody">
+<a  href="FTK_case_studies.html#wp594671"><em class="cEmphasis">Name (Param)</em></a>
+</div>
+</td>
+    <td><a name="wp590224"> </a><div class="pCellBody">
+<a  href="FTK_case_studies.html#wp594960"><em class="cEmphasis">Value (Param)</em></a>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pBodyRelative">
+</p>
+<a name="wp590233"> </a><p class="pBody">
+
+</p>
+<a name="wp590234"> </a><h4 class="pHeading3">
+Methods
+</h4>
+<a name="wp595112"> </a><p class="pIndented3">
+<a  href="FTK_case_studies.html#wp592697"><em class="cEmphasis">Add (Params)</em></a>
+</p>
+<a name="wp595122"> </a><p class="pIndented3">
+<a  href="FTK_case_studies.html#wp590256"><em class="cEmphasis">Add (Templates)</em></a>
+</p>
+<a name="wp595130"> </a><p class="pIndented3">
+<a  href="FTK_case_studies.html#wp615080"><em class="cEmphasis">Close (FileHandler)</em></a>
+</p>
+<a name="wp595134"> </a><p class="pIndented3">
+<a  href="FTK_case_studies.html#wp589699"><em class="cEmphasis">Create (FileHandler)</em></a>
+</p>
+<a name="wp595165"> </a><p class="pIndented3">
+<a  href="FTK_case_studies.html#wp589034"><em class="cEmphasis">Open (FileHandler)</em></a>
+</p>
+<a name="wp595173"> </a><p class="pIndented3">
+<a  href="FTK_case_studies.html#wp589036"><em class="cEmphasis">Read (FileHandler)</em></a>
+</p>
+<a name="wp595194"> </a><p class="pIndented3">
+<a  href="FTK_case_studies.html#wp592966"><em class="cEmphasis">Remove (Params)</em></a>
+</p>
+<a name="wp595198"> </a><p class="pIndented3">
+<a  href="FTK_case_studies.html#wp608535"><em class="cEmphasis">Remove (Templates)</em></a>
+</p>
+<a name="wp595202"> </a><p class="pIndented3">
+<a  href="FTK_case_studies.html#wp588708"><em class="cEmphasis">Write (FileHandler)</em></a>
+</p>
+<a name="wp592697"> </a><h5 class="pHeading4">
+Add (<a  href="FTK_case_studies.html#wp588636">Params</a>)
+</h5>
+<a name="wp592701"> </a><p class="pBody">
+Adds a new <a  href="FTK_case_studies.html#wp588637"><em class="cEmphasis">Param</em></a>eter to the parameter collection at the position you indicate.
+</p>
+<a name="wp592702"> </a><p class="pBody">
+<b class="cBold">Syntax</b>
+</p>
+<div class="pPreformattedRelative"><pre class="pPreformattedRelative">
+Params.Add( Param, Pos )<a name="wp592703"> </a>
+</pre></div>
+<a name="wp592704"> </a><p class="pBody">
+<b class="cBold">Parameters</b>
+</p>
+<a name="wp592727"> </a><p class="pBodyRelative">
+</p><div align="left">
+<table border="0" cellpadding="5" cellspacing="1">
+  <caption></caption>
+  <tr bgcolor="#0055AA" align="left">    <th><a name="wp592707"> </a><div style="text-align: left" class="pCellHeading">
+Parameter
+</div>
+</th>
+    <th><a name="wp592709"> </a><div style="text-align: left" class="pCellHeading">
+Type
+</div>
+</th>
+    <th><a name="wp592711"> </a><div style="text-align: left" class="pCellHeading">
+Description
+</div>
+</th>
+</tr>
+  <tr bgcolor="Silver" align="left">    <td><a name="wp592713"> </a><div class="pCellBody">
+Param
+</div>
+</td>
+    <td><a name="wp592718"> </a><div class="pCellBody">
+<a  href="FTK_case_studies.html#wp588637"><em class="cEmphasis">Param</em></a>
+</div>
+</td>
+    <td><a name="wp592720"> </a><div class="pCellBody">
+File Name to use for new dotXSI file.
+</div>
+</td>
+</tr>
+  <tr bgcolor="Silver" align="left">    <td><a name="wp592722"> </a><div class="pCellBody">
+Pos
+</div>
+</td>
+    <td><a name="wp592724"> </a><div class="pCellBody">
+Long
+</div>
+</td>
+    <td><a name="wp592726"> </a><div class="pCellBody">
+Index of the new parameter in the parameter collection (<a  href="FTK_case_studies.html#wp588636"><em class="cEmphasis">Params</em></a>).
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pBodyRelative">
+</p>
+<a name="wp592728"> </a><p class="pBody">
+<b class="cBold">Example</b>
+</p>
+<div class="pPreformattedRelative"><pre class="pPreformattedRelative">
+set oFileHandler = CreateObject(&quot;dotXSIObj.FileHandler&quot;)
+oFileHandler.Open(&quot;C:\\Examples.xsi&quot;)
+oFileHandler.Read
+
+set oFirstTemplate = oFileHandler.RootTemplates(0)
+set oNewParameter = oFirstTemplate.Params.Add
+
+logmessage oNewParameter.Name &amp; &quot; = &quot; &amp; oNewParameter.Value<a name="wp592729"> </a>
+</pre></div>
+<a name="wp590256"> </a><h5 class="pHeading4">
+Add (<a  href="FTK_case_studies.html#wp588634">Templates</a>)
+</h5>
+<a name="wp590257"> </a><p class="pBody">
+Adds a new <a  href="FTK_case_studies.html#wp588635"><em class="cEmphasis">Template</em></a> to a dotXSI file at the position you indicate.
+</p>
+<a name="wp590258"> </a><p class="pBody">
+<b class="cBold">Syntax</b>
+</p>
+<div class="pPreformattedRelative"><pre class="pPreformattedRelative">
+Templates.Add( Template, Pos )<a name="wp590259"> </a>
+</pre></div>
+<a name="wp590260"> </a><p class="pBody">
+<b class="cBold">Parameters</b>
+</p>
+<a name="wp590282"> </a><p class="pBodyRelative">
+</p><div align="left">
+<table border="0" cellpadding="5" cellspacing="1">
+  <caption></caption>
+  <tr bgcolor="#0055AA" align="left">    <th><a name="wp590263"> </a><div style="text-align: left" class="pCellHeading">
+Parameter
+</div>
+</th>
+    <th><a name="wp590265"> </a><div style="text-align: left" class="pCellHeading">
+Type
+</div>
+</th>
+    <th><a name="wp590267"> </a><div style="text-align: left" class="pCellHeading">
+Description
+</div>
+</th>
+</tr>
+  <tr bgcolor="Silver" align="left">    <td><a name="wp590269"> </a><div class="pCellBody">
+Template
+</div>
+</td>
+    <td><a name="wp590271"> </a><div class="pCellBody">
+<a  href="FTK_case_studies.html#wp588635"><em class="cEmphasis">Template</em></a>
+</div>
+</td>
+    <td><a name="wp590273"> </a><div class="pCellBody">
+File Name to use for new dotXSI file.
+</div>
+</td>
+</tr>
+  <tr bgcolor="Silver" align="left">    <td><a name="wp590275"> </a><div class="pCellBody">
+Pos
+</div>
+</td>
+    <td><a name="wp590277"> </a><div class="pCellBody">
+Long
+</div>
+</td>
+    <td><a name="wp590279"> </a><div class="pCellBody">
+Index of the position for the new template.
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pBodyRelative">
+</p>
+<a name="wp590288"> </a><p class="pBody">
+<b class="cBold">Example</b>
+</p>
+<div class="pPreformattedRelative"><pre class="pPreformattedRelative">
+set oTarget = CreateObject(&quot;dotXSIObj.FileHandler&quot;)
+set oSource = CreateObject(&quot;dotXSIObj.FileHandler&quot;)
+
+oTarget.Open(&quot;C:\\Examples.xsi&quot;)
+oTarget.Read
+
+for i = 0 to oTarget.RootTemplates.GetCount - 1
+	oSource.RootTemplates.Add oTarget.RootTemplates.Item( i ), -1
+next<a name="wp592583"> </a>
+</pre></div>
+<a name="wp615080"> </a><h5 class="pHeading4">
+Close (<a  href="FTK_case_studies.html#wp588630">FileHandler</a>)
+</h5>
+<a name="wp615081"> </a><p class="pBody">
+This method closes an open dotXSI file.
+</p>
+<a name="wp615082"> </a><p class="pBody">
+<b class="cBold">Syntax</b>
+</p>
+<div class="pPreformattedRelative"><pre class="pPreformattedRelative">
+FileHandler.Close()<a name="wp615083"> </a>
+</pre></div>
+<a name="wp615084"> </a><p class="pBody">
+<b class="cBold">Example</b>
+</p>
+<div class="pPreformattedRelative"><pre class="pPreformattedRelative">
+set oSourceFile = CreateObject( &quot;dotXSIObj.FileHandler&quot; )
+oSourceFile.Open( &quot;C:\\Examples.xsi&quot; )
+oSourceFile.Close<a name="wp615085"> </a>
+</pre></div>
+<a name="wp589699"> </a><h5 class="pHeading4">
+Create (<a  href="FTK_case_studies.html#wp588630">FileHandler</a>)
+</h5>
+<a name="wp589700"> </a><p class="pBody">
+Creates a new dotXSI file in either ASCII or Binary format.
+</p>
+<a name="wp588812"> </a><p class="pBody">
+<b class="cBold">Syntax</b>
+</p>
+<div class="pPreformattedRelative"><pre class="pPreformattedRelative">
+FileHandler.Create( Filename, OpenMode )<a name="wp588813"> </a>
+</pre></div>
+<a name="wp588880"> </a><p class="pBody">
+<b class="cBold">Parameters</b>
+</p>
+<a name="wp588775"> </a><p class="pBodyRelative">
+</p><div align="left">
+<table border="0" cellpadding="5" cellspacing="1">
+  <caption></caption>
+  <tr bgcolor="#0055AA" align="left">    <th><a name="wp588781"> </a><div style="text-align: left" class="pCellHeading">
+Parameter
+</div>
+</th>
+    <th><a name="wp588783"> </a><div style="text-align: left" class="pCellHeading">
+Type
+</div>
+</th>
+    <th><a name="wp588785"> </a><div style="text-align: left" class="pCellHeading">
+Description
+</div>
+</th>
+</tr>
+  <tr bgcolor="Silver" align="left">    <td><a name="wp588787"> </a><div class="pCellBody">
+Filename
+</div>
+</td>
+    <td><a name="wp588789"> </a><div class="pCellBody">
+String
+</div>
+</td>
+    <td><a name="wp588791"> </a><div class="pCellBody">
+File Name to use for new dotXSI file.
+</div>
+</td>
+</tr>
+  <tr bgcolor="Silver" align="left">    <td><a name="wp588793"> </a><div class="pCellBody">
+OpenMode
+</div>
+</td>
+    <td><a name="wp588795"> </a><div class="pCellBody">
+String
+</div>
+</td>
+    <td><a name="wp588797"> </a><div class="pCellBody">
+Indicates whether dotXSI file will be in ASCII or Binary format.
+</div>
+<a name="wp588975"> </a><div class="pCellBody">
+Possible Values:
+</div>
+<div class="pSmartList1"><ul class="pSmartList1">
+<a name="wp588862"> </a><div class="pSmartList1"><li>DOTXSI_FORMAT_TEXT </li></div>
+<a name="wp611875"> </a><div class="pSmartList1"><li>DOTXSI_FORMAT_BINARY</li></div>
+</ul></div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pBodyRelative">
+</p>
+<a name="wp588922"> </a><p class="pBody">
+<b class="cBold">Return Value</b>
+</p>
+<a name="wp588923"> </a><p class="pBody">
+<a  href="FTK_case_studies.html#wp588630"><em class="cEmphasis">FileHandler</em></a> object
+</p>
+<a name="wp588939"> </a><p class="pBody">
+<b class="cBold">Example</b>
+</p>
+<div class="pPreformattedRelative"><pre class="pPreformattedRelative">
+set oSource = CreateObject(&quot;dotXSIObj.FileHandler&quot;)
+oSource.Create &quot;C:\myOutput.xsi&quot;, &quot;DOTXSI_FORMAT_TEXT&quot; <a name="wp589197"> </a>
+</pre></div>
+<a name="wp589034"> </a><h5 class="pHeading4">
+Open (<a  href="FTK_case_studies.html#wp588630">FileHandler</a>)
+</h5>
+<a name="wp589052"> </a><p class="pBody">
+Opens an existing dotXSI file.
+</p>
+<a name="wp589053"> </a><p class="pBody">
+<b class="cBold">Syntax</b>
+</p>
+<div class="pPreformattedRelative"><pre class="pPreformattedRelative">
+FileHandler.Open( Filename )<a name="wp589054"> </a>
+</pre></div>
+<a name="wp589055"> </a><p class="pBody">
+<b class="cBold">Parameters</b>
+</p>
+<a name="wp589077"> </a><p class="pBodyRelative">
+</p><div align="left">
+<table border="0" cellpadding="5" cellspacing="1">
+  <caption></caption>
+  <tr bgcolor="#0055AA" align="left">    <th><a name="wp589058"> </a><div style="text-align: left" class="pCellHeading">
+Parameter
+</div>
+</th>
+    <th><a name="wp589060"> </a><div style="text-align: left" class="pCellHeading">
+Type
+</div>
+</th>
+    <th><a name="wp589062"> </a><div style="text-align: left" class="pCellHeading">
+Description
+</div>
+</th>
+</tr>
+  <tr bgcolor="Silver" align="left">    <td><a name="wp589064"> </a><div class="pCellBody">
+Filename
+</div>
+</td>
+    <td><a name="wp589066"> </a><div class="pCellBody">
+String
+</div>
+</td>
+    <td><a name="wp589068"> </a><div class="pCellBody">
+File Name to use for new dotXSI file.
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pBodyRelative">
+</p>
+<a name="wp589486"> </a><p class="pBody">
+<b class="cBold">Return Value</b>
+</p>
+<a name="wp589490"> </a><p class="pBody">
+<a  href="FTK_case_studies.html#wp588630"><em class="cEmphasis">FileHandler</em></a> object
+</p>
+<a name="wp589491"> </a><p class="pBody">
+<b class="cBold">Example</b>
+</p>
+<div class="pPreformattedRelative"><pre class="pPreformattedRelative">
+set oSourceFile = CreateObject( &quot;dotXSIObj.FileHandler&quot; )
+oSourceFile.Open( &quot;C:\\Examples.xsi&quot; )<a name="wp589360"> </a>
+</pre></div>
+<a name="wp589036"> </a><h5 class="pHeading4">
+Read (<a  href="FTK_case_studies.html#wp588630">FileHandler</a>)
+</h5>
+<a name="wp589309"> </a><p class="pBody">
+Reads a dotXSI file into memory.
+</p>
+<a name="wp589310"> </a><p class="pBody">
+<b class="cBold">Syntax</b>
+</p>
+<div class="pPreformattedRelative"><pre class="pPreformattedRelative">
+FileHandler.Read()<a name="wp589311"> </a>
+</pre></div>
+<a name="wp589312"> </a><p class="pBody">
+<b class="cBold">Example</b>
+</p>
+<div class="pPreformattedRelative"><pre class="pPreformattedRelative">
+set oSourceFile = CreateObject( &quot;dotXSIObj.FileHandler&quot; )
+oSourceFile.Open( &quot;C:\\Examples.xsi&quot; )
+oSourceFile.Read<a name="wp589313"> </a>
+</pre></div>
+<a name="wp592966"> </a><h5 class="pHeading4">
+Remove (<a  href="FTK_case_studies.html#wp588636">Params</a>)
+</h5>
+<a name="wp592978"> </a><p class="pBody">
+Removes the indicated parameters from the parameter collection.
+</p>
+<a name="wp592979"> </a><p class="pBody">
+<b class="cBold">Syntax</b>
+</p>
+<div class="pPreformattedRelative"><pre class="pPreformattedRelative">
+Params.Remove( Index )<a name="wp592980"> </a>
+</pre></div>
+<a name="wp592981"> </a><p class="pBody">
+<b class="cBold">Parameters</b>
+</p>
+<a name="wp592995"> </a><p class="pBodyRelative">
+</p><div align="left">
+<table border="0" cellpadding="5" cellspacing="1">
+  <caption></caption>
+  <tr bgcolor="#0055AA" align="left">    <th><a name="wp592984"> </a><div style="text-align: left" class="pCellHeading">
+Parameter
+</div>
+</th>
+    <th><a name="wp592986"> </a><div style="text-align: left" class="pCellHeading">
+Type
+</div>
+</th>
+    <th><a name="wp592988"> </a><div style="text-align: left" class="pCellHeading">
+Description
+</div>
+</th>
+</tr>
+  <tr bgcolor="Silver" align="left">    <td><a name="wp592990"> </a><div class="pCellBody">
+Index
+</div>
+</td>
+    <td><a name="wp592992"> </a><div class="pCellBody">
+Long
+</div>
+</td>
+    <td><a name="wp592994"> </a><div class="pCellBody">
+Index of the parameter to be removed.
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pBodyRelative">
+</p>
+<a name="wp592996"> </a><p class="pBody">
+<b class="cBold">Example</b>
+</p>
+<div class="pPreformattedRelative"><pre class="pPreformattedRelative">
+set oFile = CreateObject(&quot;dotXSIObj.FileHandler&quot;)
+oFile.Open(&quot;C:\\Examples.xsi&quot;)
+oFile.Read
+
+set oParameters = oFile.RootTemplates(0).Params
+oParameters.Remove(0)<a name="wp608530"> </a>
+</pre></div>
+<a name="wp608535"> </a><h5 class="pHeading4">
+Remove (<a  href="FTK_case_studies.html#wp588634">Templates</a>)
+</h5>
+<a name="wp590463"> </a><p class="pBody">
+Removes the indicated template from the dotXSI file.
+</p>
+<a name="wp593156"> </a><p class="pBodyRelative">
+</p><div align="left">
+<table border="0" cellpadding="0" cellspacing="0">
+  <caption></caption>
+  <tr align="left" valign="top">    <td><a name="wp593164"> </a><p class="pTip_graphic">
+<img src="icons/tip.gif" border="0" width="50" height="50" Alt="Tip" />
+&#160;
+</p>
+</td>
+    <td><a name="wp593168"> </a><p class="pBody">
+Nested templates in a dotXSI file are considered <a  href="FTK_case_studies.html#wp595522"><em class="cEmphasis">Children (Template)</em></a> of the root templates (ie., top level templates). For a list of root templates and their children, see <a  href="ftk_TemplateRef.html#wp573235"><em class="cEmphasis">Template Reference</em></a>.
+</p>
+</td>
+</tr>
+</table>
+</div>
+<p class="pBodyRelative">
+</p>
+<a name="wp590464"> </a><p class="pBody">
+<b class="cBold">Syntax</b>
+</p>
+<div class="pPreformattedRelative"><pre class="pPreformattedRelative">
+Templates.Remove( Index )<a name="wp590412"> </a>
+</pre></div>
+<a name="wp590619"> </a><p class="pBody">
+<b class="cBold">Parameters</b>
+</p>
+<a name="wp590633"> </a><p class="pBodyRelative">
+</p><div align="left">
+<table border="0" cellpadding="5" cellspacing="1">
+  <caption></caption>
+  <tr bgcolor="#0055AA" align="left">    <th><a name="wp590622"> </a><div style="text-align: left" class="pCellHeading">
+Parameter
+</div>
+</th>
+    <th><a name="wp590624"> </a><div style="text-align: left" class="pCellHeading">
+Type
+</div>
+</th>
+    <th><a name="wp590626"> </a><div style="text-align: left" class="pCellHeading">
+Description
+</div>
+</th>
+</tr>
+  <tr bgcolor="Silver" align="left">    <td><a name="wp590628"> </a><div class="pCellBody">
+Index
+</div>
+</td>
+    <td><a name="wp590630"> </a><div class="pCellBody">
+Long
+</div>
+</td>
+    <td><a name="wp590632"> </a><div class="pCellBody">
+Index of the template to be removed.
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pBodyRelative">
+</p>
+<a name="wp590413"> </a><p class="pBody">
+<b class="cBold">Example</b>
+</p>
+<div class="pPreformattedRelative"><pre class="pPreformattedRelative">
+set oFile = CreateObject(&quot;dotXSIObj.FileHandler&quot;)
+oFile.Open(&quot;C:\\Examples.xsi&quot;)
+oFile.Read
+
+set oTemplate = oFile.RootTemplates.Item( 5 )
+Application.LogMessage oTemplate.Children.GetCount
+oTemplate.Children.Remove(0)
+oTemplate.Params.Item(0).value = oTemplate.Params.Item( 0).value - 1
+Application.LogMessage oTemplate.Children.GetCount<a name="wp590680"> </a>
+</pre></div>
+<a name="wp588708"> </a><h5 class="pHeading4">
+Write (<a  href="FTK_case_studies.html#wp588630">FileHandler</a>)
+</h5>
+<a name="wp589319"> </a><p class="pBody">
+Writes out the information to the file.
+</p>
+<a name="wp589320"> </a><p class="pBody">
+<b class="cBold">Syntax</b>
+</p>
+<div class="pPreformattedRelative"><pre class="pPreformattedRelative">
+FileHandler.Write()<a name="wp589321"> </a>
+</pre></div>
+<a name="wp589322"> </a><p class="pBody">
+<b class="cBold">Example</b>
+</p>
+<div class="pPreformattedRelative"><pre class="pPreformattedRelative">
+set oTargetFile = CreateObject( &quot;dotXSIObj.FileHandler&quot; )
+oTargetFile.Open( &quot;C:\\Examples.xsi&quot; )
+oTargetFile.Write<a name="wp589323"> </a>
+</pre></div>
+<a name="wp592509"> </a><p class="pBody">
+
+</p>
+<a name="wp588621"> </a><h4 class="pHeading3">
+Properties
+</h4>
+<a name="wp595206"> </a><p class="pIndented3">
+<a  href="FTK_case_studies.html#wp595522"><em class="cEmphasis">Children (Template)</em></a>
+</p>
+<a name="wp595226"> </a><p class="pIndented3">
+<a  href="FTK_case_studies.html#wp593460"><em class="cEmphasis">CreateParam (Params)</em></a>
+</p>
+<a name="wp595230"> </a><p class="pIndented3">
+<a  href="FTK_case_studies.html#wp593689"><em class="cEmphasis">CreateTemplate (Templates)</em></a>
+</p>
+<a name="wp595245"> </a><p class="pIndented3">
+<a  href="FTK_case_studies.html#wp614032"><em class="cEmphasis">CreateTemplates (Template)</em></a>
+</p>
+<a name="wp595256"> </a><p class="pIndented3">
+<a  href="FTK_case_studies.html#wp590771"><em class="cEmphasis">FileVersionMajor (FileHandler)</em></a>
+</p>
+<a name="wp595274"> </a><p class="pIndented3">
+<a  href="FTK_case_studies.html#wp589414"><em class="cEmphasis">FileVersionMinor (FileHandler)</em></a>
+</p>
+<a name="wp595290"> </a><p class="pIndented3">
+<a  href="FTK_case_studies.html#wp593784"><em class="cEmphasis">GetCount (Params)</em></a>
+</p>
+<a name="wp595305"> </a><p class="pIndented3">
+<a  href="FTK_case_studies.html#wp594056"><em class="cEmphasis">GetCount (Templates)</em></a>
+</p>
+<a name="wp595309"> </a><p class="pIndented3">
+<a  href="FTK_case_studies.html#wp591520"><em class="cEmphasis">InstanceName (Template)</em></a>
+</p>
+<a name="wp595327"> </a><p class="pIndented3">
+<a  href="FTK_case_studies.html#wp593970"><em class="cEmphasis">Item (Params)</em></a>
+</p>
+<a name="wp595332"> </a><p class="pIndented3">
+<a  href="FTK_case_studies.html#wp590502"><em class="cEmphasis">Item (Templates)</em></a>
+</p>
+<a name="wp595367"> </a><p class="pIndented3">
+<a  href="FTK_case_studies.html#wp594671"><em class="cEmphasis">Name (Param)</em></a>
+</p>
+<a name="wp595393"> </a><p class="pIndented3">
+<a  href="FTK_case_studies.html#wp591661"><em class="cEmphasis">Params (Template)</em></a>
+</p>
+<a name="wp595413"> </a><p class="pIndented3">
+<a  href="FTK_case_studies.html#wp591758"><em class="cEmphasis">Parent (Template)</em></a>
+</p>
+<a name="wp595433"> </a><p class="pIndented3">
+<a  href="FTK_case_studies.html#wp610736"><em class="cEmphasis">RootTemplates (FileHandler)</em></a>
+</p>
+<a name="wp595477"> </a><p class="pIndented3">
+<a  href="FTK_case_studies.html#wp592192"><em class="cEmphasis">TemplateName (Template)</em></a>
+</p>
+<a name="wp595516"> </a><p class="pIndented3">
+<a  href="FTK_case_studies.html#wp592267"><em class="cEmphasis">UserDataType (Template)</em></a>
+</p>
+<a name="wp595517"> </a><p class="pIndented3">
+<a  href="FTK_case_studies.html#wp592081"><em class="cEmphasis">UserFlags (Template)</em></a>
+</p>
+<a name="wp595535"> </a><p class="pIndented3">
+<a  href="FTK_case_studies.html#wp594960"><em class="cEmphasis">Value (Param)</em></a>
+</p>
+<a name="wp595522"> </a><h5 class="pHeading4">
+Children (<a  href="FTK_case_studies.html#wp588635">Template</a>)
+</h5>
+<a name="wp591180"> </a><p class="pBody">
+Gets all the templates that are nested below the current (root) template as a collection.
+</p>
+<a name="wp591184"> </a><p class="pBody">
+<b class="cBold">Return Value</b>
+</p>
+<a name="wp591185"> </a><p class="pBody">
+<a  href="FTK_case_studies.html#wp588634"><em class="cEmphasis">Templates</em></a>
+</p>
+<a name="wp591204"> </a><p class="pBody">
+<b class="cBold">Example</b>
+</p>
+<div class="pPreformattedRelative"><pre class="pPreformattedRelative">
+set oSourceFile = CreateObject(&quot;dotXSIObj.FileHandler&quot;)
+oSourceFile.Open(&quot;C:\\Examples.xsi&quot;)
+oSourceFile.Read
+
+set oTemplate = oSourceFile.RootTemplates.Item( 5 )
+logmessage oTemplate.Children.GetCount
+oTemplate.Children.Remove( 0 )
+oTemplate.Params.Item( 0).value = oTemplate.Params.Item( 0).value - 1
+Application.LogMessage oTemplate.Children.GetCount<a name="wp591236"> </a>
+</pre></div>
+<a name="wp593460"> </a><h5 class="pHeading4">
+CreateParam (<a  href="FTK_case_studies.html#wp588636">Params</a>)
+</h5>
+<a name="wp593464"> </a><p class="pBody">
+Gets a new (empty) parameter. You can use the <a  href="FTK_case_studies.html#wp592697"><em class="cEmphasis">Add (Params)</em></a> method to add it to the parameter collection after populating it.
+</p>
+<a name="wp593466"> </a><p class="pBody">
+<b class="cBold">Return Value</b>
+</p>
+<a name="wp593470"> </a><p class="pBody">
+<a  href="FTK_case_studies.html#wp588637"><em class="cEmphasis">Param</em></a>
+</p>
+<a name="wp593621"> </a><p class="pBody">
+<b class="cBold">Example</b>
+</p>
+<div class="pPreformattedRelative"><pre class="pPreformattedRelative">
+set oFile = CreateObject(&quot;dotXSIObj.FileHandler&quot;)
+oFile.Open(&quot;C:\\Examples.xsi&quot;)
+oFile.Read
+
+set oTemplates = oFile.RootTemplates
+set oNewTemplate = oTemplates.CreateTemplate
+set oNewParameter = oNewTemplate.Params.CreateParam
+
+oNewParameter.Name = &quot;BlueDog&quot;
+oNewParameter.Value = 3.00000<a name="wp593683"> </a>
+</pre></div>
+<a name="wp593689"> </a><h5 class="pHeading4">
+CreateTemplate (<a  href="FTK_case_studies.html#wp588634">Templates</a>)
+</h5>
+<a name="wp590744"> </a><p class="pBody">
+Gets a new (empty) template. You can use the <a  href="FTK_case_studies.html#wp590256"><em class="cEmphasis">Add (Templates)</em></a> method to add it to the dotXSI file after populating it.
+</p>
+<a name="wp590748"> </a><p class="pBody">
+<b class="cBold">Return Value</b>
+</p>
+<a name="wp590749"> </a><p class="pBody">
+<a  href="FTK_case_studies.html#wp588635"><em class="cEmphasis">Template</em></a>
+</p>
+<a name="wp590765"> </a><p class="pBody">
+<b class="cBold">Example</b>
+</p>
+<div class="pPreformattedRelative"><pre class="pPreformattedRelative">
+set oFile = CreateObject(&quot;dotXSIObj.FileHandler&quot;)
+oFile.Open(&quot;C:\\Examples.xsi&quot;)
+oFile.Read
+
+set oTemplate = oFile.RootTemplates(5)
+set oNewTemplate = oTemplate.CreateTemplate
+
+oNewTemplate.TemplateName = &quot;XSI_Material&quot;
+oNewTemplate.InstanceName = &quot;Car_Door&quot;
+&#39; ... 
+
+oFile.RootTemplates.Add( oNewTemplate, oTemplate.Children.GetCount )<a name="wp608937"> </a>
+</pre></div>
+<a name="wp614032"> </a><h5 class="pHeading4">
+CreateTemplates (<a  href="FTK_case_studies.html#wp588635">Template</a>)
+</h5>
+<a name="wp614036"> </a><p class="pBody">
+Builds a collection in order to accumulate<a  href="FTK_case_studies.html#wp588634"><em class="cEmphasis">Templates</em></a>. 
+</p>
+<a name="wp614037"> </a><p class="pBody">
+<b class="cBold">Return Value</b>
+</p>
+<a name="wp593428"> </a><p class="pBody">
+<a  href="FTK_case_studies.html#wp588634"><em class="cEmphasis">Templates</em></a>
+</p>
+<a name="wp593429"> </a><p class="pBody">
+<b class="cBold">Example</b>
+</p>
+<div class="pPreformattedRelative"><pre class="pPreformattedRelative">
+set oFile = CreateObject(&quot;dotXSIObj.FileHandler&quot;)
+oFile.Create &quot;C:\\log.txt&quot;, &quot;DOTXSI_FORMAT_TEXT&quot; 
+
+set oTemplCollection = oFile.CreateTemplates
+
+for each t in oTemplCollection
+	&#39; ... 
+next<a name="wp614117"> </a>
+</pre></div>
+<a name="wp590771"> </a><h5 class="pHeading4">
+FileVersionMajor	 (<a  href="FTK_case_studies.html#wp588630">FileHandler</a>)
+</h5>
+<a name="wp590772"> </a><p class="pBody">
+Gets the major version of the dotXSI file. The major version is specified in the <a  href="ftk_TemplateRef.html#wp800462"><em class="cEmphasis">File Header</em></a>template.
+</p>
+<a name="wp589466"> </a><p class="pBody">
+<b class="cBold">Return Value</b>
+</p>
+<a name="wp589470"> </a><p class="pBody">
+Long
+</p>
+<a name="wp589446"> </a><p class="pBody">
+<b class="cBold">Example</b>
+</p>
+<div class="pPreformattedRelative"><pre class="pPreformattedRelative">
+set oSource = CreateObject(&quot;dotXSIObj.FileHandler&quot;)
+Set fso = CreateObject(&quot;Scripting.FileSystemObject&quot;)
+oSource.Open(&quot;C:\\Examples.xsi&quot;)
+oSource.Read
+
+Set oLogFile = fso.CreateTextFile(&quot;c:\\log.txt&quot;, True)
+
+oLogFile.WriteLine ( oSource.FileVersionMajor &amp; &quot; &quot; &amp; oSource.FileVersionMinor ) <a name="wp589540"> </a>
+</pre></div>
+<a name="wp589414"> </a><h5 class="pHeading4">
+FileVersionMinor	 (<a  href="FTK_case_studies.html#wp588630">FileHandler</a>)
+</h5>
+<a name="wp589586"> </a><p class="pBody">
+Gets the minor version of the dotXSI file. The minor version is specified in the <a  href="ftk_TemplateRef.html#wp800462"><em class="cEmphasis">File Header</em></a>template.
+</p>
+<a name="wp589592"> </a><p class="pBody">
+<b class="cBold">Return Value</b>
+</p>
+<a name="wp589593"> </a><p class="pBody">
+Long
+</p>
+<a name="wp589594"> </a><p class="pBody">
+<b class="cBold">Example</b>
+</p>
+<div class="pPreformattedRelative"><pre class="pPreformattedRelative">
+set oSource = CreateObject(&quot;dotXSIObj.FileHandler&quot;)
+Set fso = CreateObject(&quot;Scripting.FileSystemObject&quot;)
+oSource.Open(&quot;C:\\Examples.xsi&quot;)
+oSource.Read
+
+Set oLogFile = fso.CreateTextFile(&quot;c:\\log.txt&quot;, True)
+
+oLogFile.WriteLine ( oSource.FileVersionMajor &amp; &quot; &quot; &amp; oSource.FileVersionMinor ) <a name="wp589595"> </a>
+</pre></div>
+<a name="wp593784"> </a><h5 class="pHeading4">
+GetCount (<a  href="FTK_case_studies.html#wp588636">Params</a>)
+</h5>
+<a name="wp593788"> </a><p class="pBody">
+Gets the location of the index in the <a  href="FTK_case_studies.html#wp588636"><em class="cEmphasis">Params</em></a> collection.
+</p>
+<a name="wp593789"> </a><p class="pBody">
+<b class="cBold">Return Value</b>
+</p>
+<a name="wp593790"> </a><p class="pBody">
+Long
+</p>
+<a name="wp593791"> </a><p class="pBody">
+<b class="cBold">Example</b>
+</p>
+<div class="pPreformattedRelative"><pre class="pPreformattedRelative">
+set oFile = CreateObject(&quot;dotXSIObj.FileHandler&quot;)
+oFile.Open(&quot;C:\\Examples.xsi&quot;)
+oFile.Read
+
+set fso = CreateObject(&quot;Scripting.FileSystemObject&quot;)
+set oLogFile = fso.CreateTextFile(&quot;c:\\log.txt&quot;, True)
+
+set oTemplate = oFile.RootTemplates.Item( 5 )
+for iParamIndex = 0 to oTemplate.Params.GetCount - 1
+	set oCurrParam = oTemplate.Params.Item( iParamIndex )
+	vParamValue = oCurrParam.Value
+	if typename ( vParamValue ) &lt;&gt; &quot;Variant()&quot; then
+		oLogFile.WriteLine( &quot;  &quot; _
+			&amp; oCurrParam.Name &amp; &quot;[&quot; _
+			&amp; oCurrParam.Value &amp; &quot;]&quot; )
+	else
+		oLogFile.WriteLine( &quot;  [[&quot; &amp; iParamIndex &amp; &quot;]] &quot; &amp; oCurrParam.Name _
+			&amp; &quot; is an array of index [&quot; &amp; LBound( vParamValue ) &amp; &quot;,&quot; _
+			&amp; UBound( vParamValue ) &amp; &quot;]&quot; )
+		for iValueIndex = LBound( vParamValue ) to UBound( vParamValue ) 
+			oLogFile.WriteLine( &quot;     [&quot; _
+				&amp; iValueIndex &amp; &quot;] = &quot; _
+				&amp; vParamValue( iValueIndex ) )
+		next
+	end if
+next <a name="wp610446"> </a>
+</pre></div>
+<a name="wp594056"> </a><h5 class="pHeading4">
+GetCount (<a  href="FTK_case_studies.html#wp588634">Templates</a>)
+</h5>
+<a name="wp594060"> </a><p class="pBody">
+Gets the location of the index in the <a  href="FTK_case_studies.html#wp588634"><em class="cEmphasis">Templates</em></a> collection.
+</p>
+<a name="wp590959"> </a><p class="pBody">
+<b class="cBold">Return Value</b>
+</p>
+<a name="wp590960"> </a><p class="pBody">
+Long
+</p>
+<a name="wp590961"> </a><p class="pBody">
+<b class="cBold">Example</b>
+</p>
+<div class="pPreformattedRelative"><pre class="pPreformattedRelative">
+set oSourceFile = CreateObject(&quot;dotXSIObj.FileHandler&quot;)
+oSourceFile.Open(&quot;C:\\Examples.xsi&quot;)
+oSourceFile.Read
+
+set oTemplate = oSourceFile.RootTemplates.Item( 5 )
+Application.LogMessage oTemplate.Children.GetCount
+oTemplate.Children.Remove( 0 )
+oTemplate.Params.Item( 0).Value = oTemplate.Params.Item( 0).Value - 1
+Application.LogMessage oTemplate.Children.GetCount<a name="wp591034"> </a>
+</pre></div>
+<a name="wp591520"> </a><h5 class="pHeading4">
+InstanceName (<a  href="FTK_case_studies.html#wp588635">Template</a>)
+</h5>
+<a name="wp591546"> </a><p class="pBody">
+Gets or sets the name of the template instance (ie., the name of the material for an <a  href="ftk_TemplateRef.html#wp803682"><em class="cEmphasis">XSI_Material</em></a> template).
+</p>
+<a name="wp591547"> </a><p class="pBody">
+<b class="cBold">Return Value</b>
+</p>
+<a name="wp591548"> </a><p class="pBody">
+String
+</p>
+<a name="wp591549"> </a><p class="pBody">
+<b class="cBold">Example</b>
+</p>
+<div class="pPreformattedRelative"><pre class="pPreformattedRelative">
+set oFile = CreateObject(&quot;dotXSIObj.FileHandler&quot;)
+oFile.Open(&quot;C:\\Examples.xsi&quot;)
+oFile.Read
+
+set fso = CreateObject(&quot;Scripting.FileSystemObject&quot;)
+set oLogFile = fso.CreateTextFile(&quot;c:\\log.txt&quot;, True)
+
+set oTemplate = oFile.RootTemplates(0)
+oLogFile.WriteLine ( oTemplate.TemplateName &amp; &quot; &quot; &amp; oTemplate.InstanceName )<a name="wp591589"> </a>
+</pre></div>
+<a name="wp593970"> </a><h5 class="pHeading4">
+Item (<a  href="FTK_case_studies.html#wp588636">Params</a>)
+</h5>
+<a name="wp593977"> </a><p class="pBody">
+Gets the <a  href="FTK_case_studies.html#wp588637"><em class="cEmphasis">Param</em></a>eter found at the indicated position in the <a  href="FTK_case_studies.html#wp588636"><em class="cEmphasis">Params</em></a> collection.
+</p>
+<a name="wp593978"> </a><p class="pBody">
+<b class="cBold">Return Value</b>
+</p>
+<a name="wp593982"> </a><p class="pBody">
+<a  href="FTK_case_studies.html#wp588637"><em class="cEmphasis">Param</em></a>
+</p>
+<a name="wp593983"> </a><p class="pBody">
+<b class="cBold">Example</b>
+</p>
+<div class="pPreformattedRelative"><pre class="pPreformattedRelative">
+set oFile = CreateObject(&quot;dotXSIObj.FileHandler&quot;)
+oFile.Open(&quot;C:\\Examples.xsi&quot;)
+oFile.Read
+
+set fso = CreateObject(&quot;Scripting.FileSystemObject&quot;)
+set oLogFile = fso.CreateTextFile(&quot;c:\\log.txt&quot;, True)
+
+set oTemplate = oFile.RootTemplates.Item( 5 )
+for iParamIndex = 0 to oTemplate.Params.GetCount - 1
+	set oCurrParam = oTemplate.Params.Item( iParamIndex )
+	vParamValue = oCurrParam.Value
+	if typename ( vParamValue ) &lt;&gt; &quot;Variant()&quot; then
+		oLogFile.WriteLine( &quot;  &quot; &amp; oCurrParam.Name _
+			&amp; &quot;[&quot; &amp; oCurrParam.Value &amp; &quot;]&quot; )
+	else
+		oLogFile.WriteLine( &quot;  [[&quot; &amp; iParamIndex &amp; &quot;]] &quot; _
+			&amp; oCurrParam.name &amp; &quot; is an array of index [&quot; _
+			&amp; LBound( vParamValue ) &amp; &quot;,&quot; &amp; UBound( vParamValue ) &amp; &quot;]&quot; )
+		for iValueIndex = LBound( vParamValue ) to UBound( vParamValue ) 
+			oLogFile.WriteLine( &quot;     [&quot; &amp; iValueIndex &amp; &quot;] = &quot; _
+				&amp; vParamValue( iValueIndex ) )
+		next
+	end if
+next <a name="wp610083"> </a>
+</pre></div>
+<a name="wp590502"> </a><h5 class="pHeading4">
+Item (<a  href="FTK_case_studies.html#wp588634">Templates</a>)
+</h5>
+<a name="wp591068"> </a><p class="pBody">
+Gets the <a  href="FTK_case_studies.html#wp588635"><em class="cEmphasis">Template</em></a> found at the indicated position in the <a  href="FTK_case_studies.html#wp588634"><em class="cEmphasis">Templates</em></a> collection.
+</p>
+<a name="wp591072"> </a><p class="pBody">
+<b class="cBold">Return Value</b>
+</p>
+<a name="wp591076"> </a><p class="pBody">
+<a  href="FTK_case_studies.html#wp588635"><em class="cEmphasis">Template</em></a>
+</p>
+<a name="wp591114"> </a><p class="pBody">
+<b class="cBold">Example</b>
+</p>
+<div class="pPreformattedRelative"><pre class="pPreformattedRelative">
+set oSourceFile = CreateObject(&quot;dotXSIObj.FileHandler&quot;)
+oSourceFile.Open(&quot;C:\\Examples.xsi&quot;)
+oSourceFile.Read
+
+set oTemplate = oSourceFile.RootTemplates.Item( 5 )
+Application.LogMessage oTemplate.Children.GetCount
+oTemplate.Children.Remove( 0 )
+oTemplate.Params.Item( 0).value = oTemplate.Params.Item( 0).value - 1
+Application.LogMessage oTemplate.Children.GetCount<a name="wp591132"> </a>
+</pre></div>
+<a name="wp594671"> </a><h5 class="pHeading4">
+Name (<a  href="FTK_case_studies.html#wp588637">Param</a>)
+</h5>
+<a name="wp594672"> </a><p class="pBody">
+Gets or sets the name of the parameter.
+</p>
+<a name="wp595037"> </a><p class="pBodyRelative">
+</p><div align="left">
+<table border="0" cellpadding="0" cellspacing="0">
+  <caption></caption>
+  <tr align="left" valign="top">    <td><a name="wp595031"> </a><p class="pTip_graphic">
+<img src="icons/tip.gif" border="0" width="50" height="50" Alt="Tip" />
+&#160;
+</p>
+</td>
+    <td><a name="wp595033"> </a><p class="pBody">
+For information on the parameters used in individual templates, see <a  href="ftk_TemplateRef.html#wp573235"><em class="cEmphasis">Template Reference</em></a>.
+</p>
+</td>
+</tr>
+</table>
+</div>
+<p class="pBodyRelative">
+</p>
+<a name="wp594676"> </a><p class="pBody">
+<b class="cBold">Return Value</b>
+</p>
+<a name="wp594677"> </a><p class="pBody">
+String
+</p>
+<a name="wp594678"> </a><p class="pBody">
+<b class="cBold">Example</b>
+</p>
+<div class="pPreformattedRelative"><pre class="pPreformattedRelative">
+set oFile = CreateObject(&quot;dotXSIObj.FileHandler&quot;)
+oFile.Open(&quot;C:\\Examples.xsi&quot;)
+oFile.Read
+
+set fso = CreateObject(&quot;Scripting.FileSystemObject&quot;)
+set oLogFile = fso.CreateTextFile(&quot;c:\\log.txt&quot;, True)
+
+set oTemplate = oFile.RootTemplates.Item( 5 )
+for iParamIndex = 0 to oTemplate.Params.GetCount - 1
+	set oCurrParam = oTemplate.Params.Item( iParamIndex )
+	vParamValue = oCurrParam.Value
+	if typename ( vParamValue ) &lt;&gt; &quot;Variant()&quot; then
+		oLogFile.WriteLine( &quot;  &quot; &amp; oCurrParam.Name &amp; &quot;[&quot; _
+			&amp; oCurrParam.Value &amp; &quot;]&quot; )
+	else
+		oLogFile.WriteLine( &quot;  [[&quot; &amp; iParamIndex &amp; &quot;]] &quot; &amp; oCurrParam.Name _
+			&amp; &quot; is an array of index [&quot; &amp; LBound( vParamValue ) &amp; &quot;,&quot; _
+			&amp; UBound( vParamValue ) &amp; &quot;]&quot; )
+		for iValueIndex = LBound( vParamValue ) to UBound( vParamValue ) 
+			oLogFile.WriteLine( &quot;     [&quot; &amp; iValueIndex &amp; &quot;] = &quot; _
+				&amp; vParamValue( iValueIndex ) )
+		next
+	end if
+next <a name="wp594752"> </a>
+</pre></div>
+<a name="wp591661"> </a><h5 class="pHeading4">
+Params (<a  href="FTK_case_studies.html#wp588635">Template</a>)
+</h5>
+<a name="wp591665"> </a><p class="pBody">
+Gets the collection of <a  href="FTK_case_studies.html#wp588636"><em class="cEmphasis">Params</em></a>.
+</p>
+<a name="wp591669"> </a><p class="pBody">
+<b class="cBold">Return Value</b>
+</p>
+<a name="wp591673"> </a><p class="pBody">
+<a  href="FTK_case_studies.html#wp588635"><em class="cEmphasis">Template</em></a>
+</p>
+<a name="wp591674"> </a><p class="pBody">
+<b class="cBold">Example</b>
+</p>
+<div class="pPreformattedRelative"><pre class="pPreformattedRelative">
+set oSourceFile = CreateObject(&quot;dotXSIObj.FileHandler&quot;)
+oSourceFile.Open(&quot;C:\\Examples.xsi&quot;)
+oSourceFile.Read
+
+set oTemplate = oSourceFile.RootTemplates.Item( 5 )
+Application.LogMessage oTemplate.Children.GetCount
+oTemplate.Children.Remove( 0 )
+oTemplate.Params.Item( 0).Value = oTemplate.Params.Item( 0).Value - 1
+Application.LogMessage oTemplate.Children.GetCount<a name="wp591743"> </a>
+</pre></div>
+<a name="wp591758"> </a><h5 class="pHeading4">
+Parent (<a  href="FTK_case_studies.html#wp588635">Template</a>)
+</h5>
+<a name="wp591762"> </a><p class="pBody">
+Gets or sets the parent for the template. 
+</p>
+<a name="wp591876"> </a><p class="pBodyRelative">
+</p><div align="left">
+<table border="0" cellpadding="0" cellspacing="0">
+  <caption></caption>
+  <tr align="left" valign="top">    <td><a name="wp591879"> </a><p class="pTip_graphic">
+<img src="icons/tip.gif" border="0" width="50" height="50" Alt="Tip" />
+&#160;
+</p>
+</td>
+    <td><a name="wp591881"> </a><p class="pBody">
+Setting the parent property on a template allows you to specify the hierarchy of the dotXSI file. For instance, if the template object is referring to an <a  href="ftk_TemplateRef.html#wp803890"><em class="cEmphasis">XSI_Shader</em></a> template, you can set the Parent property to the <a  href="ftk_TemplateRef.html#wp803682"><em class="cEmphasis">XSI_Material</em></a> under which you want it to appear.
+</p>
+</td>
+</tr>
+</table>
+</div>
+<p class="pBodyRelative">
+</p>
+<a name="wp591763"> </a><p class="pBody">
+<b class="cBold">Return Value</b>
+</p>
+<a name="wp591767"> </a><p class="pBody">
+<a  href="FTK_case_studies.html#wp588635"><em class="cEmphasis">Template</em></a>
+</p>
+<a name="wp591768"> </a><p class="pBody">
+<b class="cBold">Example</b>
+</p>
+<div class="pPreformattedRelative"><pre class="pPreformattedRelative">
+set oSourceFile = CreateObject(&quot;dotXSIObj.FileHandler&quot;)
+oSourceFile.Open(&quot;C:\\Examples.xsi&quot;)
+oSourceFile.Read
+
+set oChild = oSourceFile.RootTemplates(5).children(0)
+set Parent = oChild.Parent
+&#39; ... <a name="wp611303"> </a>
+</pre></div>
+<a name="wp610736"> </a><h5 class="pHeading4">
+RootTemplates		 (<a  href="FTK_case_studies.html#wp588630">FileHandler</a>)
+</h5>
+<a name="wp589602"> </a><p class="pBody">
+Gets all the root templates in the dotXSI file as a collection of <a  href="FTK_case_studies.html#wp588635"><em class="cEmphasis">Template</em></a> objects.
+</p>
+<a name="wp589608"> </a><p class="pBody">
+<b class="cBold">Return Value</b>
+</p>
+<a name="wp589609"> </a><p class="pBody">
+<a  href="FTK_case_studies.html#wp588634"><em class="cEmphasis">Templates</em></a>
+</p>
+<a name="wp589610"> </a><p class="pBody">
+<b class="cBold">Example</b>
+</p>
+<div class="pPreformattedRelative"><pre class="pPreformattedRelative">
+set oSourceFile = CreateObject(&quot;dotXSIObj.FileHandler&quot;)
+oSourceFile.Open(&quot;C:\\Examples.xsi&quot;)
+oSourceFile.Read
+
+set fso = CreateObject(&quot;Scripting.FileSystemObject&quot;)
+set oLogFile = fso.CreateTextFile(&quot;c:\\log.txt&quot;, True)
+
+oLogFile.WriteLine ( &quot;Number of RootTemplates: &quot; _
+	&amp; oSourceFile.RootTemplates.GetCount )<a name="wp589611"> </a>
+</pre></div>
+<a name="wp592192"> </a><h5 class="pHeading4">
+TemplateName (<a  href="FTK_case_studies.html#wp588635">Template</a>)
+</h5>
+<a name="wp617295"> </a><p class="pBody">
+Gets or sets the name (instance) of the template (for example, <span style="font-style: italic">SI_Ambience</span>). 
+</p>
+<a name="wp617357"> </a><p class="pBodyRelative">
+</p><div align="left">
+<table border="0" cellpadding="0" cellspacing="0">
+  <caption></caption>
+  <tr align="left" valign="top">    <td><a name="wp617375"> </a><p class="pNote_graphic">
+<img src="icons/note.gif" border="0" width="50" height="50" Alt="Note" />
+&#160;
+</p>
+</td>
+    <td><a name="wp617377"> </a><p class="pBody">
+You can only set the TemplateName once after you create the template. It is  initialized using the default set of parameters.
+</p>
+</td>
+</tr>
+</table>
+</div>
+<p class="pBodyRelative">
+</p>
+<a name="wp614175"> </a><p class="pBody">
+<b class="cBold">Return Value</b>
+</p>
+<a name="wp592198"> </a><p class="pBody">
+String
+</p>
+<a name="wp592199"> </a><p class="pBody">
+<b class="cBold">Example</b>
+</p>
+<div class="pPreformattedRelative"><pre class="pPreformattedRelative">
+set oSourceFile = CreateObject(&quot;dotXSIObj.FileHandler&quot;)
+oSourceFile.Open(&quot;C:\\Examples.xsi&quot;)
+oSourceFile.Read
+
+set fso = CreateObject(&quot;Scripting.FileSystemObject&quot;)
+set oLogFile = fso.CreateTextFile(&quot;c:\\log.txt&quot;, True)
+
+set oTemplate = oSourceFile.RootTemplates(0)
+oLogFile.WriteLine ( oTemplate.TemplateName &amp; &quot; &quot; &amp; oTemplate.InstanceName )<a name="wp592200"> </a>
+</pre></div>
+<a name="wp592267"> </a><h5 class="pHeading4">
+UserDataType		 (<a  href="FTK_case_studies.html#wp588635">Template</a>)
+</h5>
+<a name="wp592271"> </a><p class="pBody">
+Gets or sets the user data type for the <a  href="FTK_case_studies.html#wp588635"><em class="cEmphasis">Template</em></a>.
+</p>
+<a name="wp592273"> </a><p class="pBody">
+<b class="cBold">Return Value</b>
+</p>
+<a name="wp592274"> </a><p class="pBody">
+String
+</p>
+<a name="wp592275"> </a><p class="pBody">
+<b class="cBold">Example</b>
+</p>
+<div class="pPreformattedRelative"><pre class="pPreformattedRelative">
+set oSourceFile = CreateObject(&quot;dotXSIObj.FileHandler&quot;)
+oSourceFile.Open(&quot;C:\\Examples.xsi&quot;)
+oSourceFile.Read
+
+set fso = CreateObject(&quot;Scripting.FileSystemObject&quot;)
+set oLogFile = fso.CreateTextFile(&quot;c:\\log.txt&quot;, True)
+
+oLogFile.WriteLine ( oSourceFile.FileVersionMajor &amp; &quot; &quot; _
+		&amp; oSourceFile.FileVersionMinor ) 
+oLogFile.WriteLine ( &quot;Number of RootTemplates &quot; _
+		&amp; oSourceFile.RootTemplates.GetCount )
+
+for each oTemplate in oSourceFile.RootTemplates
+	oLogFile.WriteLine ( &quot;User Data Type of &quot; &amp; oTemplate.TemplateName _
+			&amp; &quot;: &quot; &amp; oTemplate.InstanceName &amp; &quot; = &quot; &amp; oTemplate.UserDataType )
+next<a name="wp592276"> </a>
+</pre></div>
+<a name="wp592081"> </a><h5 class="pHeading4">
+UserFlags		 (<a  href="FTK_case_studies.html#wp588635">Template</a>)
+</h5>
+<a name="wp592085"> </a><p class="pBody">
+Gets or sets the user flags for the <a  href="FTK_case_studies.html#wp588635"><em class="cEmphasis">Template</em></a>.
+</p>
+<a name="wp592087"> </a><p class="pBody">
+<b class="cBold">Return Value</b>
+</p>
+<a name="wp592088"> </a><p class="pBody">
+Long
+</p>
+<a name="wp592089"> </a><p class="pBody">
+<b class="cBold">Example</b>
+</p>
+<div class="pPreformattedRelative"><pre class="pPreformattedRelative">
+set oSourceFile = CreateObject(&quot;dotXSIObj.FileHandler&quot;)
+oSourceFile.Open(&quot;C:\\Examples.xsi&quot;)
+oSourceFile.Read
+
+set fso = CreateObject(&quot;Scripting.FileSystemObject&quot;)
+set oLogFile = fso.CreateTextFile(&quot;c:\\log.txt&quot;, True)
+
+oLogFile.WriteLine ( oSourceFile.FileVersionMajor &amp; &quot; &quot; _
+		&amp; oSourceFile.FileVersionMinor ) 
+oLogFile.WriteLine ( &quot;Number of RootTemplates &quot; _
+		&amp; oSourceFile.RootTemplates.GetCount )
+
+for each oTemplate in oSourceFile.RootTemplates
+	oLogFile.WriteLine ( &quot;User Flags for &quot; &amp; oTemplate.TemplateName _
+			&amp; &quot;: &quot; &amp; oTemplate.InstanceName &amp; &quot; = &quot; &amp; oTemplate.UserFlags )
+next<a name="wp592141"> </a>
+</pre></div>
+<a name="wp594960"> </a><h5 class="pHeading4">
+Value		 (<a  href="FTK_case_studies.html#wp588637">Param</a>)
+</h5>
+<a name="wp594964"> </a><p class="pBody">
+Gets or sets the value of the <a  href="FTK_case_studies.html#wp588637"><em class="cEmphasis">Param</em></a>eter.
+</p>
+<a name="wp595004"> </a><p class="pBodyRelative">
+</p><div align="left">
+<table border="0" cellpadding="0" cellspacing="0">
+  <caption></caption>
+  <tr align="left" valign="top">    <td><a name="wp595007"> </a><p class="pTip_graphic">
+<img src="icons/tip.gif" border="0" width="50" height="50" Alt="Tip" />
+&#160;
+</p>
+</td>
+    <td><a name="wp595009"> </a><p class="pBody">
+For information on the parameters used in individual templates, see <a  href="ftk_TemplateRef.html#wp573235"><em class="cEmphasis">Template Reference</em></a>.
+</p>
+</td>
+</tr>
+</table>
+</div>
+<p class="pBodyRelative">
+</p>
+<a name="wp594966"> </a><p class="pBody">
+<b class="cBold">Return Value</b>
+</p>
+<a name="wp594967"> </a><p class="pBody">
+Variant
+</p>
+<a name="wp611545"> </a><p class="pBody">
+<b class="cBold">Example</b>
+</p>
+<div class="pPreformattedRelative"><pre class="pPreformattedRelative">
+set oFile = CreateObject(&quot;dotXSIObj.FileHandler&quot;)
+oFile.Open(&quot;C:\\Examples.xsi&quot;)
+oFile.Read
+
+set fso = CreateObject(&quot;Scripting.FileSystemObject&quot;)
+set oLogFile = fso.CreateTextFile(&quot;c:\\log.txt&quot;, True)
+
+set oTemplate = oFile.RootTemplates.Item( 5 )
+for iParamIndex = 0 to oTemplate.Params.GetCount - 1
+	set oCurrParam = oTemplate.Params.Item( iParamIndex )
+	vParamValue = oCurrParam.Value
+	if typename ( vParamValue ) &lt;&gt; &quot;Variant()&quot; then
+		oLogFile.WriteLine( &quot;  &quot; &amp; oCurrParam.Name &amp; &quot;[&quot; _
+			&amp; oCurrParam.Value &amp; &quot;]&quot; )
+	else
+		oLogFile.WriteLine( &quot;  [[&quot; &amp; iParamIndex &amp; &quot;]] &quot; &amp; oCurrParam.Name _
+			&amp; &quot; is an array of index [&quot; &amp; LBound( vParamValue ) &amp; &quot;,&quot; _
+			&amp; UBound( vParamValue ) &amp; &quot;]&quot; )
+		for iValueIndex = LBound( vParamValue ) to UBound( vParamValue ) 
+			oLogFile.WriteLine( &quot;     [&quot; &amp; iValueIndex &amp; &quot;] = &quot; _
+				&amp; vParamValue( iValueIndex ) )
+		next
+	end if
+next <a name="wp611546"> </a>
+</pre></div>
+<a name="wp611547"> </a><h3 class="pHeading2">
+A First Glance
+</h3>
+<a name="wp595651"> </a><p class="pBody">
+This table indicates the names of the header files used in the dotXSIObj project and which header files they correspond to in the standard FTK libraries:
+</p>
+<a name="wp595678"> </a><p class="pBodyRelative">
+</p><div align="left">
+<table border="0" cellpadding="5" cellspacing="1">
+  <caption></caption>
+  <tr bgcolor="#0055AA" align="left">    <th><a name="wp595681"> </a><div style="text-align: left" class="pCellHeading">
+In dotXSIObj
+</div>
+</th>
+    <th><a name="wp595683"> </a><div style="text-align: left" class="pCellHeading">
+In the FTK
+</div>
+</th>
+    <th><a name="wp595685"> </a><div style="text-align: left" class="pCellHeading">
+Description
+</div>
+</th>
+</tr>
+  <tr bgcolor="Silver" align="left">    <td><a name="wp595687"> </a><div class="pCellBody">
+FileHandler.h
+</div>
+</td>
+    <td><a name="wp595689"> </a><div class="pCellBody">
+XSIParser.h
+</div>
+</td>
+    <td><a name="wp595691"> </a><div class="pCellBody">
+Allows you to create the FileHandler object for parsing the dotXSI file.
+</div>
+</td>
+</tr>
+  <tr bgcolor="Silver" align="left">    <td><a name="wp595693"> </a><div class="pCellBody">
+Templates.h
+</div>
+</td>
+    <td><a name="wp595695"> </a><div class="pCellBody">
+dotXSITemplates3_0.h
+</div>
+<a name="wp595728"> </a><div class="pCellBody">
+dotXSITemplates3_5s.h
+</div>
+</td>
+    <td><a name="wp595697"> </a><div class="pCellBody">
+Accesses and manages the collection of v3.0 and v3.5 templates.
+</div>
+</td>
+</tr>
+  <tr bgcolor="Silver" align="left">    <td><a name="wp595754"> </a><div class="pCellBody">
+Template.h
+</div>
+</td>
+    <td><a name="wp595756"> </a><div class="pCellBody">
+dotXSITemplate.h
+</div>
+</td>
+    <td><a name="wp595758"> </a><div class="pCellBody">
+Handles individual templates.
+</div>
+</td>
+</tr>
+  <tr bgcolor="Silver" align="left">    <td><a name="wp595796"> </a><div class="pCellBody">
+Params.h
+</div>
+</td>
+    <td><a name="wp595798"> </a><div class="pCellBody">
+dotXSIParams.h
+</div>
+</td>
+    <td><a name="wp595800"> </a><div class="pCellBody">
+Accesses and manages the collection of parameters.
+</div>
+</td>
+</tr>
+  <tr bgcolor="Silver" align="left">    <td><a name="wp595742"> </a><div class="pCellBody">
+Param.h
+</div>
+</td>
+    <td><a name="wp595744"> </a><div class="pCellBody">
+dotXSIParam.h
+</div>
+</td>
+    <td><a name="wp595746"> </a><div class="pCellBody">
+Handles individual parameters
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pBodyRelative">
+</p>
+<a name="wp595659"> </a><p class="pBody">
+Each of these files contains definitions for the five matching classes in the ActiveX project.
+</p>
+<a name="wp595667"> </a><h3 class="pHeading2">
+A Closer Look
+</h3>
+<a name="wp595837"> </a><p class="pBody">
+As an example, the XSIParser.h file defines the GetdotXSIFileVersionMajor() function: 
+</p>
+<div class="pPreformattedRelative"><pre class="pPreformattedRelative">
+SI_Long    GetdotXSIFileVersionMajor() { return m_dotXSIFileVersionMajor; }  <a name="wp595848"> </a>
+</pre></div>
+<a name="wp595890"> </a><p class="pBody">
+This is the origin of the FileHandler.FileVersionMajor property in the dotXSIObj project, which returns a Long value.
+</p>
+<a name="wp603096"> </a><h3 class="pHeading2">
+Example: Using the ActiveX FTK Object
+</h3>
+<a name="wp614194"> </a><p class="pBody">
+This example creates an VBScript script  that can be used to print information from a dotXSI file to the DOS shell window.  
+</p>
+<a name="wp614203"> </a><p class="pBodyRelative">
+</p><div align="left">
+<table border="0" cellpadding="0" cellspacing="0">
+  <caption></caption>
+  <tr align="left" valign="top">    <td><a name="wp614206"> </a><p class="pNote_graphic">
+<img src="icons/note.gif" border="0" width="50" height="50" Alt="Note" />
+&#160;
+</p>
+</td>
+    <td><a name="wp614208"> </a><p class="pBody">
+To see the case study for the C++ version of XSIDump, see <a  href="FTK_case_studies.html#wp581424"><em class="cEmphasis">XSIDump: Creating a Standalone Executable to Print XSI Information</em></a>.
+</p>
+</td>
+</tr>
+</table>
+</div>
+<p class="pBodyRelative">
+</p>
+<div class="pPreformattedRelative"><pre class="pPreformattedRelative">
+&#39; Declare a function to dump one template
+&#39; This function will first dump all the parameters and then recursively calls
+&#39; itself for all its chldren.
+
+Sub dumponetemplate( inputTemplate, indentation )
+
+&#39; Define the Variables
+
+dim val, templateParam, paramIndex, ChildrenIndex, child
+
+&#39; Write out the name of the template name &amp; instance name
+&#39; and open a brace.
+&#39; i.e. SI_Mesh cube {  
+
+outputFile.WriteLine ( Space( indentation ) &amp; inputTemplate.TemplateName &amp; &quot; &quot; &amp; 
+inputTemplate.InstanceName &amp; &quot;{&quot; )
+
+&#39; Now for each parameters that we have
+
+for paramIndex = 0 to inputTemplate.Params.GetCount - 1
+	set templateParam = inputTemplate.Params.Item( paramIndex )
+	val = templateParam.value
+	
+&#39; As dotXSI stores most of its values in float, then we just convert to single
+&#39; to avoid the rouding errors
+
+	if typename ( val ) = &quot;Double&quot; then
+		val = CSng( val )
+	end if
+	if typename ( val ) &lt;&gt; &quot;Variant()&quot; then
+		outputFile.WriteLine( Space( indentation +2 ) &amp;  templateParam.name &amp; &quot; = 
+[&quot; &amp; val &amp; &quot;]&quot; )
+	else
+		outputFile.WriteLine( Space( indentation +2 ) &amp; &quot;[[ParamIndex = &quot; &amp; 
+paramIndex &amp; &quot;]] &quot; &amp; templateParam.name &amp; &quot; is an array of index [&quot; &amp; LBound( 
+val ) &amp; &quot;,&quot; &amp; UBound( val ) &amp; &quot;]&quot; )
+		for index = LBound( val ) to UBound( val ) 
+			outputFile.WriteLine( Space( indentation + 6 ) &amp; &quot; [&quot; &amp; index &amp; &quot;] = &quot; 
+&amp; val( index ) )
+		next
+	end if
+next 
+
+&#39; Children
+
+for ChildrenIndex = 0 to inputTemplate.Children.GetCount - 1
+	call dumponetemplate( inputTemplate.Children.Item ( ChildrenIndex ) , 
+indentation + 2 )
+next
+
+&#39; Close the opening brace
+
+outputFile.WriteLine( Space( indentation ) &amp; &quot;}&quot; )
+outputFile.WriteLine 
+end Sub
+
+&#39; Create the Variables
+
+dim outputFile, fso, dotXSIFile, dotXSIOutputFile<a name="wp603764"> </a>
+
+&#39; Create two handlers (one to read and one to write the dotXSI file)
+
+set dotXSIFile       = CreateObject(&quot;dotXSIObj.FileHandler&quot;)
+set dotXSIOutputFile = CreateObject(&quot;dotXSIObj.FileHandler&quot;)
+
+&#39; Create the FileSystemObject so we can create file for output
+
+Set fso = CreateObject(&quot;Scripting.FileSystemObject&quot;)<a name="wp603163"> </a>
+
+&#39; Open and Read the dotXSI file
+
+dotXSIFile.Open(&quot;C:\\test.xsi&quot;)
+dotXSIFile.Read
+
+&#39; Create the log file for the output
+
+Set outputFile = fso.CreateTextFile(&quot;c:\\log.txt&quot;, True)
+
+&#39; Output the Version of the file and the Count of top level templates
+
+outputFile.WriteLine ( &quot;FileVersion &quot; &amp;dotXSIFile.FileVersionMajor &amp; &quot; &quot; &amp; 
+dotXSIFile.FileVersionMinor ) 
+outputFile.WriteLine ( &quot;Number of RootTemplates &quot; &amp; 
+dotXSIFile.RootTemplates.GetCount )
+outputFile.WriteLine
+
+
+&#39; Dump all the root templates recursively
+&#39;
+for i = 0 to dotXSIFile.RootTemplates.GetCount - 1
+	set child = dotXSIFile.RootTemplates.Item( i )
+	call dumponetemplate( child, 0  )
+next
+
+&#39;
+&#39; Exercise to copy one dotXSI file to another....
+&#39; The idea is simply to copy all the templates from one FileHandler to another
+&#39; and then write the dotXSIOutputFile&#39; 
+&#39; Copy to Output
+
+for i = 0 to dotXSIFile.RootTemplates.GetCount - 1
+	dotXSIOutputFile.RootTemplates.Add dotXSIFile.RootTemplates.Item( i ), -1
+next
+
+&#39; Create a new dotXSIFile in text mode
+
+dotXSIOutputFile.Create &quot;C:\output.xsi&quot;, &quot;DOTXSI_FORMAT_TEXT&quot; 
+
+&#39; Write it
+
+dotXSIOutputFile.Write
+
+&#39;  Close all files and log message
+
+dotXSIOutputFile.Close
+dotXSIFile.Close
+outputFile.Close
+logmessage &quot;Done!&quot;<a name="wp603172"> </a>
+</pre></div>
+<a name="wp595941"> </a><p class="pBody">
+
+</p>
+
+ <hr />
+
+ <table align="right" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+        <td align="right">
+            <a target="_blank" href="http://www.softimage.com"><img src="images/silogo.gif" width="150" height="16" border="0" /></a>&#160;&#160;&#160;
+            <a target="_blank" href="http://www.avid.com"><img src="images/avidlogo.gif" width="50" height="20" border="0" /></a><br />
+            <br />
+    </td>
+   </tr>
+  </table>
+
+ </blockquote>
+
+
+
+<script type="text/javascript" language="JavaScript1.2">
+   <!--
+    document.write(WWHRelatedTopicsDivTag() + WWHPopupDivTag());
+   // -->
+  </script>
+
+ </body>
+</html>

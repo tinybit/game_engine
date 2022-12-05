@@ -1,0 +1,231 @@
+<?xml version='1.0' encoding='ISO-8859-1' ?>
+
+<WebWorksHelpIX version="3.0">
+ <i t="Binary">
+  <j l="ftk_intro.html#wp610737" />
+ </i>
+ <i t="Custom Data">
+  <j l="ftk_environment.html#wp592324" />
+ </i>
+ <i t="dotXSI">
+  <i t="about">
+   <j l="ftk_environment.html#wp592812" />
+  </i>
+  <i t="compatibility between XSI and 3D">
+   <j l="ftk_environment.html#wp592048" />
+  </i>
+ </i>
+ <i t="File Header">
+  <j l="ftk_TemplateRef.html#wp800462" />
+ </i>
+ <i t="setting up for">
+  <j l="ftk_environment.html#wp591256" />
+ </i>
+ <i t="SI_Ambience">
+  <j l="ftk_TemplateRef.html#wp800550" />
+ </i>
+ <i t="SI_Angle">
+  <j l="ftk_TemplateRef.html#wp800575" />
+ </i>
+ <i t="SI_Camera">
+  <j l="ftk_TemplateRef.html#wp800604" />
+ </i>
+ <i t="SI_Cluster">
+  <j l="ftk_TemplateRef.html#wp800645" />
+ </i>
+ <i t="SI_Constraint">
+  <j l="ftk_TemplateRef.html#wp800659" />
+ </i>
+ <i t="SI_CoordinateSystem">
+  <j l="ftk_TemplateRef.html#wp800736" />
+ </i>
+ <i t="SI_ElementUserData _">
+  <j l="ftk_TemplateRef.html#wp800837" />
+ </i>
+ <i t="SI_Envelope">
+  <j l="ftk_TemplateRef.html#wp800854" />
+ </i>
+ <i t="SI_EnvelopeList">
+  <j l="ftk_TemplateRef.html#wp800936" />
+ </i>
+ <i t="SI_FCurve">
+  <j l="ftk_TemplateRef.html#wp800995" />
+ </i>
+ <i t="SI_FileInfo">
+  <j l="ftk_TemplateRef.html#wp800985" />
+ </i>
+ <i t="SI_Fog">
+  <j l="ftk_TemplateRef.html#wp801087" />
+ </i>
+ <i t="SI_GlobalMaterial">
+  <j l="ftk_TemplateRef.html#wp801144" />
+ </i>
+ <i t="SI_IK_Effector">
+  <j l="ftk_TemplateRef.html#wp801175" />
+ </i>
+ <i t="SI_IK_Joint">
+  <j l="ftk_TemplateRef.html#wp801188" />
+ </i>
+ <i t="SI_IK_Root">
+  <j l="ftk_TemplateRef.html#wp801203" />
+ </i>
+ <i t="SI_ImageClip">
+  <j l="ftk_TemplateRef.html#wp801213" />
+ </i>
+ <i t="SI_Instance">
+  <j l="ftk_TemplateRef.html#wp801225" />
+ </i>
+ <i t="SI_Light">
+  <j l="ftk_TemplateRef.html#wp801241" />
+ </i>
+ <i t="SI_LightInfo">
+  <j l="ftk_TemplateRef.html#wp801334" />
+ </i>
+ <i t="SI_Material">
+  <j l="ftk_TemplateRef.html#wp801372" />
+ </i>
+ <i t="SI_MaterialLibrary">
+  <j l="ftk_TemplateRef.html#wp801481" />
+ </i>
+ <i t="SI_Mesh">
+  <j l="ftk_TemplateRef.html#wp801544" />
+ </i>
+ <i t="SI_Model">
+  <j l="ftk_TemplateRef.html#wp801573" />
+ </i>
+ <i t="SI_Null">
+  <j l="ftk_TemplateRef.html#wp801635" />
+ </i>
+ <i t="SI_NurbsCurve">
+  <j l="ftk_TemplateRef.html#wp801660" />
+ </i>
+ <i t="SI_NurbsSurface">
+  <j l="ftk_TemplateRef.html#wp801674" />
+ </i>
+ <i t="SI_NurbsTrim">
+  <j l="ftk_TemplateRef.html#wp803853" />
+ </i>
+ <i t="SI_PatchSurface">
+  <j l="ftk_TemplateRef.html#wp801846" />
+ </i>
+ <i t="SI_PolygonList">
+  <j l="ftk_TemplateRef.html#wp801934" />
+ </i>
+ <i t="SI_Scene">
+  <j l="ftk_TemplateRef.html#wp802032" />
+ </i>
+ <i t="SI_Shape">
+  <j l="ftk_TemplateRef.html#wp802077" />
+ </i>
+ <i t="SI_ShapeAnimation">
+  <j l="ftk_TemplateRef.html#wp802181" />
+ </i>
+ <i t="SI_SubelementUserDataPolygon_">
+  <j l="ftk_TemplateRef.html#wp802208" />
+ </i>
+ <i t="SI_SubelementUserDataVertex_">
+  <j l="ftk_TemplateRef.html#wp802226" />
+ </i>
+ <i t="SI_Texture2D">
+  <j l="ftk_TemplateRef.html#wp802243" />
+ </i>
+ <i t="SI_Transform">
+  <j l="ftk_TemplateRef.html#wp802540" />
+ </i>
+ <i t="SI_TriangleList">
+  <j l="ftk_TemplateRef.html#wp802589" />
+ </i>
+ <i t="SI_TriStrip">
+  <j l="ftk_TemplateRef.html#wp802676" />
+ </i>
+ <i t="SI_TriStripList">
+  <j l="ftk_TemplateRef.html#wp802737" />
+ </i>
+ <i t="SI_UserDataFormat">
+  <j l="ftk_TemplateRef.html#wp802807" />
+ </i>
+ <i t="SI_Visibility">
+  <j l="ftk_TemplateRef.html#wp802823" />
+ </i>
+ <i t="Template">
+  <j l="ftk_environment.html#wp591997" />
+ </i>
+ <i t="User Data">
+  <j l="ftk_environment.html#wp592324" />
+ </i>
+ <i t="Visual C++">
+  <j l="ftk_environment.html#wp591256" />
+ </i>
+ <i t="XSI_Action">
+  <j l="ftk_TemplateRef.html#wp802857" />
+ </i>
+ <i t="XSI_ActionClip">
+  <j l="ftk_TemplateRef.html#wp802898" />
+ </i>
+ <i t="XSI_ClusterInfo">
+  <j l="ftk_TemplateRef.html#wp802952" />
+ </i>
+ <i t="XSI_CurveList">
+  <j l="ftk_TemplateRef.html#wp802985" />
+ </i>
+ <i t="XSI_CustomParamInfo">
+  <j l="ftk_TemplateRef.html#wp803078" />
+ </i>
+ <i t="XSI_CustomPSet">
+  <j l="ftk_TemplateRef.html#wp802996" />
+ </i>
+ <i t="XSI_Extrapolation">
+  <j l="ftk_TemplateRef.html#wp803133" />
+ </i>
+ <i t="XSI_FXOperator">
+  <j l="ftk_TemplateRef.html#wp803168" />
+ </i>
+ <i t="XSI_FXTree">
+  <j l="ftk_TemplateRef.html#wp803380" />
+ </i>
+ <i t="XSI_Image">
+  <j l="ftk_TemplateRef.html#wp803405" />
+ </i>
+ <i t="XSI_ImageData">
+  <j l="ftk_TemplateRef.html#wp803500" />
+ </i>
+ <i t="XSI_ImageFX">
+  <j l="ftk_TemplateRef.html#wp803533" />
+ </i>
+ <i t="XSI_ImageLibrary">
+  <j l="ftk_TemplateRef.html#wp803645" />
+ </i>
+ <i t="XSI_Material">
+  <j l="ftk_TemplateRef.html#wp803682" />
+ </i>
+ <i t="XSI_MaterialInfo">
+  <j l="ftk_TemplateRef.html#wp803728" />
+ </i>
+ <i t="XSI_Mixer">
+  <j l="ftk_TemplateRef.html#wp803757" />
+ </i>
+ <i t="XSI_NurbsProjection">
+  <j l="ftk_TemplateRef.html#wp803814" />
+ </i>
+ <i t="XSI_Shader">
+  <j l="ftk_TemplateRef.html#wp803890" />
+ </i>
+ <i t="XSI_StaticValues">
+  <j l="ftk_TemplateRef.html#wp803998" />
+ </i>
+ <i t="XSI_SurfaceMesh">
+  <j l="ftk_TemplateRef.html#wp804034" />
+ </i>
+ <i t="XSI_TimeControl">
+  <j l="ftk_TemplateRef.html#wp804050" />
+ </i>
+ <i t="XSI_Track">
+  <j l="ftk_TemplateRef.html#wp804092" />
+ </i>
+ <i t="XSI_UserData">
+  <j l="ftk_TemplateRef.html#wp804144" />
+ </i>
+ <i t="XSI_UserDataList">
+  <j l="ftk_TemplateRef.html#wp804177" />
+ </i>
+</WebWorksHelpIX>

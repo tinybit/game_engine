@@ -1,0 +1,17 @@
+--LUA
+if ( gs("Game.EmbassyTalkedWithClown") == 2 and gsb("Game.ClownInCircus" ) == false ) then
+
+	Paris:MakeClown();
+	QuestOMgr.Man_clown:SetVisible( true );
+	QuestOMgr.Man_clown:SetEnabled( true );
+	if ( Quest:GetPrevSceneID() == "Paris\\skver_embassy" ) then
+		ObjSetPos( "Man_clown", QuestScn:GetNull( "nl_clownfromskverembassy" ) );
+	elseif (  Quest:GetPrevSceneID() == "Paris\\street_skver" ) then
+		ObjSetPos( "Man_clown", QuestScn:GetNull( "nl_clownfromstreetskver" ) );
+	elseif (  Quest:GetPrevSceneID() == "Paris\\street_square" ) then
+		ObjSetPos( "Man_clown", QuestScn:GetNull( "nl_clownfromstreetsquare" ) );
+	elseif (  Quest:GetPrevSceneID() == "Paris\\bridge" ) then
+		ObjSetPos( "Man_clown", QuestScn:GetNull( "nl_clownfrombridge" ) );
+	end;
+
+end;

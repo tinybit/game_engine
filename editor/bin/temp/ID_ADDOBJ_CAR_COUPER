@@ -1,0 +1,27 @@
+--LUA
+QuestObjMgr:AddObjCar( "Car_couper", "Couper\\nulls", "", "" );
+ObjSetPos( "Car_couper", QuestScn:GetNull( "nl_couper1" ) );
+
+QuestOMgr.Car_couper:AddObjToCollisionList();
+QuestOMgr.Car_couper:SetCollisionObjID( "Car_couper_All" );
+efn = QuestOMgr.Car_couper_EfnAnim;
+efn:AttachObjToNullC( "Couper_All", "Car_couper_All", "Couper\\Couper_All", "Autos\\MiniCuper_Green", "env\\river_bay.panoramma", "", D3DXCOLOR(1,1,1,1) );
+QuestOMgr.Car_couper_All:SetShadowCastType( OVT_OOBB );
+efn:AttachObjToNull( "Driver", "Car_couper_Driver", "Couper\\Driver", "Autos\\Driver", "", "" );
+efn:AttachObjToNull( "Wheel_F_null", "Car_couper_Wheel_F", "Couper\\Couper_W_F", "Autos\\MiniCuper_Green", "", "" );
+efn:AttachObjToNull( "Wheel_B_null", "Car_couper_Wheel_B", "Couper\\Couper_W_B", "Autos\\MiniCuper_Green", "", "" );
+efn:AttachObjToNullC( "Glass_B1", "Car_couper_Glass_B1", "Couper\\Couper_G_B", "env\\river_bay.panoramma", "", "", D3DXCOLOR(3,3,3,0.4) );
+efn:AttachObjToNullC( "Glass_R1", "Car_couper_Glass_R1", "Couper\\Couper_G_R", "env\\river_bay.panoramma", "", "", D3DXCOLOR(3,3,3,0.4) );
+efn:AttachObjToNullC( "Glass_F1", "Car_couper_Glass_F1", "Couper\\Couper_G_F", "env\\river_bay.panoramma", "", "", D3DXCOLOR(3,3,3,0.4) );
+efn:AttachObjToNullC( "Glass_L1", "Car_couper_Glass_L1", "Couper\\Couper_G_L", "env\\river_bay.panoramma", "", "", D3DXCOLOR(3,3,3,0.4) );
+QuestOMgr.Car_couper_All:SetTex2SphereMapping( true );
+QuestOMgr.Car_couper_All:SetTexBlendFactor( 0.9 );
+QuestOMgr.Car_couper_All:SetCullNone( false );
+QuestOMgr.Car_couper_Glass_B1:SetTexSphereMapping( true );
+QuestOMgr.Car_couper_Glass_R1:SetTexSphereMapping( true );
+QuestOMgr.Car_couper_Glass_F1:SetTexSphereMapping( true );
+QuestOMgr.Car_couper_Glass_L1:SetTexSphereMapping( true );
+QuestOMgr.Car_couper_Glass_B1:SetMtrlSpecular( D3DXCOLOR(1,1,1,1), 40 );
+QuestOMgr.Car_couper_Glass_R1:SetMtrlSpecular( D3DXCOLOR(1,1,1,1), 40 );
+QuestOMgr.Car_couper_Glass_F1:SetMtrlSpecular( D3DXCOLOR(1,1,1,1), 40 );
+QuestOMgr.Car_couper_Glass_L1:SetMtrlSpecular( D3DXCOLOR(1,1,1,1), 40 );

@@ -1,0 +1,238 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+	<title>The Cookie Machine -- Краткая документация</title>
+</head>
+
+<body bgcolor="#FFFFFF" leftmargin="0" topmargin="0" rightmargin="0" bottommargin="0">
+
+<table align="center" width="100%" height="100%" cellspacing="10" cellpadding="0" border="0" >
+<tr>
+    <td align="left" valign="top">
+	<br>
+	<font size="5" color="#000000"><div align="center"><strong>Краткая документация к "The Cookie Machine"</strong></div></font>
+	
+	<font color="#0000FF">	
+	<ul type="square">
+		<li>Информация по версиям</li>	
+		<li>Возможности редактора</li>		
+		<li>Описание пользовательского интерфейса</li>
+		<li><font color="#FF0000">Работа с камерой</font></li>
+		<li>Описание типов файлов</li>
+		<li>Работа с файлами XSI</li>
+		<li>Работа с файлами 3DS</li>
+		<li>Работа с файлами EFN (animation)</li>
+		<li>Работа с файлами EFN (meshlist)</li>
+		<li>Работа с файлами SCN</li>
+		<li><font color="#FF0000">Shortcuts</font></li>
+		<li>Known bugs and limitations</li>
+		<li>Авторы и контактная информация</li>		
+	</ul>
+	</font>
+	
+	
+	
+	
+	<font size="5"><div align="center"><strong>------------------------- Работа с камерой -------------------------</strong></div></font>
+	
+	<table cellspacing="0" cellpadding="2" border="0">
+	<tr>
+		<td width="23" align="left" valign="top"></td>
+    	<td align="left" valign="top" >
+		Перемещение вверх/вниз/вправо/влево: <br>
+		Вращение относительно оси Y: <br>
+		Zooming (+/-): <br>
+		</td>
+		<td align="left" valign="top">
+		правая кнопка мыши<br>
+		Ctrl + правая кнопка мыши<br>
+		Shift + правая кнопка мыши<br>
+		</td>
+	</tr>
+	</table>
+
+	
+	<br><br>
+	
+	
+	
+	
+	<font size="5"><div align="center"><strong>------------------------------- Shortcuts -------------------------------</strong></div></font>
+	
+	<ul type="disk">
+		<li>Общие</li>
+	
+			<ul type="circle">
+			<table border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td align="left" valign="top"><li>Открыть файл:&nbsp;</li></td>
+				<td align="left" valign="top">Ctrl-O</td>
+			</tr>
+			<tr>
+				<td align="left" valign="top"><li>Сохранить файл:&nbsp;</li></td>
+				<td align="left" valign="top">Ctrl-S</td>
+			</tr>
+			<tr>
+				<td align="left" valign="top"><li>Показать диалог настроек редактора:&nbsp;</li></td>
+				<td align="left" valign="top">Ctrl-Enter</td>
+			</tr>			
+			<tr>
+				<td align="left" valign="top"><li>Показать файл справки:&nbsp;</li></td>
+				<td align="left" valign="top">F1</td>
+			</tr>
+			<tr>
+				<td align="left" valign="top"><li>Режим отображения "wireframe":&nbsp;</li></td>
+				<td align="left" valign="top">F2</td>
+			</tr>
+			<tr>
+				<td align="left" valign="top"><li>Режим отображения "solid":&nbsp;</li></td>
+				<td align="left" valign="top">F3</td>
+			</tr>
+			<tr>
+				<td align="left" valign="top"><li>Режим отображения "solid & wireframe":&nbsp;</li></td>
+				<td align="left" valign="top">F4</td>
+			</tr>
+			<tr>
+				<td align="left" valign="top"><li>Отсечение невидимых поверхностей (on/off):&nbsp;</li></td>
+				<td align="left" valign="top">F5</td>
+			</tr>
+			<tr>
+				<td align="left" valign="top"><li>Показать "bounding box" (on/off):&nbsp;</li></td>
+				<td align="left" valign="top">O</td>
+			</tr>						
+			<tr>
+				<td align="left" valign="top"><li>Показать "bounding sphere" (on/off):&nbsp;</li></td>
+				<td align="left" valign="top">P</td>
+			</tr>
+			<tr>
+				<td align="left" valign="top"><li>Запустить игровой движок:&nbsp;</li></td>
+				<td align="left" valign="top">F9</td>
+			</tr>						
+			<tr>
+				<td align="left" valign="top"><li>Закрыть программу:&nbsp;</li></td>
+				<td align="left" valign="top">Alt-F4</td>
+			</tr>
+			</table>
+			</ul>
+			<br>
+	
+	
+	
+		<li>Файлы EFN (animation)</li>
+	
+			<ul type="circle">
+			<table border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td align="left" valign="top"><li>Выделение кадров анимации:&nbsp;</li></td>
+				<td align="left" valign="top">удерживая "Ctrl" выделить кадры бегунком, отпустить Ctrl</td>
+			</tr>
+			<tr>
+				<td align="left" valign="top"><li>Редактирование "global radius":&nbsp;</li></td>
+				<td align="left" valign="top">выделить в дереве объектов узел Info->GlobalRadius, удерживая "С" и правую<br> кнопку мыши, задать значение. Отпустить правую кнопку мыши</td>
+			</tr>
+			<tr>
+				<td align="left" valign="top"><li>Выделить все кадры:&nbsp;</li></td>
+				<td align="left" valign="top">Alt-A</td>
+			</tr>
+			<tr>
+				<td align="left" valign="top"><li>Снять выделение со всех кадров:&nbsp;</li></td>
+				<td align="left" valign="top">Alt-Z</td>
+			</tr>			
+			<tr>
+				<td align="left" valign="top"><li>Удалить выделенные кадры:&nbsp;</li></td>
+				<td align="left" valign="top">Shift-Del</td>
+			</tr>			
+			</table>
+			</ul>
+			<br>	
+			
+
+		<li>Файлы EFN (meshlist)</li>
+	
+			<ul type="circle">
+			<table border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td align="left" valign="top"><li>Скрыть выделенный объект:&nbsp;</li></td>
+				<td align="left" valign="top">H</td>
+			</tr>	
+			<tr>
+				<td align="left" valign="top"><li>Показать все объекты:&nbsp;</li></td>
+				<td align="left" valign="top">Shift-H</td>
+			</tr>
+			<tr>
+				<td align="left" valign="top"><li>Скрыть все кроме выделенного объекта:&nbsp;</li></td>
+				<td align="left" valign="top">Ctrl-H</td>
+			</tr>
+			<tr>
+				<td align="left" valign="top"><li>Перейти в режим редактирования вершин выделенного объекта:&nbsp;</li></td>
+				<td align="left" valign="top">V</td>
+			</tr>
+			<tr>
+				<td align="left" valign="top"><li>Выйти из режима редактирования вершин выделенного объекта:&nbsp;</li></td>
+				<td align="left" valign="top">V</td>
+			</tr>
+			<tr>
+				<td align="left" valign="top"><li>Привязка к оси X:&nbsp;</li></td>
+				<td align="left" valign="top">1</td>
+			</tr>
+			<tr>
+				<td align="left" valign="top"><li>Привязка к оси Y:&nbsp;</li></td>
+				<td align="left" valign="top">2</td>
+			</tr>
+			<tr>
+				<td align="left" valign="top"><li>Привязка к оси Z:&nbsp;</li></td>
+				<td align="left" valign="top">3</td>
+			</tr>
+			<tr>
+				<td align="left" valign="top"><li>Привязка к осям XY:&nbsp;</li></td>
+				<td align="left" valign="top">4</td>
+			</tr>								
+			<tr>
+				<td align="left" valign="top"><li>Привязка к осям XZ:&nbsp;</li></td>
+				<td align="left" valign="top">5</td>
+			</tr>								
+			<tr>
+				<td align="left" valign="top"><li>Привязка к осям YZ:&nbsp;</li></td>
+				<td align="left" valign="top">6</td>
+			</tr>
+			<tr>
+				<td align="left" valign="top"><li>Добавить вершину к уже выделенным:&nbsp;</li></td>
+				<td align="left" valign="top">удерживать "Ctrl", выделить вершины</td>
+			</tr>															
+			<tr>
+				<td align="left" valign="top"><li>Удалить вершину из уже выделенных:&nbsp;</li></td>
+				<td align="left" valign="top">удерживать "Alt", выделить вершины</td>
+			</tr>												
+			<tr>
+				<td align="left" valign="top"><li>Сбросить выделение вершин:&nbsp;</li></td>
+				<td align="left" valign="top">выделить пустое место</td>
+			</tr>
+			<tr>
+				<td align="left" valign="top"><li>Переместить выделенные вершины (согласно привязке по осям):&nbsp;</li></td>
+				<td align="left" valign="top">удерживать "W", удерживать правую кнопку<br> мыши, передвинуть вершины, отпустить правую кнопку мыши</td>
+			</tr>
+			<tr>
+				<td align="left" valign="top"><li>Редактирование поворота нулика по оси Y:&nbsp;</li></td>
+				<td align="left" valign="top">удерживать "Q", удерживать правую кнопку<br> мыши, повернуть нулик, отпустить правую кнопку мыши</td>
+			</tr>														
+			<tr>
+				<td align="left" valign="top"><li>Редактирование позиции нулика по осям XZ:&nbsp;</li></td>
+				<td align="left" valign="top">удерживать "W", удерживать правую кнопку<br> мыши, переместить нулик, отпустить правую кнопку мыши</td>
+			</tr>														
+			<tr>
+				<td align="left" valign="top"><li>Редактирование позиции нулика по оси Y:&nbsp;</li></td>
+				<td align="left" valign="top">удерживать "E", удерживать правую кнопку<br> мыши, переместить нулик, отпустить правую кнопку мыши</td>
+			</tr>														
+			</table>
+			</ul>
+			<br>				
+		
+	</ul>
+	
+	</td>
+</tr>
+</table>
+
+</body>
+</html>

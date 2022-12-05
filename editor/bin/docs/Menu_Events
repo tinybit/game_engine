@@ -1,0 +1,640 @@
+rukzak = nil;
+cursor = nil;
+menu = nil;
+
+function Menu_OnInit()
+
+	inputEnabled( false );
+
+	SetEvent_OnMouseLeftClick( L"Menu", L"Menu_OnMouseLeftClick();" );
+	SetEvent_OnMouseRightClick( L"Menu", L"Menu_OnMouseRightClick();" );
+	SetEvent_OnMouseOver( L"Menu", L"Menu_OnMouseOver();" );
+	SetEvent_OnKeybKeyCode( L"Menu", L"Menu_OnKeybKeyCode();" );
+
+	ss( L"sys.StatesListStartY", 5 );
+
+	Menu_InitData();
+
+	ExecFile( L"Menu_Rukzak_Events.lua" );
+
+	inputEnabled( true );
+
+end;
+
+function Menu_OnKill()
+
+end;
+
+function Menu_OnKeybKeyCode()
+
+	keybKeyCode = gevs();
+	--LogErr(int2wstr(keybKeyCode));
+
+	--open menu on VK_ESC
+	if ( keybKeyCode==27 ) then
+
+		if ( menu:IsOpened()==true ) then
+
+			menu:Close();
+			ContinueMove( L"Quest" );
+			ContinueMove( L"Nuts" );
+
+		else
+
+			menu:Open();
+			PauseMove( L"Quest" ); --todo Pause for all
+			PauseMove( L"Nuts" ); --todo Pause for all
+
+		end;
+
+		EvKill();
+		return;
+
+	end;
+
+	--open rukzak on VK_TAB
+	if ( keybKeyCode==9 ) then
+
+		if ( rukzak:IsOpened() == false ) then
+
+			rukzak:Open();
+
+		else
+
+			rukzak:Close();
+
+		end;
+
+		EvKill();
+		return;
+
+	--end;
+
+	--rukzak items click
+	if ( (rukzak:IsOpened() == true) and keybKeyCode >= 48 and keybKeyCode <= 57 ) then
+
+		item_id = rukzak:GetItemIDFromNum( keybKeyCode-49 );
+
+		if ( not ( item_id == L"" ) ) then
+
+			cursor:SetItem( item_id );
+
+		end;
+
+		EvKill();
+		return;
+
+	end;
+
+	if ( gsb( L("Menu.rp_ShowObjList") ) == true ) then
+
+		--on key up
+		if ( keybKeyCode == 38 ) then
+			if ( gs( L"Menu.ObjListStartY" ) == -99999 or gs( L"Menu.ObjListStartY" ) == 99999 ) then
+				ss( L"Menu.ObjListStartY", 5 );
+			end;
+			ss( L"Menu.ObjListStartY", gs( L"Menu.ObjListStartY" )+10 );
+			EvKill();
+			return;
+		end;
+
+		--on key down
+		if ( keybKeyCode == 40 ) then
+			if ( gs( L("Menu.ObjListStartY") ) == -99999 or gs( L("Menu.ObjListStartY") ) == 99999 ) then
+				ss( L"Menu.ObjListStartY", 5 );
+			end;
+			ss( L"Menu.ObjListStartY", gs( L"Menu.ObjListStartY" )-10 );
+			EvKill();
+			return;
+		end;
+
+		--on key PgUp
+		if ( keybKeyCode == 33 ) then
+			ss( L"Menu.ObjListStartY", -99999 );
+			EvKill();
+			return;
+		end;
+
+		--on key PgDown
+		if ( keybKeyCode == 34 ) then
+			ss( L"Menu.ObjListStartY", 99999 );
+			EvKill();
+			return;
+		end;
+
+	end;
+
+	ParseDebugKeys( keybKeyCode );
+
+end;
+
+function Menu_OnMouseLeftClick()
+
+	mouseEvType = gevs();
+
+	cursor:MouseClick( mouseEvType );
+
+	--menu click
+	if ( menu:IsOpened()==true and mouseEvType==1 ) then
+
+		obj_id = MenuObjMgr:GetIntersectedObjID( L"MenuPuzzles", Menu:GetLeftClickRay() );
+		if ( not ( obj_id == L"" ) ) then
+
+			if ( obj_id == L"menu_bits_z_1T" or obj_id == L"menu_bits_z_2T" or obj_id == L"menu_bits_z_3T" ) then
+
+				menu:Close();
+				StartGames();
+
+			elseif ( obj_id == L"menu_bits_z_4T" or obj_id == L"menu_bits_z_5T" or obj_id == L"menu_bits_z_6T" ) then
+
+				menu:Close();
+				g_Engine:SaveState( L"1" );
+				ContinueMove( L"Quest" );
+				ContinueMove( L"Nuts" );
+
+			elseif ( obj_id == L"menu_bits_z_7T" or obj_id == L"menu_bits_z_8T" or obj_id == L"menu_bits_z_9T" ) then
+
+				menu:Close();
+				g_Engine:LoadState( L"1" );
+				ContinueMove( L"Quest" );
+				ContinueMove( L"Nuts" );
+
+			elseif ( obj_id == L"menu_bits_z_10T" or obj_id == L"menu_bits_z_11T" or obj_id == L"menu_bits_z_12T" ) then
+
+				menu:Close();
+				g_Engine:Exit();
+
+			end;
+
+		end;
+
+		EvKill();
+		return;
+
+	end;
+
+	--rukzak click
+	if ( (g_Mouse.left_x>20) and (g_Mouse.left_x<90) and ( g_Mouse.left_y>25 ) and ( g_Mouse.left_y<100 ) ) then
+
+		if ( mouseEvType == 1 ) then
+
+			if ( rukzak:IsOpened() == false ) then
+
+				rukzak:Open();
+
+			else
+
+				rukzak:Close();
+
+			end;
+
+		end;
+
+		EvKill();
+		return;
+
+	end;
+
+	--rukzak items click
+	if ( (rukzak:IsOpened() == true) and (g_Mouse.left_x>0) and (g_Mouse.left_x<100) ) then
+
+		if (mouseEvType == 1) then
+
+			item_id = rukzak:GetClickedItemID( Menu:GetOrthoLeftClickRay() );
+
+			if ( not( item_id == L("") ) ) then
+
+				if ( g_Script:Exists( L("Item_") + item_id + L("_OnLeftClick") ) ) then
+					ExecScript( L("Item_") + item_id + L("_OnLeftClick();") );
+				else
+					cursor:SetItem( item_id );
+				end;
+
+			end;
+
+		end;
+
+		EvKill();
+		return;
+
+	end;
+
+end;
+
+function Menu_OnMouseRightClick()
+
+	if ( not( cursor:GetItem() == L("") ) ) then
+
+		cursor:Clear();
+
+		EvKill();
+		return;
+
+	end;
+
+end;
+
+function Menu_OnMouseOver()
+
+	--on menu mouse over
+	if ( menu:IsOpened()==true and not ( menu:GetEfnAnim():GetAnimName()==L"rotate" ) ) then
+
+		obj_id = MenuObjMgr:GetIntersectedObjID( L"MenuPuzzles", Menu:GetMouseRay() );
+		if ( not ( obj_id == L"" ) ) then
+
+			if ( obj_id == L"menu_bits_z_1T" or obj_id == L"menu_bits_z_2T" or obj_id == L"menu_bits_z_3T" ) then
+
+				menu:SetActiveLine( 1 );
+
+			elseif ( obj_id == L"menu_bits_z_4T" or obj_id == L"menu_bits_z_5T" or obj_id == L"menu_bits_z_6T" ) then
+
+				menu:SetActiveLine( 2 );
+
+			elseif ( obj_id == L"menu_bits_z_7T" or obj_id == L"menu_bits_z_8T" or obj_id == L"menu_bits_z_9T" ) then
+
+				menu:SetActiveLine( 3 );
+
+			elseif ( obj_id == L"menu_bits_z_10T" or obj_id == L"menu_bits_z_11T" or obj_id == L"menu_bits_z_12T" ) then
+
+				menu:SetActiveLine( 4 );
+
+			end;
+
+			EvKill();
+			return;
+
+		end;
+
+	end;
+
+	--on rukzak mouse over
+	if ( ( g_Mouse.x>20 ) and ( g_Mouse.x<90 ) and ( g_Mouse.y>25 ) and ( g_Mouse.y<100 ) ) then
+
+		cursor:SetCursorAnim( L("catch") );
+		cursor:SetCursorHint( L("рюкзак") );
+
+		EvKill();
+		return;
+
+	end;
+
+	--rukzak items click
+	if ( rukzak:IsOpened() == true ) then
+
+		if ( g_Mouse.x < 100 ) then
+
+			item_id = rukzak:GetClickedItemID( Menu:GetOrthoMouseRay() );
+
+			if ( not ( item_id == L("") ) ) then
+
+				if ( g_Script:Exists( L("Item_") + item_id + L("_OnMouseOver") ) ) then
+
+					ExecScript( L("Item_") + item_id + L("_OnMouseOver();") );
+
+				else
+
+					cursor:SetCursorAnim( L("") );
+					cursor:SetCursorHint( rukzak:GetItemName( item_id ) );
+
+				end;
+
+			else
+
+				cursor:SetCursorAnim( L("") );
+				cursor:SetCursorHint( rukzak:GetItemName( item_id ) );
+
+			end;
+
+			rukzak:FillZooms( Menu:GetOrthoMouseRay() );
+
+			EvKill();
+			return;
+
+		else
+
+			rukzak:ClearZooms();
+
+		end;
+
+	end;
+
+end;
+
+function Menu_InitData()
+
+	--------------------------camera-------------------------------------------
+	MenuObjMgr:AddObjCamera( L"MenuMainCam" );
+	temp_cam = MenuOMgr.MenuMainCam;
+
+	temp_cam:SetOrthoCamPrm( D3DXVECTOR3( 0, 0, -10 ), D3DXVECTOR3( 0, 0, 0 ), D3DXVECTOR3( 0, 1, 0 ),
+							 D3DXVECTOR2( 40, 30 ), 0, 100 );
+
+	temp_cam:SetPerCamPrm(	D3DXVECTOR3(  0, 1, -3 ), D3DXVECTOR3( 0, 0, 0 ), D3DXVECTOR3( 0, 1, 0 ),
+							D3DXVECTOR2( g_Graph.fWidth, g_Graph.fHeight ), 1, 1000, math.pi / 3 );
+
+	Menu:SetCam( L"MenuMainCam" );
+
+	--------------------------cursor-------------------------------------------
+	MenuObjMgr:AddObjMenuCursor( L"cursor", L"cursor", L"sys\\Cursor", L"", L"rukzak" );
+	cursor = MenuOMgr.cursor;
+	cursor:GetEfnAnim():SetMtrlSpecular( D3DXCOLOR(1,1,1,1), 100.0 );
+	cursor:GetEfnAnim():SetCoords( D3DXVECTOR3(0, 0, 0), D3DXVECTOR3(1,1,1), D3DXVECTOR3( 0, math.pi, 0 ) );
+
+	--------------------------rukzak-------------------------------------------
+	MenuObjMgr:AddObjMenuRukzak( L"rukzak", L"rukzak", L"MenuItems\\Rukzak", L"" );
+	rukzak = MenuOMgr.rukzak;
+	rukzak:GetEfnAnim():SetCoords( D3DXVECTOR3(2, 26.5, 70), D3DXVECTOR3(12,12,12), D3DXVECTOR3( 0, math.pi, 0 ) );
+	def_mtrl = GetMtrl2( D3DXCOLOR(1,1,1,1), D3DXCOLOR(1,1,1,1), D3DXCOLOR(1,1,1,1), D3DXCOLOR(0.5,0.5,0.5,1), 50 );
+	--						item_id		item_name        efn_id				tex_id				spheremap	tex_id2		spheremap   mtrl* 	fillzbuf
+	rukzak:AddListItem( L"Budilnik",	L"Будильник", 	L"budilnik",	L"MenuItems\\Budilnik",	false, L"TinFoil2",	true,	def_mtrl );
+	rukzak:AddListItem( L"Utug",		L"Утюг",      	L"utug",		L"MenuItems\\Utug",		false, L"TinFoil2",	true,	def_mtrl );
+	rukzak:AddListItem( L"Yadro",		L"Ядро",      	L"yadro",		L"MenuItems\\Yadro",	false, L"TinFoil2",	true,	def_mtrl );
+	rukzak:AddListItem( L"Passport",	L"Паспорт",   	L"passport",	L"MenuItems\\Passport",	false, L"",			false,	nil );
+	rukzak:AddListItem( L"Key",			L"Ключ",      	L"key",			L"MenuItems\\Key",		false, L"TinFoil2",	true,	def_mtrl );
+	rukzak:AddListItem( L"Kolbasa",		L"Колбаса",   	L"kolbasa",		L"MenuItems\\Kolbasa",	false, L"",			false,	nil );
+
+	rukzak:AddListItem( L"Tablets",		L"Снотворное",  L"tablets",		L"MenuItems\\Tablets",	false, L"",			false,	def_mtrl );
+	rukzak:AddListItem( L"TabletsBtl",	L"",      		L"tabletsbtl",	L"metall_green",		true,  L"",			false,	GetMtrl2( D3DXCOLOR(1,1,1,0.4), D3DXCOLOR(1,1,1,0.4), D3DXCOLOR(1,1,1,1), D3DXCOLOR(0.5,0.5,0.5,1), 50 ) );
+	rukzak:AddChildToListItem( L"Tablets", L"null",		L"TabletsBtl" );
+
+	rukzak:AddListItem( L"KolbasaWithTablets",L"Колбаса с таблетками",	L"kolbasa",	L"MenuItems\\KolbasaWithTablets",	false, L"",		false,	nil );
+
+	--mtrl == nil for default material for efn
+
+	--------------------------menu-------------------------------------------
+	MenuObjMgr:AddObjMenuMenu( L"menu", L"menu", L"", L"" );
+	menu = MenuOMgr.menu;
+	objmenu = menu:GetEfnAnim();
+	objmenu:SetCoords( D3DXVECTOR3(0, -7, 20), D3DXVECTOR3(1,1,1), D3DXVECTOR3( math.pi/2 - 0.5, math.pi, -0.1 ) );
+	objmenu:SetRenderPrms( false, true, true );
+	objmenu:AttachObjToNull( L"n_1", L"menu_bits_z_1", L"menu_bits.z_1", L"MenuItems\\Menu", L"", L"" );	objmenu:AttachObjToNull( L"n_1", L"menu_bits_z_1T", L"menu_bits.z_1T", L"MenuItems\\Menu", L"", L"" );
+	objmenu:AttachObjToNull( L"n_2", L"menu_bits_z_2", L"menu_bits.z_2", L"MenuItems\\Menu", L"", L"" );	objmenu:AttachObjToNull( L"n_2", L"menu_bits_z_2T", L"menu_bits.z_2T", L"MenuItems\\Menu", L"", L"" );
+	objmenu:AttachObjToNull( L"n_3", L"menu_bits_z_3", L"menu_bits.z_3", L"MenuItems\\Menu", L"", L"" );	objmenu:AttachObjToNull( L"n_3", L"menu_bits_z_3T", L"menu_bits.z_3T", L"MenuItems\\Menu", L"", L"" );
+	objmenu:AttachObjToNull( L"n_4", L"menu_bits_z_4", L"menu_bits.z_6", L"MenuItems\\Menu", L"", L"" );	objmenu:AttachObjToNull( L"n_4", L"menu_bits_z_4T", L"menu_bits.z_6T", L"MenuItems\\Menu", L"", L"" );
+	objmenu:AttachObjToNull( L"n_5", L"menu_bits_z_5", L"menu_bits.z_5", L"MenuItems\\Menu", L"", L"" );	objmenu:AttachObjToNull( L"n_5", L"menu_bits_z_5T", L"menu_bits.z_5T", L"MenuItems\\Menu", L"", L"" );
+	objmenu:AttachObjToNull( L"n_6", L"menu_bits_z_6", L"menu_bits.z_4", L"MenuItems\\Menu", L"", L"" );	objmenu:AttachObjToNull( L"n_6", L"menu_bits_z_6T", L"menu_bits.z_4T", L"MenuItems\\Menu", L"", L"" );
+	objmenu:AttachObjToNull( L"n_7", L"menu_bits_z_7", L"menu_bits.z_7", L"MenuItems\\Menu", L"", L"" );	objmenu:AttachObjToNull( L"n_7", L"menu_bits_z_7T", L"menu_bits.z_7T", L"MenuItems\\Menu", L"", L"" );
+	objmenu:AttachObjToNull( L"n_8", L"menu_bits_z_8", L"menu_bits.z_8", L"MenuItems\\Menu", L"", L"" );	objmenu:AttachObjToNull( L"n_8", L"menu_bits_z_8T", L"menu_bits.z_8T", L"MenuItems\\Menu", L"", L"" );
+	objmenu:AttachObjToNull( L"n_9", L"menu_bits_z_9", L"menu_bits.z_9", L"MenuItems\\Menu", L"", L"" );	objmenu:AttachObjToNull( L"n_9", L"menu_bits_z_9T", L"menu_bits.z_9T", L"MenuItems\\Menu", L"", L"" );
+	objmenu:AttachObjToNull( L"n_10", L"menu_bits_z_10", L"menu_bits.z_12", L"MenuItems\\Menu", L"", L"" );	objmenu:AttachObjToNull( L"n_10", L"menu_bits_z_10T", L"menu_bits.z_12T", L"MenuItems\\Menu", L"", L"" );
+	objmenu:AttachObjToNull( L"n_11", L"menu_bits_z_11", L"menu_bits.z_11", L"MenuItems\\Menu", L"", L"" );	objmenu:AttachObjToNull( L"n_11", L"menu_bits_z_11T", L"menu_bits.z_11T", L"MenuItems\\Menu", L"", L"" );
+	objmenu:AttachObjToNull( L"n_12", L"menu_bits_z_12", L"menu_bits.z_10", L"MenuItems\\Menu", L"", L"" ); objmenu:AttachObjToNull( L"n_12", L"menu_bits_z_12T", L"menu_bits.z_10T", L"MenuItems\\Menu", L"", L"" );
+
+	MenuObjMgr:AddObjToGroup( L"MenuPuzzles", L"menu_bits_z_1T" );
+	MenuObjMgr:AddObjToGroup( L"MenuPuzzles", L"menu_bits_z_2T" );
+	MenuObjMgr:AddObjToGroup( L"MenuPuzzles", L"menu_bits_z_3T" );
+	MenuObjMgr:AddObjToGroup( L"MenuPuzzles", L"menu_bits_z_4T" );
+	MenuObjMgr:AddObjToGroup( L"MenuPuzzles", L"menu_bits_z_5T" );
+	MenuObjMgr:AddObjToGroup( L"MenuPuzzles", L"menu_bits_z_6T" );
+	MenuObjMgr:AddObjToGroup( L"MenuPuzzles", L"menu_bits_z_7T" );
+	MenuObjMgr:AddObjToGroup( L"MenuPuzzles", L"menu_bits_z_8T" );
+	MenuObjMgr:AddObjToGroup( L"MenuPuzzles", L"menu_bits_z_9T" );
+	MenuObjMgr:AddObjToGroup( L"MenuPuzzles", L"menu_bits_z_10T" );
+	MenuObjMgr:AddObjToGroup( L"MenuPuzzles", L"menu_bits_z_11T" );
+	MenuObjMgr:AddObjToGroup( L"MenuPuzzles", L"menu_bits_z_12T" );
+
+	-------------------------------help-------------------------------------------------
+	s = L"keys:\n";
+	s = s + L"  -------------All-------------\n";
+	s = s + L"  [E]   - events\n";
+	s = s + L"  [L]   - states\n";
+	s = s + L"  [I]   - info\n";
+	s = s + L"  [Z]   - Restart games\n";
+	s = s + L"  -------------Quest----------\n";
+	s = s + L"  [R]   - 3D on / off\n";
+	s = s + L"  [T]   - timers\n";
+	s = s + L"  [P]   - путь\n";
+	s = s + L"  [G]   - геометрия off\n";
+	s = s + L"  [B]   - геометрия show\n";
+	s = s + L"  [F]   - пол\n";
+	s = s + L"  [C]   - cam select\n";
+	s = s + L"  [O]   - активные объекты\n";
+	s = s + L"  [N]   - нули\n";
+	s = s + L"  [S]   - ShadowVolume\n";
+	s = s + L"  [V]   - ShadowVolume OOBB\n";
+	s = s + L"  [W]   - WareFrame OOBB\n";
+	s = s + L"  [A]   - Show obj_id instead of hints\n";
+	s = s + L"  [U]   - Show obj list\n";
+	s = s + L"  [Q]   - Show obj groups list\n";
+	s = s + L"  [D]   - Show render buffer list\n";
+	s = s + L"  [Y]   - Show active objs count ( collision list size )\n";
+	s = s + L"  [K]   - Layer pos edit\n";
+	s = s + L"  [J]   - Render shadow tex info\n";
+	s = s + L"  -------------Menu----------\n";
+	s = s + L"  [X]   - Show obj list\n";
+
+	g_Graph:SetKeysHelp( s );
+
+end;
+
+function ParseDebugKeys( keybKeyCode )
+
+	if ( g_Graph:GetDebug() == true ) then
+
+		--show states on VK_L
+		if ( keybKeyCode==76 ) then
+			ssb( L"sys.ShowStates", not gsb( L"sys.ShowStates" ) );
+			EvKill();
+			return;
+		end;
+
+		--show events on VK_E
+		if ( keybKeyCode==69 ) then
+			ssb( L"sys.ShowEvents", not gsb( L"sys.ShowEvents" ) );
+			EvKill();
+			return;
+		end;
+
+		--show timers on VK_T
+		if ( keybKeyCode==84 ) then
+			ssb( L"sys.ShowTimers", not gsb( L"sys.ShowTimers" ) );
+			EvKill();
+			return;
+		end;
+
+
+		--show info on VK_I
+		if ( keybKeyCode==73 ) then
+			ssb( L"sys.ShowInfo", not gsb( L"sys.ShowInfo" ) );
+			EvKill();
+			return;
+		end;
+
+		--show info on VK_F1
+		if ( keybKeyCode==112 ) then
+			ssb( L"sys.ShowKeysHelp", not gsb( L"sys.ShowKeysHelp" ) );
+			EvKill();
+			return;
+		end;
+
+		if ( gsb( L"sys.ShowStates" ) == true ) then
+
+			--on key up
+			if ( keybKeyCode == 38 ) then
+				if ( gs( L"sys.StatesListStartY" ) == -99999 or gs( L"sys.StatesListStartY" ) == 99999 ) then
+					ss( L"sys.StatesListStartY", 5 );
+				end;
+				ss( L"sys.StatesListStartY", gs( L"sys.StatesListStartY" )+10 );
+				EvKill();
+				return;
+			end;
+
+			--on key down
+			if ( keybKeyCode == 40 ) then
+				if ( gs( L"sys.StatesListStartY" ) == -99999 or gs( L"sys.StatesListStartY" ) == 99999 ) then
+					ss( L"sys.StatesListStartY", 5 );
+				end;
+				ss( L"sys.StatesListStartY", gs( L"sys.StatesListStartY" )-10 );
+				EvKill();
+				return;
+			end;
+
+			--on key PgUp
+			if ( keybKeyCode == 33 ) then
+				ss( L"sys.StatesListStartY", -99999 );
+				EvKill();
+				return;
+			end;
+
+			--on key PgDown
+			if ( keybKeyCode == 34 ) then
+				ss( L"sys.StatesListStartY", 99999 );
+				EvKill();
+				return;
+			end;
+
+		end;
+
+		----------------------------------------------------------------------------
+
+		--show info on VK_N
+		if ( keybKeyCode==78 ) then
+			ssb( L"Quest.rp_RenderNulls", not gsb( L"Quest.rp_RenderNulls" ) );
+			EvKill();
+			return;
+		end;
+
+		--show info on VK_O
+		if ( keybKeyCode==79 ) then
+			ssb( L"Quest.rp_RenderActions", not gsb( L"Quest.rp_RenderActions" ) );
+			EvKill();
+			return;
+		end;
+
+		--show info on VK_P
+		if ( keybKeyCode==80 ) then
+			ssb( L"Quest.rp_RenderPath", not gsb( L"Quest.rp_RenderPath" ) );
+			EvKill();
+			return;
+		end;
+
+		--show info on VK_G
+		if ( keybKeyCode==71 ) then
+			ssb( L"Quest.rp_RenderLayers", not gsb( L"Quest.rp_RenderLayers" ) );
+			EvKill();
+			return;
+		end;
+
+			--show info on VK_S
+		if ( keybKeyCode==83 ) then
+			ssb( L"Quest.rp_RenderShadowVolumesSiluet", not gsb( L"Quest.rp_RenderShadowVolumesSiluet" ) );
+			EvKill();
+			return;
+		end;
+
+		--show info on VK_V
+		if ( keybKeyCode==86 ) then
+			ssb( L"Quest.rp_RenderShadowVolumesOOBB", not gsb( L"Quest.rp_RenderShadowVolumesOOBB" ) );
+			EvKill();
+			return;
+		end;
+
+		--show info on VK_B
+		if ( keybKeyCode==66 ) then
+			ssb( L"Quest.rp_RenderLayersWithDefault", not gsb( L"Quest.rp_RenderLayersWithDefault" ) );
+			EvKill();
+			return;
+		end;
+
+		--show info on VK_F
+		if ( keybKeyCode==70 ) then
+			ssb( L"Quest.rp_RenderFloorWalk", not gsb( L"Quest.rp_RenderFloorWalk" ) );
+			EvKill();
+			return;
+		end;
+
+		--show info on VK_C
+		if ( keybKeyCode==67 ) then
+			ssb( L"Quest.rp_RenderFloorCam", not gsb( L"Quest.rp_RenderFloorCam" ) );
+			EvKill();
+			return;
+		end;
+
+		--show info on VK_R
+		if ( keybKeyCode==82 ) then
+			ssb( L"Quest.rp_Render3D", not gsb( L"Quest.rp_Render3D" ) );
+			EvKill();
+			return;
+		end;
+
+		--show info on VK_W
+		if ( keybKeyCode==87 ) then
+			ssb( L"Quest.rp_QuestWareFrame", not gsb( L"Quest.rp_QuestWareFrame" ) );
+			EvKill();
+			return;
+		end;
+
+		--show info on VK_A
+		if ( keybKeyCode==65 ) then
+			ssb( L"Quest.rp_ShowObjIDInsteadOfHints", not gsb( L"Quest.rp_ShowObjIDInsteadOfHints" ) );
+			EvKill();
+			return;
+		end;
+
+		--show info on VK_U
+		if ( keybKeyCode==85 ) then
+			ssb( L"Quest.rp_ShowObjList", not gsb( L"Quest.rp_ShowObjList" ) );
+			EvKill();
+			return;
+		end;
+		--show info on VK_D
+		if ( keybKeyCode==68) then
+			ssb( L"Quest.rp_ShowRenderBufferList", not gsb( L"Quest.rp_ShowRenderBufferList" ) );
+			EvKill();
+			return;
+		end;
+		--show info on VK_Q
+		if ( keybKeyCode==81 ) then
+			ssb( L"Quest.rp_ShowObjGroupsList", not gsb( L"Quest.rp_ShowObjGroupsList" ) );
+			EvKill();
+			return;
+		end;
+
+		--show info on VK_Y
+		if ( keybKeyCode==89 ) then
+			ssb( L"Quest.rp_RenderActiveObjsCount", not gsb( L"Quest.rp_RenderActiveObjsCount" ) );
+			EvKill();
+			return;
+		end;
+
+		--show info on VK_J
+		if ( keybKeyCode==74 ) then
+			ssb( L"Quest.rp_RenderShadowTexInfo", not gsb( L"Quest.rp_RenderShadowTexInfo" ) );
+			EvKill();
+			return;
+		end;
+
+
+
+		------------------------------------------------------------------
+
+		--show info on VK_X
+		if ( keybKeyCode==88 ) then
+			ssb( L"Menu.rp_ShowObjList", not gsb( L"Menu.rp_ShowObjList" ) );
+			EvKill();
+			return;
+		end;
+
+	end;
+
+end;

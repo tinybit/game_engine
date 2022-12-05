@@ -1,0 +1,5 @@
+--LUA
+QuestObjMgr:AddObjFree( "Free_yadro", "Cannon\\Cannon_ball", "MenuItems\\Yadro", "", true );
+QuestOMgr.Free_yadro:SetPos( QuestOMgr.Video3D_cannon_EfnAnim:GetNull( "Cannon_ball_static_null" ) );
+
+QuestOMgr.Free_yadro:SetVisible( gsb( "Game.Yadro.Out" ) );

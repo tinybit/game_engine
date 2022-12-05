@@ -1,0 +1,816 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+ <head>
+  <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="GENERATOR" content="Quadralay WebWorks Publisher Professional Edition 7.0.2.1206" />
+  <meta name="TEMPLATEBASE" content="Template" />
+  <meta name="LASTUPDATED" content="04/25/03 14:07:44" />
+  <title>The FTK API</title>
+  <link rel="StyleSheet" href="document.css" type="text/css" />
+  <link rel="StyleSheet" href="catalog.css" type="text/css" />
+<script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/context.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/towwhdir.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/wwhpagef.js"></script>
+
+  <script type="text/javascript" language="JavaScript1.2">
+   <!--
+    // Set reference to top level help frame
+    //
+    var  WWHFrame = WWHGetWWHFrame("");
+   // -->
+  </script>
+ </head>
+
+ <body onLoad="WWHUpdate();">
+
+ <blockquote>
+<a name="wp597460"> </a><div style="color: #000000; font-family: Arial, Verdana, Helvetica, sans-serif; font-size: 12pt; font-style: normal; font-variant: normal; font-weight: normal; margin-bottom: 0pt; margin-left: 0pt; margin-right: 0pt; margin-top: 0pt; text-align: right; text-decoration: none; text-indent: 0pt; text-transform: none">
+Chapter 
+</div>
+<a name="wp598359"> </a><h2 class="pTitle">
+The FTK API
+</h2>
+<hr />
+<a name="wp601058"> </a><p class="pBody">
+The Softimage|XSI FTK has two components:
+</p>
+<div class="pSmartList1"><ul class="pSmartList1">
+<a name="wp601059"> </a><div class="pSmartList1"><li><b class="cBold">The IO Layer</b>&#8212;provides a generic way of accessing dotXSI data</li></div>
+<a name="wp601060"> </a><div class="pSmartList1"><li><b class="cBold">The Semantic Layer</b>&#8212;provides a structured and semantically correct representation of the dotXSI file</li></div>
+</ul></div>
+<a name="wp601061"> </a><p class="pBody">
+The FTK has traditionally only provided what is now called an <em class="cEmphasis">IO layer</em>. This layer allows minimal access to the data in template form with no understanding or validation of the data at all. The developer has to manually extract all the information and know exactly where to look for that information. 
+</p>
+<a name="wp601062"> </a><p class="pBody">
+This can mean having to create complex programs just to do simple tasks such as reading the file and extracting simple information. In order to improve the usability of the dotXSI file format, the <em class="cEmphasis">Semantic Layer</em> has been built on top of the IO layer. It adds a new level of understanding of how a semantically correct file should be presented to the developer. 
+</p>
+<a name="wp601066"> </a><p class="pBodyRelative">
+</p><div><img src="images/ftk_exposed.jpg" height="108" width="209" border="0" hspace="0" vspace="0"/></div><p class="pBodyRelative">
+</p>
+<a name="wp601067"> </a><p class="pBody">
+
+</p>
+<a name="wp601068"> </a><h2 class="pHeading1">
+The IO Layer
+</h2>
+<a name="wp601069"> </a><p class="pBody">
+The FTK is composed of two layers: the IO Layer and the Semantic Layer. You do not have to use the Semantic layer, although it simplifies using the dotXSI file format.
+</p>
+<a name="wp601070"> </a><p class="pBody">
+The IO layer is a small core of classes that uses generic objects to represent a dotXSI file. The IO layer is essentially a parser class with a collection of templates which in turn contains a collection of parameters. The IO layer provides the following classes:</p><div align="left">
+<table border="0" cellpadding="5" cellspacing="1">
+  <caption></caption>
+  <tr bgcolor="#0055AA" align="left">    <th><a name="wp601073"> </a><div style="text-align: left" class="pCellHeading">
+Category
+</div>
+</th>
+    <th><a name="wp601075"> </a><div style="text-align: left" class="pCellHeading">
+Class Name
+</div>
+</th>
+    <th><a name="wp601077"> </a><div style="text-align: left" class="pCellHeading">
+Description
+</div>
+</th>
+</tr>
+  <tr bgcolor="Silver" align="left">    <td><a name="wp601079"> </a><div class="pCellBody">
+File parsing
+</div>
+</td>
+    <td><a name="wp601081"> </a><div class="pCellBody">
+CXSIParser
+</div>
+</td>
+    <td><a name="wp601083"> </a><div class="pCellBody">
+The CXSIParser provides all the basic functionality of reading and writing a dotXSI file. It contains specific functions to handle different versions of dotXSI and provides a set of reading and writing callbacks that are used by these different versions.
+</div>
+</td>
+</tr>
+  <tr bgcolor="Silver" align="left">    <td colspan="1" rowspan="2"><a name="wp601085"> </a><div class="pCellBody">
+Templates
+</div>
+</td>
+    <td colspan="1" rowspan="2"><a name="wp601087"> </a><div class="pCellBody">
+CdotXSITemplate
+</div>
+<a name="wp601088"> </a><div class="pCellBody">
+CdotXSITemplates
+</div>
+</td>
+    <td colspan="1" rowspan="2"><a name="wp601090"> </a><div class="pCellBody">
+The CdotXSITemplate class implements a dotXSI template. The CdotXSITemplates class implements a collection of dotXSI templates.
+</div>
+</td>
+</tr>
+  <tr bgcolor="Silver" align="left"></tr>
+  <tr bgcolor="Silver" align="left">    <td colspan="1" rowspan="3"><a name="wp601098"> </a><div class="pCellBody">
+Parameters
+</div>
+</td>
+    <td colspan="1" rowspan="3"><a name="wp601100"> </a><div class="pCellBody">
+CdotXSIParam
+</div>
+<a name="wp601101"> </a><div class="pCellBody">
+CdotXSIParams
+</div>
+<a name="wp601102"> </a><div class="pCellBody">
+SI_TinyVariant
+</div>
+</td>
+    <td colspan="1" rowspan="3"><a name="wp601104"> </a><div class="pCellBody">
+The CdotXSIParam class implements a dotXSI parameter. The CdotXSIParams class implements a collection of dotXSI parameters and the SI_TinyVariant is a small structure used to represent a platform independent variant type.
+</div>
+</td>
+</tr>
+  <tr bgcolor="Silver" align="left"></tr>
+  <tr bgcolor="Silver" align="left"></tr>
+</table>
+</div>
+<p class="pBody">
+</p>
+<a name="wp601117"> </a><p class="pBody">
+
+</p>
+<a name="wp601118"> </a><h2 class="pHeading1">
+The Semantic Layer
+</h2>
+<a name="wp601119"> </a><p class="pBody">
+The semantic layer is built on top of the IO layer. Each semantic layer class uses the data stored in the IO layer, which means that there is no redundancy of data in memory. 
+</p>
+<a name="wp601120"> </a><p class="pBody">
+For example, the <b class="cBold">CSLTransform</b> class implements the <b class="cBold">SI_Transform</b> template. That class allows the user to set or get transformation parameters. These parameters are themselves stored internally inside a <b class="cBold">CdotXSIParams</b> collection which belongs to a <b class="cBold">CdotXSITemplate</b>, but accessed through the CSLTransform class methods. This means also that the same data can be accessed either using the CSLTransform class (semantic layer) or the CdotXSITemplate class (IO layer).
+</p>
+<a name="wp601124"> </a><p class="pBodyRelative">
+</p><div><img src="images/io_vs_semantic.jpg" height="244" width="598" border="0" hspace="0" vspace="0"/></div><p class="pBodyRelative">
+</p>
+<a name="wp601125"> </a><p class="pBody">
+
+</p>
+<a name="wp601126"> </a><h3 class="pHeading2">
+Connecting the semantic layer with the IO layer
+</h3>
+<a name="wp601127"> </a><p class="pBody">
+To get the IO layer handle of a semantic layer object, use the <b class="cBold">CSLTemplate::Template</b>() method. All semantic layer objects that implement a dotXSI template are derived from the <b class="cBold">CSLTemplate</b> class. 
+</p>
+<a name="wp601128"> </a><p class="pBody">
+To properly synchronize the IO layer from a freshly created semantic layer structure, use the <b class="cBold">CSLTemplate::Synchronize</b>() method.
+</p>
+<a name="wp601129"> </a><p class="pBody">
+At the heart of the Semantic layer are several base classes:
+</p>
+<div class="pSmartList1"><ul class="pSmartList1">
+<a name="wp601132"> </a><div class="pSmartList1"><li><a  href="ftk_ftkapi.html#wp601148"><em class="cEmphasis">Scene Class</em></a></li></div>
+<a name="wp601136"> </a><div class="pSmartList1"><li><a  href="ftk_ftkapi.html#wp601163"><em class="cEmphasis">Proxy Classes</em></a></li></div>
+<a name="wp601140"> </a><div class="pSmartList1"><li><a  href="ftk_ftkapi.html#wp601175"><em class="cEmphasis">Array Classes</em></a></li></div>
+<a name="wp601144"> </a><div class="pSmartList1"><li><a  href="ftk_ftkapi.html#wp601183"><em class="cEmphasis">Utility Classes</em></a></li></div>
+</ul></div>
+<a name="wp601146"> </a><p class="pBody">
+
+</p>
+<a name="wp601148"> </a><h4 class="pHeading3">
+Scene Class
+</h4>
+<a name="wp601149"> </a><p class="pBody">
+The scene class (<b class="cBold">CSLScene</b>) is the doorway to the semantic layer. You have to instantiate a CSLScene object in order to have access to the other objects. You do not need to create any other objects directly; all objects should be created by a method either on the CSLScene object or on an object created from it. The CSLScene object allows you to create, read, and write files, access all models in the scene, and access all the top-level constructs of the dotXSI file including:
+</p>
+<div class="pSmartList1"><ul class="pSmartList1">
+<a name="wp601150"> </a><div class="pSmartList1"><li>Material Library</li></div>
+<a name="wp601151"> </a><div class="pSmartList1"><li>Ambience</li></div>
+<a name="wp601152"> </a><div class="pSmartList1"><li>Coordinate System</li></div>
+<a name="wp601153"> </a><div class="pSmartList1"><li>Envelope List</li></div>
+<a name="wp601154"> </a><div class="pSmartList1"><li>Fog</li></div>
+<a name="wp601155"> </a><div class="pSmartList1"><li>Angle</li></div>
+<a name="wp601156"> </a><div class="pSmartList1"><li>File Info</li></div>
+<a name="wp601157"> </a><div class="pSmartList1"><li>Scene Info</li></div>
+<a name="wp601158"> </a><div class="pSmartList1"><li>Image Library </li></div>
+</ul></div>
+<a name="wp601159"> </a><p class="pBody">
+
+</p>
+<a name="wp601160"> </a><h5 class="pHeading4">
+Example (Scene Class)
+</h5>
+<div class="pPreformattedRelative"><pre class="pPreformattedRelative">
+CSLScene l_scene;
+// Make sure the scene is either read in or initialized 
+SI_Float l_Red = l_scene-&gt;Ambience ()-&gt;GetColor()-&gt;m_fR;<a name="wp601161"> </a>
+</pre></div>
+<a name="wp601163"> </a><h4 class="pHeading3">
+Proxy Classes
+</h4>
+<a name="wp601164"> </a><p class="pBody">
+The proxy classes are widely used to represent a parameter within the template itself. They provide a user-friendly format of the data. They support all the possible types supported by the semantic layer:
+</p>
+<div class="pSmartList1"><ul class="pSmartList1">
+<a name="wp601165"> </a><div class="pSmartList1"><li>Bool</li></div>
+<a name="wp601166"> </a><div class="pSmartList1"><li>Byte</li></div>
+<a name="wp601167"> </a><div class="pSmartList1"><li>Float, Double</li></div>
+<a name="wp601168"> </a><div class="pSmartList1"><li>Enum,String Enum</li></div>
+<a name="wp601169"> </a><div class="pSmartList1"><li>Long, Ulong, Int, Uint, Short, Ushort</li></div>
+</ul></div>
+<a name="wp601170"> </a><p class="pBody">
+Each proxy returns and accepts the types as expected. For example, a bool will not take a TinyVariant type parameter, but only a bool type parameter. The same is true for String Enum, such as for the Scene Info, where we can have the frames or seconds for the timing. Normally, one has to compare the values with strings. This is not the most convenient way to work, especially because only two values are possible (<code class="cCode">&quot;SECONDS&quot;</code> or <code class="cCode">&quot;FRAMES&quot;</code>). Now the developer can just use the following:
+</p>
+<div class="pPreformattedRelative"><pre class="pPreformattedRelative">
+CSLScene l_scene;
+// Make sure the scene is either read in or initialized 
+l_scene-&gt;SceneInfo()-&gt;SetTimingType( CSLSceneInfo::SI_SECONDS );<a name="wp601171"> </a>
+</pre></div>
+<a name="wp601172"> </a><p class="pBody">
+This sets the proper value in the corresponding template (in this case <code class="cCode">&quot;SECONDS&quot;</code>).
+</p>
+<a name="wp601173"> </a><p class="pBody">
+The CSLVariantProxy class can be used for parameters with variable type. Unlike the proxy classes for the basic types, a TinyVariant value is returned.
+</p>
+<a name="wp601175"> </a><h4 class="pHeading3">
+Array Classes
+</h4>
+<a name="wp601176"> </a><p class="pBody">
+Array proxies simplify the use of the various array types in the dotXSI file format, whether it is an array of vertex positions (floats), Vertex indices (int), or Joint List (string). 
+</p>
+<a name="wp601177"> </a><p class="pBody">
+The array proxy allows you to work either on the 1D format or in the 2D format where you can add Rows. For example, the <b class="cBold">CSLVector2Darray</b> class lets you get and manipulate rows of 2D entries whose types are vector2d. This makes accessing these arrays easier. 
+</p>
+<a name="wp601178"> </a><h5 class="pHeading4">
+Example (Array Classes)
+</h5>
+<a name="wp601179"> </a><p class="pBody">
+For example, to write all the vertices in one given shape (ordered in this case) you would write:
+</p>
+<div class="pPreformattedRelative"><pre class="pPreformattedRelative">
+CSLBaseShape * l_shape;
+// Make sure l_shape is set properly to a Shape;
+CSLBaseShape::CSLVector3DArray * VertexList = l_shape-&gt;GetVertexList();
+for (int i = 0; i &lt; l_shape-&gt;GetVertexCount(); i++)
+{
+	SI_Float fX, fY, fZ;
+	fX = (*VertexList)[i].GetX();
+	fY = (*VertexList)[i].GetY();
+	fZ = (*VertexList)[i].GetZ();
+}<a name="wp601180"> </a>
+</pre></div>
+<a name="wp601181"> </a><p class="pBody">
+
+</p>
+<a name="wp601183"> </a><h4 class="pHeading3">
+Utility Classes
+</h4>
+<a name="wp601184"> </a><p class="pBody">
+There are also several classes that simplify access to different pieces of data (components):
+</p>
+<div class="pSmartList1"><ul class="pSmartList1">
+<a name="wp601185"> </a><div class="pSmartList1"><li>Fcurve &amp; Keys</li></div>
+<a name="wp601186"> </a><div class="pSmartList1"><li>Matrix 4x4</li></div>
+<a name="wp601187"> </a><div class="pSmartList1"><li>Variant</li></div>
+<a name="wp601188"> </a><div class="pSmartList1"><li>Color</li></div>
+<a name="wp601189"> </a><div class="pSmartList1"><li>Connection Points &amp; FX Connection Point</li></div>
+<a name="wp601198"> </a><p class="pBodyRelative">
+<div align="left">
+<table border="0" cellpadding="0" cellspacing="0">
+  <caption></caption>
+  <tr align="left" valign="top">    <td><a name="wp601192"> </a><p class="pNote_graphic">
+<img src="icons/note.gif" border="0" width="50" height="50" Alt="Note" />
+&#160;
+</p>
+</td>
+    <td><a name="wp601196"> </a><p class="pBody">
+For more details, see the <span style="font-style: italic">SOFTIMAGE|XSI FTK Reference Guide</span>.
+</p>
+</td>
+</tr>
+</table>
+</div>
+
+</p>
+</ul></div>
+<a name="wp601199"> </a><p class="pBody">
+
+</p>
+<a name="wp601200"> </a><h5 class="pHeading4">
+Example (Utility Classes)
+</h5>
+<a name="wp601201"> </a><p class="pBody">
+For example, to list the values at a given Fcurve:
+</p>
+<div class="pPreformattedRelative"><pre class="pPreformattedRelative">
+CSLFCurve l_fcurve;
+//
+// Check the type
+//
+if (l_fcurve-&gt;Getinterpolationtype() == CSLTemplate::SI_HERMITE)
+{
+ 	CSLHermiteKey * list = l_fcurve-&gt;GetHermiteKeyListPtr();
+ 	for (int i = 0; i &lt; l_fcurve-&gt;GetKeyCount(); i++)
+	{
+		printf( &quot;Values for Hermite keys are: [Frame=%f][Value=%f][Left 
+Tan=%f][Right Tan=%f]\n&quot;,
+			list[i].m_fTime,
+			list[i].m_fValue,
+			list[i].m_fInTangent,
+			list[i].m_fOutTangent );
+	}
+}<a name="wp601202"> </a>
+</pre></div>
+<a name="wp601203"> </a><p class="pBody">
+
+</p>
+<a name="wp601209"> </a><p class="pBodyRelative">
+</p><div align="left">
+<table border="0" cellpadding="0" cellspacing="0">
+  <caption></caption>
+  <tr align="left" valign="top">    <td><a name="wp601206"> </a><p class="pTip_graphic">
+<img src="icons/tip.gif" border="0" width="50" height="50" Alt="Tip" />
+&#160;
+</p>
+</td>
+    <td><a name="wp601208"> </a><p class="pBody">
+Notice that this example did not use the array structure, but just the straight pointer to the list of keys. This speeds up access, but does not allow any modifications, as it is an accessor only. It is quick and simple instead of the more feature-complete <b class="cBold">CSLHermiteKeyArray</b> that lets you add and remove keys.
+</p>
+</td>
+</tr>
+</table>
+</div>
+<p class="pBodyRelative">
+</p>
+<a name="wp601210"> </a><p class="pBody">
+
+</p>
+<a name="wp601211"> </a><h2 class="pHeading1">
+FTK Examples
+</h2>
+<a name="wp601212"> </a><p class="pBody">
+This section contains examples of how to use the Semantic Layer to extract information from the dotXSI file format. These examples answer the questions, &#8220;How do I...&#8221;:
+</p>
+<div class="pSmartList1"><ul class="pSmartList1">
+<a name="wp601215"> </a><div class="pSmartList1"><li><a  href="ftk_ftkapi.html#wp601273"><em class="cEmphasis">Find out how many materials are present in the scene</em></a></li></div>
+<a name="wp601219"> </a><div class="pSmartList1"><li><a  href="ftk_ftkapi.html#wp601276"><em class="cEmphasis">Iterate over all the models in the scene</em></a></li></div>
+<a name="wp601223"> </a><div class="pSmartList1"><li><a  href="ftk_ftkapi.html#wp601279"><em class="cEmphasis">Create a scene object</em></a></li></div>
+<a name="wp601227"> </a><div class="pSmartList1"><li><a  href="ftk_ftkapi.html#wp601282"><em class="cEmphasis">Read a file</em></a></li></div>
+<a name="wp601231"> </a><div class="pSmartList1"><li><a  href="ftk_ftkapi.html#wp601285"><em class="cEmphasis">Get information from the scene</em></a></li></div>
+<a name="wp601235"> </a><div class="pSmartList1"><li><a  href="ftk_ftkapi.html#wp601288"><em class="cEmphasis">Navigate the list of children and identify the primitive type</em></a></li></div>
+<a name="wp601239"> </a><div class="pSmartList1"><li><a  href="ftk_ftkapi.html#wp601291"><em class="cEmphasis">Find the template type for a given primitive and cast the pointer to the appropriate type</em></a></li></div>
+<a name="wp601243"> </a><div class="pSmartList1"><li><a  href="ftk_ftkapi.html#wp601294"><em class="cEmphasis">Use Triangles list &amp; Strips and iterate through all the lists and vertices</em></a></li></div>
+<a name="wp601247"> </a><div class="pSmartList1"><li><a  href="ftk_ftkapi.html#wp601297"><em class="cEmphasis">Find all sub-operators in an Fx Tree</em></a></li></div>
+<a name="wp601251"> </a><div class="pSmartList1"><li><a  href="ftk_ftkapi.html#wp601300"><em class="cEmphasis">Find all parameters of an operator in an Fx Tree</em></a></li></div>
+<a name="wp601255"> </a><div class="pSmartList1"><li><a  href="ftk_ftkapi.html#wp601303"><em class="cEmphasis">Get the value of a parameter in an Fx Tree</em></a></li></div>
+<a name="wp601259"> </a><div class="pSmartList1"><li><a  href="ftk_ftkapi.html#wp601306"><em class="cEmphasis">Find the CustomParamInfo</em></a></li></div>
+<a name="wp601263"> </a><div class="pSmartList1"><li><a  href="ftk_ftkapi.html#wp601309"><em class="cEmphasis">Build a triangle strip converter</em></a></li></div>
+</ul></div>
+<a name="wp601265"> </a><h4 class="pHeading3">
+Other FTK Examples
+</h4>
+<a name="wp601266"> </a><p class="pBody">
+Source code examples for Windows and Linux can be found in the ...\src\ directory.
+</p>
+<div class="pSmartList1"><ul class="pSmartList1">
+<a name="wp601267"> </a><div class="pSmartList1"><li><b class="cBold">XSIDump</b>: Prints information from a dotXSI file to a shell window. For more information about this example, see <a  href="FTK_case_studies.html#wp581424"><em class="cEmphasis">XSIDump: Creating a Standalone Executable to Print XSI Information</em></a>.</li></div>
+<a name="wp601271"> </a><div class="pSmartList1"><li><b class="cBold">SLTest</b>: A basic example that uses the Semantic Layer.</li></div>
+</ul></div>
+<a name="wp601273"> </a><h5 class="pHeading4">
+Find out how many materials are present in the scene
+</h5>
+<div class="pPreformattedRelative"><pre class="pPreformattedRelative">
+#include &quot;stdafx.h&quot;
+#include &quot;SemanticLayer.h&quot;
+
+main()
+{
+	CSLScene Scene;
+
+	if (Scene.Open( &quot;c:\\example.xsi&quot; ) == SI_SUCCESS)
+	{
+		Scene.Read();
+	}
+	ULONG l_ulNumMaterial = Scene.GetMaterialLibrary()-&gt;GetMaterialCount();
+	// Now you have the number of Materials in your material library
+	// Regardless of where you have the template, whether it is the first, or the 
+last.
+}<a name="wp601274"> </a>
+</pre></div>
+<a name="wp601276"> </a><h5 class="pHeading4">
+Iterate over all the models in the scene
+</h5>
+<div class="pPreformattedRelative"><pre class="pPreformattedRelative">
+#include &quot;stdafx.h&quot;
+#include &quot;SemanticLayer.h&quot;
+
+void Recurse( CSLModel* in_child )
+{
+	//
+	// Do what you want with the child,
+	//
+
+	printf( &quot;%s\n&quot;, in_child-&gt;GetName() );
+
+	//
+	// Now recurse its children
+	//
+
+	CSLModel* *l_childrenList = in_child-&gt;GetChildrenList();
+
+	//
+	// Loop through all children
+	//
+
+	for (int i = 0; i &lt; in_child-&gt;GetChildrenCount(); i++ )
+	{
+		Recurse( l_childrenList[i] );
+	}
+	return;
+}
+
+
+main()
+{
+	CSLScene Scene;
+
+	if (Scene.Open( &quot;c:\\example.xsi&quot; ) == SI_SUCCESS)
+	{
+		Scene.Read();
+		Recurse( Scene.Root() );
+	}
+}<a name="wp601277"> </a>
+</pre></div>
+<a name="wp601279"> </a><h5 class="pHeading4">
+Create a scene object
+</h5>
+<div class="pPreformattedRelative"><pre class="pPreformattedRelative">
+CSLScene l_scene;<a name="wp601280"> </a>
+</pre></div>
+<a name="wp601282"> </a><h5 class="pHeading4">
+Read a file
+</h5>
+<div class="pPreformattedRelative"><pre class="pPreformattedRelative">
+if (l_scene.Open( &quot;C:\\example.xsi&quot; ) == SI_SUCCESS)
+{
+       l_scene.Read();
+}<a name="wp601283"> </a>
+</pre></div>
+<a name="wp601285"> </a><h5 class="pHeading4">
+Get information from the scene
+</h5>
+<div class="pPreformattedRelative"><pre class="pPreformattedRelative">
+EtimingType l_Timing = l_scene.GetTimingType();
+SI_Float l_Start = l_scene.GetStart();
+SI_Float l_End = l_scene.GetEnd();
+SI_Float l_FrameRate = l_scene.GetFrameRate();<a name="wp601286"> </a>
+</pre></div>
+<a name="wp601288"> </a><h5 class="pHeading4">
+Navigate the list of children and identify the primitive type
+</h5>
+<div class="pPreformattedRelative"><pre class="pPreformattedRelative">
+void Recurse( CSLModel* in_child )
+{
+		switch (in_child-&gt;GetPrimitiveType() ) {
+		case CSLTemplate::SI_MESH:
+			{
+				CSLMesh* left_primitive = (CSLMesh*) in_child-&gt;Primitive();
+				break;
+			}
+		case CSLTemplate::SI_CAMERA:
+			{
+				CSLCamera* left_prim  = (CSLCamera*) in_child -&gt;Primitive();
+				break;
+			}
+		case CSLTemplate::SI_DIRECTIONAL_LIGHT:
+		case CSLTemplate::SI_INFINITE_LIGHT:
+		case CSLTemplate::SI_POINT_LIGHT:
+		case CSLTemplate::SI_SPOT_LIGHT:
+			{
+				CSLLight* left_prim  = (CSLLight*) in_child -&gt;Primitive();
+				break;
+			}
+		case CSLTemplate::SI_IK_ROOT:
+			{
+				CSLIKRoot* left_prim  = (CSLIKRoot*) in_child -&gt;Primitive();
+				break;
+			}
+		case CSLTemplate::SI_IK_JOINT:
+			{
+				CSLIKJoint* left_prim  = (CSLIKJoint*) in_child -&gt;Primitive();
+				break;
+			}
+		case CSLTemplate::SI_IK_EFFECTOR:
+			{
+				CSLIKEffector* left_prim  = (CSLIKEffector*) in_child-&gt;Primitive();
+				break;
+			}
+		case CSLTemplate::SI_NURBS_SURFACE:
+			{
+				CSLNurbsSurface* left_prim  = (CSLNurbsSurface*) 
+in_child-&gt;Primitive();
+				break;
+			}
+		case CSLTemplate::SI_NURBS_CURVE:
+			{
+				CSLNurbsCurve* left_prim  = (CSLNurbsCurve*) in_child-&gt;Primitive();
+				break;
+			}
+		case CSLTemplate::SI_INSTANCE:
+			{
+				CSLInstance* left_prim  = (CSLInstance*) in_child-&gt;Primitive();
+				break;
+			}
+		case CSLTemplate::SI_NULL_OBJECT:
+			{
+			}
+		}<a name="wp601289"> </a>
+</pre></div>
+<a name="wp601291"> </a><h5 class="pHeading4">
+Find the template type for a given primitive and cast the pointer to the appropriate type
+</h5>
+<div class="pPreformattedRelative"><pre class="pPreformattedRelative">
+if (model-&gt;GetPrimitiveType() == CSLTemplate::SI_IK_ROOT)
+		CSLIKRoot* primitive = model-&gt;GetPrimitive();<a name="wp601292"> </a>
+</pre></div>
+<a name="wp601294"> </a><h5 class="pHeading4">
+Use Triangles list &amp; Strips and iterate through all the lists and vertices
+</h5>
+<div class="pPreformattedRelative"><pre class="pPreformattedRelative">
+CSLTriangleList* in_left;
+SI_Int* vertex_ptr = in_left-&gt;GetVertexIndicesPtr();
+for (unsigned int i = 0; i &lt; num_triangles; i++)
+	{
+		printf(&quot;Triangle [%d] vertices are [%d,%d,%d]\n&quot;, i,
+			vertex_ptr[i*3+0],
+			vertex_ptr[i*3+1],
+			vertex_ptr[i*3+2]);
+	}<a name="wp601295"> </a>
+</pre></div>
+<a name="wp601297"> </a><h5 class="pHeading4">
+Find all sub-operators in an Fx Tree
+</h5>
+<div class="pPreformattedRelative"><pre class="pPreformattedRelative">
+CSLFXTree* in_left;
+CSLFXOperator** left  =  in_left-&gt;GetFXOperatorList();
+	for (int i = 0; i &lt; in_left-&gt;GetFXOperatorCount(); i++)
+		printf(&quot;Operator [%s] has [%d] Parameters\n&quot;,
+			left[i]-&gt;GetName(),
+			left[i]-&gt;GetParameterCount());<a name="wp601298"> </a>
+</pre></div>
+<a name="wp601300"> </a><h5 class="pHeading4">
+Find all parameters of an operator in an Fx Tree
+</h5>
+<div class="pPreformattedRelative"><pre class="pPreformattedRelative">
+	CSLFXOperator* in_left;
+	CSLVariantParameter* param_list = in_left-&gt;GetParameterList();
+	for (int i=0;i&lt;in_left-&gt;GetParameterCount();i++)
+		printf(&quot;Operator [%s] has Parameter [%s]\n&quot;,
+			in_left-&gt;GetName(),
+			param_list[i]-&gt;GetName());<a name="wp601301"> </a>
+</pre></div>
+<a name="wp601303"> </a><h5 class="pHeading4">
+Get the value of a parameter in an Fx Tree
+</h5>
+<div class="pPreformattedRelative"><pre class="pPreformattedRelative">
+SI_TinyVariant value = parameter-&gt;GetValue();<a name="wp601304"> </a>
+</pre></div>
+<a name="wp601306"> </a><h5 class="pHeading4">
+Find the CustomParamInfo
+</h5>
+<div class="pPreformattedRelative"><pre class="pPreformattedRelative">
+CSLXSICustomParamInfo* custom_info = in_parameter-&gt;CustomParamInfo();
+if (custom_info)
+{
+	SI_TinyVariant max, min;
+	custom_info-&gt;GetMinValue( min );
+	custom_info-&gt;GetMaxValue( max );
+	printf(&quot;Capabilities are [%d]\n&quot;, custom_info-&gt;GetCapabilities() );
+}<a name="wp601307"> </a>
+</pre></div>
+<a name="wp601309"> </a><h5 class="pHeading4">
+Build a triangle strip converter
+</h5>
+<div class="pPreformattedRelative"><pre class="pPreformattedRelative">
+#include &quot;stdafx.h&quot;
+#include &lt;SemanticLayer.h&gt;
+#include &lt;windows.h&gt;
+#include &quot;nvstrip\NVTriStrip.h&quot;
+
+char l_buf[512];
+
+int StripTriangleList( CSLTriangleList* in_left, CSLMesh* in_mesh )
+{
+	//
+	// Now we will get the values from the Triangle List and
+	// be ready to convert into a Triangle Strip
+	//
+	SI_Int* vertex_ptr = in_left-&gt;GetVertexIndicesPtr();
+	SI_Int* nrm_ptr = in_left-&gt;GetNormalIndicesPtr();
+	SI_Int* col_ptr = in_left-&gt;GetColorIndicesPtr();
+	SI_Int number_of_uv = in_left-&gt;GetUVArrayCount();
+	//
+	// Prepare the data for stripification
+	//
+	PrimitiveGroup* result;
+	unsigned short num_groups;
+	//
+	// Get the number of triangle in the triangle list.
+	//
+	unsigned long num_triangles = in_left-&gt;GetTriangleCount();
+	//
+	// Allocate the data for the indices in unsigned format.
+	//
+	unsigned short *indices = new unsigned short [ num_triangles * 3 ];
+	//
+	// Allocate the array for remapping  of the Normals, Vertex Colors, 
+	// &amp; UV coordinates...
+	//
+	unsigned short *remap = new unsigned short [ num_triangles * 3];
+	for (unsigned int i = 0; i &lt; num_triangles * 3; i++)
+	{
+		indices[i] = vertex_ptr[i];
+	}
+	//
+	// Set the cache size for the initial size based on the number of triangles.
+	//
+	SetCacheSize( num_triangles * 3 );
+	//
+	// Generate the strips based on the indices passed in.
+	//
+	::GenerateStrips( indices, num_triangles * 3,  &amp;result, &amp;num_groups );
+	for (i = 0; i &lt; result-&gt;numIndices; i++)
+	{
+		sprintf( l_buf, &quot;Value[%d] = %d\n&quot;, i, result-&gt;indices[i] );
+		OutputDebugString( l_buf );
+	}
+	//
+	// Build a remap table
+	//
+	{
+		for (i = num_triangles * 3; i &gt; 0; i--)
+		{
+			remap[vertex_ptr[i-1]] = i-1;
+		}
+	}
+	//
+	// Remap the normals
+	//
+
+	{
+		for (i = 0; i &lt; result-&gt;numIndices; i++)
+		{
+			sprintf( l_buf, &quot;Normal[%i] = %i\n&quot;, i, 
+remap[nrm_ptr[result-&gt;indices[i]]] );
+			OutputDebugString( l_buf );
+		}
+	}
+	//
+	// Adds a new triangle strip list
+	//
+	CSLTriangleStripList* sl = in_mesh-&gt;AddTriangleStripList();
+	//
+	// Set its material based on what was the material of the triangle list
+	//
+	sl-&gt;SetMaterial( in_left-&gt;GetMaterial() );
+	//
+	// Adds a new strip to the triangle strip
+	//
+	CSLTriangleStrip* ts = sl-&gt;AddTriangleStrip();
+	//
+	// Transfer the data to the vertex array of the triangle strip.
+	//
+	CSLTriangleStrip::CSLIntArray* vertex_array = ts-&gt;GetVertexIndices();
+	for (i = 0; i &lt; result-&gt;numIndices; i++)
+	{
+		vertex_array-&gt;Add( result-&gt;indices[i] );
+	}
+	//
+	// Now deal with the normal data...
+	//
+	CSLTriangleStrip::CSLIntArray* normal_array = ts-&gt;CreateNormalIndices();
+	for (i = 0; i &lt; result-&gt;numIndices; i++)
+	{
+		normal_array-&gt;Add(remap[nrm_ptr[result-&gt;indices[i]]]);
+	}
+	if (col_ptr)
+	{
+		//
+		// Now deal with the vertex colors
+		//
+		CSLTriangleStrip::CSLIntArray* color_array = ts-&gt;CreateColorIndices();
+		for (i = 0; i &lt; result-&gt;numIndices; i++)
+		{
+			color_array-&gt;Add(remap[col_ptr[result-&gt;indices[i]]]);
+		}
+	}
+	for (i = 0; i &lt; (unsigned int) number_of_uv; i++)
+	{
+		//
+		// Now deal with the vertex colors
+		//
+		SI_Int* uv_ptr = in_left-&gt;GetUVIndicesPtr(i);
+
+		CSLTriangleStrip::CSLIntArray* uv_array = ts-&gt;CreateColorIndices();
+		for (i = 0; i &lt; result-&gt;numIndices; i++)
+		{
+			uv_array-&gt;Add(remap[uv_ptr[result-&gt;indices[i]]]);
+		}
+	}
+
+	delete [] indices;
+	delete [] remap;
+	delete [] result;
+	//
+	// Remove the triangle list...
+	//
+	in_mesh-&gt;RemoveTriangleList( in_left );
+	return num_groups;
+}
+
+//
+// Strips one mesh by processing all its triangle lists it has.
+//
+int StripMesh( CSLMesh* in_left )
+{
+	int l_lIndex = 0;
+	CSLTriangleList** left;
+	left = in_left-&gt;TriangleLists();
+	
+	for (l_lIndex = 0; l_lIndex &lt; in_left-&gt;GetTriangleListCount(); l_lIndex++)
+	{
+		StripTriangleList( left[l_lIndex], in_left);
+	}
+	return 0;
+}
+
+//
+// Strips a model, but will delegate to StripMesh if the primitive is a mesh.
+//
+int Strip( CSLModel* in_left )
+{
+	if (in_left-&gt;GetPrimitiveType() == CSLTemplate::SI_MESH)
+	{
+		CSLMesh*  left_primitive = (CSLMesh*) in_left-&gt;Primitive();
+		StripMesh( left_primitive );
+	}
+	return 0;
+}
+
+void Recurse( CSLModel* in_child )
+{
+	//
+	// Strip the child if need be.
+	//
+	Strip ( in_child );
+	//
+	// Now recurse its children
+	//
+	CSLModel* *l_childrenList = in_child-&gt;GetChildrenList();
+	//
+	// Loop through all children
+	//
+	for (int i = 0 ; i &lt; in_child-&gt;GetChildrenCount(); i++ )
+	{
+		Recurse( l_childrenList[i] );
+	}
+	return;
+}
+int Stripify( SI_Char* in_left, SI_Char* in_right )
+
+{
+	CSLScene Scene;
+
+	if (Scene.Open( in_left ) == SI_SUCCESS)
+	{
+		Scene.Read();
+		Recurse( Scene.Root() );
+	}
+
+	Scene.Write( in_right );
+
+	Scene.Close();
+
+	return 0;
+}<a name="wp601310"> </a>
+</pre></div>
+<a name="wp600757"> </a><p class="pBody">
+
+</p>
+
+ <hr />
+
+ <table align="right" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+        <td align="right">
+            <a target="_blank" href="http://www.softimage.com"><img src="images/silogo.gif" width="150" height="16" border="0" /></a>&#160;&#160;&#160;
+            <a target="_blank" href="http://www.avid.com"><img src="images/avidlogo.gif" width="50" height="20" border="0" /></a><br />
+            <br />
+    </td>
+   </tr>
+  </table>
+
+ </blockquote>
+
+
+
+<script type="text/javascript" language="JavaScript1.2">
+   <!--
+    document.write(WWHRelatedTopicsDivTag() + WWHPopupDivTag());
+   // -->
+  </script>
+
+ </body>
+</html>

@@ -1,0 +1,127 @@
+<?xml version='1.0' encoding='ISO-8859-1' ?>
+
+<WebWorksHelpTOC version="3.0">
+ <i l="ftk_library.html#wp484872" t="Roadmap">
+  <i l="ftk_library.html#wp487775" t="About This Guide" />
+ </i>
+ <i l="ftk_intro.html#wp589005" t="Introducing the dotXSI File Format">
+  <i l="ftk_intro.html#wp610554" t="About the Softimage dotXSI File Format" />
+  <i l="ftk_intro.html#wp610741" t="Downloading the FTK" />
+  <i l="ftk_intro.html#wp610748" t="System Requirements" />
+  <i l="ftk_intro.html#wp610958" t="What&#8217;s New for Version 3.6 and 3.6.2?" />
+ </i>
+ <i l="ftk_environment.html#wp581443" t="Getting Started">
+  <i l="ftk_environment.html#wp591256" t="Setting Up Your Development Environment in Visual C++" />
+  <i l="ftk_environment.html#wp592820" t="Compiling on Linux" />
+  <i l="ftk_environment.html#wp592812" t="About the dotXSI Templates" />
+  <i l="ftk_environment.html#wp592048" t="Special Issues with Conversion between XSI and 3D" />
+ </i>
+ <i l="ftk_coreapi.html#wp597483" t="The dotXSI Core API">
+  <i l="ftk_coreapi.html#wp602980" t="About Error Checking" />
+  <i l="ftk_coreapi.html#wp603011" t="Basic Data Types" />
+  <i l="ftk_coreapi.html#wp603078" t="How Does dotXSI Deal with Variant Types?" />
+  <i l="ftk_coreapi.html#wp603327" t="Macros" />
+  <i l="ftk_coreapi.html#wp603563" t="Base Classes" />
+ </i>
+ <i l="ftk_ftkapi.html#wp598359" t="The FTK API">
+  <i l="ftk_ftkapi.html#wp601068" t="The IO Layer" />
+  <i l="ftk_ftkapi.html#wp601118" t="The Semantic Layer" />
+  <i l="ftk_ftkapi.html#wp601211" t="FTK Examples" />
+ </i>
+ <i l="ftk_TemplateRef.html#wp573235" t="Template Reference">
+  <i l="ftk_TemplateRef.html#wp800462" t="File Header" />
+  <i l="ftk_TemplateRef.html#wp800550" t="SI_Ambience" />
+  <i l="ftk_TemplateRef.html#wp800575" t="SI_Angle" />
+  <i l="ftk_TemplateRef.html#wp800604" t="SI_Camera" />
+  <i l="ftk_TemplateRef.html#wp800645" t="SI_Cluster" />
+  <i l="ftk_TemplateRef.html#wp800659" t="SI_Constraint" />
+  <i l="ftk_TemplateRef.html#wp800736" t="SI_CoordinateSystem" />
+  <i l="ftk_TemplateRef.html#wp800837" t="SI_ElementUserData _&lt;userDataTag&gt;" />
+  <i l="ftk_TemplateRef.html#wp800854" t="SI_Envelope" />
+  <i l="ftk_TemplateRef.html#wp800936" t="SI_EnvelopeList" />
+  <i l="ftk_TemplateRef.html#wp800985" t="SI_FileInfo" />
+  <i l="ftk_TemplateRef.html#wp800995" t="SI_FCurve" />
+  <i l="ftk_TemplateRef.html#wp801087" t="SI_Fog" />
+  <i l="ftk_TemplateRef.html#wp801144" t="SI_GlobalMaterial" />
+  <i l="ftk_TemplateRef.html#wp801175" t="SI_IK_Effector" />
+  <i l="ftk_TemplateRef.html#wp801188" t="SI_IK_Joint" />
+  <i l="ftk_TemplateRef.html#wp801203" t="SI_IK_Root" />
+  <i l="ftk_TemplateRef.html#wp801213" t="SI_ImageClip" />
+  <i l="ftk_TemplateRef.html#wp801225" t="SI_Instance" />
+  <i l="ftk_TemplateRef.html#wp801241" t="SI_Light" />
+  <i l="ftk_TemplateRef.html#wp801334" t="SI_LightInfo" />
+  <i l="ftk_TemplateRef.html#wp801372" t="SI_Material" />
+  <i l="ftk_TemplateRef.html#wp801481" t="SI_MaterialLibrary" />
+  <i l="ftk_TemplateRef.html#wp801544" t="SI_Mesh" />
+  <i l="ftk_TemplateRef.html#wp801573" t="SI_Model" />
+  <i l="ftk_TemplateRef.html#wp801635" t="SI_Null" />
+  <i l="ftk_TemplateRef.html#wp801660" t="SI_NurbsCurve" />
+  <i l="ftk_TemplateRef.html#wp801674" t="SI_NurbsSurface" />
+  <i l="ftk_TemplateRef.html#wp801846" t="SI_PatchSurface" />
+  <i l="ftk_TemplateRef.html#wp801934" t="SI_PolygonList" />
+  <i l="ftk_TemplateRef.html#wp802032" t="SI_Scene" />
+  <i l="ftk_TemplateRef.html#wp802077" t="SI_Shape" />
+  <i l="ftk_TemplateRef.html#wp802181" t="SI_ShapeAnimation" />
+  <i l="ftk_TemplateRef.html#wp802208" t="SI_SubelementUserDataPolygon_&lt;userDataTag&gt;" />
+  <i l="ftk_TemplateRef.html#wp802226" t="SI_SubelementUserDataVertex_&lt;userDataTag&gt;" />
+  <i l="ftk_TemplateRef.html#wp802243" t="SI_Texture2D" />
+  <i l="ftk_TemplateRef.html#wp802540" t="SI_Transform" />
+  <i l="ftk_TemplateRef.html#wp802589" t="SI_TriangleList" />
+  <i l="ftk_TemplateRef.html#wp802676" t="SI_TriStrip" />
+  <i l="ftk_TemplateRef.html#wp802737" t="SI_TriStripList" />
+  <i l="ftk_TemplateRef.html#wp802807" t="SI_UserDataFormat" />
+  <i l="ftk_TemplateRef.html#wp802823" t="SI_Visibility" />
+  <i l="ftk_TemplateRef.html#wp802857" t="XSI_Action" />
+  <i l="ftk_TemplateRef.html#wp802898" t="XSI_ActionClip" />
+  <i l="ftk_TemplateRef.html#wp802952" t="XSI_ClusterInfo" />
+  <i l="ftk_TemplateRef.html#wp802985" t="XSI_CurveList" />
+  <i l="ftk_TemplateRef.html#wp802996" t="XSI_CustomPSet" />
+  <i l="ftk_TemplateRef.html#wp803078" t="XSI_CustomParamInfo" />
+  <i l="ftk_TemplateRef.html#wp803133" t="XSI_Extrapolation" />
+  <i l="ftk_TemplateRef.html#wp803168" t="XSI_FXOperator" />
+  <i l="ftk_TemplateRef.html#wp803380" t="XSI_FXTree" />
+  <i l="ftk_TemplateRef.html#wp803405" t="XSI_Image" />
+  <i l="ftk_TemplateRef.html#wp803500" t="XSI_ImageData" />
+  <i l="ftk_TemplateRef.html#wp803533" t="XSI_ImageFX" />
+  <i l="ftk_TemplateRef.html#wp803645" t="XSI_ImageLibrary" />
+  <i l="ftk_TemplateRef.html#wp803682" t="XSI_Material" />
+  <i l="ftk_TemplateRef.html#wp803728" t="XSI_MaterialInfo" />
+  <i l="ftk_TemplateRef.html#wp803757" t="XSI_Mixer" />
+  <i l="ftk_TemplateRef.html#wp803814" t="XSI_NurbsProjection" />
+  <i l="ftk_TemplateRef.html#wp803853" t="XSI_NurbsTrim" />
+  <i l="ftk_TemplateRef.html#wp803890" t="XSI_Shader" />
+  <i l="ftk_TemplateRef.html#wp803998" t="XSI_StaticValues" />
+  <i l="ftk_TemplateRef.html#wp804034" t="XSI_SurfaceMesh" />
+  <i l="ftk_TemplateRef.html#wp804050" t="XSI_TimeControl" />
+  <i l="ftk_TemplateRef.html#wp804092" t="XSI_Track" />
+  <i l="ftk_TemplateRef.html#wp804144" t="XSI_UserData" />
+  <i l="ftk_TemplateRef.html#wp804177" t="XSI_UserDataList" />
+ </i>
+ <i l="ftk_versions.html#wp598411" t="Version Information">
+  <i l="ftk_versions.html#wp597967" t="dotXSI v3.5 File Format" />
+  <i l="ftk_versions.html#wp597073" t="dotXSI v3.0 File Format" />
+  <i l="ftk_versions.html#wp578583" t="dotXSI v2.0 File Format" />
+  <i l="ftk_versions.html#wp592374" t="dotXSI v1.3 File Format" />
+ </i>
+ <i l="ftk_archives.html#wp599062" t="Template Archives">
+  <i l="ftk_archives.html#wp594330" t="SI_2D_2Joint_IK _Effector" />
+  <i l="ftk_archives.html#wp594345" t="SI_2D_2Joint_IK_Joint" />
+  <i l="ftk_archives.html#wp594360" t="SI_2D_2Joint_IK_Root" />
+  <i l="ftk_archives.html#wp594421" t="SI_AnimationKey" />
+  <i l="ftk_archives.html#wp594495" t="SI_Animation ParamKey" />
+  <i l="ftk_archives.html#wp594612" t="SI_CameraAnimation" />
+  <i l="ftk_archives.html#wp597773" t="SI_FrameBasePose Matrix" />
+  <i l="ftk_archives.html#wp594688" t="SI_LightAnimation" />
+  <i l="ftk_archives.html#wp597266" t="SI_MeshFace" />
+  <i l="ftk_archives.html#wp597342" t="SI_MeshNormals" />
+  <i l="ftk_archives.html#wp597406" t="SI_MeshTextureCoords" />
+  <i l="ftk_archives.html#wp597468" t="SI_MeshVertexColors" />
+  <i l="ftk_archives.html#wp594748" t="SI_TransformAnimation" />
+ </i>
+ <i l="FTK_case_studies.html#wp581443" t="Case Studies">
+  <i l="FTK_case_studies.html#wp581424" t="XSIDump: Creating a Standalone Executable to Print XSI Information" />
+  <i l="FTK_case_studies.html#wp588364" t="ActiveX Compliance: Manipulating dotXSI Files with VBScript and JScript" />
+ </i>
+ <i l="ftk_ref/index.html" t="FTK Reference">
+</i>
+</WebWorksHelpTOC>

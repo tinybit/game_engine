@@ -1,0 +1,629 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+ <head>
+  <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="GENERATOR" content="Quadralay WebWorks Publisher Professional Edition 7.0.2.1206" />
+  <meta name="TEMPLATEBASE" content="Template" />
+  <meta name="LASTUPDATED" content="04/25/03 14:06:48" />
+  <title>Introducing the dotXSI File Format</title>
+  <link rel="StyleSheet" href="document.css" type="text/css" />
+  <link rel="StyleSheet" href="catalog.css" type="text/css" />
+<script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/context.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/towwhdir.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/wwhpagef.js"></script>
+
+  <script type="text/javascript" language="JavaScript1.2">
+   <!--
+    // Set reference to top level help frame
+    //
+    var  WWHFrame = WWHGetWWHFrame("");
+   // -->
+  </script>
+ </head>
+
+ <body onLoad="WWHUpdate();">
+
+ <blockquote>
+<a name="wp588757"> </a><div style="color: #000000; font-family: Arial, Verdana, Helvetica, sans-serif; font-size: 12pt; font-style: normal; font-variant: normal; font-weight: normal; margin-bottom: 0pt; margin-left: 0pt; margin-right: 0pt; margin-top: 0pt; text-align: right; text-decoration: none; text-indent: 0pt; text-transform: none">
+Chapter 
+</div>
+<a name="wp589005"> </a><h2 class="pTitle">
+Introducing the dotXSI File Format
+</h2>
+<hr />
+<a name="wp610532"> </a><p class="pBody">
+This chapter provides an overview of what comprises the SOFTIMAGE|XSI dotXSI file format and the SOFTIMAGE|XSI FTK, including a brief look at the dotXSI file format and the tools that complement it:
+</p>
+<div class="pSmartList1"><ul class="pSmartList1">
+<a name="wp610539"> </a><div class="pSmartList1"><li><a  href="ftk_intro.html#wp610554"><em class="cEmphasis">About the Softimage dotXSI File Format</em></a></li></div>
+<a name="wp610543"> </a><div class="pSmartList1"><li><a  href="ftk_intro.html#wp610741"><em class="cEmphasis">Downloading the FTK</em></a></li></div>
+<a name="wp610547"> </a><div class="pSmartList1"><li><a  href="ftk_intro.html#wp610748"><em class="cEmphasis">System Requirements</em></a></li></div>
+<a name="wp610551"> </a><div class="pSmartList1"><li><a  href="ftk_intro.html#wp610958"><em class="cEmphasis">What&#8217;s New for Version 3.6 and 3.6.2?</em></a></li></div>
+</ul></div>
+<a name="wp610554"> </a><h2 class="pHeading1">
+About the Softimage dotXSI File Format
+</h2>
+<a name="wp610555"> </a><p class="pBody">
+The dotXSI file format is an ASCII file format defined by Softimage Co. to store SOFTIMAGE|3D and SOFTIMAGE|XSI scene data. You can use it to simplify the import and export of characters, models, and animation for complete customization of any game-development pipeline. The file format lets you include user data, making it straightforward to introduce new types of custom information. 
+</p>
+<a name="wp610562"> </a><p class="pBody">
+The dotXSI file format is optimized for current game engine technology, and it can be easily:
+</p>
+<div class="pSmartList1"><ul class="pSmartList1">
+<a name="wp610565"> </a><div class="pSmartList1"><li>Imported into and exported from SOFTIMAGE|3D (v4.0 and later) and SOFTIMAGE|XSI.</li></div>
+<a name="wp610572"> </a><div class="pSmartList1"><li>Exported from SOFTIMAGE|3D and SOFTIMAGE|XSI and imported into the XSI Viewer. </li></div>
+<a name="wp610579"> </a><div class="pSmartList1"><li>Used to exchange scene data between SOFTIMAGE|3D and SOFTIMAGE|XSI.</li></div>
+<a name="wp610584"> </a><div class="pSmartList1"><li>Imported into third-party software.</li></div>
+<a name="wp610585"> </a><div class="pSmartList1"><li>Converted into other file formats.</li></div>
+<a name="wp610586"> </a><div class="pSmartList1"><li>Extended and customized to meet any special needs.</li></div>
+</ul></div>
+<a name="wp610588"> </a><h3 class="pHeading2">
+SDK Support for the dotXSI File Format
+</h3>
+<a name="wp610589"> </a><p class="pBody">
+The following tools and toolkits are available for use with the dotXSI file format. 
+</p>
+<a name="wp610590"> </a><h4 class="pHeading3">
+XSI Viewer 
+</h4>
+<a name="wp610591"> </a><p class="pBody">
+The XSI Viewer is a visualization tool for dotXSI files. It supports dotXSI 3.0, 3.5 and 3.6 in both the text and binary compressed format. The XSI Viewer can load one or more files and display a subset of their content using either OpenGL or DirectX 8.0. It&#39;s usually used as an interactive content validation tool, a pre-visualization tool or as a 3D prototyping tool. 
+</p>
+<a name="wp610605"> </a><h4 class="pHeading3">
+XSI Viewer Professional
+</h4>
+<a name="wp610606"> </a><p class="pBody">
+The difference between the XSI Viewer and the XSI Viewer Professional is that the professional is designed to be extensible and customizable through its SDK. It includes: 
+</p>
+<div class="pSmartList1"><ul class="pSmartList1">
+<a name="wp610607"> </a><div class="pSmartList1"><li>plugin capabilities</li></div>
+<a name="wp610608"> </a><div class="pSmartList1"><li>an SDK</li></div>
+<a name="wp610609"> </a><div class="pSmartList1"><li>a scene explorer (allows the user to modify scene element parameters such as transforms and material properties)</li></div>
+<a name="wp610610"> </a><div class="pSmartList1"><li>the capability to save back dotXSI files</li></div>
+</ul></div>
+<a name="wp610613"> </a><h4 class="pHeading3">
+SOFTIMAGE|XSI File Tool Kit (FTK)
+</h4>
+<a name="wp610617"> </a><p class="pBody">
+The SOFTIMAGE|XSI FTK is an API designed to read, write and manipulate dotXSI files. It maintains both a low level, generic representation and a high level, semantic representation of the dotXSI file&#39;s content. The XSI Viewer uses this representation to maintain 3D data in memory. 
+</p>
+<a name="wp610619"> </a><p class="pBody">
+It supports dotXSI 3.0, 3.5, 3.6 in both the text and binary compressed format.
+</p>
+<a name="wp610628"> </a><h3 class="pHeading2">
+Compatibility
+</h3>
+<a name="wp610631"> </a><p class="pBody">
+The current version of SOFTIMAGE|3D can read and write versions 1.3, 2.0, and 3.0 dotXSI files. Note, however, that while an older version of SOFTIMAGE|3D can load more recent versions of dotXSI files, it ignores templates that it does not recognize.
+</p>
+<a name="wp610638"> </a><p class="pBody">
+SOFTIMAGE|XSI v3.0 can read and write v3.0, v3.5, and v3.6 dotXSI files.
+</p>
+<a name="wp610734"> </a><p class="pBodyRelative">
+</p><div align="left">
+<table border="0" cellpadding="5" cellspacing="1">
+  <caption></caption>
+  <tr bgcolor="#0055AA" align="left">    <th><a name="wp610642"> </a><div style="text-align: left" class="pCellHeading">
+dotXSI version
+</div>
+</th>
+    <th><a name="wp610646"> </a><div style="text-align: left" class="pCellHeading">
+SOFTIMAGE|3D v4.0
+</div>
+</th>
+    <th><a name="wp610649"> </a><div style="text-align: left" class="pCellHeading">
+XSI Viewer v3.0
+</div>
+</th>
+    <th><a name="wp610653"> </a><div style="text-align: left" class="pCellHeading">
+SOFTIMAGE|XSI v3.0.x
+</div>
+</th>
+    <th><a name="wp610658"> </a><div style="text-align: left" class="pCellHeading">
+SOFTIMAGE|XSI FTK v3.6
+</div>
+</th>
+    <th><a name="wp610661"> </a><div style="text-align: left" class="pCellHeading">
+XSI Viewer v3.6
+</div>
+</th>
+</tr>
+  <tr bgcolor="Silver" align="left">    <td><a name="wp610663"> </a><div class="pCellBody">
+1.1
+</div>
+</td>
+    <td><a name="wp610665"> </a><div class="pCellBody">
+Read/Write
+</div>
+</td>
+    <td><a name="wp610667"> </a><div class="pCellBody">
+Read
+</div>
+</td>
+    <td><a name="wp610669"> </a><div class="pCellBody">
+No support
+</div>
+</td>
+    <td><a name="wp610671"> </a><div class="pCellBody">
+No support
+</div>
+</td>
+    <td><a name="wp610673"> </a><div class="pCellBody">
+No support
+</div>
+</td>
+</tr>
+  <tr bgcolor="Silver" align="left">    <td><a name="wp610675"> </a><div class="pCellBody">
+1.3
+</div>
+</td>
+    <td><a name="wp610677"> </a><div class="pCellBody">
+Read/Write
+</div>
+</td>
+    <td><a name="wp610679"> </a><div class="pCellBody">
+Read
+</div>
+</td>
+    <td><a name="wp610681"> </a><div class="pCellBody">
+No support
+</div>
+</td>
+    <td><a name="wp610683"> </a><div class="pCellBody">
+No support
+</div>
+</td>
+    <td><a name="wp610685"> </a><div class="pCellBody">
+No support
+</div>
+</td>
+</tr>
+  <tr bgcolor="Silver" align="left">    <td><a name="wp610687"> </a><div class="pCellBody">
+2.0
+</div>
+</td>
+    <td><a name="wp610689"> </a><div class="pCellBody">
+Read/Write
+</div>
+</td>
+    <td><a name="wp610691"> </a><div class="pCellBody">
+Read
+</div>
+</td>
+    <td><a name="wp610693"> </a><div class="pCellBody">
+No support
+</div>
+</td>
+    <td><a name="wp610695"> </a><div class="pCellBody">
+No support
+</div>
+</td>
+    <td><a name="wp610697"> </a><div class="pCellBody">
+No support
+</div>
+</td>
+</tr>
+  <tr bgcolor="Silver" align="left">    <td><a name="wp610699"> </a><div class="pCellBody">
+3.0
+</div>
+</td>
+    <td><a name="wp610701"> </a><div class="pCellBody">
+Read/Write
+</div>
+</td>
+    <td><a name="wp610703"> </a><div class="pCellBody">
+Read
+</div>
+</td>
+    <td><a name="wp610705"> </a><div class="pCellBody">
+Read/Write
+</div>
+</td>
+    <td><a name="wp610707"> </a><div class="pCellBody">
+Read/Write
+</div>
+</td>
+    <td><a name="wp610709"> </a><div class="pCellBody">
+Read/Write*
+</div>
+</td>
+</tr>
+  <tr bgcolor="Silver" align="left">    <td><a name="wp610711"> </a><div class="pCellBody">
+3.5
+</div>
+</td>
+    <td><a name="wp610713"> </a><div class="pCellBody">
+No support
+</div>
+</td>
+    <td><a name="wp610715"> </a><div class="pCellBody">
+No support
+</div>
+</td>
+    <td><a name="wp610717"> </a><div class="pCellBody">
+Read/Write
+</div>
+</td>
+    <td><a name="wp610719"> </a><div class="pCellBody">
+Read/Write
+</div>
+</td>
+    <td><a name="wp610721"> </a><div class="pCellBody">
+Read/Write*
+</div>
+</td>
+</tr>
+  <tr bgcolor="Silver" align="left">    <td><a name="wp610723"> </a><div class="pCellBody">
+3.6
+</div>
+</td>
+    <td><a name="wp610725"> </a><div class="pCellBody">
+No support
+</div>
+</td>
+    <td><a name="wp610727"> </a><div class="pCellBody">
+No support
+</div>
+</td>
+    <td><a name="wp610729"> </a><div class="pCellBody">
+Read/Write
+</div>
+</td>
+    <td><a name="wp610731"> </a><div class="pCellBody">
+Read/Write
+</div>
+</td>
+    <td><a name="wp610733"> </a><div class="pCellBody">
+Read/Write*
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pBodyRelative">
+</p>
+<a name="wp610735"> </a><p class="pBody">
+* Only available with the Professional version of the XSI Viewer.
+</p>
+<a name="wp610737"> </a><h3 class="pHeading2">
+About the Binary Format
+</h3>
+<a name="wp610738"> </a><p class="pBody">
+With v3.0, v3.5, and v3.6 of the XSI file format, you can create a binary file. The binary format provides an easy way to compress the data in the XSI file. 
+</p>
+<a name="wp610739"> </a><p class="pBody">
+
+</p>
+<a name="wp610741"> </a><h2 class="pHeading1">
+Downloading the FTK
+</h2>
+<a name="wp610744"> </a><p class="pBody">
+You can download the SOFTIMAGE|XSI FTK from Softimage&#8217;s web site (<b class="cBold"><a  href="http://www.softimage.com">www.softimage.com</a></b>).
+</p>
+<a name="wp610748"> </a><h2 class="pHeading1">
+System Requirements
+</h2>
+<a name="wp610749"> </a><h3 class="pHeading2">
+Windows
+</h3>
+<a name="wp610752"> </a><p class="pBody">
+In order to build applications using the SOFTIMAGE|XSI FTK v3.6, you need to have the following software installed:
+</p>
+<div class="pSmartList1"><ul class="pSmartList1">
+<a name="wp610756"> </a><div class="pSmartList1"><li>SOFTIMAGE|XSI FTK v3.6</li></div>
+<a name="wp610758"> </a><div class="pSmartList1"><li>One of the following operating systems:</li></div>
+<div class="pSmartList2"><ul class="pSmartList2">
+<a name="wp610759"> </a><div class="pSmartList2"><li>Microsoft Windows 2000 professional with service pack 3 or better</li></div>
+<a name="wp610760"> </a><div class="pSmartList2"><li>Microsoft Windows XP professional</li></div>
+</ul></div>
+<a name="wp610761"> </a><div class="pSmartList1"><li>Microsoft Visual C++ version 6 service pack 5 or better</li></div>
+<a name="wp610780"> </a><p class="pBodyRelative">
+<div align="left">
+<table border="0" cellpadding="0" cellspacing="0">
+  <caption></caption>
+  <tr align="left" valign="top">    <td><a name="wp610774"> </a><p class="pTip_graphic">
+<img src="icons/tip.gif" border="0" width="50" height="50" Alt="Tip" />
+&#160;
+</p>
+</td>
+    <td><a name="wp610776"> </a><p class="pBody">
+For information on setting up your development environment, see <a  href="ftk_environment.html#wp591256"><em class="cEmphasis">Setting Up Your Development Environment in Visual C++</em></a>.
+</p>
+</td>
+</tr>
+</table>
+</div>
+
+</p>
+</ul></div>
+<a name="wp610793"> </a><h3 class="pHeading2">
+Linux
+</h3>
+<a name="wp610796"> </a><p class="pBody">
+In order to build applications using the SOFTIMAGE|XSI FTK v3.6, you need to have the following software installed:
+</p>
+<div class="pSmartList1"><ul class="pSmartList1">
+<a name="wp610800"> </a><div class="pSmartList1"><li>SOFTIMAGE|XSI FTK Professional v3.6 with SDK</li></div>
+<a name="wp610802"> </a><div class="pSmartList1"><li>Redhat version 7.2 or 7.3</li></div>
+<a name="wp610803"> </a><div class="pSmartList1"><li>GCC Compiler v2.95.2 or higher</li></div>
+<a name="wp610953"> </a><div class="pSmartList1"><li></li></div>
+</ul></div>
+<a name="wp610958"> </a><h2 class="pHeading1">
+What&#8217;s New for Version 3.6 and 3.6.2?
+</h2>
+<a name="wp610959"> </a><p class="pBody">
+In addition to the enhancements listed below, with v3.6 you can now use Linux as your development platform.
+</p>
+<a name="wp610960"> </a><p class="pBody">
+A lot more functionality has been added as of version 3.5. The templates available for dotXSI have been upgraded and expanded, a new semantic layer has been added to the FTK, and the XSI Viewer has been extended with a new SDK:
+</p>
+<div class="pSmartList1"><ul class="pSmartList1">
+<a name="wp610963"> </a><div class="pSmartList1"><li><a  href="ftk_intro.html#wp610976"><em class="cEmphasis">SOFTIMAGE|XSI dotXSI</em></a></li></div>
+<a name="wp610967"> </a><div class="pSmartList1"><li><a  href="ftk_intro.html#wp611105"><em class="cEmphasis">SOFTIMAGE|XSI Viewer Professional</em></a></li></div>
+<a name="wp610971"> </a><div class="pSmartList1"><li><a  href="ftk_intro.html#wp611125"><em class="cEmphasis">SOFTIMAGE|XSI FTK</em></a></li></div>
+</ul></div>
+<a name="wp610976"> </a><h4 class="pHeading3">
+SOFTIMAGE|XSI dotXSI
+</h4>
+<a name="wp610978"> </a><p class="pBody">
+Version 3.6 of the dotXSI file format introduces a variety of new templates for storing SOFTIMAGE|XSI scene data:
+</p>
+<div class="pSmartList1"><ul class="pSmartList1">
+<a name="wp610982"> </a><div class="pSmartList1"><li>Global image library</li></div>
+<a name="wp610983"> </a><div class="pSmartList1"><li>Support for image FX</li></div>
+<a name="wp610984"> </a><div class="pSmartList1"><li>Support for image FX tree nodes</li></div>
+<a name="wp610985"> </a><div class="pSmartList1"><li>Additional light information</li></div>
+<a name="wp610986"> </a><div class="pSmartList1"><li>User data</li></div>
+<a name="wp610987"> </a><div class="pSmartList1"><li>NURBS trims</li></div>
+<a name="wp610988"> </a><div class="pSmartList1"><li>NURBS projections</li></div>
+<a name="wp610989"> </a><div class="pSmartList1"><li>Additional custom parameter information</li></div>
+<a name="wp610990"> </a><div class="pSmartList1"><li>Additional material information</li></div>
+<a name="wp610991"> </a><div class="pSmartList1"><li>Additional cluster information</li></div>
+<a name="wp610997"> </a><p class="pBodyRelative">
+<div align="left">
+<table border="0" cellpadding="0" cellspacing="0">
+  <caption></caption>
+  <tr align="left" valign="top">    <td><a name="wp610994"> </a><p class="pTip_graphic">
+<img src="icons/tip.gif" border="0" width="50" height="50" Alt="Tip" />
+&#160;
+</p>
+</td>
+    <td><a name="wp610996"> </a><p class="pBody">
+For a detailed list of new templates, see the table below.
+</p>
+</td>
+</tr>
+</table>
+</div>
+
+</p>
+<a name="wp611101"> </a><p class="pBodyRelative">
+<div align="left">
+<table border="0" cellpadding="5" cellspacing="1">
+  <caption></caption>
+  <tr bgcolor="#0055AA" align="left">    <th><a name="wp611000"> </a><div style="text-align: left" class="pCellHeading">
+New Template
+</div>
+</th>
+    <th><a name="wp611002"> </a><div style="text-align: left" class="pCellHeading">
+Description
+</div>
+</th>
+</tr>
+  <tr bgcolor="Silver" align="left">    <td><a name="wp611007"> </a><div class="pCellBody">
+<a  href="ftk_TemplateRef.html#wp801334">SI_LightInfo</a>
+</div>
+</td>
+    <td><a name="wp611009"> </a><div class="pCellBody">
+Stores additional light information, such as falloff.
+</div>
+</td>
+</tr>
+  <tr bgcolor="Silver" align="left">    <td><a name="wp611014"> </a><div class="pCellBody">
+<a  href="ftk_TemplateRef.html#wp802952">XSI_ClusterInfo</a>
+</div>
+</td>
+    <td><a name="wp611016"> </a><div class="pCellBody">
+Stores the type of cluster.
+</div>
+</td>
+</tr>
+  <tr bgcolor="Silver" align="left">    <td><a name="wp611021"> </a><div class="pCellBody">
+<a  href="ftk_TemplateRef.html#wp803078">XSI_CustomParamInfo</a>
+</div>
+</td>
+    <td><a name="wp611023"> </a><div class="pCellBody">
+Stores additional information about the custom parameter, such as minimum and maximum values.
+</div>
+</td>
+</tr>
+  <tr bgcolor="Silver" align="left">    <td><a name="wp611028"> </a><div class="pCellBody">
+<a  href="ftk_TemplateRef.html#wp803168">XSI_FXOperator</a>
+</div>
+</td>
+    <td><a name="wp611030"> </a><div class="pCellBody">
+Stores data about the operators in the FX tree. Added to faciliate exchange of data between SOFTIMAGE|DS and SOFTIMAGE|XSI.
+</div>
+</td>
+</tr>
+  <tr bgcolor="Silver" align="left">    <td><a name="wp611035"> </a><div class="pCellBody">
+<a  href="ftk_TemplateRef.html#wp803380">XSI_FXTree</a>
+</div>
+</td>
+    <td><a name="wp611037"> </a><div class="pCellBody">
+Stores data from the FX tree (XSI&#8217;s integrated compositor). Added to faciliate exchange of data between SOFTIMAGE|DS and SOFTIMAGE|XSI
+</div>
+</td>
+</tr>
+  <tr bgcolor="Silver" align="left">    <td><a name="wp611042"> </a><div class="pCellBody">
+<a  href="ftk_TemplateRef.html#wp803405">XSI_Image</a>
+</div>
+</td>
+    <td><a name="wp611044"> </a><div class="pCellBody">
+Stores data about the list of images in the XSI_ImageLibrary template.
+</div>
+</td>
+</tr>
+  <tr bgcolor="Silver" align="left">    <td><a name="wp611049"> </a><div class="pCellBody">
+<a  href="ftk_TemplateRef.html#wp803500">XSI_ImageData</a>
+</div>
+</td>
+    <td><a name="wp611051"> </a><div class="pCellBody">
+Stores image data, such as RGB values. This template is not exported by XSI, but is accessible through the FTK.
+</div>
+</td>
+</tr>
+  <tr bgcolor="Silver" align="left">    <td><a name="wp611056"> </a><div class="pCellBody">
+<a  href="ftk_TemplateRef.html#wp803645">XSI_ImageLibrary</a>
+</div>
+</td>
+    <td><a name="wp611058"> </a><div class="pCellBody">
+Stores a list of all the images used in the scene.
+</div>
+</td>
+</tr>
+  <tr bgcolor="Silver" align="left">    <td><a name="wp611063"> </a><div class="pCellBody">
+<a  href="ftk_TemplateRef.html#wp803533">XSI_ImageFX</a>
+</div>
+</td>
+    <td><a name="wp611065"> </a><div class="pCellBody">
+Stores the special effect parameters applied to the image. Added to faciliate exchange of data between SOFTIMAGE|DS and SOFTIMAGE|XSI
+</div>
+</td>
+</tr>
+  <tr bgcolor="Silver" align="left">    <td><a name="wp611070"> </a><div class="pCellBody">
+<a  href="ftk_TemplateRef.html#wp803728">XSI_MaterialInfo</a>
+</div>
+</td>
+    <td><a name="wp611072"> </a><div class="pCellBody">
+Stores additional material information, specifically UV wrapping information.
+</div>
+</td>
+</tr>
+  <tr bgcolor="Silver" align="left">    <td><a name="wp611077"> </a><div class="pCellBody">
+<a  href="ftk_TemplateRef.html#wp803814">XSI_NurbsProjection</a>
+</div>
+</td>
+    <td><a name="wp611079"> </a><div class="pCellBody">
+Stores the list of curves that make up a projection.
+</div>
+</td>
+</tr>
+  <tr bgcolor="Silver" align="left">    <td><a name="wp611084"> </a><div class="pCellBody">
+<a  href="ftk_TemplateRef.html#wp803853">XSI_NurbsTrim</a>
+</div>
+</td>
+    <td><a name="wp611086"> </a><div class="pCellBody">
+Stores the list of curves that make up the trim.
+</div>
+</td>
+</tr>
+  <tr bgcolor="Silver" align="left">    <td><a name="wp611091"> </a><div class="pCellBody">
+<a  href="ftk_TemplateRef.html#wp804144"><em class="cEmphasis">XSI_UserData</em></a>
+</div>
+</td>
+    <td><a name="wp611093"> </a><div class="pCellBody">
+Stores user data attached to SOFTIMAGE|XSI scene entities.
+</div>
+</td>
+</tr>
+  <tr bgcolor="Silver" align="left">    <td><a name="wp611098"> </a><div class="pCellBody">
+<a  href="ftk_TemplateRef.html#wp804177">XSI_UserDataList</a>
+</div>
+</td>
+    <td><a name="wp611100"> </a><div class="pCellBody">
+Identifies the entities to which THE SOFTIMAGE|XSI user data is attached.
+</div>
+</td>
+</tr>
+</table>
+</div>
+
+</p>
+</ul></div>
+<a name="wp611105"> </a><h4 class="pHeading3">
+SOFTIMAGE|XSI Viewer Professional
+</h4>
+<a name="wp611107"> </a><h5 class="pHeading4">
+3.6
+</h5>
+<a name="wp611108"> </a><p class="pBody">
+The XSI Viewer has been extended with more platform support and an extended SDK:
+</p>
+<div class="pSmartList1"><ul class="pSmartList1">
+<a name="wp611109"> </a><div class="pSmartList1"><li>Support for dotXSI 3.5</li></div>
+<div class="pSmartList2"><ul class="pSmartList2">
+<a name="wp611110"> </a><div class="pSmartList2"><li>Realtime shaders</li></div>
+<a name="wp611111"> </a><div class="pSmartList2"><li>Multiple Uvs</li></div>
+<a name="wp611112"> </a><div class="pSmartList2"><li>Most fcurves</li></div>
+</ul></div>
+<a name="wp611113"> </a><div class="pSmartList1"><li>Support for 3.6</li></div>
+<div class="pSmartList2"><ul class="pSmartList2">
+<a name="wp611114"> </a><div class="pSmartList2"><li>Global Image library</li></div>
+</ul></div>
+<a name="wp611115"> </a><div class="pSmartList1"><li>Unified architecture with the SOFTIMAGE|XSI FTK</li></div>
+<a name="wp611116"> </a><div class="pSmartList1"><li>Scene explorer</li></div>
+<a name="wp611117"> </a><div class="pSmartList1"><li>Support for DirectX 8</li></div>
+<a name="wp611118"> </a><div class="pSmartList1"><li>Support for XBOX </li></div>
+<a name="wp611119"> </a><div class="pSmartList1"><li>Completely redesigned SDK</li></div>
+</ul></div>
+<a name="wp611120"> </a><h5 class="pHeading4">
+3.6.2
+</h5>
+<a name="wp611121"> </a><p class="pBody">
+The Viewer now runs on Linux platforms. With the Professional version, you can develop plug-ins on Linux to run on this operating system.
+</p>
+<a name="wp611125"> </a><h4 class="pHeading3">
+SOFTIMAGE|XSI FTK
+</h4>
+<a name="wp611127"> </a><h5 class="pHeading4">
+3.6
+</h5>
+<a name="wp611128"> </a><p class="pBody">
+The FTK has been extended with:
+</p>
+<div class="pSmartList1"><ul class="pSmartList1">
+<a name="wp611129"> </a><div class="pSmartList1"><li>Support for dotXSI 3.6</li></div>
+<a name="wp611130"> </a><div class="pSmartList1"><li>Semantic layer</li></div>
+</ul></div>
+<a name="wp611131"> </a><h5 class="pHeading4">
+3.6.2
+</h5>
+<div class="pSmartList1"><ul class="pSmartList1">
+<a name="wp611132"> </a><div class="pSmartList1"><li>You can now develop plug-ins on Linux to run on this operating system.</li></div>
+<a name="wp611133"> </a><div class="pSmartList1"><li>You can now compile FTK tools in debug mode. The FTK now includes a debug library and .dll (XSIFTKd.lib and XSIFTKd.dll).</li></div>
+<a name="wp611134"> </a><div class="pSmartList1"><li>The FTK no longer ships with the XSICore.lib and XSICore.dll files. You should remove these from your project settings before compiling with this version of the FTK.</li></div>
+</ul></div>
+<a name="wp611150"> </a><p class="pBody">
+
+</p>
+<a name="wp609593"> </a><p class="pBody">
+
+</p>
+
+ <hr />
+
+ <table align="right" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+        <td align="right">
+            <a target="_blank" href="http://www.softimage.com"><img src="images/silogo.gif" width="150" height="16" border="0" /></a>&#160;&#160;&#160;
+            <a target="_blank" href="http://www.avid.com"><img src="images/avidlogo.gif" width="50" height="20" border="0" /></a><br />
+            <br />
+    </td>
+   </tr>
+  </table>
+
+ </blockquote>
+
+
+
+<script type="text/javascript" language="JavaScript1.2">
+   <!--
+    document.write(WWHRelatedTopicsDivTag() + WWHPopupDivTag());
+   // -->
+  </script>
+
+ </body>
+</html>

@@ -1,0 +1,276 @@
+***  Installation Started 10/18/04 18:37  ***
+Title: Bink Video SDK Installation
+Source: C:\Documents and Settings\creator\Рабочий стол\binksdk.EXE
+Made Dir: C:\BinkSDK
+File Copy: C:\BinkSDK\UNWISE.EXE
+RegDB Key: Software\Microsoft\Windows\CurrentVersion\Uninstall\Bink Video SDK
+RegDB Val: Bink Video SDK
+RegDB Name: DisplayName
+RegDB Root: 2
+RegDB Key: Software\Microsoft\Windows\CurrentVersion\Uninstall\Bink Video SDK
+RegDB Val: C:\BinkSDK\UNWISE.EXE C:\BinkSDK\INSTALL.LOG
+RegDB Name: UninstallString
+RegDB Root: 2
+File Copy: C:\BinkSDK\bink.h
+File Copy: C:\BinkSDK\binkw32.dll
+File Copy: C:\BinkSDK\binkw32.lib
+File Copy: C:\BinkSDK\binkw32.pdb
+File Copy: C:\BinkSDK\dx7rad3d.cpp
+File Copy: C:\BinkSDK\dx8rad3d.cpp
+File Copy: C:\BinkSDK\dx9rad3d.cpp
+File Copy: C:\BinkSDK\examalph.c
+File Copy: C:\BinkSDK\examddp.c
+File Copy: C:\BinkSDK\exammss.c
+File Copy: C:\BinkSDK\examw32.c
+File Copy: C:\BinkSDK\glrad3d.c
+File Copy: C:\BinkSDK\rad3d.h
+File Copy: C:\BinkSDK\radbase.h
+Made Dir: C:\BinkSDK\htmlhelp
+File Copy: C:\BinkSDK\htmlhelp\Acknowledgments.html
+File Copy: C:\BinkSDK\htmlhelp\Alpha Planes.html
+File Copy: C:\BinkSDK\htmlhelp\Audio Tracks in Bink.html
+File Copy: C:\BinkSDK\htmlhelp\Background Concepts.html
+File Copy: C:\BinkSDK\htmlhelp\Basic Types.html
+File Copy: C:\BinkSDK\htmlhelp\Bink API.html
+File Copy: C:\BinkSDK\htmlhelp\Bink Audio System In5xea0z.html
+File Copy: C:\BinkSDK\htmlhelp\Bink Example for GNU9zjdaa.html
+File Copy: C:\BinkSDK\htmlhelp\Bink Examples for MacOS.html
+File Copy: C:\BinkSDK\htmlhelp\Bink Examples for th19saaa.html
+File Copy: C:\BinkSDK\htmlhelp\Bink Examples for th43an3m.html
+File Copy: C:\BinkSDK\htmlhelp\Bink Examples for thyqqzga.html
+File Copy: C:\BinkSDK\htmlhelp\Bink Examples for Win32.html
+File Copy: C:\BinkSDK\htmlhelp\Bink Overview.html
+File Copy: C:\BinkSDK\htmlhelp\Bink Playback on the Xbox.html
+File Copy: C:\BinkSDK\htmlhelp\Bink Playback on the43an3m.html
+File Copy: C:\BinkSDK\htmlhelp\Bink Playback on theyqqzga.html
+File Copy: C:\BinkSDK\htmlhelp\Bink Playback under MacOS.html
+File Copy: C:\BinkSDK\htmlhelp\Bink Playback under Win32.html
+File Copy: C:\BinkSDK\htmlhelp\Bink Playback under xuvhla.html
+File Copy: C:\BinkSDK\htmlhelp\Bink Video Playback.html
+File Copy: C:\BinkSDK\htmlhelp\Bink Video with 3D Rspydca.html
+File Copy: C:\BinkSDK\htmlhelp\BINK.html
+File Copy: C:\BinkSDK\htmlhelp\bink.jpg
+File Copy: C:\BinkSDK\htmlhelp\BinkBuffer API.html
+File Copy: C:\BinkSDK\htmlhelp\BINKBUFFER.html
+File Copy: C:\BinkSDK\htmlhelp\BinkBufferBlit.html
+File Copy: C:\BinkSDK\htmlhelp\BinkBufferCheckWinPos.html
+File Copy: C:\BinkSDK\htmlhelp\BinkBufferClose.html
+File Copy: C:\BinkSDK\htmlhelp\BinkBufferGetDescription.html
+File Copy: C:\BinkSDK\htmlhelp\BinkBufferGetError.html
+File Copy: C:\BinkSDK\htmlhelp\BinkBufferLock.html
+File Copy: C:\BinkSDK\htmlhelp\BinkBufferOpen.html
+File Copy: C:\BinkSDK\htmlhelp\BinkBuffers to the Rescue.html
+File Copy: C:\BinkSDK\htmlhelp\BinkBufferSetDirectDraw.html
+File Copy: C:\BinkSDK\htmlhelp\BinkBufferSetOffset.html
+File Copy: C:\BinkSDK\htmlhelp\BinkBufferSetResolution.html
+File Copy: C:\BinkSDK\htmlhelp\BinkBufferSetScale.html
+File Copy: C:\BinkSDK\htmlhelp\BinkBufferUnlock.html
+File Copy: C:\BinkSDK\htmlhelp\BINKBUFFER_OPEN_FLAGS.html
+File Copy: C:\BinkSDK\htmlhelp\BinkCheckCursor.html
+File Copy: C:\BinkSDK\htmlhelp\BinkClose.html
+File Copy: C:\BinkSDK\htmlhelp\BinkCloseTrack.html
+File Copy: C:\BinkSDK\htmlhelp\BinkCopyToBuffer.html
+File Copy: C:\BinkSDK\htmlhelp\BinkCopyToBufferRect.html
+File Copy: C:\BinkSDK\htmlhelp\BinkDDSurfaceType.html
+File Copy: C:\BinkSDK\htmlhelp\BinkDoFrame.html
+File Copy: C:\BinkSDK\htmlhelp\BinkDX8SurfaceType.html
+File Copy: C:\BinkSDK\htmlhelp\BinkDX9SurfaceType.html
+File Copy: C:\BinkSDK\htmlhelp\BinkGDSurfaceType.html
+File Copy: C:\BinkSDK\htmlhelp\BinkGetError.html
+File Copy: C:\BinkSDK\htmlhelp\BinkGetKeyFrame.html
+File Copy: C:\BinkSDK\htmlhelp\BinkGetRealtime.html
+File Copy: C:\BinkSDK\htmlhelp\BinkGetRects.html
+File Copy: C:\BinkSDK\htmlhelp\BinkGetSummary.html
+File Copy: C:\BinkSDK\htmlhelp\BinkGetTrackData.html
+File Copy: C:\BinkSDK\htmlhelp\BinkGetTrackID.html
+File Copy: C:\BinkSDK\htmlhelp\BinkGoto.html
+File Copy: C:\BinkSDK\htmlhelp\BinkIsSoftwareCursor.html
+File Copy: C:\BinkSDK\htmlhelp\BinkLoad.html
+File Copy: C:\BinkSDK\htmlhelp\BinkLoadConverter.html
+File Copy: C:\BinkSDK\htmlhelp\BinkLogoAddress.html
+File Copy: C:\BinkSDK\htmlhelp\BinkMacOpen.html
+File Copy: C:\BinkSDK\htmlhelp\BinkNextFrame.html
+File Copy: C:\BinkSDK\htmlhelp\BinkOpen.html
+File Copy: C:\BinkSDK\htmlhelp\BinkOpenTrack.html
+File Copy: C:\BinkSDK\htmlhelp\BinkPause.html
+File Copy: C:\BinkSDK\htmlhelp\BINKREALTIME.html
+File Copy: C:\BinkSDK\htmlhelp\BINKRECT.html
+File Copy: C:\BinkSDK\htmlhelp\BINKRECT_ARRAY.html
+File Copy: C:\BinkSDK\htmlhelp\BinkRestoreCursor.html
+File Copy: C:\BinkSDK\htmlhelp\BinkService.html
+File Copy: C:\BinkSDK\htmlhelp\BinkSetFrameRate.html
+File Copy: C:\BinkSDK\htmlhelp\BinkSetIO.html
+File Copy: C:\BinkSDK\htmlhelp\BinkSetIOSize.html
+File Copy: C:\BinkSDK\htmlhelp\BinkSetMemory.html
+File Copy: C:\BinkSDK\htmlhelp\BinkSetMixBins.html
+File Copy: C:\BinkSDK\htmlhelp\BinkSetMixBinVolumes.html
+File Copy: C:\BinkSDK\htmlhelp\BinkSetPan.html
+File Copy: C:\BinkSDK\htmlhelp\BinkSetSimulate.html
+File Copy: C:\BinkSDK\htmlhelp\BinkSetSoundOnOff.html
+File Copy: C:\BinkSDK\htmlhelp\BinkSetSoundSystem.html
+File Copy: C:\BinkSDK\htmlhelp\BinkSetSoundTrack.html
+File Copy: C:\BinkSDK\htmlhelp\BinkSetVideoOnOff.html
+File Copy: C:\BinkSDK\htmlhelp\BinkSetVolume.html
+File Copy: C:\BinkSDK\htmlhelp\BinkSoundUseAX.html
+File Copy: C:\BinkSDK\htmlhelp\BinkSoundUseDirectSound.html
+File Copy: C:\BinkSDK\htmlhelp\BinkSoundUseMiles.html
+File Copy: C:\BinkSDK\htmlhelp\BinkSoundUseMusyX.html
+File Copy: C:\BinkSDK\htmlhelp\BinkSoundUseRAD_IOP.html
+File Copy: C:\BinkSDK\htmlhelp\BinkSoundUseSDLMixer.html
+File Copy: C:\BinkSDK\htmlhelp\BinkSoundUseSoundManager.html
+File Copy: C:\BinkSDK\htmlhelp\BINKSUMMARY.html
+File Copy: C:\BinkSDK\htmlhelp\BINKTRACK.html
+File Copy: C:\BinkSDK\htmlhelp\BinkUnload.html
+File Copy: C:\BinkSDK\htmlhelp\BinkUnloadConverter.html
+File Copy: C:\BinkSDK\htmlhelp\BinkWait.html
+File Copy: C:\BinkSDK\htmlhelp\BINK_CONVERTER_FLAGS.html
+File Copy: C:\BinkSDK\htmlhelp\BINK_COPY_FLAGS.html
+File Copy: C:\BinkSDK\htmlhelp\BINK_GETKEY_FLAGS.html
+File Copy: C:\BinkSDK\htmlhelp\BINK_GETRECTS_FLAGS.html
+File Copy: C:\BinkSDK\htmlhelp\BINK_GOTO_FLAGS.html
+File Copy: C:\BinkSDK\htmlhelp\BINK_OPEN_FLAGS.html
+File Copy: C:\BinkSDK\htmlhelp\Changes.html
+File Copy: C:\BinkSDK\htmlhelp\CHAR_PTR.html
+File Copy: C:\BinkSDK\htmlhelp\Colorspace - RGB vs. YUV.html
+File Copy: C:\BinkSDK\htmlhelp\Compressing with Bink.html
+File Copy: C:\BinkSDK\htmlhelp\Critical File I-O haq3ylyt.html
+File Copy: C:\BinkSDK\htmlhelp\Direct3D.html
+File Copy: C:\BinkSDK\htmlhelp\Distributing Bink on5sjx6b.html
+File Copy: C:\BinkSDK\htmlhelp\Distributing Bink on8uyiaz.html
+File Copy: C:\BinkSDK\htmlhelp\Distributing Bink onxuuiga.html
+File Copy: C:\BinkSDK\htmlhelp\Distributing Bink onzu59xr.html
+File Copy: C:\BinkSDK\htmlhelp\Distributing the Binbatocy.html
+File Copy: C:\BinkSDK\htmlhelp\Distributing the Bindt3i85.html
+File Copy: C:\BinkSDK\htmlhelp\F32.html
+File Copy: C:\BinkSDK\htmlhelp\F64.html
+File Copy: C:\BinkSDK\htmlhelp\File I-O on the Sony PS2.html
+File Copy: C:\BinkSDK\htmlhelp\FSSpec_PTR.html
+File Copy: C:\BinkSDK\htmlhelp\Gamma on the Nintendyrr8cb.html
+File Copy: C:\BinkSDK\htmlhelp\Gamma on the Sony PS2.html
+File Copy: C:\BinkSDK\htmlhelp\Gamma on the Xbox.html
+File Copy: C:\BinkSDK\htmlhelp\GDHandle.html
+File Copy: C:\BinkSDK\htmlhelp\Handling the Reset Bkw9663.html
+File Copy: C:\BinkSDK\htmlhelp\HBINK.html
+File Copy: C:\BinkSDK\htmlhelp\HBINKBUFFER.html
+File Copy: C:\BinkSDK\htmlhelp\HBINKTRACK.html
+File Copy: C:\BinkSDK\htmlhelp\HCURSOR.html
+File Copy: C:\BinkSDK\htmlhelp\index.html
+File Copy: C:\BinkSDK\htmlhelp\Installation for GNU9zjdaa.html
+File Copy: C:\BinkSDK\htmlhelp\Installation for MacOS.html
+File Copy: C:\BinkSDK\htmlhelp\Installation for the Xbox.html
+File Copy: C:\BinkSDK\htmlhelp\Installation for the43an3m.html
+File Copy: C:\BinkSDK\htmlhelp\Installation for theyqqzga.html
+File Copy: C:\BinkSDK\htmlhelp\Installation for Win32.html
+File Copy: C:\BinkSDK\htmlhelp\Integrating Bink int3valph.html
+File Copy: C:\BinkSDK\htmlhelp\Integrating Bink int5dcu9k.html
+File Copy: C:\BinkSDK\htmlhelp\Integrating Bink int7d0r9i.html
+File Copy: C:\BinkSDK\htmlhelp\Integrating Bink intrv9x5q.html
+File Copy: C:\BinkSDK\htmlhelp\Integrating Bink intxe7rf5.html
+File Copy: C:\BinkSDK\htmlhelp\Integrating Bink intxf3d73.html
+File Copy: C:\BinkSDK\htmlhelp\Introduction.html
+File Copy: C:\BinkSDK\htmlhelp\Locking and Unlocking.html
+File Copy: C:\BinkSDK\htmlhelp\LPDIRECT3DSURFACE8.html
+File Copy: C:\BinkSDK\htmlhelp\LPDIRECT3DSURFACE9.html
+File Copy: C:\BinkSDK\htmlhelp\LPDIRECTDRAW.html
+File Copy: C:\BinkSDK\htmlhelp\LPDIRECTDRAWSURFACE.html
+File Copy: C:\BinkSDK\htmlhelp\LPDIRECTSOUND.html
+File Copy: C:\BinkSDK\htmlhelp\Memory management on8uyiaz.html
+File Copy: C:\BinkSDK\htmlhelp\Memory management onxuuiga.html
+File Copy: C:\BinkSDK\htmlhelp\Memory management onzu59xr.html
+File Copy: C:\BinkSDK\htmlhelp\Memory management un1cdaca.html
+File Copy: C:\BinkSDK\htmlhelp\Memory management undr7scs.html
+File Copy: C:\BinkSDK\htmlhelp\Memory management uni4hsaa.html
+File Copy: C:\BinkSDK\htmlhelp\Mouse Cursors.html
+File Copy: C:\BinkSDK\htmlhelp\NTSC and PAL on the 2ldlaa.html
+File Copy: C:\BinkSDK\htmlhelp\NTSC and PAL on the cadb3m.html
+File Copy: C:\BinkSDK\htmlhelp\NTSC and PAL on the Xbox.html
+File Copy: C:\BinkSDK\htmlhelp\NULL.html
+File Copy: C:\BinkSDK\htmlhelp\Open and Close.html
+File Copy: C:\BinkSDK\htmlhelp\OpenGL.html
+File Copy: C:\BinkSDK\htmlhelp\OS_WND.html
+File Copy: C:\BinkSDK\htmlhelp\Pros and Cons of Dire7y86m.html
+File Copy: C:\BinkSDK\htmlhelp\Pros and Cons of GWo8mm2u3.html
+File Copy: C:\BinkSDK\htmlhelp\Pros and Cons of Sofv5ld0h.html
+File Copy: C:\BinkSDK\htmlhelp\Pros and Cons of YUV65hg5x.html
+File Copy: C:\BinkSDK\htmlhelp\Pros and Cons of YUVkjct5t.html
+File Copy: C:\BinkSDK\htmlhelp\RADARAMALLOC.html
+File Copy: C:\BinkSDK\htmlhelp\RADARAMCALLBACKS.html
+File Copy: C:\BinkSDK\htmlhelp\RADARAMFREE.html
+File Copy: C:\BinkSDK\htmlhelp\RADMEMALLOC.html
+File Copy: C:\BinkSDK\htmlhelp\RADMEMFREE.html
+File Copy: C:\BinkSDK\htmlhelp\RADTimerRead.html
+File Copy: C:\BinkSDK\htmlhelp\RAD_IOPCancelAllAsyncs.html
+File Copy: C:\BinkSDK\htmlhelp\RAD_IOPCancelAsyncOpen.html
+File Copy: C:\BinkSDK\htmlhelp\RAD_IOPCancelAsyncRead.html
+File Copy: C:\BinkSDK\htmlhelp\RAD_IOPCancelFileAsyncs.html
+File Copy: C:\BinkSDK\htmlhelp\RAD_IOPCancelGroupOfonsbaa.html
+File Copy: C:\BinkSDK\htmlhelp\RAD_IOPCloseFile.html
+File Copy: C:\BinkSDK\htmlhelp\RAD_IOPGetIOStatus.html
+File Copy: C:\BinkSDK\htmlhelp\RAD_IOPHardwareVolumes.html
+File Copy: C:\BinkSDK\htmlhelp\RAD_IOPMemoryAmount.html
+File Copy: C:\BinkSDK\htmlhelp\RAD_IOPOPENCALLBACK.html
+File Copy: C:\BinkSDK\htmlhelp\RAD_IOPPauseSound.html
+File Copy: C:\BinkSDK\htmlhelp\RAD_IOPPauseTimer.html
+File Copy: C:\BinkSDK\htmlhelp\RAD_IOPQueueAsyncOpenFile.html
+File Copy: C:\BinkSDK\htmlhelp\RAD_IOPQueueAsyncRea99pcaa.html
+File Copy: C:\BinkSDK\htmlhelp\RAD_IOPQueueAsyncReaizd27a.html
+File Copy: C:\BinkSDK\htmlhelp\RAD_IOPREADCALLBACK.html
+File Copy: C:\BinkSDK\htmlhelp\RAD_IOPRegisterSounds0khaa.html
+File Copy: C:\BinkSDK\htmlhelp\RAD_IOPRegisterTimers0khaa.html
+File Copy: C:\BinkSDK\htmlhelp\RAD_IOPShutDown.html
+File Copy: C:\BinkSDK\htmlhelp\RAD_IOPSOUNDCALLBACK.html
+File Copy: C:\BinkSDK\htmlhelp\RAD_IOPStartSound.html
+File Copy: C:\BinkSDK\htmlhelp\RAD_IOPStartTimer.html
+File Copy: C:\BinkSDK\htmlhelp\RAD_IOPStartUp.html
+File Copy: C:\BinkSDK\htmlhelp\RAD_IOPTIMERCALLBACK.html
+File Copy: C:\BinkSDK\htmlhelp\RAD_IOPUnregisterSougjf8da.html
+File Copy: C:\BinkSDK\htmlhelp\RAD_IOPUnregisterTimgf40df.html
+File Copy: C:\BinkSDK\htmlhelp\RAD_IOP_ASYNC_OPEN_DATA.html
+File Copy: C:\BinkSDK\htmlhelp\RAD_IOP_ASYNC_READ_DATA.html
+File Copy: C:\BinkSDK\htmlhelp\RAD_IOP_SOUND_DATA.html
+File Copy: C:\BinkSDK\htmlhelp\RAD_IOP_STATUS_VALUES.html
+File Copy: C:\BinkSDK\htmlhelp\RAD_IOP_TIMER_DATA.html
+File Copy: C:\BinkSDK\htmlhelp\reference.css
+File Copy: C:\BinkSDK\htmlhelp\Resource Usage on thyqqzga.html
+File Copy: C:\BinkSDK\htmlhelp\S16.html
+File Copy: C:\BinkSDK\htmlhelp\S32.html
+File Copy: C:\BinkSDK\htmlhelp\s32_ptr.html
+File Copy: C:\BinkSDK\htmlhelp\S64.html
+File Copy: C:\BinkSDK\htmlhelp\S8.html
+File Copy: C:\BinkSDK\htmlhelp\Scaling.html
+File Copy: C:\BinkSDK\htmlhelp\Sections on the Xbox.html
+File Copy: C:\BinkSDK\htmlhelp\Sharing the CPU on t86r93m.html
+File Copy: C:\BinkSDK\htmlhelp\Sharing the CPU on t9jibaa.html
+File Copy: C:\BinkSDK\htmlhelp\Sharing the CPU on tq4bzqa.html
+File Copy: C:\BinkSDK\htmlhelp\Sharing the CPU unde2nabaa.html
+File Copy: C:\BinkSDK\htmlhelp\Sharing the CPU unde5sjx6b.html
+File Copy: C:\BinkSDK\htmlhelp\Sharing the CPU unde9ijdaa.html
+File Copy: C:\BinkSDK\htmlhelp\Simplifying MacOS Blrzu5pt.html
+File Copy: C:\BinkSDK\htmlhelp\Sound on the Nintendyrr8cb.html
+File Copy: C:\BinkSDK\htmlhelp\Sound on the Sony PS2.html
+File Copy: C:\BinkSDK\htmlhelp\Sound on the Xbox.html
+File Copy: C:\BinkSDK\htmlhelp\Sound under GNU-Linux.html
+File Copy: C:\BinkSDK\htmlhelp\Sound under MacOS.html
+File Copy: C:\BinkSDK\htmlhelp\Sound under Win32.html
+File Copy: C:\BinkSDK\htmlhelp\SOUND_CORE_FLAGS.html
+File Copy: C:\BinkSDK\htmlhelp\The GNU-Linux Platform.html
+File Copy: C:\BinkSDK\htmlhelp\The MacOS Platform.html
+File Copy: C:\BinkSDK\htmlhelp\The Nintendo GameCubm0rzpb.html
+File Copy: C:\BinkSDK\htmlhelp\The RAD_IOP API for mhntme.html
+File Copy: C:\BinkSDK\htmlhelp\The Sony Playstationitjtk4.html
+File Copy: C:\BinkSDK\htmlhelp\The Win32 Platform.html
+File Copy: C:\BinkSDK\htmlhelp\The Xbox Platform.html
+File Copy: C:\BinkSDK\htmlhelp\U16.html
+File Copy: C:\BinkSDK\htmlhelp\U32.html
+File Copy: C:\BinkSDK\htmlhelp\u32_ptr.html
+File Copy: C:\BinkSDK\htmlhelp\U64.html
+File Copy: C:\BinkSDK\htmlhelp\U8.html
+File Copy: C:\BinkSDK\htmlhelp\void.html
+File Copy: C:\BinkSDK\htmlhelp\VOID_PTR.html
+Made Dir: C:\BinkSDK\winhelp
+File Copy: C:\BinkSDK\winhelp\bink.chm
+Made Dir: C:\Documents and Settings\creator\Главное меню\Программы\Bink Video SDK
+Shell Link: C:\Documents and Settings\creator\Главное меню\Программы\Bink Video SDK\Bink SDK Windows Help.lnk
+Shell Link: C:\Documents and Settings\creator\Главное меню\Программы\Bink Video SDK\Bink SDK HTML Help.lnk
+Shell Link: C:\Documents and Settings\creator\Главное меню\Программы\Bink Video SDK\Uninstall the Bink SDK for Windows.lnk
+User Rights: Admin

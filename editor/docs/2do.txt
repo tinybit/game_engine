@@ -1,0 +1,16 @@
+	binds stuff:
+--finish refactoring quickbind dialog
+--finish refactoring binds dialog
+--add binds treeview and validation
+--add restriction rules to binds editing
+
+	scripts editor:
+--detect duplicate functions
+--detect globals
+--incorrect binds commit (1st binds script gets replaced by some other scripts)
+--correct splitter
+--restore lua compiler
+
+find that fucking bug that kills off editor completely (try removing binds and going to scripts editor immediately after that)
+
+

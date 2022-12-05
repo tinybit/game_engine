@@ -1,0 +1,1747 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+ <head>
+  <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="GENERATOR" content="Quadralay WebWorks Publisher Professional Edition 7.0.2.1206" />
+  <meta name="TEMPLATEBASE" content="Template" />
+  <meta name="LASTUPDATED" content="04/25/03 14:07:36" />
+  <title>The dotXSI Core API</title>
+  <link rel="StyleSheet" href="document.css" type="text/css" />
+  <link rel="StyleSheet" href="catalog.css" type="text/css" />
+<script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/context.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/towwhdir.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/wwhpagef.js"></script>
+
+  <script type="text/javascript" language="JavaScript1.2">
+   <!--
+    // Set reference to top level help frame
+    //
+    var  WWHFrame = WWHGetWWHFrame("");
+   // -->
+  </script>
+ </head>
+
+ <body onLoad="WWHUpdate();">
+
+ <blockquote>
+<a name="wp595707"> </a><div style="color: #000000; font-family: Arial, Verdana, Helvetica, sans-serif; font-size: 12pt; font-style: normal; font-variant: normal; font-weight: normal; margin-bottom: 0pt; margin-left: 0pt; margin-right: 0pt; margin-top: 0pt; text-align: right; text-decoration: none; text-indent: 0pt; text-transform: none">
+Chapter 
+</div>
+<a name="wp597483"> </a><h2 class="pTitle">
+The dotXSI Core API
+</h2>
+<hr />
+<a name="wp602953"> </a><p class="pBody">
+This chapter describes the fundamental services provided by the Core API. These services include general macros, types and base classes. The header files are located under <code class="cCode">h\Core</code> and the library file is called <code class="cCode">XSICore.lib</code>. 
+</p>
+<a name="wp602954"> </a><p class="pBody">
+The following topics are presented here:
+</p>
+<div class="pSmartList1"><ul class="pSmartList1">
+<a name="wp602957"> </a><div class="pSmartList1"><li><a  href="ftk_coreapi.html#wp602980"><em class="cEmphasis">About Error Checking</em></a></li></div>
+<a name="wp602961"> </a><div class="pSmartList1"><li><a  href="ftk_coreapi.html#wp603011"><em class="cEmphasis">Basic Data Types</em></a></li></div>
+<a name="wp602965"> </a><div class="pSmartList1"><li><a  href="ftk_coreapi.html#wp603078"><em class="cEmphasis">How Does dotXSI Deal with Variant Types?</em></a></li></div>
+<a name="wp602973"> </a><div class="pSmartList1"><li><a  href="ftk_coreapi.html#wp603327"><em class="cEmphasis">Macros</em></a></li></div>
+<a name="wp602977"> </a><div class="pSmartList1"><li><a  href="ftk_coreapi.html#wp603563"><em class="cEmphasis">Base Classes</em></a></li></div>
+</ul></div>
+<a name="wp602980"> </a><h2 class="pHeading1">
+About Error Checking
+</h2>
+<a name="wp602983"> </a><p class="pBody">
+Error checking types use the same error codes as the SOFTIMAGE|XSI SDK. The error type is called <b class="cBold">SI_Error</b> and can have the following values:</p><div align="left">
+<table border="0" cellpadding="5" cellspacing="1">
+  <caption></caption>
+  <tr bgcolor="#0055AA" align="left">    <th><a name="wp602987"> </a><div style="text-align: left" class="pCellHeading">
+General Errors
+</div>
+</th>
+    <th><a name="wp602991"> </a><div style="text-align: left" class="pCellHeading">
+SOFTIMAGE|XSI FTK-specific Errors
+</div>
+</th>
+</tr>
+  <tr bgcolor="Silver" align="left">    <td><a name="wp602994"> </a><div class="pCellBody">
+SI_SUCCESS
+</div>
+<a name="wp602995"> </a><div class="pCellBody">
+SI_ERR_NONE
+</div>
+<a name="wp602996"> </a><div class="pCellBody">
+SI_ERR_STATUS_MSG
+</div>
+<a name="wp602997"> </a><div class="pCellBody">
+SI_ERR_MESSAGE_MSG
+</div>
+<a name="wp602998"> </a><div class="pCellBody">
+SI_ERR_WARNING_MSG
+</div>
+<a name="wp602999"> </a><div class="pCellBody">
+SI_ERR_ERROR_MSG
+</div>
+<a name="wp603000"> </a><div class="pCellBody">
+SI_ERR_MODE_MSG
+</div>
+<a name="wp603001"> </a><div class="pCellBody">
+SI_ERR_INTERNAL
+</div>
+<a name="wp603002"> </a><div class="pCellBody">
+SI_ERR_NOTYETIMPLEMENTED
+</div>
+<a name="wp603003"> </a><div class="pCellBody">
+SI_ERR_NOTSUPPORTED
+</div>
+</td>
+    <td><a name="wp603005"> </a><div class="pCellBody">
+SI_FILE_NOT_FOUND
+</div>
+<a name="wp603006"> </a><div class="pCellBody">
+SI_NO_AVAILABLE_DRIVER
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pBody">
+</p>
+<a name="wp603007"> </a><p class="pBody">
+Use the <b class="cBold">_SI_CALL</b> macro to validate and handle errors. Using the _SI_CALL macro requires a variable called <b class="cBold">result</b> of type <b class="cBold">SI_Error</b> in the current function scope. The _SI_CALL macro also requires a string value indicating debug information in case the function fails.
+</p>
+<a name="wp603008"> </a><p class="pBody">
+For example : 
+</p>
+<div class="pPreformattedRelative"><pre class="pPreformattedRelative">
+SI_Error result = SI_SUCCESS;
+ 
+_SI_CALL(CSIBCUtil::Open(&quot;foo&quot;),_SI_TEXT(&quot;Opening File Failed&quot;));<a name="wp603009"> </a>
+</pre></div>
+<a name="wp603011"> </a><h2 class="pHeading1">
+Basic Data Types
+</h2>
+<a name="wp603014"> </a><p class="pBody">
+Several types are available in the SOFTIMAGE|XSI FTK for cross-platform compatibility. It is highly recommended that you use them as much as possible to ensure that the code is portable to other platforms.
+</p>
+<a name="wp603018"> </a><p class="pBody">
+This is the mapping of SOFTIMAGE|XSI FTK types:</p><div align="left">
+<table border="0" cellpadding="5" cellspacing="1">
+  <caption></caption>
+  <tr bgcolor="#0055AA" align="left">    <th><a name="wp603024"> </a><div style="text-align: left" class="pCellHeading">
+SOFTIMAGE|XSI FTK Types 
+</div>
+</th>
+    <th><a name="wp603027"> </a><div style="text-align: left" class="pCellHeading">
+C types 
+</div>
+</th>
+</tr>
+  <tr bgcolor="Silver" align="left">    <td><a name="wp603029"> </a><div class="pCellBody">
+SI_Bool
+</div>
+</td>
+    <td><a name="wp603031"> </a><div class="pCellBody">
+unsigned short 
+</div>
+</td>
+</tr>
+  <tr bgcolor="Silver" align="left">    <td><a name="wp603033"> </a><div class="pCellBody">
+SI_Byte
+</div>
+</td>
+    <td><a name="wp603035"> </a><div class="pCellBody">
+char
+</div>
+</td>
+</tr>
+  <tr bgcolor="Silver" align="left">    <td><a name="wp603037"> </a><div class="pCellBody">
+SI_Ubyte
+</div>
+</td>
+    <td><a name="wp603039"> </a><div class="pCellBody">
+unsigned char
+</div>
+</td>
+</tr>
+  <tr bgcolor="Silver" align="left">    <td><a name="wp603041"> </a><div class="pCellBody">
+SI_Short
+</div>
+</td>
+    <td><a name="wp603043"> </a><div class="pCellBody">
+short
+</div>
+</td>
+</tr>
+  <tr bgcolor="Silver" align="left">    <td><a name="wp603045"> </a><div class="pCellBody">
+SI_Ushort
+</div>
+</td>
+    <td><a name="wp603047"> </a><div class="pCellBody">
+unsigned short
+</div>
+</td>
+</tr>
+  <tr bgcolor="Silver" align="left">    <td><a name="wp603049"> </a><div class="pCellBody">
+SI_Int
+</div>
+</td>
+    <td><a name="wp603051"> </a><div class="pCellBody">
+int
+</div>
+</td>
+</tr>
+  <tr bgcolor="Silver" align="left">    <td><a name="wp603053"> </a><div class="pCellBody">
+SI_Uint
+</div>
+</td>
+    <td><a name="wp603055"> </a><div class="pCellBody">
+unsigned int
+</div>
+</td>
+</tr>
+  <tr bgcolor="Silver" align="left">    <td><a name="wp603057"> </a><div class="pCellBody">
+SI_Float
+</div>
+</td>
+    <td><a name="wp603059"> </a><div class="pCellBody">
+float
+</div>
+</td>
+</tr>
+  <tr bgcolor="Silver" align="left">    <td><a name="wp603061"> </a><div class="pCellBody">
+SI_Double 
+</div>
+</td>
+    <td><a name="wp603063"> </a><div class="pCellBody">
+double
+</div>
+</td>
+</tr>
+  <tr bgcolor="Silver" align="left">    <td><a name="wp603065"> </a><div class="pCellBody">
+SI_Long
+</div>
+</td>
+    <td><a name="wp603067"> </a><div class="pCellBody">
+long
+</div>
+</td>
+</tr>
+  <tr bgcolor="Silver" align="left">    <td><a name="wp603069"> </a><div class="pCellBody">
+SI_Void
+</div>
+</td>
+    <td><a name="wp603071"> </a><div class="pCellBody">
+void
+</div>
+</td>
+</tr>
+  <tr bgcolor="Silver" align="left">    <td><a name="wp603073"> </a><div class="pCellBody">
+SI_Ulong
+</div>
+</td>
+    <td><a name="wp603075"> </a><div class="pCellBody">
+unsigned long
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pBody">
+</p>
+<a name="wp603076"> </a><p class="pBody">
+
+</p>
+<a name="wp603078"> </a><h2 class="pHeading1">
+How Does dotXSI Deal with Variant Types?
+</h2>
+<a name="wp603081"> </a><p class="pBody">
+The SOFTIMAGE|XSI FTK uses a simplified version of the Windows VARIANT type called <b class="cBold">SI_TinyVariant</b>. 
+</p>
+<a name="wp603240"> </a><p class="pBody">
+You can set the <b class="cBold">variantType</b> member of SI_TinyVariant to the following types:</p><div align="left">
+<table border="0" cellpadding="5" cellspacing="1">
+  <caption></caption>
+  <tr bgcolor="#0055AA" align="left">    <th><a name="wp603085"> </a><div style="text-align: left" class="pCellHeading">
+SI_TinyVariant types 
+</div>
+</th>
+    <th><a name="wp603087"> </a><div style="text-align: left" class="pCellHeading">
+C types 
+</div>
+</th>
+    <th><a name="wp603089"> </a><div style="text-align: left" class="pCellHeading">
+SI_TinyVariant member
+</div>
+</th>
+</tr>
+  <tr bgcolor="Silver" align="left">    <td><a name="wp603091"> </a><div class="pCellBody">
+SI_VT_BOOL       
+</div>
+</td>
+    <td><a name="wp603093"> </a><div class="pCellBody">
+SI_Bool
+</div>
+</td>
+    <td><a name="wp603095"> </a><div class="pCellBody">
+boolval
+</div>
+</td>
+</tr>
+  <tr bgcolor="Silver" align="left">    <td><a name="wp603097"> </a><div class="pCellBody">
+SI_VT_BYTE       
+</div>
+</td>
+    <td><a name="wp603099"> </a><div class="pCellBody">
+SI_Byte
+</div>
+</td>
+    <td><a name="wp603101"> </a><div class="pCellBody">
+bVal
+</div>
+</td>
+</tr>
+  <tr bgcolor="Silver" align="left">    <td><a name="wp603103"> </a><div class="pCellBody">
+SI_VT_UBYTE      
+</div>
+</td>
+    <td><a name="wp603105"> </a><div class="pCellBody">
+SI_UByte
+</div>
+</td>
+    <td><a name="wp603107"> </a><div class="pCellBody">
+ubVal
+</div>
+</td>
+</tr>
+  <tr bgcolor="Silver" align="left">    <td><a name="wp603109"> </a><div class="pCellBody">
+SI_VT_SHORT      
+</div>
+</td>
+    <td><a name="wp603111"> </a><div class="pCellBody">
+SI_Short
+</div>
+</td>
+    <td><a name="wp603113"> </a><div class="pCellBody">
+sVal
+</div>
+</td>
+</tr>
+  <tr bgcolor="Silver" align="left">    <td><a name="wp603115"> </a><div class="pCellBody">
+SI_VT_USHORT     
+</div>
+</td>
+    <td><a name="wp603117"> </a><div class="pCellBody">
+SI_UShort
+</div>
+</td>
+    <td><a name="wp603119"> </a><div class="pCellBody">
+usVal
+</div>
+</td>
+</tr>
+  <tr bgcolor="Silver" align="left">    <td><a name="wp603121"> </a><div class="pCellBody">
+SI_VT_INT        
+</div>
+</td>
+    <td><a name="wp603123"> </a><div class="pCellBody">
+SI_Int
+</div>
+</td>
+    <td><a name="wp603125"> </a><div class="pCellBody">
+nVal
+</div>
+</td>
+</tr>
+  <tr bgcolor="Silver" align="left">    <td><a name="wp603127"> </a><div class="pCellBody">
+SI_VT_UINT       
+</div>
+</td>
+    <td><a name="wp603129"> </a><div class="pCellBody">
+SI_UInt
+</div>
+</td>
+    <td><a name="wp603131"> </a><div class="pCellBody">
+unVal
+</div>
+</td>
+</tr>
+  <tr bgcolor="Silver" align="left">    <td><a name="wp603133"> </a><div class="pCellBody">
+SI_VT_FLOAT      
+</div>
+</td>
+    <td><a name="wp603135"> </a><div class="pCellBody">
+SI_Float
+</div>
+</td>
+    <td><a name="wp603137"> </a><div class="pCellBody">
+fVal
+</div>
+</td>
+</tr>
+  <tr bgcolor="Silver" align="left">    <td><a name="wp603139"> </a><div class="pCellBody">
+SI_VT_DOUBLE     
+</div>
+</td>
+    <td><a name="wp603141"> </a><div class="pCellBody">
+SI_Double
+</div>
+</td>
+    <td><a name="wp603143"> </a><div class="pCellBody">
+dVal
+</div>
+</td>
+</tr>
+  <tr bgcolor="Silver" align="left">    <td><a name="wp603145"> </a><div class="pCellBody">
+SI_VT_LONG       
+</div>
+</td>
+    <td><a name="wp603147"> </a><div class="pCellBody">
+SI_Long
+</div>
+</td>
+    <td><a name="wp603149"> </a><div class="pCellBody">
+lVal
+</div>
+</td>
+</tr>
+  <tr bgcolor="Silver" align="left">    <td><a name="wp603151"> </a><div class="pCellBody">
+SI_VT_ULONG      
+</div>
+</td>
+    <td><a name="wp603153"> </a><div class="pCellBody">
+SI_ULong
+</div>
+</td>
+    <td><a name="wp603155"> </a><div class="pCellBody">
+ulVal
+</div>
+</td>
+</tr>
+  <tr bgcolor="Silver" align="left">    <td><a name="wp603157"> </a><div class="pCellBody">
+SI_VT_PBOOL      
+</div>
+</td>
+    <td><a name="wp603159"> </a><div class="pCellBody">
+SI_Bool *
+</div>
+</td>
+    <td><a name="wp603161"> </a><div class="pCellBody">
+p_boolval
+</div>
+</td>
+</tr>
+  <tr bgcolor="Silver" align="left">    <td><a name="wp603163"> </a><div class="pCellBody">
+SI_VT_PBYTE      
+</div>
+</td>
+    <td><a name="wp603165"> </a><div class="pCellBody">
+SI_Byte *
+</div>
+</td>
+    <td><a name="wp603167"> </a><div class="pCellBody">
+p_bVal
+</div>
+</td>
+</tr>
+  <tr bgcolor="Silver" align="left">    <td><a name="wp603169"> </a><div class="pCellBody">
+SI_VT_PUBYTE     
+</div>
+</td>
+    <td><a name="wp603171"> </a><div class="pCellBody">
+SI_Ubyte *
+</div>
+</td>
+    <td><a name="wp603173"> </a><div class="pCellBody">
+p_ubVal
+</div>
+</td>
+</tr>
+  <tr bgcolor="Silver" align="left">    <td><a name="wp603175"> </a><div class="pCellBody">
+SI_VT_PSHORT     
+</div>
+</td>
+    <td><a name="wp603177"> </a><div class="pCellBody">
+SI_Short *
+</div>
+</td>
+    <td><a name="wp603179"> </a><div class="pCellBody">
+p_sVal
+</div>
+</td>
+</tr>
+  <tr bgcolor="Silver" align="left">    <td><a name="wp603181"> </a><div class="pCellBody">
+SI_VT_PUSHORT    
+</div>
+</td>
+    <td><a name="wp603183"> </a><div class="pCellBody">
+SI_Ushort *
+</div>
+</td>
+    <td><a name="wp603185"> </a><div class="pCellBody">
+p_usVal
+</div>
+</td>
+</tr>
+  <tr bgcolor="Silver" align="left">    <td><a name="wp603187"> </a><div class="pCellBody">
+SI_VT_PINT       
+</div>
+</td>
+    <td><a name="wp603189"> </a><div class="pCellBody">
+SI_Int *
+</div>
+</td>
+    <td><a name="wp603191"> </a><div class="pCellBody">
+p_nVal
+</div>
+</td>
+</tr>
+  <tr bgcolor="Silver" align="left">    <td><a name="wp603193"> </a><div class="pCellBody">
+SI_VT_PUINT      
+</div>
+</td>
+    <td><a name="wp603195"> </a><div class="pCellBody">
+SI_Uint *
+</div>
+</td>
+    <td><a name="wp603197"> </a><div class="pCellBody">
+p_unVal
+</div>
+</td>
+</tr>
+  <tr bgcolor="Silver" align="left">    <td><a name="wp603199"> </a><div class="pCellBody">
+SI_VT_PFLOAT     
+</div>
+</td>
+    <td><a name="wp603201"> </a><div class="pCellBody">
+SI_Float *
+</div>
+</td>
+    <td><a name="wp603203"> </a><div class="pCellBody">
+p_fVal
+</div>
+</td>
+</tr>
+  <tr bgcolor="Silver" align="left">    <td><a name="wp603205"> </a><div class="pCellBody">
+SI_VT_PDOUBLE    
+</div>
+</td>
+    <td><a name="wp603207"> </a><div class="pCellBody">
+SI_Double *
+</div>
+</td>
+    <td><a name="wp603209"> </a><div class="pCellBody">
+p_dVal
+</div>
+</td>
+</tr>
+  <tr bgcolor="Silver" align="left">    <td><a name="wp603211"> </a><div class="pCellBody">
+SI_VT_PLONG      
+</div>
+</td>
+    <td><a name="wp603213"> </a><div class="pCellBody">
+SI_Long *
+</div>
+</td>
+    <td><a name="wp603215"> </a><div class="pCellBody">
+p_lVal
+</div>
+</td>
+</tr>
+  <tr bgcolor="Silver" align="left">    <td><a name="wp603217"> </a><div class="pCellBody">
+SI_VT_PULONG    
+</div>
+</td>
+    <td><a name="wp603219"> </a><div class="pCellBody">
+SI_Ulong *
+</div>
+</td>
+    <td><a name="wp603221"> </a><div class="pCellBody">
+p_ulVal
+</div>
+</td>
+</tr>
+  <tr bgcolor="Silver" align="left">    <td><a name="wp603223"> </a><div class="pCellBody">
+SI_VT_PCHAR      
+</div>
+</td>
+    <td><a name="wp603225"> </a><div class="pCellBody">
+char *
+</div>
+</td>
+    <td><a name="wp603227"> </a><div class="pCellBody">
+p_cVal
+</div>
+</td>
+</tr>
+  <tr bgcolor="Silver" align="left">    <td><a name="wp603229"> </a><div class="pCellBody">
+SI_VT_PPCHAR    
+</div>
+</td>
+    <td><a name="wp603231"> </a><div class="pCellBody">
+char **
+</div>
+</td>
+    <td><a name="wp603233"> </a><div class="pCellBody">
+pp_cVal
+</div>
+</td>
+</tr>
+  <tr bgcolor="Silver" align="left">    <td><a name="wp603235"> </a><div class="pCellBody">
+SI_VT_PVOID     
+</div>
+</td>
+    <td><a name="wp603237"> </a><div class="pCellBody">
+SI_Void *
+</div>
+</td>
+    <td><a name="wp603239"> </a><div class="pCellBody">
+p_voidVal
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pBody">
+</p>
+<a name="wp603258"> </a><p class="pBodyRelative">
+</p><div align="left">
+<table border="0" cellpadding="0" cellspacing="0">
+  <caption></caption>
+  <tr align="left" valign="top">    <td><a name="wp603243"> </a><p class="pNote_graphic">
+<img src="icons/note.gif" border="0" width="50" height="50" Alt="Note" />
+&#160;
+</p>
+</td>
+    <td><a name="wp603245"> </a><p class="pBody">
+When dealing with any of the following types, you can also use the <b class="cBold">numElems</b> member to get the number of elements in the array:
+</p>
+<div class="pSmartList1"><ul class="pSmartList1">
+<a name="wp603246"> </a><div class="pSmartList1"><li>SI_VT_PBOOL</li></div>
+<a name="wp603247"> </a><div class="pSmartList1"><li>SI_VT_PBYTE</li></div>
+<a name="wp603248"> </a><div class="pSmartList1"><li>SI_VT_PUBYTE</li></div>
+<a name="wp603249"> </a><div class="pSmartList1"><li>SI_VT_PSHORT</li></div>
+<a name="wp603250"> </a><div class="pSmartList1"><li>SI_VT_PUSHORT</li></div>
+<a name="wp603251"> </a><div class="pSmartList1"><li>SI_VT_PINT</li></div>
+<a name="wp603252"> </a><div class="pSmartList1"><li>SI_VT_PUINT</li></div>
+<a name="wp603253"> </a><div class="pSmartList1"><li>SI_VT_PFLOAT</li></div>
+<a name="wp603254"> </a><div class="pSmartList1"><li>SI_VT_PDOUBLE</li></div>
+<a name="wp603255"> </a><div class="pSmartList1"><li>SI_VT_PLONG</li></div>
+<a name="wp603256"> </a><div class="pSmartList1"><li>SI_VT_PULONG</li></div>
+<a name="wp603257"> </a><div class="pSmartList1"><li>SI_VT_PPCHAR </li></div>
+</ul></div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pBodyRelative">
+</p>
+<a name="wp603259"> </a><p class="pBody">
+
+</p>
+<a name="wp603299"> </a><p class="pBody">
+
+</p>
+<a name="wp603327"> </a><h2 class="pHeading1">
+Macros
+</h2>
+<a name="wp603330"> </a><p class="pBody">
+The SOFTIMAGE|XSI FTK provides a number of helpful macros which fall under the these categories:
+</p>
+<div class="pSmartList1"><ul class="pSmartList1">
+<a name="wp603334"> </a><div class="pSmartList1"><li><a  href="ftk_coreapi.html#wp603353"><em class="cEmphasis">String Manipulation Wrappers</em></a></li></div>
+<a name="wp603338"> </a><div class="pSmartList1"><li><a  href="ftk_coreapi.html#wp603412"><em class="cEmphasis">Math Function Wrappers</em></a></li></div>
+<a name="wp603342"> </a><div class="pSmartList1"><li><a  href="ftk_coreapi.html#wp603489"><em class="cEmphasis">File Access (I/O) Wrappers</em></a></li></div>
+<a name="wp603346"> </a><div class="pSmartList1"><li><a  href="ftk_coreapi.html#wp603553"><em class="cEmphasis">Memory Allocation</em></a></li></div>
+<a name="wp603350"> </a><div class="pSmartList1"><li><a  href="ftk_coreapi.html#wp603560"><em class="cEmphasis">Exported Functions</em></a></li></div>
+</ul></div>
+<a name="wp603353"> </a><h3 class="pHeading2">
+String Manipulation Wrappers
+</h3>
+<a name="wp603354"> </a><p class="pBody">
+Some macros can facilitate writing cross-platform code using string functions. <b class="cBold">_SI_TEXT</b> is used to wrap string constants so that it is compatible with both Unicode and ANSI code. For example, rather than use the following code: 
+</p>
+<div class="pPreformattedRelative"><pre class="pPreformattedRelative">
+ _SI_PRINTF(&quot;Hello World\n&quot;);<a name="wp603355"> </a>
+</pre></div>
+<a name="wp603356"> </a><p class="pBody">
+Use this instead: 
+</p>
+<div class="pPreformattedRelative"><pre class="pPreformattedRelative">
+ _SI_PRINTF(_SI_TEXT(&quot;Hello World\n&quot;));<a name="wp603357"> </a>
+</pre></div>
+<a name="wp603358"> </a><p class="pBody">
+These macros wrap string manipulation functions. See any ANSI C documentation for more details:</p><div align="left">
+<table border="0" cellpadding="5" cellspacing="1">
+  <caption></caption>
+  <tr bgcolor="#0055AA" align="left">    <th><a name="wp603361"> </a><div style="text-align: left" class="pCellHeading">
+Macro Name
+</div>
+</th>
+    <th><a name="wp603363"> </a><div style="text-align: left" class="pCellHeading">
+Description
+</div>
+</th>
+</tr>
+  <tr bgcolor="Silver" align="left">    <td><a name="wp603365"> </a><div class="pCellBody">
+_SI_STRCMP
+</div>
+</td>
+    <td><a name="wp603367"> </a><div class="pCellBody">
+Macro for the strcmp function
+</div>
+</td>
+</tr>
+  <tr bgcolor="Silver" align="left">    <td><a name="wp603369"> </a><div class="pCellBody">
+_SI_STRDUP
+</div>
+</td>
+    <td><a name="wp603371"> </a><div class="pCellBody">
+Macro for the strdup function
+</div>
+</td>
+</tr>
+  <tr bgcolor="Silver" align="left">    <td><a name="wp603373"> </a><div class="pCellBody">
+_SI_STRCPY
+</div>
+</td>
+    <td><a name="wp603375"> </a><div class="pCellBody">
+Macro for the strcpy function
+</div>
+</td>
+</tr>
+  <tr bgcolor="Silver" align="left">    <td><a name="wp603377"> </a><div class="pCellBody">
+_SI_STRCAT
+</div>
+</td>
+    <td><a name="wp603379"> </a><div class="pCellBody">
+Macro for the strcat function
+</div>
+</td>
+</tr>
+  <tr bgcolor="Silver" align="left">    <td><a name="wp603381"> </a><div class="pCellBody">
+_SI_SPRINTF
+</div>
+</td>
+    <td><a name="wp603383"> </a><div class="pCellBody">
+Macro for the sprintf function
+</div>
+</td>
+</tr>
+  <tr bgcolor="Silver" align="left">    <td><a name="wp603385"> </a><div class="pCellBody">
+_SI_STRLEN
+</div>
+</td>
+    <td><a name="wp603387"> </a><div class="pCellBody">
+Macro for the strlen function
+</div>
+</td>
+</tr>
+  <tr bgcolor="Silver" align="left">    <td><a name="wp603389"> </a><div class="pCellBody">
+_SI_PRINTF
+</div>
+</td>
+    <td><a name="wp603391"> </a><div class="pCellBody">
+Macro for the printf function
+</div>
+</td>
+</tr>
+  <tr bgcolor="Silver" align="left">    <td><a name="wp603393"> </a><div class="pCellBody">
+_SI_STRTOK
+</div>
+</td>
+    <td><a name="wp603395"> </a><div class="pCellBody">
+Macro for the strtok function
+</div>
+</td>
+</tr>
+  <tr bgcolor="Silver" align="left">    <td><a name="wp603397"> </a><div class="pCellBody">
+_SI_STRSTR
+</div>
+</td>
+    <td><a name="wp603399"> </a><div class="pCellBody">
+Macro for the strstr function
+</div>
+</td>
+</tr>
+  <tr bgcolor="Silver" align="left">    <td><a name="wp603401"> </a><div class="pCellBody">
+_SI_STRCHR
+</div>
+</td>
+    <td><a name="wp603403"> </a><div class="pCellBody">
+Macro for the strchr function
+</div>
+</td>
+</tr>
+  <tr bgcolor="Silver" align="left">    <td><a name="wp603405"> </a><div class="pCellBody">
+_SI_ATOI
+</div>
+</td>
+    <td><a name="wp603407"> </a><div class="pCellBody">
+Macro for the atoi function
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pBody">
+</p>
+<a name="wp603408"> </a><p class="pBody">
+Since the XSI Viewer does not have a console to output to, the XSI Viewer redirects the output of the _SI_PRINTF macro to a log file which you can find under the launch directory for the XSI Viewer application. You use your own log file by using the <b class="cBold">CSIBCUtil::Open</b> and <b class="cBold">CSIBCutil::Close</b> functions.
+</p>
+<a name="wp603409"> </a><h4 class="pHeading3">
+Example (String Manipulation)
+</h4>
+<div class="pPreformattedRelative"><pre class="pPreformattedRelative">
+SI_Error result = SI_SUCCESS;
+
+_SI_CALL(CSIBCUtil::Open(&quot;foo&quot;),_SI_TEXT(&quot;Opening File Failed&quot;));
+if (result == SI_SUCCESS)
+{
+	_SI_PRINTF(_SI_TEXT(&#8220;Hello World\n&#8221;);
+}
+_SI_CALL(CSIBCutil::Close(), _SI_TEXT(&#8220;Closing file&#8221;));<a name="wp603410"> </a>
+</pre></div>
+<a name="wp603412"> </a><h3 class="pHeading2">
+Math Function Wrappers
+</h3>
+<a name="wp603413"> </a><p class="pBody">
+These macros wrap common math functions. See any ANSI C documentation for more details.</p><div align="left">
+<table border="0" cellpadding="5" cellspacing="1">
+  <caption></caption>
+  <tr bgcolor="#0055AA" align="left">    <th><a name="wp603416"> </a><div style="text-align: left" class="pCellHeading">
+Macro Name
+</div>
+</th>
+    <th><a name="wp603418"> </a><div style="text-align: left" class="pCellHeading">
+Description
+</div>
+</th>
+</tr>
+  <tr bgcolor="Silver" align="left">    <td><a name="wp603420"> </a><div class="pCellBody">
+_SI_RAND
+</div>
+</td>
+    <td><a name="wp603422"> </a><div class="pCellBody">
+Macro for the rand function
+</div>
+</td>
+</tr>
+  <tr bgcolor="Silver" align="left">    <td><a name="wp603424"> </a><div class="pCellBody">
+_SI_SQRT
+</div>
+</td>
+    <td><a name="wp603426"> </a><div class="pCellBody">
+Macro for the sqrt function
+</div>
+</td>
+</tr>
+  <tr bgcolor="Silver" align="left">    <td><a name="wp603428"> </a><div class="pCellBody">
+_SI_SQRTF
+</div>
+</td>
+    <td><a name="wp603430"> </a><div class="pCellBody">
+Macro for the sqrtf function
+</div>
+</td>
+</tr>
+  <tr bgcolor="Silver" align="left">    <td><a name="wp603432"> </a><div class="pCellBody">
+_SI_ASIN
+</div>
+</td>
+    <td><a name="wp603434"> </a><div class="pCellBody">
+Macro for the asin function
+</div>
+</td>
+</tr>
+  <tr bgcolor="Silver" align="left">    <td><a name="wp603436"> </a><div class="pCellBody">
+_SI_ASINF
+</div>
+</td>
+    <td><a name="wp603438"> </a><div class="pCellBody">
+Macro for the asinf function
+</div>
+</td>
+</tr>
+  <tr bgcolor="Silver" align="left">    <td><a name="wp603440"> </a><div class="pCellBody">
+_SI_ACOS
+</div>
+</td>
+    <td><a name="wp603442"> </a><div class="pCellBody">
+Macro for the acos function
+</div>
+</td>
+</tr>
+  <tr bgcolor="Silver" align="left">    <td><a name="wp603444"> </a><div class="pCellBody">
+_SI_ACOSF
+</div>
+</td>
+    <td><a name="wp603446"> </a><div class="pCellBody">
+Macro for the acosf function
+</div>
+</td>
+</tr>
+  <tr bgcolor="Silver" align="left">    <td><a name="wp603448"> </a><div class="pCellBody">
+_SI_FLOOR
+</div>
+</td>
+    <td><a name="wp603450"> </a><div class="pCellBody">
+Macro for the floor function
+</div>
+</td>
+</tr>
+  <tr bgcolor="Silver" align="left">    <td><a name="wp603452"> </a><div class="pCellBody">
+_SI_FLOORF
+</div>
+</td>
+    <td><a name="wp603454"> </a><div class="pCellBody">
+Macro for the floorf function
+</div>
+</td>
+</tr>
+  <tr bgcolor="Silver" align="left">    <td><a name="wp603456"> </a><div class="pCellBody">
+_SI_COS
+</div>
+</td>
+    <td><a name="wp603458"> </a><div class="pCellBody">
+Macro for the cos function
+</div>
+</td>
+</tr>
+  <tr bgcolor="Silver" align="left">    <td><a name="wp603460"> </a><div class="pCellBody">
+_SI_COSF
+</div>
+</td>
+    <td><a name="wp603462"> </a><div class="pCellBody">
+Macro for the cosf function
+</div>
+</td>
+</tr>
+  <tr bgcolor="Silver" align="left">    <td><a name="wp603464"> </a><div class="pCellBody">
+_SI_SIN
+</div>
+</td>
+    <td><a name="wp603466"> </a><div class="pCellBody">
+Macro for the sin function
+</div>
+</td>
+</tr>
+  <tr bgcolor="Silver" align="left">    <td><a name="wp603468"> </a><div class="pCellBody">
+_SI_SINF
+</div>
+</td>
+    <td><a name="wp603470"> </a><div class="pCellBody">
+Macro for the sinf function
+</div>
+</td>
+</tr>
+  <tr bgcolor="Silver" align="left">    <td><a name="wp603472"> </a><div class="pCellBody">
+_SI_TAN
+</div>
+</td>
+    <td><a name="wp603474"> </a><div class="pCellBody">
+Macro for the tan function
+</div>
+</td>
+</tr>
+  <tr bgcolor="Silver" align="left">    <td><a name="wp603476"> </a><div class="pCellBody">
+_SI_TANF
+</div>
+</td>
+    <td><a name="wp603478"> </a><div class="pCellBody">
+Macro for the tanf function
+</div>
+</td>
+</tr>
+  <tr bgcolor="Silver" align="left">    <td><a name="wp603480"> </a><div class="pCellBody">
+_SI_ATANF
+</div>
+</td>
+    <td><a name="wp603482"> </a><div class="pCellBody">
+Macro for the atanf function
+</div>
+</td>
+</tr>
+  <tr bgcolor="Silver" align="left">    <td><a name="wp603484"> </a><div class="pCellBody">
+_SI_ATAN
+</div>
+</td>
+    <td><a name="wp603486"> </a><div class="pCellBody">
+Macro for the atan function
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pBody">
+</p>
+<a name="wp603487"> </a><p class="pBody">
+
+</p>
+<a name="wp603489"> </a><h3 class="pHeading2">
+File Access (I/O) Wrappers
+</h3>
+<a name="wp603490"> </a><p class="pBody">
+Since file systems may differ from platform to platform, some macros are also provided to facilitate file access. <b class="cBold">_SI_FILE</b> is the XSI Viewer file handle. It is used by all file access macros. See any ANSI C documentation for more details.
+</p>
+<a name="wp603548"> </a><p class="pBody">
+These are the wrapped file access functions:</p><div align="left">
+<table border="0" cellpadding="5" cellspacing="1">
+  <caption></caption>
+  <tr bgcolor="#0055AA" align="left">    <th><a name="wp603493"> </a><div style="text-align: left" class="pCellHeading">
+Functions
+</div>
+</th>
+    <th><a name="wp603495"> </a><div style="text-align: left" class="pCellHeading">
+Descriptions
+</div>
+</th>
+</tr>
+  <tr bgcolor="Silver" align="left">    <td><a name="wp603497"> </a><div class="pCellBody">
+<b style="font-weight: bold" class="cBold">_SI_FOPEN</b>( name, mode )
+</div>
+</td>
+    <td><a name="wp603499"> </a><div class="pCellBody">
+Opens a file using a file name and an access mode. The access mode can be either one of <code class="cCode">_SI_FILE_READ_TEXT</code> (to open a file in text mode) or <code class="cCode">_SI_FILE_READ_BINARY</code> (to open a file in binary mode). It returns <code class="cCode">_SI_FILE_NULL</code> if the file cannot be opened. Otherwise, if successful, it returns an <code class="cCode">_SI_FILE</code> handle.
+</div>
+</td>
+</tr>
+  <tr bgcolor="Silver" align="left">    <td><a name="wp603501"> </a><div class="pCellBody">
+<b style="font-weight: bold" class="cBold">_SI_FCLOSE</b>(handle)
+</div>
+</td>
+    <td><a name="wp603503"> </a><div class="pCellBody">
+Closes a file described by the file handle.
+</div>
+</td>
+</tr>
+  <tr bgcolor="Silver" align="left">    <td><a name="wp603505"> </a><div class="pCellBody">
+<b style="font-weight: bold" class="cBold">_SI_FREAD</b>( buffer, size, count, handle )
+</div>
+</td>
+    <td><a name="wp603507"> </a><div class="pCellBody">
+Reads from a file. See the <b style="font-weight: bold" class="cBold">fread</b> function in the ANSI C documentation for more details.
+</div>
+</td>
+</tr>
+  <tr bgcolor="Silver" align="left">    <td><a name="wp603509"> </a><div class="pCellBody">
+<b style="font-weight: bold" class="cBold">_SI_FWRITE</b>( buffer, size, count, handle )
+</div>
+</td>
+    <td><a name="wp603511"> </a><div class="pCellBody">
+Writes to a file. See the <b style="font-weight: bold" class="cBold">fread</b> function in the ANSI C documentation for more details.
+</div>
+</td>
+</tr>
+  <tr bgcolor="Silver" align="left">    <td><a name="wp603513"> </a><div class="pCellBody">
+<b style="font-weight: bold" class="cBold">_SI_FPRINTF</b>(handle, string)
+</div>
+</td>
+    <td><a name="wp603515"> </a><div class="pCellBody">
+Prints the string to a file.
+</div>
+</td>
+</tr>
+  <tr bgcolor="Silver" align="left">    <td><a name="wp603517"> </a><div class="pCellBody">
+<b style="font-weight: bold" class="cBold">_SI_FSEEK</b>( handle, count, type )
+</div>
+</td>
+    <td><a name="wp603519"> </a><div class="pCellBody">
+Sets the file at a specific position according to these rules: 
+</div>
+<div class="pSmartList1"><ul class="pSmartList1">
+<a name="wp603520"> </a><div class="pSmartList1"><li>If type is set to <code class="cCode">_SI_FILE_SET</code> then count is used as the offset from the beginning of the file. </li></div>
+<a name="wp603521"> </a><div class="pSmartList1"><li>If type is set to <code class="cCode">_SI_FILE_CUR</code>, then count is used as the offset from the current file position. </li></div>
+<a name="wp603522"> </a><div class="pSmartList1"><li>If type is set to <code class="cCode">_SI_FILE_END</code>, then count is used as a negative offset from the end of the file. </li></div>
+</ul></div>
+<a name="wp603523"> </a><div class="pCellBody">
+See the <b style="font-weight: bold" class="cBold">fseek</b> function in the ANSI C documentation for more details.
+</div>
+</td>
+</tr>
+  <tr bgcolor="Silver" align="left">    <td><a name="wp603525"> </a><div class="pCellBody">
+<b style="font-weight: bold" class="cBold">_SI_FTELL</b>( handle )
+</div>
+</td>
+    <td><a name="wp603527"> </a><div class="pCellBody">
+Returns the current position in bytes of the file. See the <b style="font-weight: bold" class="cBold">ftell</b> function in the ANSI C documentation for more details.
+</div>
+</td>
+</tr>
+  <tr bgcolor="Silver" align="left">    <td><a name="wp603529"> </a><div class="pCellBody">
+<b style="font-weight: bold" class="cBold">_SI_FGETC</b>( handle )
+</div>
+</td>
+    <td><a name="wp603531"> </a><div class="pCellBody">
+Gets the next character in the file. See the <b style="font-weight: bold" class="cBold">getc</b> function in the ANSI C documentation for more details.
+</div>
+</td>
+</tr>
+  <tr bgcolor="Silver" align="left">    <td><a name="wp603533"> </a><div class="pCellBody">
+<b style="font-weight: bold" class="cBold">_SI_FEOF</b>( handle )
+</div>
+</td>
+    <td><a name="wp603535"> </a><div class="pCellBody">
+Checks if the end of the file has been reached.
+</div>
+</td>
+</tr>
+  <tr bgcolor="Silver" align="left">    <td><a name="wp603537"> </a><div class="pCellBody">
+<b style="font-weight: bold" class="cBold">_SI_FERROR</b>( handle )
+</div>
+</td>
+    <td><a name="wp603539"> </a><div class="pCellBody">
+Checks if there is an error on the file. See the <b style="font-weight: bold" class="cBold">ferror</b> function in the ANSI C documentation for more details.
+</div>
+</td>
+</tr>
+  <tr bgcolor="Silver" align="left">    <td><a name="wp603541"> </a><div class="pCellBody">
+<b style="font-weight: bold" class="cBold">_SI_FFLUSH</b>( x )
+</div>
+</td>
+    <td><a name="wp603543"> </a><div class="pCellBody">
+Flushes the buffered content of the file on disk. See the <b style="font-weight: bold" class="cBold">fflush</b> function in the ANSI C documentation for more details.
+</div>
+</td>
+</tr>
+  <tr bgcolor="Silver" align="left">    <td><a name="wp603545"> </a><div class="pCellBody">
+<b style="font-weight: bold" class="cBold">_SI_UNGETC</b>( character, handle )
+</div>
+</td>
+    <td><a name="wp603547"> </a><div class="pCellBody">
+Pushes a character back into the file. See the <b style="font-weight: bold" class="cBold">ungetc</b> function in the ANSI C documentation for more details.
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pBody">
+</p>
+<a name="wp603549"> </a><h4 class="pHeading3">
+Example (File Access)
+</h4>
+<a name="wp603550"> </a><p class="pBody">
+Here is an example of reading 10 bytes from a file called &quot;foo&quot;
+</p>
+<div class="pPreformattedRelative"><pre class="pPreformattedRelative">
+_SI_FILE filePtr;
+SI_Byte buffer[10];
+
+filePtr = _SI_Open(_SI_TEXT(&quot;foo&quot;), _SI_FILE_READ_BINARY);
+if(filePtr != _SI_FILE_NULL)
+{
+	_SI_FREAD(buffer,sizeof(SI_Byte), 10, filePtr);
+	_SI_FCLOSE(filePtr);
+}<a name="wp603551"> </a>
+</pre></div>
+<a name="wp603553"> </a><h3 class="pHeading2">
+Memory Allocation
+</h3>
+<a name="wp603554"> </a><p class="pBody">
+Some macros facilitate memory allocation and error checking. These include:
+</p>
+<div class="pSmartList1"><ul class="pSmartList1">
+<a name="wp603555"> </a><div class="pSmartList1"><li> <b class="cBold">_SI_NEW</b>(instance pointer, class constructor)</li></div>
+<a name="wp603556"> </a><div class="pSmartList1"><li> <b class="cBold">_SI_DELETE</b>(instance pointer)</li></div>
+</ul></div>
+<a name="wp603557"> </a><h4 class="pHeading3">
+Example (Memory Allocation)
+</h4>
+<div class="pPreformattedRelative"><pre class="pPreformattedRelative">
+CSIBCVector3D* pVec3D;
+ 
+_SI_NEW(pVec3D, CSIBCVector3D());
+_SI_DELETE(pVec3D);<a name="wp603558"> </a>
+</pre></div>
+<a name="wp603560"> </a><h3 class="pHeading2">
+Exported Functions
+</h3>
+<a name="wp603561"> </a><p class="pBody">
+You can use the <b class="cBold">XSIEXPORT</b> macro to export functions. This macro maps to <code class="cCode">__desclspec(dllexport)</code> when the <b class="cBold">_XSI_PLUGIN_</b> macro is defined.
+</p>
+<a name="wp603563"> </a><h2 class="pHeading1">
+Base Classes
+</h2>
+<a name="wp603566"> </a><p class="pBody">
+The SOFTIMAGE|XSI FTK uses platform-independent data structures to represent basic types. They are C++ classes that encapsulate the following types of data:</p><div align="left">
+<table border="0" cellpadding="5" cellspacing="1">
+  <caption></caption>
+  <tr bgcolor="#0055AA" align="left">    <th><a name="wp603570"> </a><div style="text-align: left" class="pCellHeading">
+Category
+</div>
+</th>
+    <th><a name="wp603572"> </a><div style="text-align: left" class="pCellHeading">
+Class Name
+</div>
+</th>
+</tr>
+  <tr bgcolor="Silver" align="left">    <td colspan="1" rowspan="17"><a name="wp603577"> </a><div class="pCellBody">
+<a  href="ftk_coreapi.html#wp603727"><em class="cEmphasis">Vectors and Matrices</em></a> 
+</div>
+</td>
+    <td colspan="1" rowspan="17"><a name="wp603579"> </a><div class="pCellBody">
+CSIBCMatrix4x4
+</div>
+<a name="wp603580"> </a><div class="pCellBody">
+CSIBCQuaternion
+</div>
+<a name="wp603581"> </a><div class="pCellBody">
+CSIBCVector2D
+</div>
+<a name="wp603582"> </a><div class="pCellBody">
+CSIBCVector3D
+</div>
+<a name="wp603583"> </a><div class="pCellBody">
+CSIBCVector4D
+</div>
+<a name="wp603584"> </a><div class="pCellBody">
+CSIBCMatrix33d
+</div>
+<a name="wp603585"> </a><div class="pCellBody">
+CSIBCMatrix44d
+</div>
+<a name="wp603586"> </a><div class="pCellBody">
+CSIBCMatrixMNd
+</div>
+<a name="wp603587"> </a><div class="pCellBody">
+CSIBCQuaterniond
+</div>
+<a name="wp603588"> </a><div class="pCellBody">
+CSIBCRotationd
+</div>
+<a name="wp603589"> </a><div class="pCellBody">
+CSIBCRotMatd
+</div>
+<a name="wp603590"> </a><div class="pCellBody">
+CSIBCTransfod
+</div>
+<a name="wp603591"> </a><div class="pCellBody">
+CSIBCVector2Dd
+</div>
+<a name="wp603592"> </a><div class="pCellBody">
+CSIBCVector3Dd
+</div>
+<a name="wp603593"> </a><div class="pCellBody">
+CSIBCVector4Dd
+</div>
+<a name="wp603594"> </a><div class="pCellBody">
+CSIBCVectorwd
+</div>
+<a name="wp603595"> </a><div class="pCellBody">
+CSIBCXfoMatd
+</div>
+</td>
+</tr>
+  <tr bgcolor="Silver" align="left"></tr>
+  <tr bgcolor="Silver" align="left"></tr>
+  <tr bgcolor="Silver" align="left"></tr>
+  <tr bgcolor="Silver" align="left"></tr>
+  <tr bgcolor="Silver" align="left"></tr>
+  <tr bgcolor="Silver" align="left"></tr>
+  <tr bgcolor="Silver" align="left"></tr>
+  <tr bgcolor="Silver" align="left"></tr>
+  <tr bgcolor="Silver" align="left"></tr>
+  <tr bgcolor="Silver" align="left"></tr>
+  <tr bgcolor="Silver" align="left"></tr>
+  <tr bgcolor="Silver" align="left"></tr>
+  <tr bgcolor="Silver" align="left"></tr>
+  <tr bgcolor="Silver" align="left"></tr>
+  <tr bgcolor="Silver" align="left"></tr>
+  <tr bgcolor="Silver" align="left"></tr>
+  <tr bgcolor="Silver" align="left">    <td colspan="1" rowspan="2"><a name="wp603664"> </a><div class="pCellBody">
+<a  href="ftk_coreapi.html#wp603827"><em class="cEmphasis">Colors</em></a> 
+</div>
+</td>
+    <td colspan="1" rowspan="2"><a name="wp603666"> </a><div class="pCellBody">
+CSIBCColorf
+</div>
+<a name="wp603667"> </a><div class="pCellBody">
+CSIBCColorb
+</div>
+</td>
+</tr>
+  <tr bgcolor="Silver" align="left"></tr>
+  <tr bgcolor="Silver" align="left">    <td><a name="wp603676"> </a><div class="pCellBody">
+<a  href="ftk_coreapi.html#wp603846"><em class="cEmphasis">Character strings</em></a>
+</div>
+</td>
+    <td><a name="wp603678"> </a><div class="pCellBody">
+CSIBCString
+</div>
+</td>
+</tr>
+  <tr bgcolor="Silver" align="left">    <td><a name="wp603683"> </a><div class="pCellBody">
+<a  href="ftk_coreapi.html#wp603859"><em class="cEmphasis">Collections (Arrays)</em></a> 
+</div>
+</td>
+    <td><a name="wp603685"> </a><div class="pCellBody">
+CSIBCArray
+</div>
+</td>
+</tr>
+  <tr bgcolor="Silver" align="left">    <td><a name="wp603687"> </a><div class="pCellBody">
+Utilities 
+</div>
+</td>
+    <td><a name="wp603689"> </a><div class="pCellBody">
+CSIBCUtil
+</div>
+</td>
+</tr>
+  <tr bgcolor="Silver" align="left">    <td colspan="1" rowspan="2"><a name="wp603694"> </a><div class="pCellBody">
+<a  href="ftk_coreapi.html#wp603875"><em class="cEmphasis">Images</em></a> 
+</div>
+</td>
+    <td colspan="1" rowspan="2"><a name="wp603696"> </a><div class="pCellBody">
+CSIBCPixMap
+</div>
+<a name="wp603697"> </a><div class="pCellBody">
+CSIBCPixMapDriver
+</div>
+</td>
+</tr>
+  <tr bgcolor="Silver" align="left"></tr>
+  <tr bgcolor="Silver" align="left">    <td><a name="wp603703"> </a><div class="pCellBody">
+Networking
+</div>
+</td>
+    <td><a name="wp603705"> </a><div class="pCellBody">
+SIBCNetworkLayer
+</div>
+</td>
+</tr>
+  <tr bgcolor="Silver" align="left">    <td><a name="wp603710"> </a><div class="pCellBody">
+<a  href="ftk_coreapi.html#wp603919"><em class="cEmphasis">File I/O</em></a>
+</div>
+</td>
+    <td><a name="wp603712"> </a><div class="pCellBody">
+CSIBSearchPath 
+</div>
+</td>
+</tr>
+  <tr bgcolor="Silver" align="left">    <td colspan="1" rowspan="2"><a name="wp603717"> </a><div class="pCellBody">
+<a  href="ftk_coreapi.html#wp603923"><em class="cEmphasis">Objects</em></a>
+</div>
+</td>
+    <td colspan="1" rowspan="2"><a name="wp603719"> </a><div class="pCellBody">
+CSIBCNode
+</div>
+<a name="wp603720"> </a><div class="pCellBody">
+CSIBCUserData
+</div>
+</td>
+</tr>
+  <tr bgcolor="Silver" align="left"></tr>
+</table>
+</div>
+<p class="pBody">
+</p>
+<a name="wp603725"> </a><p class="pBody">
+
+</p>
+<a name="wp603727"> </a><h3 class="pHeading2">
+Vectors and Matrices
+</h3>
+<a name="wp603730"> </a><p class="pBody">
+The SOFTIMAGE|XSI FTK has base classes that implement 2D, 3D and 4D vectors. It also provides classes that implement 4 x 4 matrices and quaternions. These classes implement the most widely-used operations on vectors and matrices, such as the basic operators (+, -, dot product, cross product). Some useful methods are also implemented for matrices to extract scaling, rotation and translation information from a transformation matrix:</p><div align="left">
+<table border="0" cellpadding="5" cellspacing="1">
+  <caption></caption>
+  <tr bgcolor="#0055AA" align="left">    <th><a name="wp603734"> </a><div style="text-align: left" class="pCellHeading">
+Floating point vector and matrix classes
+</div>
+</th>
+    <th><a name="wp603736"> </a><div style="text-align: left" class="pCellHeading">
+Double floating point vector and matrix classes
+</div>
+</th>
+</tr>
+  <tr bgcolor="Silver" align="left">    <td colspan="1" rowspan="16"><a name="wp603738"> </a><div class="pCellBody">
+CSIBCVector2D
+</div>
+<a name="wp603739"> </a><div class="pCellBody">
+CSIBCVector3D
+</div>
+<a name="wp603740"> </a><div class="pCellBody">
+CSIBCVector4D
+</div>
+<a name="wp603741"> </a><div class="pCellBody">
+CSIBCMatrix4x4
+</div>
+<a name="wp603742"> </a><div class="pCellBody">
+CSIBCQuaternion
+</div>
+</td>
+    <td colspan="1" rowspan="16"><a name="wp603744"> </a><div class="pCellBody">
+CSIBCMatrix33d
+</div>
+<a name="wp603745"> </a><div class="pCellBody">
+CSIBCMatrix44d
+</div>
+<a name="wp603746"> </a><div class="pCellBody">
+CSIBCMatrixMNd
+</div>
+<a name="wp603747"> </a><div class="pCellBody">
+CSIBCQuaterniond
+</div>
+<a name="wp603748"> </a><div class="pCellBody">
+CSIBCRotationd
+</div>
+<a name="wp603749"> </a><div class="pCellBody">
+CSIBCRotMatd
+</div>
+<a name="wp603750"> </a><div class="pCellBody">
+CSIBCTransfod
+</div>
+<a name="wp603751"> </a><div class="pCellBody">
+CSIBCVector2Dd
+</div>
+<a name="wp603752"> </a><div class="pCellBody">
+CSIBCVector3Dd
+</div>
+<a name="wp603753"> </a><div class="pCellBody">
+CSIBCVector4Dd
+</div>
+<a name="wp603754"> </a><div class="pCellBody">
+CSIBCVectorwd
+</div>
+<a name="wp603755"> </a><div class="pCellBody">
+CSIBCXfoMatd
+</div>
+</td>
+</tr>
+  <tr bgcolor="Silver" align="left"></tr>
+  <tr bgcolor="Silver" align="left"></tr>
+  <tr bgcolor="Silver" align="left"></tr>
+  <tr bgcolor="Silver" align="left"></tr>
+  <tr bgcolor="Silver" align="left"></tr>
+  <tr bgcolor="Silver" align="left"></tr>
+  <tr bgcolor="Silver" align="left"></tr>
+  <tr bgcolor="Silver" align="left"></tr>
+  <tr bgcolor="Silver" align="left"></tr>
+  <tr bgcolor="Silver" align="left"></tr>
+  <tr bgcolor="Silver" align="left"></tr>
+  <tr bgcolor="Silver" align="left"></tr>
+  <tr bgcolor="Silver" align="left"></tr>
+  <tr bgcolor="Silver" align="left"></tr>
+  <tr bgcolor="Silver" align="left"></tr>
+</table>
+</div>
+<p class="pBody">
+</p>
+<a name="wp603824"> </a><p class="pBodyRelative">
+</p><div align="left">
+<table border="0" cellpadding="0" cellspacing="0">
+  <caption></caption>
+  <tr align="left" valign="top">    <td><a name="wp603818"> </a><p class="pTip_graphic">
+<img src="icons/tip.gif" border="0" width="50" height="50" Alt="Tip" />
+&#160;
+</p>
+</td>
+    <td><a name="wp603820"> </a><p class="pBody">
+For more information on vectors and matrices, see the <span style="font-style: italic">SOFTIMAGE|XSI FTK Reference Guide</span>.
+</p>
+</td>
+</tr>
+</table>
+</div>
+<p class="pBodyRelative">
+</p>
+<a name="wp603825"> </a><p class="pBody">
+
+</p>
+<a name="wp603827"> </a><h3 class="pHeading2">
+Colors
+</h3>
+<a name="wp603830"> </a><p class="pBody">
+The SOFTIMAGE|XSI FTK has base classes that implement colors. There are two classes that implement the same thing:
+</p>
+<div class="pSmartList1"><ul class="pSmartList1">
+<a name="wp603832"> </a><div class="pSmartList1"><li><b class="cBold">CSIBCColorb</b></li></div>
+<a name="wp603833"> </a><div class="pSmartList1"><li><b class="cBold">CSIBCColorf</b></li></div>
+</ul></div>
+<a name="wp603834"> </a><p class="pBody">
+The only difference is that <b class="cBold">CSIBCColorb</b> represents color components as byte values (0-255) and <b class="cBold">CSIBCColorf</b> represents color components as float values (0.0 - 1.0). 
+</p>
+<a name="wp603843"> </a><p class="pBodyRelative">
+</p><div align="left">
+<table border="0" cellpadding="0" cellspacing="0">
+  <caption></caption>
+  <tr align="left" valign="top">    <td><a name="wp603837"> </a><p class="pTip_graphic">
+<img src="icons/tip.gif" border="0" width="50" height="50" Alt="Tip" />
+&#160;
+</p>
+</td>
+    <td><a name="wp603841"> </a><p class="pBody">
+For more information on colors, see the <span style="font-style: italic">SOFTIMAGE|XSI FTK Reference Guide</span>.
+</p>
+</td>
+</tr>
+</table>
+</div>
+<p class="pBodyRelative">
+</p>
+<a name="wp603844"> </a><p class="pBody">
+
+</p>
+<a name="wp603846"> </a><h3 class="pHeading2">
+Character strings
+</h3>
+<a name="wp603847"> </a><p class="pBody">
+Normal strings are implemented by the <b class="cBold">CSIBCString</b> class. Several functions and methods are also provided to manipulate these strings (concatenation, duplication, copy etc.).
+</p>
+<a name="wp603856"> </a><p class="pBodyRelative">
+</p><div align="left">
+<table border="0" cellpadding="0" cellspacing="0">
+  <caption></caption>
+  <tr align="left" valign="top">    <td><a name="wp603850"> </a><p class="pTip_graphic">
+<img src="icons/tip.gif" border="0" width="50" height="50" Alt="Tip" />
+&#160;
+</p>
+</td>
+    <td><a name="wp603854"> </a><p class="pBody">
+For more information on character strings, see the <span style="font-style: italic">SOFTIMAGE|XSI FTK Reference Guide</span>.
+</p>
+</td>
+</tr>
+</table>
+</div>
+<p class="pBodyRelative">
+</p>
+<a name="wp603857"> </a><p class="pBody">
+
+</p>
+<a name="wp603859"> </a><h3 class="pHeading2">
+Collections (Arrays)
+</h3>
+<a name="wp603862"> </a><p class="pBody">
+Most arrays in the SOFTIMAGE|XSI FTK are implemented using the <b class="cBold">CSIBCArray</b> class template. This class implements functions that are important for arrays, such as getting the number of components, dynamically allocating the array, resizing, etc. 
+</p>
+<a name="wp603872"> </a><p class="pBodyRelative">
+</p><div align="left">
+<table border="0" cellpadding="0" cellspacing="0">
+  <caption></caption>
+  <tr align="left" valign="top">    <td><a name="wp603866"> </a><p class="pTip_graphic">
+<img src="icons/tip.gif" border="0" width="50" height="50" Alt="Tip" />
+&#160;
+</p>
+</td>
+    <td><a name="wp603870"> </a><p class="pBody">
+For more information on arrays, see the <span style="font-style: italic">SOFTIMAGE|XSI FTK Reference Guide</span>.
+</p>
+</td>
+</tr>
+</table>
+</div>
+<p class="pBodyRelative">
+</p>
+<a name="wp603873"> </a><p class="pBody">
+
+</p>
+<a name="wp603875"> </a><h3 class="pHeading2">
+Images
+</h3>
+<a name="wp603876"> </a><p class="pBody">
+Pixel maps are images used by textures. Pixel maps have basic image manipulation functions. They are implemented by the <b class="cBold">CSIBCPixMap</b> class. Several image loaders can also be implemented and plugged in. Image loaders are implemented by subclassing the <b class="cBold">CSIBCPixMapDriver</b> class. Additionally, search paths can be added to give multiple paths for loading images. Here are some useful loading functions:</p><div align="left">
+<table border="0" cellpadding="5" cellspacing="1">
+  <caption></caption>
+  <tr bgcolor="#0055AA" align="left">    <th><a name="wp603879"> </a><div style="text-align: left" class="pCellHeading">
+Functions
+</div>
+</th>
+    <th><a name="wp603881"> </a><div style="text-align: left" class="pCellHeading">
+Description
+</div>
+</th>
+</tr>
+  <tr bgcolor="Silver" align="left">    <td><a name="wp603883"> </a><div class="pCellBody">
+CSIBCSearchPath *<b style="font-weight: bold" class="cBold">CSIBCPixMap::GetSearchPath</b>()
+</div>
+</td>
+    <td><a name="wp603885"> </a><div class="pCellBody">
+Gets the search path for textures
+</div>
+</td>
+</tr>
+  <tr bgcolor="Silver" align="left">    <td colspan="1" rowspan="4"><a name="wp603887"> </a><div class="pCellBody">
+SI_Error <b style="font-weight: bold" class="cBold">CSIBCPixMap::AddDriver</b>( CSIBCPixMapDriver * )
+</div>
+</td>
+    <td colspan="1" rowspan="4"><a name="wp603889"> </a><div class="pCellBody">
+Registers a map driver
+</div>
+</td>
+</tr>
+  <tr bgcolor="Silver" align="left"></tr>
+  <tr bgcolor="Silver" align="left"></tr>
+  <tr bgcolor="Silver" align="left"></tr>
+  <tr bgcolor="Silver" align="left">    <td><a name="wp603903"> </a><div class="pCellBody">
+SI_Error <b style="font-weight: bold" class="cBold">CSIBCPixMap::Load</b>( CSIBCString &amp;, CSIBCPixMap &amp;, SI_Bool in_ResizeToPowerOfTwo = TRUE  )
+</div>
+<a name="wp603904"> </a><div class="pCellBody">
+SI_Error <b style="font-weight: bold" class="cBold">CSIBCPixMap::Load</b>( const SI_Char *, CSIBCPixMap &amp;, SI_Bool in_ResizeToPowerOfTwo = TRUE )
+</div>
+<a name="wp603905"> </a><div class="pCellBody">
+SI_Error <b style="font-weight: bold" class="cBold">CSIBCPixMap::Load</b>( CSIBCString &amp;, void *, SI_Int, CSIBCPixMap &amp; )
+</div>
+<a name="wp603906"> </a><div class="pCellBody">
+SI_Error <b style="font-weight: bold" class="cBold">CSIBCPixMap::Load</b>( const SI_Char *, void *, SI_Int, CSIBCPixMap &amp; )
+</div>
+</td>
+    <td><a name="wp603908"> </a><div class="pCellBody">
+Loads an image into a pixmap
+</div>
+</td>
+</tr>
+  <tr bgcolor="Silver" align="left">    <td><a name="wp603910"> </a><div class="pCellBody">
+SI_Error <b style="font-weight: bold" class="cBold">CSIBCPixMap::Cleanup</b>()
+</div>
+</td>
+    <td><a name="wp603912"> </a><div class="pCellBody">
+Clears the list of registered map drivers
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pBody">
+</p>
+<a name="wp603913"> </a><p class="pBody">
+
+</p>
+<a name="wp603914"> </a><h4 class="pHeading3">
+Example (Image Classes)
+</h4>
+<a name="wp603915"> </a><p class="pBody">
+This is an example of adding a new image loader in the host application:
+</p>
+<div class="pPreformattedRelative"><pre class="pPreformattedRelative">
+// Load the Image File format drivers
+ 
+#include &lt;CSIILPPMFileDriver.h&gt;
+#include &lt;CSIILPICFileDriver.h&gt;
+ 
+// Add ppm drivers
+CSIBCPixMap::AddDriver( CSIILPPMFileDriver::Driver() );
+ 
+// Add Softimage pic drivers
+CSIBCPixMap::AddDriver( CSIILPICFileDriver::Driver() );
+
+//Here is an example of how to load an image in a CSIBCPixMap:
+
+//Allocate a new map
+_SI_NEW( pPixMap, CSIBCPixMap() );
+ 
+//Load it from file
+CSIBCPixMap::Load( _SI_TEXT(&quot;image.ppm&quot;), *pPixMap );<a name="wp603916"> </a>
+</pre></div>
+<a name="wp603917"> </a><p class="pBody">
+
+</p>
+<a name="wp603919"> </a><h3 class="pHeading2">
+File I/O
+</h3>
+<a name="wp603920"> </a><p class="pBody">
+You use search paths to locate specific files in various directories. For example, the application can suppose that a file called <code class="cCode">foo.txt</code> can be located under <code class="cCode">c:\dira</code>, <code class="cCode">c:\dirb</code> and <code class="cCode">c:\dirc</code>. The <b class="cBold">CSIBCSearchPath</b> class provides a way to store the possible paths where the file may be located and then search for that file in those paths.
+</p>
+<a name="wp603921"> </a><p class="pBody">
+
+</p>
+<a name="wp603923"> </a><h3 class="pHeading2">
+Objects
+</h3>
+<a name="wp603926"> </a><p class="pBody">
+<b class="cBold">CSIBCNode</b> is the base class for most of the classes of the SOFTIMAGE|XSI FTK. The CSIBCNode class has the following properties:
+</p>
+<div class="pSmartList1"><ul class="pSmartList1">
+<a name="wp603928"> </a><div class="pSmartList1"><li>a name </li></div>
+<a name="wp603929"> </a><div class="pSmartList1"><li>a general purpose flag</li></div>
+<a name="wp603930"> </a><div class="pSmartList1"><li>an array of user data</li></div>
+</ul></div>
+<a name="wp603931"> </a><p class="pBody">
+Since a lot of classes need to be aggregated in a collection and also have an identification, they should all inherit from the CSIBCNode class. User data can be attached to CSIBCNode so that it can extend the class. 
+</p>
+<a name="wp603932"> </a><p class="pBody">
+User data is implemented by the <b class="cBold">CSIBCUserData</b> class. It comprises a tag name and a pointer to data. When the CSIBCNode is destroyed, its array of user data is also destroyed. However, it is possible to assign a release function so that each user data item is cleaned properly prior to releasing the memory for the CSIBCNode. 
+</p>
+<a name="wp603933"> </a><p class="pBody">
+The release function must have the following prototype: 
+</p>
+<div class="pPreformattedRelative"><pre class="pPreformattedRelative">
+void <b class="cBold">ReleaseMethod</b> (void *in_pObjectToDelete);<a name="wp603934"> </a>
+<a name="wp603940"> </a><p class="pBodyRelative">
+<div align="left">
+<table border="0" cellpadding="0" cellspacing="0">
+  <caption></caption>
+  <tr align="left" valign="top">    <td><a name="wp603937"> </a><p class="pNote_graphic">
+<img src="icons/note.gif" border="0" width="50" height="50" Alt="Note" />
+&#160;
+</p>
+</td>
+    <td><a name="wp603939"> </a><p class="pBody">
+If you don&#8217;t need a release method for the user data, you can use the <b class="cBold">CSIBCNode::AttachUserData</b> function with the tag name and the data pointer.
+</p>
+</td>
+</tr>
+</table>
+</div>
+
+</p>
+</pre></div>
+<a name="wp603941"> </a><p class="pBody">
+
+</p>
+<a name="wp603942"> </a><h4 class="pHeading3">
+Example (Object Classes)
+</h4>
+<div class="pPreformattedRelative"><pre class="pPreformattedRelative">
+void ReleaseString(void *in_pObjectToDelete)
+{
+	CSIBCString* pStr = (CSIBCString *) in_pObjectToDelete;
+	
+	delete pStr;
+}
+
+void foo()
+{
+	CSIBCNode node;
+	CSIBCUserData userData;
+
+	// initialize the user data tag name
+	userData.Name().SetText(_SI_TEXT(&#8220;userdata_tag&#8217;));
+
+	// initialize the user data&#8217;s data pointer
+	userData.SetData((void *) new CSIBCString(_SI_TEXT(&#8220;User data content&#8221;)));
+
+	// set the user data&#8217;s data release function
+	userData.SetReleaseMethod(ReleaseString);
+
+	// attach the user data to the CSIBCNode
+	node.UserDataList().Add(&amp;userData);
+}<a name="wp603943"> </a>
+</pre></div>
+<a name="wp601824"> </a><p class="pBody">
+
+</p>
+
+ <hr />
+
+ <table align="right" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+        <td align="right">
+            <a target="_blank" href="http://www.softimage.com"><img src="images/silogo.gif" width="150" height="16" border="0" /></a>&#160;&#160;&#160;
+            <a target="_blank" href="http://www.avid.com"><img src="images/avidlogo.gif" width="50" height="20" border="0" /></a><br />
+            <br />
+    </td>
+   </tr>
+  </table>
+
+ </blockquote>
+
+
+
+<script type="text/javascript" language="JavaScript1.2">
+   <!--
+    document.write(WWHRelatedTopicsDivTag() + WWHPopupDivTag());
+   // -->
+  </script>
+
+ </body>
+</html>

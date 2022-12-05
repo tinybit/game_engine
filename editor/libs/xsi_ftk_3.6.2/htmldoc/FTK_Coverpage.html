@@ -1,0 +1,80 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+ <head>
+  <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="GENERATOR" content="Quadralay WebWorks Publisher Professional Edition 7.0.2.1206" />
+  <meta name="TEMPLATEBASE" content="Template" />
+  <meta name="LASTUPDATED" content="04/25/03 14:06:39" />
+  <title>SOFTIMAGE®|XSI® FTK</title>
+  <link rel="StyleSheet" href="document.css" type="text/css" />
+  <link rel="StyleSheet" href="catalog.css" type="text/css" />
+<script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/context.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/towwhdir.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/wwhpagef.js"></script>
+
+  <script type="text/javascript" language="JavaScript1.2">
+   <!--
+    // Set reference to top level help frame
+    //
+    var  WWHFrame = WWHGetWWHFrame("");
+   // -->
+  </script>
+ </head>
+
+ <body onLoad="WWHUpdate();">
+
+ <blockquote>
+<a name="wp998686"> </a><div style="color: #000000; font-family: Arial, Verdana, Helvetica, sans-serif; font-size: 16pt; font-style: normal; font-variant: normal; font-weight: bold; margin-bottom: 0pt; margin-left: 0pt; margin-right: 0pt; margin-top: 76pt; text-align: center; text-decoration: none; text-indent: 0pt; text-transform: none">
+SOFTIMAGE<span style="vertical-align: super">®</span>|XSI<span style="vertical-align: super">®</span> FTK
+</div>
+<a name="wp998687"> </a><div style="color: #000000; font-family: Arial, Verdana, Helvetica, sans-serif; font-size: 12pt; font-style: normal; font-variant: normal; font-weight: normal; margin-bottom: 8pt; margin-left: 0pt; margin-right: 0pt; margin-top: 8pt; text-align: center; text-decoration: none; text-indent: 0pt; text-transform: none">
+Version 3.6.2
+</div>
+<a name="wp998511"> </a><div style="color: #000000; font-family: Arial, Verdana, Helvetica, sans-serif; font-size: 16pt; font-style: normal; font-variant: normal; font-weight: bold; margin-bottom: 9pt; margin-left: 0pt; margin-right: 0pt; margin-top: 0pt; text-align: center; text-decoration: none; text-indent: 0pt; text-transform: none">
+Developer&#8217;s Guide
+</div>
+<a name="wp998519"> </a><div style="color: #000000; font-family: Arial, Verdana, Helvetica, sans-serif; font-size: 9pt; font-style: normal; font-variant: normal; font-weight: normal; margin-bottom: 6pt; margin-left: 0pt; margin-right: 0pt; margin-top: 6pt; text-align: left; text-decoration: none; text-indent: 0pt; text-transform: none">
+© 2003 Avid Technology, Inc. All rights reserved.
+</div>
+<a name="wp998790"> </a><div style="color: #000000; font-family: Arial, Verdana, Helvetica, sans-serif; font-size: 9pt; font-style: normal; font-variant: normal; font-weight: normal; margin-bottom: 6pt; margin-left: 0pt; margin-right: 0pt; margin-top: 6pt; text-align: left; text-decoration: none; text-indent: 0pt; text-transform: none">
+Avid, dotXSI, Eddie, meta&#8211;clay, SOFTIMAGE, XSI, and the XSI Logo are registered trademarks or trademarks of Avid Technology, Inc. in the United States and/or other countries. mental ray and mental images are registered trademarks of mental images GmbH &amp; Co. KG in the U.S.A. and some other countries. mental ray Phenomenon, mental ray Phenomena, Phenomenon, Phenomena, Software Protection Manager, and SPM are trademarks or, in some countries, registered trademarks of mental images GmbH &amp; Co. KG. All other trademarks contained herein are the property of their respective owners.
+</div>
+<a name="wp998793"> </a><div style="color: #000000; font-family: Arial, Verdana, Helvetica, sans-serif; font-size: 9pt; font-style: normal; font-variant: normal; font-weight: normal; margin-bottom: 6pt; margin-left: 0pt; margin-right: 0pt; margin-top: 6pt; text-align: left; text-decoration: none; text-indent: 0pt; text-transform: none">
+The SOFTIMAGE|XSI application uses JScript and Visual Basic Scripting Edition from Microsoft Corporation.
+</div>
+<a name="wp998525"> </a><div style="color: #000000; font-family: Arial, Verdana, Helvetica, sans-serif; font-size: 9pt; font-style: normal; font-variant: normal; font-weight: normal; margin-bottom: 6pt; margin-left: 0pt; margin-right: 0pt; margin-top: 6pt; text-align: left; text-decoration: none; text-indent: 0pt; text-transform: none">
+This document is protected under copyright law. The contents of this document may not be copied or duplicated in any form, in whole or in part, without the express written permission of Avid Technology, Inc. This document is supplied as a guide for the Softimage product. Reasonable care has been taken in preparing the information it contains. However, this document may contain omissions, technical inaccuracies, or typographical errors. Avid Technology, Inc. does not accept responsibility of any kind for customers&#8217; losses due to the use of this document. Product specifications are subject to change without notice.
+</div>
+<a name="wp998526"> </a><div style="color: #000000; font-family: Arial, Verdana, Helvetica, sans-serif; font-size: 9pt; font-style: normal; font-variant: normal; font-weight: normal; margin-bottom: 6pt; margin-left: 0pt; margin-right: 0pt; margin-top: 6pt; text-align: left; text-decoration: none; text-indent: 0pt; text-transform: none">
+<b class="cBold">Documentation Team<br /></b>Robert&#160;Belanger, Amy&#160;Louise&#160;Green, Alexandre&#160;Jean-Claude, Maggie&#160;Kathwaroon, Gabor&#160;Ketseti, Dominic&#160;Laflamme, Luc&#160;Langevin and Gareth&#160;Morgan
+</div>
+<a name="wp998471"> </a><div style="color: #000000; font-family: Arial, Verdana, Helvetica, sans-serif; font-size: 9pt; font-style: normal; font-variant: normal; font-weight: normal; margin-bottom: 6pt; margin-left: 0pt; margin-right: 0pt; margin-top: 6pt; text-align: left; text-decoration: none; text-indent: 0pt; text-transform: none">
+
+</div>
+
+ <hr />
+
+ <table align="right" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+        <td align="right">
+            <a target="_blank" href="http://www.softimage.com"><img src="images/silogo.gif" width="150" height="16" border="0" /></a>&#160;&#160;&#160;
+            <a target="_blank" href="http://www.avid.com"><img src="images/avidlogo.gif" width="50" height="20" border="0" /></a><br />
+            <br />
+    </td>
+   </tr>
+  </table>
+
+ </blockquote>
+
+
+
+<script type="text/javascript" language="JavaScript1.2">
+   <!--
+    document.write(WWHRelatedTopicsDivTag() + WWHPopupDivTag());
+   // -->
+  </script>
+
+ </body>
+</html>
